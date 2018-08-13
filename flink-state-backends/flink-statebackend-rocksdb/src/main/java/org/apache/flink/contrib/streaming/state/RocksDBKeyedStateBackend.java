@@ -256,6 +256,10 @@ public class RocksDBKeyedStateBackend<K> extends AbstractKeyedStateBackend<K> {
 	/** The configuration of local recovery. */
 	private final LocalRecoveryConfig localRecoveryConfig;
 
+
+	/**
+	 * strategy n. 战略，策略
+	 */
 	/** The snapshot strategy, e.g., if we use full or incremental checkpoints, local state, and so on. */
 	private final SnapshotStrategy<SnapshotResult<KeyedStateHandle>> snapshotStrategy;
 
@@ -463,7 +467,15 @@ public class RocksDBKeyedStateBackend<K> extends AbstractKeyedStateBackend<K> {
 	}
 
 	/**
+	 * Triggers n. [电子] 触发器；触发物（trigger的复数）v. 引起（trigger的单三形式）；引爆
+	 * asynchronous adj. [电] 异步的；不同时的；不同期的
+	 *
+	 *
+	 */
+	/**
+	 * 从RocksDB触发一个键控状态后端的异步快照,
 	 * Triggers an asynchronous snapshot of the keyed state backend from RocksDB. This snapshot can be canceled and
+	 *
 	 * is also stopped when the backend is closed through {@link #dispose()}. For each backend, this method must always
 	 * be called by the same thread.
 	 *
