@@ -259,8 +259,19 @@ public class RocksDBKeyedStateBackend<K> extends AbstractKeyedStateBackend<K> {
 
 	/**
 	 * strategy n. 战略，策略
+	 * snapshot n. 快照，快相；急射，速射；简单印象vt. 给…拍快照 vi. 拍快照
+	 * full fʊl adj. 完全的，完整的；满的，充满的；丰富的；完美的；丰满的；详尽的adv. 十分，非常；完全地；整整 vt. 把衣服缝得宽大 n. 全部；完整
+	 * incremental ɪnkrə'məntl adj. 增加的，增值的
+	 * so on 等等
+	 * if conj. （表条件）如果；即使；是否；（表假设）假如 n. 条件；设想
+	 *
+	 * local n. [计] 局部；当地居民；本地新闻 adj. 当地的；局部的；地方性的；乡土的
+	 *
+	 * state stet n. 国家；州；情形 vt. 规定；声明；陈述 adj. 国家的；州的；正式的
 	 */
-	/** The snapshot strategy, e.g., if we use full or incremental checkpoints, local state, and so on. */
+	/**
+	 * 快照策略 例如 ：我们是否使用完整的或者增加的检查点，本地状态等等
+	 * The snapshot strategy, e.g., if we use full or incremental checkpoints, local state, and so on. */
 	private final SnapshotStrategy<SnapshotResult<KeyedStateHandle>> snapshotStrategy;
 
 	/** Factory for priority queue state. */
@@ -469,21 +480,20 @@ public class RocksDBKeyedStateBackend<K> extends AbstractKeyedStateBackend<K> {
 	/**
 	 * Triggers n. [电子] 触发器；触发物（trigger的复数）v. 引起（trigger的单三形式）；引爆
 	 * asynchronous adj. [电] 异步的；不同时的；不同期的
-	 *
+	 * Future n. 未来；前途；期货；将来时 adj. 将来的，未来的
 	 *
 	 */
 	/**
-	 * 从RocksDB触发一个键控状态后端的异步快照,
+	 * 触发一个来自RocksDB的键状态后端的异步快照,当这个后端通过dispose被关闭时，快照也是被关闭和停止的，对于每个线程，这个方法一定会被同一个线程调用
 	 * Triggers an asynchronous snapshot of the keyed state backend from RocksDB. This snapshot can be canceled and
-	 *
 	 * is also stopped when the backend is closed through {@link #dispose()}. For each backend, this method must always
 	 * be called by the same thread.
 	 *
-	 * @param checkpointId  The Id of the checkpoint.
-	 * @param timestamp     The timestamp of the checkpoint.
-	 * @param streamFactory The factory that we can use for writing our state to streams.
-	 * @param checkpointOptions Options for how to perform this checkpoint.
-	 * @return Future to the state handle of the snapshot data.
+	 * @param checkpointId  The Id of the checkpoint. 检查点的id
+	 * @param timestamp     The timestamp of the checkpoint. 检查点的时间戳
+	 * @param streamFactory The factory that we can use for writing our state to streams. 我们能够写我们的节点状态到流中的工厂
+	 * @param checkpointOptions Options for how to perform this checkpoint. 怎样执行这个检查点的选择
+	 * @return Future to the state handle of the snapshot data. 未来的快照数据状态句柄
 	 * @throws Exception indicating a problem in the synchronous part of the checkpoint.
 	 */
 	@Override

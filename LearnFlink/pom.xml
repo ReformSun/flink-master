@@ -33,19 +33,19 @@
       <groupId>org.apache.flink</groupId>
       <artifactId>flink-java</artifactId>
 		<version>${project.version}</version>
-		<scope>provided</scope>
+		<scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.flink</groupId>
       <artifactId>flink-streaming-java_2.11</artifactId>
 		<version>${project.version}</version>
-		<scope>provided</scope>
+		<scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.flink</groupId>
       <artifactId>flink-clients_2.11</artifactId>
 		<version>${project.version}</version>
-		<scope>provided</scope>
+		<scope>compile</scope>
     </dependency>
 
 
@@ -87,36 +87,65 @@
       <groupId>org.apache.flink</groupId>
       <artifactId>flink-table_2.11</artifactId>
 		<version>${project.version}</version>
-		<scope>provided</scope>
+		<scope>compile</scope>
     </dependency>
 
     <dependency>
       <groupId>org.apache.flink</groupId>
       <artifactId>flink-scala_2.11</artifactId>
 		<version>${project.version}</version>
-		<scope>provided</scope>
+		<scope>compile</scope>
     </dependency>
 
     <dependency>
       <groupId>org.apache.flink</groupId>
       <artifactId>flink-streaming-scala_2.11</artifactId>
 		<version>${project.version}</version>
-		<scope>provided</scope>
+		<scope>compile</scope>
     </dependency>
 
     <dependency>
       <groupId>org.apache.flink</groupId>
       <artifactId>flink-connector-kafka-0.10_2.11</artifactId>
 		<version>${project.version}</version>
-		<scope>provided</scope>
+		<scope>compile</scope>
     </dependency>
 
     <dependency>
       <groupId>org.apache.flink</groupId>
       <artifactId>flink-json</artifactId>
 		<version>${project.version}</version>
-		<scope>provided</scope>
+		<scope>compile</scope>
     </dependency>
+
+
+	  <dependency>
+		  <groupId>org.apache.flink</groupId>
+		  <artifactId>flink-statebackend-rocksdb_2.11</artifactId>
+		  <version>${project.version}</version>
+		  <scope>compile</scope>
+	  </dependency>
+
+	  <dependency>
+		  <artifactId>flink-core</artifactId>
+		  <groupId>org.apache.flink</groupId>
+		  <version>${project.version}</version>
+		  <scope>compile</scope>
+	  </dependency>
+
+	  <dependency>
+		  <artifactId>flink-runtime_2.11</artifactId>
+		  <groupId>org.apache.flink</groupId>
+		  <version>${project.version}</version>
+		  <scope>compile</scope>
+	  </dependency>
+
+
+	  <dependency>
+		  <groupId>org.rocksdb</groupId>
+		  <artifactId>rocksdbjni</artifactId>
+		  <version>5.8.6</version>
+	  </dependency>
 
   </dependencies>
 

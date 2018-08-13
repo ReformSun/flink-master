@@ -298,20 +298,42 @@ public abstract class StreamExecutionEnvironment {
 	}
 
 	/**
+	 * distributed adj. 分布式的，分散式的
+	 * dataflow ['deitə,fləu] n. 数据流，信号通过
+	 * streaming n. 流；（英）按能力分组 v. 流动（stream的ing形式）
+	 * periodically adv. 定期地；周期性地；偶尔；间歇
+	 * guarantees v. 保证（guarantee的第三人称单数）n. 保证，[法] 担保；抵押物（guarantee的复数）
+	 * latest adv. 最迟地；最后地 n. 最新的事物 adj. 最新的，最近的；最迟的，最后的
+	 * draws n. 铸件孔穴；图画（draw的复数）v. 吸引；拉动；绘图（draw的第三人称单数）
+	 * interval n. 间隔；间距；幕间休息
+	 * iterative adj. [数] 迭代的；重复的，反复的n. 反复体
+	 * properly adv. 适当地；正确地；恰当地
+	 * moment n. 片刻，瞬间，时刻；重要，契机
+	 * override vt. 推翻；不顾；践踏 n. 代理佣金
+	 * mechanism  n. 机制；原理，途径；进程；机械装置；技巧
+	 *
+	 *
+	 * 启动检查点为流任务 数据流中分散的状态流将会周期性地快照，
 	 * Enables checkpointing for the streaming job. The distributed state of the streaming
 	 * dataflow will be periodically snapshotted. In case of a failure, the streaming
+	 * 万一失败，这个数据流从最新完成的检查点开始
 	 * dataflow will be restarted from the latest completed checkpoint. This method selects
+	 * 这个方法选择检查点模式的EXACTLY_ONCE保证
 	 * {@link CheckpointingMode#EXACTLY_ONCE} guarantees.
-	 *
+	 * 任务在给定的时间间隔内周期性地绘制检查点，这个状态将被存储在配置的状态后端中
 	 * <p>The job draws checkpoints periodically, in the given interval. The state will be
 	 * stored in the configured state backend.
 	 *
+	 * 检查点迭代数据流在此时并没有很好的支持，
 	 * <p>NOTE: Checkpointing iterative streaming dataflows in not properly supported at
+	 * 对于这样的结果，迭代任务如果没有启动检查点，将不会开始
 	 * the moment. For that reason, iterative jobs will not be started if used
+	 * 为了推翻这一机制，使用enableCheckpointing这个方法
 	 * with enabled checkpointing. To override this mechanism, use the
 	 * {@link #enableCheckpointing(long, CheckpointingMode, boolean)} method.
 	 *
-	 * @param interval Time interval between state checkpoints in milliseconds.
+	 * milliseconds 毫秒
+	 * @param interval Time interval between state checkpoints in milliseconds. 两个状态检查点之间的时间间隔以毫秒为单位
 	 */
 	public StreamExecutionEnvironment enableCheckpointing(long interval) {
 		checkpointCfg.setCheckpointInterval(interval);

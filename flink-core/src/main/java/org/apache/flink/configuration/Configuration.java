@@ -37,6 +37,12 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
+
+/**
+ * Lightweight 轻量级
+ * pairs n. 夫妇；一副（pair的复数）v. 合作（pair的第三人称单数）；使…成对；为…配搭档
+ */
+
 /**
  * Lightweight configuration object which stores key/value pairs.
  */

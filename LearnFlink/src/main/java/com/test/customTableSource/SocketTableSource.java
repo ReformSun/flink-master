@@ -37,7 +37,8 @@ public class SocketTableSource implements
 
 	@Override
 	public String explainSource() {
-		return StreamTableSource.super.explainSource();
+
+		return "";
 	}
 
 	@Override
