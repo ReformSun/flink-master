@@ -1364,8 +1364,15 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 	}
 
 	/**
+	 * rescale v. 重新调节；重新攀登
+	 * modification n. 修改，修正；改变
+	 * disposed adj. 有…倾向的；打算做…的；有某种健康状态的 v. 处理；配置；使适应（dispose的过去分词）；使有倾向
+	 *
+	 * 恢复从重新调节的检查点给与的执行图
 	 * Restore the given {@link ExecutionGraph} from the rescaling savepoint. If the {@link ExecutionGraph} could
+	 * 如果执行图能够被恢复，这个检查点将被记录作为最新的成功被修正的检查点 前一个检查点将被处理
 	 * be restored, then this savepoint will be recorded as the latest successful modification savepoint. A previous
+	 * 如果重新调整的检查点是空的，这个任务将从被初始化提供的保存点恢复
 	 * savepoint will be disposed. If the rescaling savepoint is empty, the job will be restored from the initially
 	 * provided savepoint.
 	 *

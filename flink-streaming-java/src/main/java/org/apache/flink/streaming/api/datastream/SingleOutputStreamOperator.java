@@ -83,7 +83,16 @@ public class SingleOutputStreamOperator<T> extends DataStream<T> {
 		return this;
 	}
 
+
 	/**
+	 * operator n. 经营者；操作员；话务员；行家
+	 * specified adj. 规定的；详细说明的 v. 指定；详细说明（specify的过去分词）
+	 * assign vt. 分配；指派；[计][数] 赋值 vi. 将财产过户（尤指过户给债权人）
+	 * across prep. 穿过；横穿 adv. 横过；在对面
+	 * submission n. 投降；提交（物）；服从；（向法官提出的）意见；谦恭
+	 * Otherwise adv. 否则；另外；在其他方面 adj. 另外的；其他方面的
+	 *
+	 * 设置ID为这个操作员
 	 * Sets an ID for this operator.
 	 *
 	 * <p>The specified ID is used to assign the same operator ID across job

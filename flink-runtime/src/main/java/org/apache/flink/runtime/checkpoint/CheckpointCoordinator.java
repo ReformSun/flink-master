@@ -67,8 +67,19 @@ import static org.apache.flink.util.Preconditions.checkArgument;
 import static org.apache.flink.util.Preconditions.checkNotNull;
 
 /**
+ * coordinator n. 协调者；[自] 协调器；同等的人或物
+ * distributed adj. 分布式的，分散式的 distribute vt. 分配；散布；分开；把…分类
+ * relevant adj. 相关的；切题的；中肯的；有重大关系的；有意义的，目的明确的
+ * acknowledgement n. 承认；确认；感谢
+ * maintain vt. 维持；继续；维修；主张；供养
+ * collect vt. 收集；募捐 vi. 收集；聚集；募捐 adv. 由收件人付款地 adj. 由收件人付款的
+ * overview n. [图情] 综述；概观
+ *
+ * 这个检查点的协调者协调算子和状态的分散的快照
  * The checkpoint coordinator coordinates the distributed snapshots of operators and state.
+ * 触发检查点发送信息到相关的任务和收集到确认的检查点
  * It triggers the checkpoint by sending the messages to the relevant tasks and collects the
+ * 它另外收集和维护已经被爆报告的已经确认了检查点的任务的状态句柄概述
  * checkpoint acknowledgements. It also collects and maintains the overview of the state handles
  * reported by the tasks that acknowledge the checkpoint.
  */
@@ -972,8 +983,14 @@ public class CheckpointCoordinator {
 	// --------------------------------------------------------------------------------------------
 
 	/**
+	 * restore vt. 恢复；修复；归还 vi. 恢复；还原
+	 * vertices n. 至高点；天顶；头顶（vertex的复数）
+	 * Map vt. 映射；计划；绘制地图；确定基因在染色体中的位置 n. 地图；示意图；染色体图 vi. 基因被安置
+	 *
+	 * 恢复最新的检查点状态
 	 * Restores the latest checkpointed state.
 	 *
+	 * 从任务映射的顶点修复
 	 * @param tasks Map of job vertices to restore. State for these vertices is
 	 * restored via {@link Execution#setInitialState(JobManagerTaskRestore)}.
 	 * @param errorIfNoCheckpoint Fail if no completed checkpoint is available to
@@ -1009,6 +1026,7 @@ public class CheckpointCoordinator {
 			sharedStateRegistry.close();
 			sharedStateRegistry = sharedStateRegistryFactory.create(executor);
 
+			// recovery n. 恢复，复原；痊愈；重获
 			// Recover the checkpoints, TODO this could be done only when there is a new leader, not on each recovery
 			completedCheckpointStore.recover();
 
@@ -1070,8 +1088,11 @@ public class CheckpointCoordinator {
 	}
 
 	/**
-	 * Restore the state with given savepoint.
 	 *
+	 * 恢复状态从给的检查点
+	 *
+	 * Restore the state with given savepoint.
+	 * 检查点指针
 	 * @param savepointPointer The pointer to the savepoint.
 	 * @param allowNonRestored True if allowing checkpoint state that cannot be
 	 *                         mapped to any job vertex in tasks.
