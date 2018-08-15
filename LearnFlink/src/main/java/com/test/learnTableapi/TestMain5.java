@@ -1,9 +1,12 @@
 package com.test.learnTableapi;
 
+import com.test.sink.CustomPrint;
 import org.apache.flink.api.common.typeinfo.Types;
+import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.core.fs.FileSystem;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.streaming.api.functions.sink.RichSinkFunction;
 import org.apache.flink.streaming.connectors.kafka.Kafka010JsonTableSource;
 import org.apache.flink.streaming.connectors.kafka.KafkaTableSource;
 import org.apache.flink.table.api.*;
@@ -11,6 +14,13 @@ import org.apache.flink.table.api.java.StreamTableEnvironment;
 import org.apache.flink.table.sinks.CsvTableSink;
 import org.apache.flink.types.Row;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.Properties;
 
 public class TestMain5 {
@@ -18,27 +28,66 @@ public class TestMain5 {
 		StreamExecutionEnvironment sEnv = StreamExecutionEnvironment.getExecutionEnvironment();
 		StreamTableEnvironment tableEnv = TableEnvironment.getTableEnvironment(sEnv);
 		Properties propertie = new Properties();
-		propertie.setProperty("input-topic","monitorBlocklyQueueKey6");
-		propertie.setProperty("bootstrap.servers","172.31.24.30:9092");
-		propertie.setProperty("group.id","serverCollector");
+		propertie.setProperty("input-topic", "monitorBlocklyQueueKeyJson");
+		propertie.setProperty("bootstrap.servers", "172.31.24.30:9092");
+		propertie.setProperty("group.id", "serverCollector");
 		StreamQueryConfig qConfig = tableEnv.queryConfig();
 
 
 		Kafka010JsonTableSource.Builder jsonTableSourceBuilder = Kafka010JsonTableSource.builder().forTopic(propertie.getProperty("input-topic"));
-
 		jsonTableSourceBuilder.withKafkaProperties(propertie);
-		TableSchemaBuilder tableSchemaBuilder= TableSchema.builder();
-		jsonTableSourceBuilder.withSchema(tableSchemaBuilder.field("a", Types.STRING).field("b",Types.INT).field("rtime",Types.SQL_TIMESTAMP).build()).withProctimeAttribute("rtime");
+		TableSchemaBuilder tableSchemaBuilder = TableSchema.builder();
+		jsonTableSourceBuilder.withSchema(tableSchemaBuilder.field("a", Types.STRING).field("b", Types.INT).field("rtime", Types.SQL_TIMESTAMP).build()).withProctimeAttribute("rtime");
 
-		KafkaTableSource kafkaTableSource=jsonTableSourceBuilder.build();
+		KafkaTableSource kafkaTableSource = jsonTableSourceBuilder.build();
 		tableEnv.registerTableSource("kafkasource", kafkaTableSource);
-		Table sqlResult = tableEnv.sqlQuery("SELECT SUM(b) FROM kafkasource GROUP BY TUMBLE(rtime, INTERVAL '10' SECOND)");
+//		查询限制
+//		Table sqlResult = tableEnv.sqlQuery("SELECT a,SUM(b) as bsum FROM kafkasource GROUP BY TUMBLE(rtime, INTERVAL '10' SECOND),a");
 
-		CsvTableSink csvTableSink = new CsvTableSink("file:///Users/apple/Documents/AgentJava/flink-master/LearnFlink/src/main/resources/aaaaaa.csv", ",", 1, FileSystem.WriteMode.OVERWRITE);
-		sqlResult.writeToSink(csvTableSink);
+		Table sqlResult = tableEnv.sqlQuery("SELECT a,SUM(b) as bsum ,min(rtime) as rtime FROM kafkasource GROUP BY TUMBLE(rtime, INTERVAL '10' SECOND),a");
+		//		持续查询
+//		Table sqlResult = tableEnv.sqlQuery("SELECT a,SUM(b) as bsum FROM kafkasource GROUP BY a");
+		tableEnv.registerTable("table1",sqlResult);
+//		Table sqlResult2 = tableEnv.sqlQuery("SELECT max(bsum) - min(bsum) FROM table1 GROUP BY HOP(ttime,INTERVAL '10' SECOND,INTERVAL '20' SECOND),a");
+		Table sqlResult2 = tableEnv.sqlQuery("SELECT max(bsum) - min(bsum) FROM table1 GROUP BY TUMBLE(rtime, INTERVAL '20' SECOND),a");
 
-		DataStream<Row> stream = tableEnv.toAppendStream(sqlResult,Row.class,qConfig);
 
+//
+//		CsvTableSink csvTableSink = new CsvTableSink("file:///E:\\Asunjihua\\idea\\flink-master\\LearnFlink\\src\\main\\resources\\aaaaaa.csv", ",", 1, FileSystem.WriteMode.OVERWRITE);
+//		sqlResult2.writeToSink(csvTableSink);
+
+		DataStream<Row> stream = tableEnv.toAppendStream(sqlResult2,Row.class,qConfig);
+//		DataStream<Tuple2<Boolean, Row>> stream = tableEnv.toRetractStream(sqlResult, Row.class, qConfig);
+
+		stream.addSink(new RichSinkFunction<Row>() {
+			@Override
+			public void invoke(Row value) throws Exception {
+				writerFile(value.toString());
+			}
+
+			public  void writerFile(String s) throws IOException {
+				Path logFile = Paths.get(".\\LearnFlink\\src\\main\\resources\\test.txt");
+				try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)){
+					writer.newLine();
+					writer.write(s);
+				}
+			}
+		});
+
+//		stream.addSink(new RichSinkFunction<Tuple2<Boolean, Row>>() {
+//			@Override
+//			public void invoke(Tuple2<Boolean, Row> value) throws Exception {
+//				writerFile(value.getField(1).toString());
+//			}
+//
+//			public void writerFile(String s) throws IOException {
+//				Path logFile = Paths.get(".\\LearnFlink\\src\\main\\resources\\test.txt");
+//				try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)) {
+//					writer.newLine();
+//					writer.write(s);
+//				}
+//			}
+//		});
 		sEnv.execute();
 	}
 }

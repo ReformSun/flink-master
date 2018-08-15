@@ -96,6 +96,7 @@ public abstract class KafkaTableSource implements
 	private Map<KafkaTopicPartition, Long> specificStartupOffsets;
 
 	/**
+	 *
 	 * Creates a generic Kafka {@link StreamTableSource}.
 	 *
 	 * @param schema                      Schema of the produced table.

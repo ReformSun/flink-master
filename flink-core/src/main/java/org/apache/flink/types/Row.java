@@ -55,6 +55,7 @@ public class Row implements Serializable{
 	}
 
 	/**
+	 * 得到属性的个数在列中
 	 * Get the number of fields in the Row.
 	 * @return The number of fields in the Row.
 	 */
