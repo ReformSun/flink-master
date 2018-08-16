@@ -20,6 +20,8 @@ public class TestMain2 {
         StreamTableEnvironment tableEnv = TableEnvironment.getTableEnvironment(sEnv);
 
         DataStreamSource<String> streamSource = sEnv.socketTextStream("localhost", 9000, "\n");
+
+
         DataStream<SocketWindowWordCount.WordWithCount> windowCounts = streamSource
                 .flatMap(new FlatMapFunction<String, SocketWindowWordCount.WordWithCount>() {
                     @Override
