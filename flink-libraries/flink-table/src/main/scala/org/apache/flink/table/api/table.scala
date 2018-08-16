@@ -31,6 +31,9 @@ import _root_.scala.annotation.varargs
 import _root_.scala.collection.JavaConverters._
 
 /**
+  * component adj. 组成的，构成的 n. 成分；组件；[电子] 元件
+  *
+  * Table是Table api 的核心组件
   * A Table is the core component of the Table API.
   * Similar to how the batch and streaming APIs have DataSet and DataStream,
   * the Table API is built around [[Table]].

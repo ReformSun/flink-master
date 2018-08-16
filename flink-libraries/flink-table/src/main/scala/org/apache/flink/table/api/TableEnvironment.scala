@@ -744,6 +744,8 @@ abstract class TableEnvironment(val config: TableConfig) {
   private[flink] def writeToSink[T](table: Table, sink: TableSink[T], conf: QueryConfig): Unit
 
   /**
+    * specified adj. 规定的；详细说明的v. 指定；详细说明（specify的过去分词）
+    * 写这个表到被指定的名字注册的TableSink中
     * Writes the [[Table]] to a [[TableSink]] that was registered under the specified name.
     *
     * @param table The table to write to the TableSink.
@@ -797,6 +799,9 @@ abstract class TableEnvironment(val config: TableConfig) {
   }
 
   /**
+    * catalog n. [图情][计] 目录；登记 vt. 登记；为…编目录 vi. 编目录；按确定价格收入目录（等于catalogue）
+    * Calcite n. [矿物] 方解石
+    *
     * Registers a Calcite [[AbstractTable]] in the TableEnvironment's catalog.
     *
     * @param name The name under which the table will be registered.
