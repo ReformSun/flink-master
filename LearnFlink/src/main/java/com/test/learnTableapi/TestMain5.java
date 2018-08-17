@@ -61,7 +61,7 @@ public class TestMain5 {
 		DataStream<Row> stream2 = tableEnv.toAppendStream(sqlResult2,Row.class,qConfig);
 
 
-		Table table = tableEnv.fromDataStream(stream,"a,b,c");
+		Table table = tableEnv.fromDataStream(stream,"a,b,c.rowtime");
 
 
 //		stream.addSink(new RichSinkFunction<Row>() {
