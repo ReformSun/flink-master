@@ -20,6 +20,10 @@ package org.apache.flink.table.functions
 import org.apache.flink.api.common.typeinfo.TypeInformation
 
 /**
+  * Accumulator n. 蓄电池；[计] 累加器；积聚者
+  * Aggregates n. 总量；合体（aggregate的复数）；聚合物 v. 聚集；共计；凝结（aggregate的第三人称单数）
+  *
+  *
   * Base class for User-Defined Aggregates.
   *
   * The behavior of an [[AggregateFunction]] can be defined by implementing a series of custom
@@ -103,6 +107,8 @@ abstract class AggregateFunction[T, ACC] extends UserDefinedFunction {
   def createAccumulator(): ACC
 
   /**
+    * materialized 使成真 实现 使物质化，使具体化（materialize的过去式和过去分词）
+    *
     * Called every time when an aggregation result should be materialized.
     * The returned value could be either an early and incomplete result
     * (periodically emitted as data arrive) or the final result of the

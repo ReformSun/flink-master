@@ -7,6 +7,7 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.table.api.StreamQueryConfig;
 import org.apache.flink.table.api.Table;
 import org.apache.flink.table.api.TableEnvironment;
+import org.apache.flink.table.api.Types;
 import org.apache.flink.table.api.java.StreamTableEnvironment;
 import org.apache.flink.table.sinks.CsvTableSink;
 import org.apache.flink.types.Row;
@@ -39,7 +40,9 @@ public class TestMain8 {
 		//查询
 		Table sqlResult = tableEnv.sqlQuery("select * FROM tabledd");
 
-		DataStream<Row> stream = tableEnv.toAppendStream(sqlResult,Row.class,qConfig);
+		RowTypeInfo rowTypeInfo = new RowTypeInfo(Types.STRING(),Types.STRING(),Types.STRING());
+
+		DataStream<Row> stream = tableEnv.toAppendStream(sqlResult,rowTypeInfo,qConfig);
 		Table table2 = tableEnv.fromDataStream(stream,"count, word,cc");
 		//将数据写出去
 //        sqlResult.printSchema();
