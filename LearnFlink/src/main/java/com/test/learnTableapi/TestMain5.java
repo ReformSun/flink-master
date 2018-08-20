@@ -37,20 +37,14 @@ public class TestMain5 {
 	public static void main(String[] args) throws Exception {
 		StreamExecutionEnvironment sEnv = StreamExecutionEnvironment.getExecutionEnvironment();
 		StreamTableEnvironment tableEnv = TableEnvironment.getTableEnvironment(sEnv);
-		Properties propertie = new Properties();
-		propertie.setProperty("input-topic", "monitorBlocklyQueueKeyJson2");
-		propertie.setProperty("bootstrap.servers", "172.31.24.30:9092");
-		propertie.setProperty("group.id", "serverCollector");
-		StreamQueryConfig qConfig = tableEnv.queryConfig();
 		sEnv.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
 
-
-		Kafka010JsonTableSource.Builder jsonTableSourceBuilder = Kafka010JsonTableSource.builder().forTopic(propertie.getProperty("input-topic"));
-		jsonTableSourceBuilder.withKafkaProperties(propertie);
 		TableSchemaBuilder tableSchemaBuilder = TableSchema.builder();
-		jsonTableSourceBuilder.withSchema(tableSchemaBuilder.field("a", Types.STRING).field("d",Types.INT).field("b", Types.INT).field("rtime", Types.SQL_TIMESTAMP).build()).withRowtimeAttribute("rtime", new ExistingField("rtime"),new BoundedOutOfOrderTimestamps(0L));
+		TableSchema tableSchema = tableSchemaBuilder.field("a", Types.STRING).field("d",Types.INT).field("b", Types.INT).field("rtime", Types.SQL_TIMESTAMP).build();
+		KafkaTableSource kafkaTableSource = KafkaUtil.getKafkaTableSource("monitorBlocklyQueueKeyJson2",tableSchema,"rtime");
+		StreamQueryConfig qConfig = new StreamQueryConfig();
 
-		KafkaTableSource kafkaTableSource = jsonTableSourceBuilder.build();
+
 		tableEnv.registerTableSource("kafkasource", kafkaTableSource);
 
 		Table sqlResult = tableEnv.sqlQuery("SELECT SUM(b) > 10 as m, TUMBLE_START(rtime, INTERVAL '10' SECOND) FROM kafkasource GROUP BY TUMBLE(rtime, INTERVAL '10' SECOND)");
