@@ -140,11 +140,24 @@
 		  <scope>compile</scope>
 	  </dependency>
 
+	  <!--数据库访问-->
+	  <dependency>
+		  <groupId>org.apache.flink</groupId>
+		  <artifactId>flink-jdbc</artifactId>
+		  <version>${project.version}</version>
+		  <scope>compile</scope>
+	  </dependency>
 
 	  <dependency>
 		  <groupId>org.rocksdb</groupId>
 		  <artifactId>rocksdbjni</artifactId>
 		  <version>5.8.6</version>
+	  </dependency>
+
+	  <dependency>
+		  <groupId>org.postgresql</groupId>
+		  <artifactId>postgresql</artifactId>
+		  <version>42.2.2</version>
 	  </dependency>
 
   </dependencies>
