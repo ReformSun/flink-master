@@ -28,10 +28,10 @@ public class Test2 extends AggregateFunction<Float,TestModel2>{
 	}
 
 
-	public void accumulate(TestModel2 acc, Timestamp timestamp,Integer sum){
+	public void accumulate(TestModel2 acc,Integer sum){
 
 		try {
-			writerFile(i + "时间:" + timestamp + " 数字：" + sum );
+			writerFile(i + " 数字：" + sum );
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

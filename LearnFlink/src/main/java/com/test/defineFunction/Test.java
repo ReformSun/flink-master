@@ -12,20 +12,11 @@ import java.nio.file.StandardOpenOption;
 import java.sql.Timestamp;
 
 public class Test extends ScalarFunction{
-	public int eval(Timestamp time,Integer b){
-		try {
-			writerFile(b + "  dd   " + time);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return 12;
+	public Timestamp eval(Timestamp time,Integer b){
+		long ti = time.getTime();
+		long c = ti - b;
+
+		return new Timestamp(c);
 	}
 
-	public  void writerFile(String s) throws IOException {
-		Path logFile = Paths.get(".\\LearnFlink\\src\\main\\resources\\test3.txt");
-		try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)){
-			writer.newLine();
-			writer.write(s);
-		}
-	}
 }
