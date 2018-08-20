@@ -88,8 +88,8 @@ public class TestMain5 {
 		tableEnv.registerFunction("test",new Test2());
 		tableEnv.registerFunction("test1",new Test());
 
-//		Table sqlResult2 = table.window(Slide.over("20.second").every("10.second").on("c").as("w")).groupBy("w,b").select("test(c)");
-		Table sqlResult2 = tableEnv.sqlQuery("SELECT test(c,b) FROM table1 GROUP BY HOP(c,INTERVAL '10' SECOND,INTERVAL '20' SECOND),c,b");
+		Table sqlResult2 = table.window(Slide.over("20.second").every("10.second").on("c").as("w")).groupBy("w,b,c").select("c,b");
+//		Table sqlResult2 = tableEnv.sqlQuery("SELECT c,b FROM table1 GROUP BY HOP(c,INTERVAL '10' SECOND,INTERVAL '20' SECOND),c,b");
 		DataStream<Row> stream2 = tableEnv.toAppendStream(sqlResult2,Row.class,qConfig);
 
 		stream2.addSink(new RichSinkFunction<Row>() {
