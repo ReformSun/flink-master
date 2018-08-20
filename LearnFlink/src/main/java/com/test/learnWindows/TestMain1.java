@@ -1,6 +1,7 @@
 package com.test.learnWindows;
 
 import org.apache.flink.api.common.functions.FlatMapFunction;
+import org.apache.flink.api.common.functions.JoinFunction;
 import org.apache.flink.api.common.functions.ReduceFunction;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.WindowedStream;
@@ -17,6 +18,10 @@ public class TestMain1 {
 
         // get input data by connecting to the socket
         DataStream<String> text = env.socketTextStream("localhost", 9000, "\n");
+		DataStream<String> text2 = env.socketTextStream("localhost", 9010, "\n");
+
+
+		text.union(text2);
 
         // parse the data, group it, window it, and aggregate the counts
         DataStream<SunWordWithCount> windowCounts = text
