@@ -14,17 +14,14 @@ import org.apache.flink.types.Row;
 
 public class TestMain8 {
 	public static void main(String[] args) throws Exception {
-		testMethod1();
+		StreamExecutionEnvironment sEnv = StreamExecutionEnvironment.getExecutionEnvironment();
+		StreamTableEnvironment tableEnv = TableEnvironment.getTableEnvironment(sEnv);
+
+		testMethod1(tableEnv,sEnv);
 	}
 
-	public static void testMethod1() throws Exception {
-		StreamExecutionEnvironment sEnv = StreamExecutionEnvironment.getExecutionEnvironment();
-
-		StreamTableEnvironment tableEnv = TableEnvironment.getTableEnvironment(sEnv);
+	public static void testMethod1(StreamTableEnvironment tableEnv,StreamExecutionEnvironment sEnv) throws Exception {
 		StreamQueryConfig qConfig = tableEnv.queryConfig();
-
-//		RowTypeInfo
-
 		Row row = new Row(3);
 		row.setField(0,"ddd");
 		row.setField(1,"ccc");
@@ -49,6 +46,10 @@ public class TestMain8 {
 		sqlResult.writeToSink(new CsvTableSink("file:///Users/apple/Documents/AgentJava/flink-master/LearnFlink/src/main/resources/aaaaaa.csv", ",", 1, FileSystem.WriteMode.OVERWRITE));
 		//执行
 		sEnv.execute();
+
+	}
+
+	public static void testMethod2() {
 
 	}
 

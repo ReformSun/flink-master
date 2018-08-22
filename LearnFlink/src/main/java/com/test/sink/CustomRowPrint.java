@@ -20,9 +20,6 @@ public class CustomRowPrint extends RichSinkFunction<Row> {
 
 	@Override
 	public void invoke(Row value) throws Exception {
-		for (int i = 0; i < value.getArity(); i++) {
-			System.out.println(value.getField(i));
-		}
 		writerFile(value.toString());
 	}
 	public  void writerFile(String s) throws IOException {
