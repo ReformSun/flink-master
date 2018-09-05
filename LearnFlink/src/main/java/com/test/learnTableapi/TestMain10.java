@@ -87,4 +87,16 @@ public class TestMain10 {
 
 	}
 
+	public static void testMethod5(StreamTableEnvironment tableEnvironment) {
+		StreamQueryConfig qConfig = new StreamQueryConfig();
+		qConfig.withIdleStateRetentionTime(Time.milliseconds(30),Time.milliseconds(0));
+		Table sqlResult = tableEnvironment.sqlQuery("SELECT * FROM kafkasource GROUP BY k,TUMBLE(rtime, INTERVAL '10' SECOND)");
+		RowTypeInfo rowTypeInfo = new RowTypeInfo(Types.STRING,Types.LONG,Types.SQL_TIMESTAMP);
+		DataStream<Row> stream = tableEnvironment.toAppendStream(sqlResult, rowTypeInfo, qConfig);
+		Table table = tableEnvironment.fromDataStream(stream,"dd,b,c");
+		tableEnvironment.registerTable("table1",table);
+
+
+	}
+
 }
