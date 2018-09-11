@@ -1,4 +1,4 @@
-package com.test.sink;
+package com.test.batch.sink;
 
 import org.apache.flink.api.common.io.RichOutputFormat;
 import org.apache.flink.configuration.Configuration;
@@ -12,8 +12,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
-public class CustomBatchSink extends RichOutputFormat<Row> {
-
+public class TestSink extends RichOutputFormat<Row> {
 	@Override
 	public void configure(Configuration parameters) {
 
@@ -26,21 +25,19 @@ public class CustomBatchSink extends RichOutputFormat<Row> {
 
 	@Override
 	public void writeRecord(Row record) throws IOException {
-		if (record != null){
-			writerFile(record.toString());
-		}
-	}
-
-	public void writerFile(String s) throws IOException {
-		Path logFile = Paths.get("./LearnFlink/src/main/resources/" + "test.txt");
-		try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)){
-			writer.newLine();
-			writer.write(s);
-		}
+		writerFile(record.toString());
 	}
 
 	@Override
 	public void close() throws IOException {
 
+	}
+
+	public static void writerFile(String s) throws IOException {
+		Path logFile = Paths.get(".\\src\\main\\resource\\test1.txt");
+		try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)){
+			writer.newLine();
+			writer.write(s);
+		}
 	}
 }

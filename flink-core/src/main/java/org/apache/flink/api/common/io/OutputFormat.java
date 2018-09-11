@@ -53,6 +53,8 @@ public interface OutputFormat<IT> extends Serializable {
 	void configure(Configuration parameters);
 	
 	/**
+	 * parallel n. 平行线；对比 vt. 使…与…平行 adj. 平行的；类似的，相同的
+	 * guaranteed adj. 有保证的，；有人担保的 v. 担保（guarantee的过去式和过去分词）
 	 * Opens a parallel instance of the output format to store the result of its parallel instance.
 	 * <p>
 	 * When this method is called, the output format it guaranteed to be configured.
@@ -75,6 +77,9 @@ public interface OutputFormat<IT> extends Serializable {
 	void writeRecord(IT record) throws IOException;
 	
 	/**
+	 * marks n. 标记，记号；唛头，分数；台面标志
+	 * channels n. 通道；频道；隧道；水槽；录音声道（channel的复数形式） v. 输送；开槽；形成凹槽（channel的第三人称单数形式）
+	 * release vt. 释放；发射；让与；允许发表 n. 释放；发布；让与
 	 * Method that marks the end of the life-cycle of parallel output instance. Should be used to close
 	 * channels and streams and release resources.
 	 * After this method returns without an error, the output is assumed to be correct.
