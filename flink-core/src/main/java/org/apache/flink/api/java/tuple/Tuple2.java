@@ -192,4 +192,5 @@ public class Tuple2<T0, T1> extends Tuple {
 		return new Tuple2<>(value0,
 			value1);
 	}
+
 }

@@ -1,27 +1,47 @@
 package com.test.batch.learnMain;
 
 import com.test.batch.sink.CustomBatchSink;
+import com.test.batch.sink.CustomBatchSink2;
+import com.test.sink.CustomRowPrint;
+import org.apache.flink.api.common.io.RichOutputFormat;
 import org.apache.flink.api.common.typeinfo.BasicTypeInfo;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
+import org.apache.flink.api.common.typeinfo.Types;
 import org.apache.flink.api.java.DataSet;
 import org.apache.flink.api.java.ExecutionEnvironment;
 import org.apache.flink.api.java.io.jdbc.JDBCInputFormat;
 import org.apache.flink.api.java.io.jdbc.JDBCOutputFormat;
 import org.apache.flink.api.java.io.jdbc.split.GenericParameterValuesProvider;
+import org.apache.flink.api.java.operators.IterativeDataSet;
+import org.apache.flink.api.java.tuple.Tuple;
+import org.apache.flink.api.java.tuple.Tuple0;
+import org.apache.flink.api.java.tuple.Tuple2;
+import org.apache.flink.api.java.tuple.Tuple3;
 import org.apache.flink.api.java.typeutils.RowTypeInfo;
+import org.apache.flink.api.java.typeutils.TupleTypeInfo;
+import org.apache.flink.configuration.Configuration;
+import org.apache.flink.streaming.api.TimeCharacteristic;
+import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.table.api.Table;
 import org.apache.flink.table.api.TableEnvironment;
 import org.apache.flink.table.api.java.BatchTableEnvironment;
+import org.apache.flink.table.api.java.Tumble;
+import org.apache.flink.table.expressions.Expression;
 import org.apache.flink.types.Row;
+import scala.collection.Seq;
 
+import java.io.IOException;
 import java.io.Serializable;
+import java.sql.Timestamp;
+
 
 public class TestMain1 {
 	public static void main(String[] args) throws Exception {
 		ExecutionEnvironment environment = ExecutionEnvironment.getExecutionEnvironment();
 		BatchTableEnvironment tableEnv = TableEnvironment.getTableEnvironment(environment);
 
-		testMethod2(tableEnv,environment);
+
+		testMethod3(tableEnv,environment);
 
 		environment.execute();
 
@@ -46,7 +66,6 @@ public class TestMain1 {
 			.finish();
 
 		DataSet<Row> source = environment.createInput(jdbcInputFormat);
-
 		tableEnv.registerDataSetInternal("ddd", source);
 		Table result=tableEnv.sqlQuery("");
 		DataSet<Row> dataSet = tableEnv.toDataSet(result, Row.class);
@@ -80,30 +99,170 @@ public class TestMain1 {
 		TypeInformation<?>[] fieldTypes = new TypeInformation<?>[]{
 			BasicTypeInfo.STRING_TYPE_INFO,
 			BasicTypeInfo.STRING_TYPE_INFO,
-			BasicTypeInfo.INT_TYPE_INFO
+			BasicTypeInfo.INT_TYPE_INFO,
+			org.apache.flink.api.common.typeinfo.Types.SQL_TIMESTAMP
 		};
 
-		RowTypeInfo rowTypeInfo = new RowTypeInfo(fieldTypes);
+		String[] fieldNames = {"username","sex","age","createtime"};
+
+		RowTypeInfo rowTypeInfo = new RowTypeInfo(fieldTypes,fieldNames);
 		Serializable[][] queryParameters = new String[2][1];
 		queryParameters[0] = new String[]{"小赵"};
 		queryParameters[1] = new String[]{"小李"};
 		JDBCInputFormat jdbcInputFormat = JDBCInputFormat.buildJDBCInputFormat()
 			.setDrivername("org.postgresql.Driver")
 			.setDBUrl("jdbc:postgresql://10.4.247.20:5432/apm_test")
-			.setQuery("select * from figure WHERE username = ?")
+//			.setQuery("select username,sex,age,createtime from figure WHERE username = ?")
+			.setQuery("select username,sex,age,createtime from figure ORDER BY createtime")
 			.setUsername("apm")
 			.setPassword("apm")
 			.setRowTypeInfo(rowTypeInfo)
-			.setParametersProvider(new GenericParameterValuesProvider(queryParameters))
+			.setFetchSize(10)
+//			.setParametersProvider(new GenericParameterValuesProvider(queryParameters))
 			.finish();
-		DataSet<Row> source = environment.createInput(jdbcInputFormat).setParallelism(2);
+		DataSet<Row> source = environment.createInput(jdbcInputFormat);
+
 		tableEnv.registerDataSetInternal("ddd", source);
-		Table result=tableEnv.sqlQuery("select * from ddd");
-		DataSet<Row> dataSet = tableEnv.toDataSet(result, Row.class);
+
+
+//		Table result=tableEnv.sqlQuery("select sum(age),sex from ddd group by sex");
+
+		Table result=tableEnv.scan("ddd").window(Tumble.over("1.minutes").on("createtime").as("w")).groupBy("w,sex").select("w.end ,age.");
+//		Table table = result.groupBy("sex").select("timee,age.sum.sex");
+
+		RowTypeInfo rowTypeInfos = new RowTypeInfo(Types.SQL_TIMESTAMP, Types.INT);
+		TupleTypeInfo<Tuple3<Timestamp,String, Integer>> tupleType = new TupleTypeInfo<>(
+			Types.SQL_TIMESTAMP,
+			Types.INT,
+			Types.STRING
+		);
+		DataSet<Row> dataSet = tableEnv.toDataSet(result,rowTypeInfos);
+//		DataSet<Tuple3<Timestamp,String, Integer>> dataSet = tableEnv.toDataSet(result,tupleType);
+
 //		System.out.println( "cccccccccccccccccccccccccccccccccccccccccccccccccccc" + dataSet.count());
 		dataSet.output(
 			new CustomBatchSink()
 		).setParallelism(1);
 
+//		dataSet.output(
+//			new RichOutputFormat<Tuple3<Timestamp,String, Integer>>() {
+//				@Override
+//				public void configure(Configuration parameters) {
+//
+//				}
+//
+//				@Override
+//				public void open(int taskNumber, int numTasks) throws IOException {
+//
+//				}
+//
+//				@Override
+//				public void writeRecord(Tuple3<Timestamp,String, Integer> record) throws IOException {
+//
+//				}
+//
+//				@Override
+//				public void close() throws IOException {
+//
+//				}
+//			}
+//		).setParallelism(1);
+
 	}
+	public static void testMethod3(BatchTableEnvironment tableEnv, ExecutionEnvironment environment) throws Exception {
+		TypeInformation<?>[] fieldTypes = new TypeInformation<?>[]{
+			BasicTypeInfo.STRING_TYPE_INFO,
+			BasicTypeInfo.STRING_TYPE_INFO,
+			BasicTypeInfo.INT_TYPE_INFO,
+			org.apache.flink.api.common.typeinfo.Types.SQL_TIMESTAMP
+		};
+
+		String[] fieldNames = {"username","sex","age","createtime"};
+
+		RowTypeInfo rowTypeInfo = new RowTypeInfo(fieldTypes,fieldNames);
+		Serializable[][] queryParameters = new String[2][1];
+		queryParameters[0] = new String[]{"小赵"};
+		queryParameters[1] = new String[]{"小李"};
+		JDBCInputFormat jdbcInputFormat = JDBCInputFormat.buildJDBCInputFormat()
+			.setDrivername("org.postgresql.Driver")
+			.setDBUrl("jdbc:postgresql://10.4.247.20:5432/apm_test")
+//			.setQuery("select username,sex,age,createtime from figure WHERE username = ?")
+			.setQuery("select username,sex,age,createtime from figure ORDER BY createtime")
+			.setUsername("apm")
+			.setPassword("apm")
+			.setRowTypeInfo(rowTypeInfo)
+			.setFetchSize(10)
+//			.setParametersProvider(new GenericParameterValuesProvider(queryParameters))
+			.finish();
+		DataSet<Row> source = environment.createInput(jdbcInputFormat);
+
+		tableEnv.registerDataSetInternal("ddd", source);
+
+
+//		Table result=tableEnv.sqlQuery("select sum(age),sex from ddd group by sex");
+
+		Table result=tableEnv.scan("ddd").window(Tumble.over("1.minutes").on("createtime").as("w")).groupBy("w,sex").select("w.end ,age.sum,sex");
+//		Table table = result.groupBy("sex").select("timee,age.sum.sex");
+
+		RowTypeInfo rowTypeInfos = new RowTypeInfo(Types.SQL_TIMESTAMP, Types.INT,Types.STRING);
+		TupleTypeInfo<Tuple3<Timestamp,String, Integer>> tupleType = new TupleTypeInfo<>(
+			Types.SQL_TIMESTAMP,
+			Types.INT,
+			Types.STRING
+		);
+		DataSet<Row> dataSet = tableEnv.toDataSet(result,rowTypeInfos);
+//		DataSet<Tuple3<Timestamp,String, Integer>> dataSet = tableEnv.toDataSet(result,tupleType);
+
+//		System.out.println( "cccccccccccccccccccccccccccccccccccccccccccccccccccc" + dataSet.count());
+		dataSet.output(
+			new RichOutputFormat<Row>() {
+				@Override
+				public void configure(Configuration parameters) {
+
+				}
+
+				@Override
+				public void open(int taskNumber, int numTasks) throws IOException {
+
+				}
+
+				@Override
+				public void writeRecord(Row record) throws IOException {
+					System.out.println("dddd" + record.toString());
+				}
+
+				@Override
+				public void close() throws IOException {
+
+				}
+			}
+		).setParallelism(1);
+
+//		dataSet.output(
+//			new RichOutputFormat<Tuple3<Timestamp,String, Integer>>() {
+//				@Override
+//				public void configure(Configuration parameters) {
+//
+//				}
+//
+//				@Override
+//				public void open(int taskNumber, int numTasks) throws IOException {
+//
+//				}
+//
+//				@Override
+//				public void writeRecord(Tuple3<Timestamp,String, Integer> record) throws IOException {
+//
+//				}
+//
+//				@Override
+//				public void close() throws IOException {
+//
+//				}
+//			}
+//		).setParallelism(1);
+
+	}
+
+
 }

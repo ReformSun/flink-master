@@ -138,7 +138,9 @@ public abstract class FlinkKafkaConsumerBase<T> extends RichParallelSourceFuncti
 	private boolean enableCommitOnCheckpoints = true;
 
 	/**
+	 * 消费者的偏移交付模式
 	 * The offset commit mode for the consumer.
+	 * 这个值在配置文件中被决定 因为它依赖于是否启动了检查点的工作
 	 * The value of this can only be determined in {@link FlinkKafkaConsumerBase#open(Configuration)} since it depends
 	 * on whether or not checkpointing is enabled for the job.
 	 */
@@ -170,10 +172,11 @@ public abstract class FlinkKafkaConsumerBase<T> extends RichParallelSourceFuncti
 	private transient volatile AbstractPartitionDiscoverer partitionDiscoverer;
 
 	/**
+	 * 这个偏移量还原，如果这个消费者从检查点恢复状态
 	 * The offsets to restore to, if the consumer restores state from a checkpoint.
-	 *
+	 * 这个map将被通过状态初始化方法构建
 	 * <p>This map will be populated by the {@link #initializeState(FunctionInitializationContext)} method.
-	 *
+	 * 在使用恢复状态作为分区发现者播种时，使用排序映射作为排序非常重要
 	 * <p>Using a sorted map as the ordering is important when using restored state
 	 * to seed the partition discoverer.
 	 */

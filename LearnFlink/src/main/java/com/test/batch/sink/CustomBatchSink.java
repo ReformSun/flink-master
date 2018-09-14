@@ -30,9 +30,9 @@ public class CustomBatchSink extends RichOutputFormat<Row> {
 	@Override
 	public void writeRecord(Row record) throws IOException {
 		list.add(record);
-//		if (record != null){
-//			writerFile(record.toString());
-//		}
+		if (record != null){
+			writerFile(record.toString());
+		}
 	}
 
 	public void writerFile(String s) throws IOException {
