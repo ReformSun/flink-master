@@ -4,3 +4,15 @@
 1count a
 2count a
 3count a
+1count d
+1count a
+2count a
+3count a
+1count d
+1count a
+2count a
+3count a
+1count a
+2count a
+3count a
+1count d

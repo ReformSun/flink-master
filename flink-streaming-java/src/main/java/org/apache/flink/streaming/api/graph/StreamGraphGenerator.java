@@ -111,6 +111,7 @@ public class StreamGraphGenerator {
 	}
 
 	/**
+	 * 把用户写的流处理流程转化成StreamGraph 此方法是入口函数
 	 * Generates a {@code StreamGraph} by traversing the graph of {@code StreamTransformations}
 	 * starting from the given transformations.
 	 *
@@ -142,6 +143,7 @@ public class StreamGraphGenerator {
 	 */
 	private Collection<Integer> transform(StreamTransformation<?> transform) {
 
+		// 递归调用可能已经处理过该transform
 		if (alreadyTransformed.containsKey(transform)) {
 			return alreadyTransformed.get(transform);
 		}
@@ -520,6 +522,8 @@ public class StreamGraphGenerator {
 	}
 
 	/**
+	 * 该函数首先对该transform进行递归转换，确保上游的都已经完成了转化，然后通过transform构造出StreamNode，最后与上游的transform进行连接，构造出StreamNode
+	 *
 	 * Transforms a {@code OneInputTransformation}.
 	 *
 	 * <p>This recursively transforms the inputs, creates a new {@code StreamNode} in the graph and

@@ -74,6 +74,7 @@ import java.io.Closeable;
 import java.io.Serializable;
 
 /**
+ * 全部数据流的操作员的基础类，包含用户方法的操作员继承这个类
  * Base class for all stream operators. Operators that contain a user function should extend the class
  * {@link AbstractUdfStreamOperator} instead (which is a specialized subclass of this class).
  *
