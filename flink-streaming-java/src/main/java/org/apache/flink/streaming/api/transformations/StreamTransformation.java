@@ -124,6 +124,7 @@ public abstract class StreamTransformation<T> {
 	private int parallelism;
 
 	/**
+	 * 流转化的最大平行数
 	 * The maximum parallelism for this stream transformation. It defines the upper limit for
 	 * dynamic scaling and the number of key groups used for partitioned state.
 	 */
@@ -174,6 +175,7 @@ public abstract class StreamTransformation<T> {
 	}
 
 	/**
+	 * 返回这个StreamTransformation唯一的id
 	 * Returns the unique ID of this {@code StreamTransformation}.
 	 */
 	public int getId() {

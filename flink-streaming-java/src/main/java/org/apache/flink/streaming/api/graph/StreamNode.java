@@ -35,6 +35,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 类代表了在流程序中的操作，和全部的她们的属性
  * Class representing the operators in the streaming programs, with all their properties.
  */
 @Internal
@@ -67,7 +68,13 @@ public class StreamNode implements Serializable {
 	private TypeSerializer<?> typeSerializerIn2;
 	private TypeSerializer<?> typeSerializerOut;
 
+	/**
+	 * 输入边缘对象
+	 */
 	private List<StreamEdge> inEdges = new ArrayList<StreamEdge>();
+	/**
+	 * 输出边缘对象
+	 */
 	private List<StreamEdge> outEdges = new ArrayList<StreamEdge>();
 
 	private final Class<? extends AbstractInvokable> jobVertexClass;

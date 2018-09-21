@@ -28,8 +28,9 @@ import java.util.Collection;
 import java.util.List;
 
 /**
+ * 这个转化代表输入元素的分区的更改
  * This transformation represents a change of partitioning of the input elements.
- *
+ * 这里并没有真正的创建一个物理操作，他仅仅影响上游的操作个下游操作连接
  * <p>This does not create a physical operation, it only affects how upstream operations are
  * connected to downstream operations.
  *

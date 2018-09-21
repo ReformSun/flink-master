@@ -38,6 +38,7 @@ import static java.util.Objects.requireNonNull;
 import static org.apache.flink.util.Preconditions.checkArgument;
 
 /**
+ * 代表了一个用户自定义的转化实例
  * {@code SingleOutputStreamOperator} represents a user defined transformation
  * applied on a {@link DataStream} with one predefined output type.
  *

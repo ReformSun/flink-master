@@ -96,6 +96,9 @@ public class StreamGraphGenerator {
 
 	// Keep track of which Transforms we have already transformed, this is necessary because
 	// we have loops, i.e. feedback edges.
+	/**
+	 * 已经被转化
+	 */
 	private Map<StreamTransformation<?>, Collection<Integer>> alreadyTransformed;
 
 
@@ -126,6 +129,7 @@ public class StreamGraphGenerator {
 	}
 
 	/**
+	 * 实际开始转换的开始位置 开始于sink
 	 * This starts the actual transformation, beginning from the sinks.
 	 */
 	private StreamGraph generateInternal(List<StreamTransformation<?>> transformations) {
@@ -136,6 +140,10 @@ public class StreamGraphGenerator {
 	}
 
 	/**
+	 *
+	 * 对partition的转换没有生成具体的StreamNode和StreamEdge，而是添加一个虚拟节点，当partition的下游transform添加Edge
+	 * 时（调用StreamNode.addEdge），会把partition信息写入edge中
+	 *
 	 * Transforms one {@code StreamTransformation}.
 	 *
 	 * <p>This checks whether we already transformed it and exits early in that case. If not it
@@ -232,7 +240,7 @@ public class StreamGraphGenerator {
 
 	/**
 	 * Transforms a {@code PartitionTransformation}.
-	 *
+	 * 为此，我们在StreamGraph中创建一个包含分区属性的虚拟节点
 	 * <p>For this we create a virtual node in the {@code StreamGraph} that holds the partition
 	 * property. @see StreamGraphGenerator
 	 */
@@ -240,9 +248,12 @@ public class StreamGraphGenerator {
 		StreamTransformation<T> input = partition.getInput();
 		List<Integer> resultIds = new ArrayList<>();
 
+		// 获取上游的id
 		Collection<Integer> transformedIds = transform(input);
 		for (Integer transformedId: transformedIds) {
+			// 生成一个虚拟的id
 			int virtualId = StreamTransformation.getNewNodeId();
+			// 添加一个虚拟的分区节点，不会生成StreamNode
 			streamGraph.addVirtualPartitionNode(transformedId, virtualId, partition.getPartitioner());
 			resultIds.add(virtualId);
 		}
@@ -531,6 +542,7 @@ public class StreamGraphGenerator {
 	 */
 	private <IN, OUT> Collection<Integer> transformOneInputTransform(OneInputTransformation<IN, OUT> transform) {
 
+		// 先对该transform的上游transform进行递归转换，获取上游的id集合
 		Collection<Integer> inputIds = transform(transform.getInput());
 
 		// the recursive call might have already transformed this
@@ -540,6 +552,7 @@ public class StreamGraphGenerator {
 
 		String slotSharingGroup = determineSlotSharingGroup(transform.getSlotSharingGroup(), inputIds);
 
+		// 添加StreamNode
 		streamGraph.addOperator(transform.getId(),
 				slotSharingGroup,
 				transform.getCoLocationGroupKey(),
@@ -556,6 +569,7 @@ public class StreamGraphGenerator {
 		streamGraph.setParallelism(transform.getId(), transform.getParallelism());
 		streamGraph.setMaxParallelism(transform.getId(), transform.getMaxParallelism());
 
+		// 添加StreamEdge
 		for (Integer inputId: inputIds) {
 			streamGraph.addEdge(inputId, transform.getId(), 0);
 		}

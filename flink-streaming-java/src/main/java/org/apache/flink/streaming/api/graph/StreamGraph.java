@@ -68,6 +68,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
+ * 这个类代表了一个流拓扑，他包含了所有的需要的信息创建执行的jobgraph
  * Class representing the streaming topology. It contains all the information
  * necessary to build the jobgraph for the execution.
  *
@@ -80,11 +81,20 @@ public class StreamGraph extends StreamingPlan {
 	private String jobName = StreamExecutionEnvironment.DEFAULT_JOB_NAME;
 
 	private final StreamExecutionEnvironment environment;
+	/**
+	 * 执行配置信息
+	 */
 	private final ExecutionConfig executionConfig;
+	/**
+	 * 检查点配置信息
+	 */
 	private final CheckpointConfig checkpointConfig;
 
 	private boolean chaining;
 
+	/**
+	 * 流节点信息
+	 */
 	private Map<Integer, StreamNode> streamNodes;
 	private Set<Integer> sources;
 	private Set<Integer> sinks;
@@ -393,29 +403,36 @@ public class StreamGraph extends StreamingPlan {
 			List<String> outputNames,
 			OutputTag outputTag) {
 
+
 		if (virtualSideOutputNodes.containsKey(upStreamVertexID)) {
 			int virtualId = upStreamVertexID;
+
 			upStreamVertexID = virtualSideOutputNodes.get(virtualId).f0;
 			if (outputTag == null) {
 				outputTag = virtualSideOutputNodes.get(virtualId).f1;
 			}
 			addEdgeInternal(upStreamVertexID, downStreamVertexID, typeNumber, partitioner, null, outputTag);
+			// 当上游是select时，递归调用，并转入select信息
 		} else if (virtualSelectNodes.containsKey(upStreamVertexID)) {
 			int virtualId = upStreamVertexID;
+			// select上游的节点id
 			upStreamVertexID = virtualSelectNodes.get(virtualId).f0;
 			if (outputNames.isEmpty()) {
 				// selections that happen downstream override earlier selections
 				outputNames = virtualSelectNodes.get(virtualId).f1;
 			}
 			addEdgeInternal(upStreamVertexID, downStreamVertexID, typeNumber, partitioner, outputNames, outputTag);
+			// 当上游是patition时，递归调用，传入partitioner信息
 		} else if (virtualPartitionNodes.containsKey(upStreamVertexID)) {
 			int virtualId = upStreamVertexID;
+			// partition上游的节点id
 			upStreamVertexID = virtualPartitionNodes.get(virtualId).f0;
 			if (partitioner == null) {
 				partitioner = virtualPartitionNodes.get(virtualId).f1;
 			}
 			addEdgeInternal(upStreamVertexID, downStreamVertexID, typeNumber, partitioner, outputNames, outputTag);
 		} else {
+			// 真正构建StreamEdge
 			StreamNode upstreamNode = getStreamNode(upStreamVertexID);
 			StreamNode downstreamNode = getStreamNode(downStreamVertexID);
 

@@ -25,6 +25,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
+ * 一个流拓扑的边缘，像这样的一个边缘不一定会转换成两个作业顶点间的链接
  * An edge in the streaming topology. One edge like this does not necessarily
  * gets converted to a connection between two job vertices (due to
  * chaining/optimization).
@@ -35,6 +36,7 @@ public class StreamEdge implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private final String edgeId;
+
 
 	private final StreamNode sourceVertex;
 	private final StreamNode targetVertex;
