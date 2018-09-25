@@ -23,6 +23,7 @@ import org.apache.flink.annotation.PublicEvolving;
 import java.io.IOException;
 
 /**
+ * 分隔简单值状态的接口，这个值能够被检索或者更新
  * {@link State} interface for partitioned single-value state. The value can be retrieved or
  * updated.
  *
@@ -40,6 +41,7 @@ import java.io.IOException;
 public interface ValueState<T> extends State {
 
 	/**
+	 * 返回当前状态的值
 	 * Returns the current value for the state. When the state is not
 	 * partitioned the returned value is the same for all inputs in a given
 	 * operator instance. If state partitioning is applied, the value returned

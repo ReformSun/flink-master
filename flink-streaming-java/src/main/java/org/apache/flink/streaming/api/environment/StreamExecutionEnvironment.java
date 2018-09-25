@@ -1586,6 +1586,7 @@ public abstract class StreamExecutionEnvironment {
 	}
 
 	/**
+	 * 增加一个操作者到操作列表中当调用execute时被执行
 	 * Adds an operator to the list of operators that should be executed when calling
 	 * {@link #execute}.
 	 *

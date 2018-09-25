@@ -31,6 +31,7 @@ import java.util.Collection;
 import java.util.List;
 
 /**
+ * 这个转化代表了一个sink
  * This Transformation represents a Sink.
  *
  * @param <T> The type of the elements in the input {@code SinkTransformation}

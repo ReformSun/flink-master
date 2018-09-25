@@ -30,6 +30,7 @@ import java.util.Collection;
 import java.util.List;
 
 /**
+ * 代表了拥有一个输入流流操作的StreamTransformation
  * This Transformation represents the application of a
  * {@link org.apache.flink.streaming.api.operators.OneInputStreamOperator} to one input
  * {@link org.apache.flink.streaming.api.transformations.StreamTransformation}.
@@ -40,8 +41,9 @@ import java.util.List;
 @Internal
 public class OneInputTransformation<IN, OUT> extends StreamTransformation<OUT> {
 
+	// 前一个流转化实例
 	private final StreamTransformation<IN> input;
-
+	// 描述了本个节点的流操作信息
 	private final OneInputStreamOperator<IN, OUT> operator;
 
 	private KeySelector<IN, ?> stateKeySelector;

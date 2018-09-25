@@ -103,28 +103,13 @@ public class TestMain4 {
 		dataStream.addSink(new Print2());
 	}
 
-}
-
-class Word{
-	public Word(String word, int count) {
-		this.wordd = word;
-		this.count = count;
+	public static void testMethod5() {
+		
 	}
 
-	public Word() {
-	}
-
-	public String wordd;
-	public int count;
 }
 
 
-class Print1 extends RichSinkFunction<Word> {
-	@Override
-	public void invoke(Word value) throws Exception {
-		FileWriter.writerFile(value.count +"count","test1.txt");
-	}
-}
 
 class Print2 extends RichSinkFunction<SunWordWithCount> {
 	@Override

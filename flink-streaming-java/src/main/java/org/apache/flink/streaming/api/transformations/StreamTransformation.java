@@ -37,6 +37,8 @@ import static org.apache.flink.util.Preconditions.checkArgument;
 import static org.apache.flink.util.Preconditions.checkNotNull;
 
 /**
+ * 一个StreamTransformation代表创建DataStream的操作，每一个DataStream有一个基础的StreamTransformation
+ * 它就是所说的DataStream的起点
  * A {@code StreamTransformation} represents the operation that creates a
  * {@link org.apache.flink.streaming.api.datastream.DataStream}. Every
  * {@link org.apache.flink.streaming.api.datastream.DataStream} has an underlying
@@ -122,6 +124,7 @@ public abstract class StreamTransformation<T> {
 	private int parallelism;
 
 	/**
+	 * 流转化的最大平行数
 	 * The maximum parallelism for this stream transformation. It defines the upper limit for
 	 * dynamic scaling and the number of key groups used for partitioned state.
 	 */
@@ -172,6 +175,7 @@ public abstract class StreamTransformation<T> {
 	}
 
 	/**
+	 * 返回这个StreamTransformation唯一的id
 	 * Returns the unique ID of this {@code StreamTransformation}.
 	 */
 	public int getId() {

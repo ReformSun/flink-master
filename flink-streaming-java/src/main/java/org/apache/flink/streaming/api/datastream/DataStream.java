@@ -99,6 +99,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 一个DataStream代表一种有同一类型的流元素
  * A DataStream represents a stream of elements of the same type. A DataStream
  * can be transformed into another DataStream by applying a transformation as
  * for example:

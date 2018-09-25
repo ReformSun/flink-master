@@ -90,15 +90,18 @@ public class StreamingJobGraphGenerator {
 
 	private final StreamGraph streamGraph;
 
+	// id -> JobVertex
 	private final Map<Integer, JobVertex> jobVertices;
 	private final JobGraph jobGraph;
+	// 已经构建的JobVertex集合
 	private final Collection<Integer> builtVertices;
-
+    // 物理边集合（排除了chain内部边）按创建顺序排序
 	private final List<StreamEdge> physicalEdgesInOrder;
-
+   // 保存chain信息，部署时用来构建operaotChain，startNodeId-> （curentNodeId -> StreamConfig）
 	private final Map<Integer, Map<Integer, StreamConfig>> chainedConfigs;
-
+    // 所有节点的配置信息 id -> StreamConfig
 	private final Map<Integer, StreamConfig> vertexConfigs;
+	// 保存每个节点的名字，id -> chainNames
 	private final Map<Integer, String> chainedNames;
 
 	private final Map<Integer, ResourceSpec> chainedMinResources;
@@ -127,10 +130,13 @@ public class StreamingJobGraphGenerator {
 	private JobGraph createJobGraph() {
 
 		// make sure that all vertices start immediately
+		// 设置调度模式 所有节点一起启动
 		jobGraph.setScheduleMode(ScheduleMode.EAGER);
 
 		// Generate deterministic hashes for the nodes in order to identify them across
 		// submission iff they didn't change.
+		// 广度优化遍历StreamGraph 并且为每个StreamNode生成hash id
+		// 保证如果提交的拓扑没有改变，则每次生成的hash都是一样的
 		Map<Integer, byte[]> hashes = defaultStreamGraphHasher.traverseStreamGraphAndGenerateHashes(streamGraph);
 
 		// Generate legacy version hashes for backwards compatibility
@@ -141,12 +147,15 @@ public class StreamingJobGraphGenerator {
 
 		Map<Integer, List<Tuple2<byte[], byte[]>>> chainedOperatorHashes = new HashMap<>();
 
+		// 最重要的函数，生成JobVertex，JobEdge等，并尽可能地将多个节点chain在一起
 		setChaining(hashes, legacyHashes, chainedOperatorHashes);
-
+       // 将每个JobVertex的入边集合也序列化到该JobVertex的StreamConfig中
+		// 出边集合已经在setChaining的时候写入
 		setPhysicalEdges();
-
+// 根据group name 为每个Jobvertex指定所属的SlotSharingGroup
+		// 以及针对Iteration的头尾设置 ColocationGroup
 		setSlotSharingAndCoLocation();
-
+        // 配置checkpoint
 		configureCheckpointing();
 
 		JobGraphGenerator.addUserArtifactEntries(streamGraph.getEnvironment().getCachedFiles(), jobGraph);
