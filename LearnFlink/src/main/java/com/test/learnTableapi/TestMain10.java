@@ -2,6 +2,7 @@ package com.test.learnTableapi;
 
 import com.test.sink.CustomRowPrint;
 import com.test.sink.CustomRowPrint1;
+import org.apache.flink.api.common.time.Time;
 import org.apache.flink.api.common.typeinfo.SqlTimeTypeInfo;
 import org.apache.flink.api.common.typeinfo.Types;
 import org.apache.flink.api.java.io.jdbc.JDBCAppendTableSink;
@@ -26,10 +27,11 @@ public class TestMain10 {
 
 		TableSchemaBuilder tableSchemaBuilder = TableSchema.builder();
 		TableSchema tableSchema = tableSchemaBuilder.field("k", Types.STRING).field("rtime", Types.SQL_TIMESTAMP).build();
-		KafkaTableSource kafkaTableSource = KafkaUtil.getKafkaTableSource("monitorBlocklyQueueKeyJsonTestMain10_1",tableSchema,"rtime");
+		KafkaTableSource kafkaTableSource = KafkaUtil.getKafkaTableSource("monitorBlocklyQueueKeyJsonTestMain10_2",tableSchema,"rtime");
 		tableEnv.registerTableSource("kafkasource", kafkaTableSource);
-//		testMethod2(tableEnv);
-		testMethod3(tableEnv);
+// 		testMethod2(tableEnv);
+//		testMethod3(tableEnv);
+		testMethod4(tableEnv);
 		sEnv.execute();
 	}
 
@@ -67,4 +69,34 @@ public class TestMain10 {
 		sqlResult.writeToSink(sink);
 
 	}
+
+	public static void testMethod4(StreamTableEnvironment tableEnvironment) {
+		StreamQueryConfig qConfig = new StreamQueryConfig();
+		qConfig.withIdleStateRetentionTime(Time.milliseconds(30),Time.milliseconds(0));
+		Table sqlResult = tableEnvironment.sqlQuery("SELECT k as k,COUNT(k) as cnt,TUMBLE_START(rtime, INTERVAL '10' SECOND) as startTime FROM kafkasource GROUP BY k,TUMBLE(rtime, INTERVAL '10' SECOND)");
+
+		RowTypeInfo rowTypeInfo = new RowTypeInfo(Types.STRING,Types.LONG,Types.SQL_TIMESTAMP);
+		DataStream<Row> stream = tableEnvironment.toAppendStream(sqlResult, rowTypeInfo, qConfig);
+		Table table = tableEnvironment.fromDataStream(stream,"dd,b,c");
+		tableEnvironment.registerTable("table1",table);
+		tableEnvironment.registerTable("table2",sqlResult);
+		Table sqlResult2 = tableEnvironment.sqlQuery("SELECT t2.cnt - t1.b FROM table2 as t2 JOIN table1 as t1 ON t1.c = t2.startTime - INTERVAL '30' SECOND");
+		DataStream<Row> stream2 = tableEnvironment.toAppendStream(sqlResult2, Row.class, qConfig);
+		stream.addSink(new CustomRowPrint("test3.txt"));
+		stream2.addSink(new CustomRowPrint("test1.txt"));
+
+	}
+
+	public static void testMethod5(StreamTableEnvironment tableEnvironment) {
+		StreamQueryConfig qConfig = new StreamQueryConfig();
+		qConfig.withIdleStateRetentionTime(Time.milliseconds(30),Time.milliseconds(0));
+		Table sqlResult = tableEnvironment.sqlQuery("SELECT * FROM kafkasource GROUP BY k,TUMBLE(rtime, INTERVAL '10' SECOND)");
+		RowTypeInfo rowTypeInfo = new RowTypeInfo(Types.STRING,Types.LONG,Types.SQL_TIMESTAMP);
+		DataStream<Row> stream = tableEnvironment.toAppendStream(sqlResult, rowTypeInfo, qConfig);
+		Table table = tableEnvironment.fromDataStream(stream,"dd,b,c");
+		tableEnvironment.registerTable("table1",table);
+
+
+	}
+
 }

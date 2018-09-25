@@ -43,8 +43,9 @@ public class TestMain6 {
 		Table sqlResult = tableEnv.sqlQuery("SELECT a,SUM(b) as cnt FROM kafkasource1 GROUP BY a");
 
 
-		tableEnv.registerTable("table1",sqlResult);
-		Table sqlResult2 = tableEnv.sqlQuery("SELECT * FROM table1");
+//		tableEnv.registerTable("table1",sqlResult);
+//		Table sqlResult2 = tableEnv.sqlQuery("SELECT * FROM table1");
+		Table sqlResult2 = sqlResult.select("cnt > 20");
 
 		DataStream<Tuple2<Boolean, Row>> stream = tableEnv.toRetractStream(sqlResult, Row.class, qConfig);
 		DataStream<Tuple2<Boolean, Row>> stream2 = tableEnv.toRetractStream(sqlResult2, Row.class, qConfig);

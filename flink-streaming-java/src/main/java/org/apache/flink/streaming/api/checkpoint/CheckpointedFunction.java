@@ -26,7 +26,9 @@ import org.apache.flink.runtime.state.FunctionInitializationContext;
 import org.apache.flink.runtime.state.FunctionSnapshotContext;
 
 /**
+ * 这个是转态转换方法的核心接口
  * This is the core interface for <i>stateful transformation functions</i>, meaning functions
+ * 这个方法任务维护状态通过独特的流记录
  * that maintain state across individual stream records.
  * While more lightweight interfaces exist as shortcuts for various types of state, this interface offer the
  * greatest flexibility in managing both <i>keyed state</i> and <i>operator state</i>.

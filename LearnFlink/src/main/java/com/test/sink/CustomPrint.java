@@ -11,6 +11,12 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
 public class CustomPrint extends RichSinkFunction<String> {
+	private String fileName;
+
+	public CustomPrint(String fileName) {
+		this.fileName = fileName;
+	}
+
 	@Override
 	public void invoke(String value) throws Exception {
 		if (value != null){
@@ -18,8 +24,8 @@ public class CustomPrint extends RichSinkFunction<String> {
 		}
 
 	}
-	public static void writerFile(String s) throws IOException {
-		Path logFile = Paths.get(".\\src\\main\\resource\\test1.txt");
+	public void writerFile(String s) throws IOException {
+		Path logFile = Paths.get("./LearnFlink/src/main/resources/" + fileName);
 		try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)){
 			writer.newLine();
 			writer.write(s);

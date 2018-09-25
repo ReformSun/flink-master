@@ -30,6 +30,8 @@ import org.apache.flink.configuration.Configuration;
 public interface RichFunction extends Function {
 
 	/**
+	 * actual adj. 真实的，实际的；现行的，目前的
+	 *
 	 * Initialization method for the function. It is called before the actual working methods
 	 * (like <i>map</i> or <i>join</i>) and thus suitable for one time setup work. For functions that
 	 * are part of an iteration, this method will be invoked at the beginning of each iteration superstep.

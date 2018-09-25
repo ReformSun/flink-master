@@ -3,6 +3,7 @@ package com.test.learnTableapi;
 import com.test.defineFunction.Test;
 import com.test.defineFunction.Test2;
 import com.test.sink.CustomPrint;
+import com.test.sink.CustomRowPrint;
 import org.apache.flink.api.common.typeinfo.Types;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.api.java.tuple.Tuple3;
@@ -40,16 +41,48 @@ public class TestMain5 {
 		sEnv.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
 
 		TableSchemaBuilder tableSchemaBuilder = TableSchema.builder();
-		TableSchema tableSchema = tableSchemaBuilder.field("a", Types.STRING).field("d",Types.INT).field("b", Types.INT).field("rtime", Types.SQL_TIMESTAMP).build();
+//		TableSchema tableSchema = tableSchemaBuilder.field("a", Types.STRING).field("d",Types.INT).field("b", Types.INT).field("rtime", Types.SQL_TIMESTAMP).build();
+		TableSchema tableSchema = tableSchemaBuilder.field("a", Types.STRING).field("b", Types.INT).field("rtime", Types.SQL_TIMESTAMP).build();
 		KafkaTableSource kafkaTableSource = KafkaUtil.getKafkaTableSource("monitorBlocklyQueueKeyJson2",tableSchema,"rtime");
-		StreamQueryConfig qConfig = new StreamQueryConfig();
-
-
 		tableEnv.registerTableSource("kafkasource", kafkaTableSource);
 
+		testMethod2(tableEnv);
+//		testMethod3(tableEnv);
+
+		sEnv.execute();
+	}
+
+	public static void testMethod3(StreamTableEnvironment tableEnv) {
+		StreamQueryConfig qConfig = new StreamQueryConfig();
+		Table sqlResul = tableEnv.sqlQuery("SELECT SUM(b) as cnt,TUMBLE_START(rtime, INTERVAL '10' SECOND) as starttime FROM kafkasource GROUP BY TUMBLE(rtime, INTERVAL '10' SECOND)");
+		RowTypeInfo rowTypeInfo = new RowTypeInfo(Types.INT,Types.SQL_TIMESTAMP);
+		DataStream<Row> stream = tableEnv.toAppendStream(sqlResul, rowTypeInfo, qConfig);
+		Table table = tableEnv.fromDataStream(stream,"cnt,starttime");
+		tableEnv.registerTable("table1",table);
+		tableEnv.registerTable("table2",sqlResul);
+		Table table1 =  tableEnv.sqlQuery("SELECT t2.cnt - t1.cnt FROM table2 as t2 JOIN table1 as t1 ON t1.starttime = t2.starttime - INTERVAL '30' SECOND");
+		DataStream<Row> stream2 = tableEnv.toAppendStream(table1,Row.class,qConfig);
+		stream2.addSink(new CustomRowPrint("test.txt"));
+
+	}
+
+	public static void testMethod2(StreamTableEnvironment tableEnv) {
+		StreamQueryConfig qConfig = new StreamQueryConfig();
+		Table sqlResul = tableEnv.sqlQuery("SELECT SUM(b) as cnt,TUMBLE_START(rtime, INTERVAL '10' SECOND) FROM kafkasource GROUP BY TUMBLE(rtime, INTERVAL '10' SECOND)");
+		Table sqlResu2 = tableEnv.sqlQuery("SELECT SUM(b) as cnt,TUMBLE_START(rtime, INTERVAL '20' SECOND) FROM kafkasource GROUP BY TUMBLE(rtime, INTERVAL '20' SECOND)");
+		Table sqlResult1 = sqlResul.select("cnt > 20 as a739794");
+		Table sqlResult2 = sqlResu2.select("cnt > 20 as dd");
+		Table table = sqlResult1.join(sqlResult2);
+		DataStream<Row> stream = tableEnv.toAppendStream(table,Row.class,qConfig);
+		stream.addSink(new CustomRowPrint("test.txt"));
+
+	}
+	public static void testMethod1(StreamTableEnvironment tableEnv) {
+		StreamQueryConfig qConfig = new StreamQueryConfig();
 		Table sqlResult = tableEnv.sqlQuery("SELECT SUM(b) > 10 as m, TUMBLE_START(rtime, INTERVAL '10' SECOND) FROM kafkasource GROUP BY TUMBLE(rtime, INTERVAL '10' SECOND)");
 		Table sqlResul2 = tableEnv.sqlQuery("SELECT SUM(d) > 20 as m, TUMBLE_START(rtime, INTERVAL '10' SECOND) FROM kafkasource GROUP BY TUMBLE(rtime, INTERVAL '10' SECOND)");
 		Table sqlResul3 = tableEnv.sqlQuery("SELECT SUM(d) > 5 as m, TUMBLE_START(rtime, INTERVAL '10' SECOND) FROM kafkasource GROUP BY TUMBLE(rtime, INTERVAL '10' SECOND)");
+
 
 //		Table table = sqlResult.union(sqlResul2);
 
@@ -134,7 +167,5 @@ public class TestMain5 {
 //				}
 //			}
 //		});
-
-		sEnv.execute();
 	}
 }
