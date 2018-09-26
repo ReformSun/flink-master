@@ -58,6 +58,7 @@ public final class HeapMemorySegment extends MemorySegment {
 	}
 
 	/**
+	 * 创建一个新的内存段代表给定字节数的数据
 	 * Creates a new memory segment that represents the data in the given byte array.
 	 * The memory segment references the given owner.
 	 *
