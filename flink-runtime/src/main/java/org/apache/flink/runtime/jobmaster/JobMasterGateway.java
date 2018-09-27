@@ -51,6 +51,7 @@ import java.util.Collection;
 import java.util.concurrent.CompletableFuture;
 
 /**
+ * rpc 方法接口
  * {@link JobMaster} rpc gateway interface.
  */
 public interface JobMasterGateway extends

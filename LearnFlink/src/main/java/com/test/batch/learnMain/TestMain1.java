@@ -67,7 +67,7 @@ public class TestMain1 {
 
 		DataSet<Row> source = environment.createInput(jdbcInputFormat);
 		tableEnv.registerDataSetInternal("ddd", source);
-		Table result=tableEnv.sqlQuery("");
+		Table result=tableEnv.sqlQuery("SELECT COUNT(age),CONCAT(sex,username),TUMBLE_START(createtime, INTERVAL '1' MINUTE) FROM tableName GROUP BY TUMBLE(createtime, INTERVAL '1' MINUTE),sex,username");
 		DataSet<Row> dataSet = tableEnv.toDataSet(result, Row.class);
 
 		dataSet.output(
@@ -199,12 +199,12 @@ public class TestMain1 {
 		tableEnv.registerDataSetInternal("ddd", source);
 
 
-//		Table result=tableEnv.sqlQuery("select sum(age),sex from ddd group by sex");
+		Table result=tableEnv.sqlQuery("SELECT COUNT(age),CONCAT(sex,username),TUMBLE_START(createtime, INTERVAL '1' MINUTE) FROM ddd GROUP BY TUMBLE(createtime, INTERVAL '1' MINUTE),sex,username");
 
-		Table result=tableEnv.scan("ddd").window(Tumble.over("1.minutes").on("createtime").as("w")).groupBy("w,sex").select("w.end ,age.sum,sex");
+//		Table result=tableEnv.scan("ddd").window(Tumble.over("1.minutes").on("createtime").as("w")).groupBy("w,sex").select("w.end ,age.sum,sex");
 //		Table table = result.groupBy("sex").select("timee,age.sum.sex");
 
-		RowTypeInfo rowTypeInfos = new RowTypeInfo(Types.SQL_TIMESTAMP, Types.INT,Types.STRING);
+		RowTypeInfo rowTypeInfos = new RowTypeInfo(Types.LONG, Types.STRING,Types.SQL_TIMESTAMP);
 		TupleTypeInfo<Tuple3<Timestamp,String, Integer>> tupleType = new TupleTypeInfo<>(
 			Types.SQL_TIMESTAMP,
 			Types.INT,
