@@ -36,9 +36,9 @@ import java.util.concurrent.RunnableFuture;
  */
 
 /**
- *
+ * 状态后端中不同快照的方法接口
  * Interface for different snapshot approaches in state backends. Implementing classes should ideally be stateless or at
- *
+ * 理想状态下，实现类应该是五状态的或者至少线程安全的
  * least threadsafe, i.e. this is a functional interface and is can be called in parallel by multiple checkpoints.
  *
  * @param <S> type of the returned state object that represents the result of the snapshot operation.

@@ -22,6 +22,7 @@ import java.io.File;
 import java.io.Serializable;
 
 /**
+ *
  * Provides directories for local recovery. It offers access to the allocation base directories (i.e. the root
  * directories for all local state that is created under the same allocation id) and the subtask-specific paths, which
  * contain the local state for one subtask. Access by checkpoint id rotates over all root directory indexes, in case

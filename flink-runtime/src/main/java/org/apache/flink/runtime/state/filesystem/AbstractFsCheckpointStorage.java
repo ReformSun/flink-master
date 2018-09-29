@@ -110,6 +110,7 @@ public abstract class AbstractFsCheckpointStorage implements CheckpointStorage {
 	}
 
 	/**
+	 * 创建一个存储安全点的本地仓库
 	 * Creates a file system based storage location for a savepoint.
 	 *
 	 * <p>This methods implements the logic that decides which location to use (given optional

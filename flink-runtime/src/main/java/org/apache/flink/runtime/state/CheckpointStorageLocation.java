@@ -21,6 +21,7 @@ package org.apache.flink.runtime.state;
 import java.io.IOException;
 
 /**
+ * 一个特殊检查点的存储位置，提供数据持久性，元数据持久性和生命周期/清理方法
  * A storage location for one particular checkpoint, offering data persistent, metadata persistence,
  * and lifecycle/cleanup methods.
  *

@@ -361,6 +361,7 @@ public class CheckpointCoordinator {
 	// --------------------------------------------------------------------------------------------
 
 	/**
+	 * 使用给与的检查点目录作为目标触发保存点
 	 * Triggers a savepoint with the given savepoint directory as a target.
 	 *
 	 * @param timestamp The timestamp for the savepoint.
@@ -392,11 +393,14 @@ public class CheckpointCoordinator {
 	}
 
 	/**
+	 * 触发一个标准的检查点和使用给的时间戳作为检查点的时间戳
 	 * Triggers a new standard checkpoint and uses the given timestamp as the checkpoint
 	 * timestamp.
 	 *
 	 * @param timestamp The timestamp for the checkpoint.
+	 *                     标号表示这个触发检查点是否是周期性的
 	 * @param isPeriodic Flag indicating whether this triggered checkpoint is
+	 *                如果标志是true，则禁止启动周期调度    检查站将被拒绝
 	 * periodic. If this flag is true, but the periodic scheduler is disabled,
 	 * the checkpoint will be declined.
 	 * @return <code>true</code> if triggering the checkpoint succeeded.

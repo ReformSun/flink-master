@@ -26,12 +26,19 @@ import org.apache.flink.annotation.Internal;
 @Internal
 public enum CheckpointRetentionPolicy {
 
-	/** Checkpoints should be retained on cancellation and failure. */
+
+	/**
+	 * 取消和失败是检查点应保留
+	 * Checkpoints should be retained on cancellation and failure. */
 	RETAIN_ON_CANCELLATION,
 
-	/** Checkpoints should be retained on failure, but not on cancellation. */
+	/**
+	 * 失败是检查点应保留，但取消是不保留
+	 * Checkpoints should be retained on failure, but not on cancellation. */
 	RETAIN_ON_FAILURE,
 
-	/** Checkpoints should always be cleaned up when an application reaches a terminal state. */
+	/**
+	 * 当应用程序达到最终状态的时候检查点应总是被清理
+	 * Checkpoints should always be cleaned up when an application reaches a terminal state. */
 	NEVER_RETAIN_AFTER_TERMINATION;
 }

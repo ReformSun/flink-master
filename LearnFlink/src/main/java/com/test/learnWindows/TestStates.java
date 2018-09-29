@@ -8,6 +8,8 @@ import org.apache.flink.api.java.functions.KeySelector;
 import org.apache.flink.api.java.operators.DataSource;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.contrib.streaming.state.RocksDBStateBackend;
+import org.apache.flink.core.fs.Path;
+import org.apache.flink.runtime.state.filesystem.FsStateBackend;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
@@ -19,8 +21,11 @@ import java.io.IOException;
 public class TestStates {
     public static void main(String[] args) throws IOException {
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-        env.enableCheckpointing(60000);
-        env.setStateBackend(new RocksDBStateBackend("file:///C:\\Users\\xiaorong\\Desktop\\rockdata"));
+        env.enableCheckpointing(6000);
+
+		FsStateBackend fsStateBackend = new FsStateBackend(new Path("file:///Users/apple/Desktop/rockdata").toUri(),new Path("file:///Users/apple/Desktop/savepoint").toUri());
+
+        env.setStateBackend(new RocksDBStateBackend(fsStateBackend));
 //        testMethod1(env);
 		testMethod2(env);
         try {

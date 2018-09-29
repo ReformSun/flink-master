@@ -109,7 +109,7 @@ public interface StateBackend extends java.io.Serializable {
 	/**
 	 * 解析规定的指向检查点或者保存点位置的指针
 	 * Resolves the given pointer to a checkpoint/savepoint into a checkpoint location. The location
-	 * 此位置支持读取检查点元数据 或者 处理检查点储藏所位置
+	 * 此位置支持读取检查点元数据 或者 处理检查点所储藏位置
 	 * supports reading the checkpoint metadata, or disposing the checkpoint storage location.
 	 * 如果状态后端不能够获悉指针的格式 （例如指针被不同的状态后端创建）这个方法会抛出io异常
 	 * <p>If the state backend cannot understand the format of the pointer (for example because it
