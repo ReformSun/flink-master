@@ -25,7 +25,9 @@ import javax.annotation.Nullable;
 import java.io.IOException;
 
 /**
+ * 检查点仓库实现了检查点数据和元数据流的持久化存储
  * CheckpointStorage implements the durable storage of checkpoint data and metadata streams.
+ * 单个检查点或者保存点被存储到一个通过这个CheckpointStorageLocation类被创建的类中
  * An individual checkpoint or savepoint is stored to a {@link CheckpointStorageLocation},
  * created by this class.
  */
