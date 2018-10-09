@@ -42,11 +42,20 @@ public class TestMain {
 
         //将csv文件注册成表
         tableEnv.registerTableSource("testTable", csvTableSource);
-		testMethod2(tableEnv);
+//		testMethod2(tableEnv);
+//		testMethod1(tableEnv);
+		testMethod3(tableEnv);
         //执行
         sEnv.execute();
 
     }
+
+	public static void testMethod3(StreamTableEnvironment tableEnv) {
+		//查询
+		Table sqlResult = tableEnv.sql("select * from testTable");
+		Table sqlResult2 = sqlResult.select("age.cast(FLOAT)");
+		sqlResult.writeToSink(new CsvTableSink("file:///Users/apple/Documents/AgentJava/intellProject/LearnFlink/src/main/resources/aaaaaa.csv", ",", 1, FileSystem.WriteMode.OVERWRITE));
+	}
 
 	public static void testMethod1(StreamTableEnvironment tableEnv) {
 		//查询

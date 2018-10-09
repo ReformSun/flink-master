@@ -24,7 +24,7 @@ public class KafkaUtil {
 		Kafka010JsonTableSource.Builder jsonTableSourceBuilder = Kafka010JsonTableSource.builder().forTopic(propertie.getProperty("input-topic"));
 		jsonTableSourceBuilder.withKafkaProperties(propertie);
 		TableSchemaBuilder tableSchemaBuilder = TableSchema.builder();
-		jsonTableSourceBuilder.withSchema(tableSchema).withRowtimeAttribute(rowTimeName, new ExistingField(rowTimeName),new BoundedOutOfOrderTimestamps(0L));
+		jsonTableSourceBuilder.withSchema(tableSchema).withRowtimeAttribute(rowTimeName, new ExistingField(rowTimeName),new BoundedOutOfOrderTimestamps(30000L));
 		KafkaTableSource kafkaTableSource = jsonTableSourceBuilder.build();
 		return kafkaTableSource;
 	}

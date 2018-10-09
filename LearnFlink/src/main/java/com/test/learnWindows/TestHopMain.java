@@ -2,6 +2,7 @@ package com.test.learnWindows;
 
 import com.test.sink.CustomWordCountPrint;
 import org.apache.flink.api.common.functions.FlatMapFunction;
+import org.apache.flink.api.common.functions.ReduceFunction;
 import org.apache.flink.api.common.functions.RichReduceFunction;
 import org.apache.flink.api.common.restartstrategy.RestartStrategies;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
@@ -34,7 +35,7 @@ public class TestHopMain {
 					);
 				}
 			}
-		}).keyBy("word").window(SlidingProcessingTimeWindows.of(Time.seconds(10),Time.seconds(5))).reduce(new RichReduceFunction<SunWordWithCount>() {
+		}).keyBy("word").window(SlidingProcessingTimeWindows.of(Time.seconds(10),Time.seconds(5))).reduce(new ReduceFunction<SunWordWithCount>() {
 			@Override
 			public SunWordWithCount reduce(SunWordWithCount value1, SunWordWithCount value2) throws Exception {
 				return new SunWordWithCount(value1.word,value1.count + value2.count);

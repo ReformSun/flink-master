@@ -26,6 +26,8 @@ import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * generate 动词 使形成 生殖 发生
+ *
  * This class defines methods to generate RestartStrategyConfigurations. These configurations are
  * used to create RestartStrategies at runtime.
  *
@@ -35,6 +37,7 @@ import java.util.concurrent.TimeUnit;
 public class RestartStrategies {
 
 	/**
+	 * 形成不重新开始策略配置
 	 * Generates NoRestartStrategyConfiguration.
 	 *
 	 * @return NoRestartStrategyConfiguration
@@ -51,7 +54,7 @@ public class RestartStrategies {
 	 * Generates a FixedDelayRestartStrategyConfiguration.
 	 *
 	 * @param restartAttempts Number of restart attempts for the FixedDelayRestartStrategy
-	 * @param delayBetweenAttempts Delay in-between restart attempts for the FixedDelayRestartStrategy
+	 * @param delayBetweenAttempts Delay in-between restart attempts for the FixedDelayRestartStrategy 默认单位为毫秒
 	 * @return FixedDelayRestartStrategy
 	 */
 	public static RestartStrategyConfiguration fixedDelayRestart(int restartAttempts, long delayBetweenAttempts) {
@@ -70,11 +73,14 @@ public class RestartStrategies {
 	}
 
 	/**
+	 * failure 失败 故障 失败者 破产
+	 * rate 比率 率
 	 * Generates a FailureRateRestartStrategyConfiguration.
 	 *
-	 * @param failureRate Maximum number of restarts in given interval {@code failureInterval} before failing a job
-	 * @param failureInterval Time interval for failures
-	 * @param delayInterval Delay in-between restart attempts
+	 *
+	 * @param failureRate Maximum number of restarts in given interval {@code failureInterval} before failing a job 一个任务失败之前 在给定的时间间隔內最大的重新启动次数
+	 * @param failureInterval Time interval for failures 失败的时间间隔
+	 * @param delayInterval Delay in-between restart attempts 两次尝试重新开始的延迟时间
 	 */
 	public static FailureRateRestartStrategyConfiguration failureRateRestart(
 			int failureRate, Time failureInterval, Time delayInterval) {
@@ -123,12 +129,15 @@ public class RestartStrategies {
 	}
 
 	/**
+	 * fixed 固定的 确定的 稳定的
 	 * Configuration representing a fixed delay restart strategy.
 	 */
 	public static final class FixedDelayRestartStrategyConfiguration extends RestartStrategyConfiguration {
 		private static final long serialVersionUID = 4149870149673363190L;
 
+		// 尝试重新开始的次数
 		private final int restartAttempts;
+		// 每次尝试重新开始延迟时间
 		private final Time delayBetweenAttemptsInterval;
 
 		FixedDelayRestartStrategyConfiguration(int restartAttempts, Time delayBetweenAttemptsInterval) {
@@ -224,6 +233,7 @@ public class RestartStrategies {
 	}
 
 	/**
+	 * cluster 名词 串 簇 群
 	 * Restart strategy configuration that could be used by jobs to use cluster level restart
 	 * strategy. Useful especially when one has a custom implementation of restart strategy set via
 	 * flink-conf.yaml.

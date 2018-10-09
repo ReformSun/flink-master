@@ -378,6 +378,10 @@ public class ExecutionConfig implements Serializable, Archiveable<ArchivedExecut
 	}
 
 	/**
+	 * restart 重新开始
+	 * strategy 战略学 兵法 战略 策略 策略 计谋
+	 * recovery 恢复 复原 痊愈 重获
+	 * 设置重新开始的策略被用来恢复
 	 * Sets the restart strategy to be used for recovery.
 	 *
 	 * <pre>{@code
