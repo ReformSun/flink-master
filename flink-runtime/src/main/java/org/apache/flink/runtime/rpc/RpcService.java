@@ -52,6 +52,7 @@ public interface RpcService {
 	int getPort();
 
 	/**
+	 * 在提供的地址下连接到一个rpc远程服务器，返回一个rpc网关这个网关是被用作和rpc服务器联系
 	 * Connect to a remote rpc server under the provided address. Returns a rpc gateway which can
 	 * be used to communicate with the rpc server. If the connection failed, then the returned
 	 * future is failed with a {@link RpcConnectionException}.

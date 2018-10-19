@@ -21,8 +21,8 @@ package org.apache.flink.runtime.leaderelection;
 import java.util.UUID;
 
 /**
- * Interface which has to be implemented to take part in the leader election process of the
- * {@link LeaderElectionService}.
+ * 必须实现这个接口才能参与LeaderElectionService的领导者选举
+ * Interface which has to be implemented to take part in the leader election process of the {@link LeaderElectionService}.
  */
 public interface LeaderContender {
 

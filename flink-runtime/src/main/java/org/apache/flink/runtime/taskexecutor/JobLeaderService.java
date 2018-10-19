@@ -47,6 +47,12 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Executor;
 
 /**
+ * 该服务有责任监督工作领导者（作为领导者的工作经理）
+  对于所有已注册的工作，对于给定的工作。获得领导工作和检测
+  作业领导者服务，该服务试图建立与工作领导者的联系。后
+  成功建立连接后，工作领导者监听器将收到有关新工作的通知
+  领导者及其联系。如果工作领导者失去领导力，那就是工作领导者
+  也会收到通知。
  * This service has the responsibility to monitor the job leaders (the job manager which is leader
  * for a given job) for all registered jobs. Upon gaining leadership for a job and detection by the
  * job leader service, the service tries to establish a connection to the job leader. After

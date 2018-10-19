@@ -21,8 +21,10 @@ package org.apache.flink.table.sources.wmstrategies
 import org.apache.flink.streaming.api.watermark.Watermark
 
 /**
+  * rowtime属性是无序的通过有界的时间间隔的一种水印策略
+  * 个人理解 rowtime是一种无序的时间序列 但是我们可以设定一个有界的时间间隔产生水印
   * A watermark strategy for rowtime attributes which are out-of-order by a bounded time interval.
-  *
+  * 发射时间戳 最大的观测时间戳减去规定的延迟时间
   * Emits watermarks which are the maximum observed timestamp minus the specified delay.
   *
   * @param delay The delay by which watermarks are behind the maximum observed timestamp.

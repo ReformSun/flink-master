@@ -57,8 +57,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * The HistoryServer provides a WebInterface and REST API to retrieve information about finished jobs for which
- * the JobManager may have already shut down.
+ * The HistoryServer provides a WebInterface and REST API to retrieve information about finished jobs for which the JobManager may have already shut down.
  *
  * <p>The HistoryServer regularly checks a set of directories for job archives created by the {@link FsJobArchivist} and
  * caches these in a local directory. See {@link HistoryServerArchiveFetcher}.

@@ -264,9 +264,7 @@ public class RocksDBKeyedStateBackend<K> extends AbstractKeyedStateBackend<K> {
 	 * incremental ɪnkrə'məntl adj. 增加的，增值的
 	 * so on 等等
 	 * if conj. （表条件）如果；即使；是否；（表假设）假如 n. 条件；设想
-	 *
 	 * local n. [计] 局部；当地居民；本地新闻 adj. 当地的；局部的；地方性的；乡土的
-	 *
 	 * state stet n. 国家；州；情形 vt. 规定；声明；陈述 adj. 国家的；州的；正式的
 	 */
 	/**

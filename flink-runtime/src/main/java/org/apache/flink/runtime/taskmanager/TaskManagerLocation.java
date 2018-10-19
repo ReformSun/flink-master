@@ -32,6 +32,9 @@ import static org.apache.flink.util.Preconditions.checkArgument;
 import static org.apache.flink.util.Preconditions.checkNotNull;
 
 /**
+ * 该类封装了TaskManager的连接信息。
+  它描述了TaskManager运行的主机及其服务器端口
+  用于数据交换。此类还包含用于处理TaskManager主机名的实用程序，该主机名用于本地化工作分配。
  * This class encapsulates the connection information of a TaskManager.
  * It describes the host where the TaskManager operates and its server port
  * for data exchange. This class also contains utilities to work with the

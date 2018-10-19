@@ -130,16 +130,18 @@ public class TaskManagerRunner implements FatalErrorHandler, AutoCloseableAsync 
 			executor,
 			HighAvailabilityServicesUtils.AddressResolution.TRY_ADDRESS_RESOLUTION);
 
+		// 创建rpc服务
 		rpcService = createRpcService(configuration, highAvailabilityServices);
-
+		// 创建心跳服务
 		HeartbeatServices heartbeatServices = HeartbeatServices.fromConfiguration(configuration);
-
+		// 创建测量值注册服务
 		metricRegistry = new MetricRegistryImpl(MetricRegistryConfiguration.fromConfiguration(configuration));
 
 		// TODO: Temporary hack until the MetricQueryService has been ported to RpcEndpoint
 		final ActorSystem actorSystem = ((AkkaRpcService) rpcService).getActorSystem();
 		metricRegistry.startQueryService(actorSystem, resourceId);
 
+		// 缓存服务
 		blobCacheService = new BlobCacheService(
 			configuration, highAvailabilityServices.createBlobStore(), null
 		);
@@ -346,6 +348,7 @@ public class TaskManagerRunner implements FatalErrorHandler, AutoCloseableAsync 
 		checkNotNull(rpcService);
 		checkNotNull(highAvailabilityServices);
 
+		// 获取远程地址
 		InetAddress remoteAddress = InetAddress.getByName(rpcService.getAddress());
 
 		TaskManagerServicesConfiguration taskManagerServicesConfiguration =

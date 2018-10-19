@@ -82,18 +82,18 @@ public class StreamGraph extends StreamingPlan {
 
 	private final StreamExecutionEnvironment environment;
 	/**
-	 * 执行配置信息
+	 * 执行配置信息.
 	 */
 	private final ExecutionConfig executionConfig;
 	/**
-	 * 检查点配置信息
+	 * 检查点配置信息.
 	 */
 	private final CheckpointConfig checkpointConfig;
 
 	private boolean chaining;
 
 	/**
-	 * 流节点信息
+	 * 流节点信息.
 	 */
 	private Map<Integer, StreamNode> streamNodes;
 	private Set<Integer> sources;
@@ -402,8 +402,6 @@ public class StreamGraph extends StreamingPlan {
 			StreamPartitioner<?> partitioner,
 			List<String> outputNames,
 			OutputTag outputTag) {
-
-
 		if (virtualSideOutputNodes.containsKey(upStreamVertexID)) {
 			int virtualId = upStreamVertexID;
 

@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 用于配置安全性的实用程序，支持一下安全子系统
  * Utils for configuring security. The following security subsystems are supported:
  * 1. Java Authentication and Authorization Service (JAAS)
  * 2. Hadoop's User Group Information (UGI)
@@ -51,6 +52,7 @@ public class SecurityUtils {
 	}
 
 	/**
+	 * 安装流程范围的安全配置
 	 * Installs a process-wide security configuration.
 	 *
 	 * <p>Applies the configuration using the available security modules (i.e. Hadoop, JAAS).

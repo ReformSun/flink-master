@@ -108,6 +108,29 @@ under the License.
 			<artifactId>commons-cli</artifactId>
 		</dependency>
 
+
+		<!--孙计划测试-->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j-1.2.17</artifactId>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/../flink-dist/target/flink-1.7-SNAPSHOT-bin/flink-1.7-SNAPSHOT/lib/log4j-1.2.17.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>slf4j-log4j12</groupId>
+			<artifactId>slf4j-log4j12-1.7.7</artifactId>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/../flink-dist/target/flink-1.7-SNAPSHOT-bin/flink-1.7-SNAPSHOT/lib/slf4j-log4j12-1.7.7.jar</systemPath>
+		</dependency>
+
+		<!--<dependency>-->
+			<!--<groupId>org.apache.flink</groupId>-->
+			<!--<artifactId>flink-runtime-web_${scala.binary.version}</artifactId>-->
+			<!--<version>${project.version}</version>-->
+		<!--</dependency>-->
+
+
 		<!-- See: https://groups.google.com/forum/#!msg/netty/-aAPDBNUnDg/SkGOXL2Ma2QJ -->
 		<dependency>
 			<groupId>org.javassist</groupId>

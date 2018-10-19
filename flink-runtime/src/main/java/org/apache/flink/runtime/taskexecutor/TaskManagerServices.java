@@ -207,6 +207,7 @@ public class TaskManagerServices {
 	// --------------------------------------------------------------------------------------------
 
 	/**
+	 * 创建taskmanager服务
 	 * Creates and returns the task manager services.
 	 *
 	 * @param resourceID resource ID of the task manager
@@ -227,6 +228,7 @@ public class TaskManagerServices {
 		// pre-start checks
 		checkTempDirs(taskManagerServicesConfiguration.getTmpDirPaths());
 
+		// 初始化网络环境
 		final NetworkEnvironment network = createNetworkEnvironment(taskManagerServicesConfiguration, maxJvmHeapMemory);
 		network.start();
 

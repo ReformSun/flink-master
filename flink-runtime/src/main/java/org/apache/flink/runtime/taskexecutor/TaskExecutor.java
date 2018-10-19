@@ -138,7 +138,8 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 
 	public static final String TASK_MANAGER_NAME = "taskmanager";
 
-	/** The access to the leader election and retrieval services. */
+	/** 访问领导者选举和检索服务。
+	 * The access to the leader election and retrieval services. */
 	private final HighAvailabilityServices haServices;
 
 	private final TaskManagerServices taskExecutorServices;

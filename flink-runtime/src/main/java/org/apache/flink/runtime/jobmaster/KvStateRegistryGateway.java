@@ -28,6 +28,7 @@ import java.net.InetSocketAddress;
 import java.util.concurrent.CompletableFuture;
 
 /**
+ * 用于报告键值状态注册和注销的网关
  * Gateway to report key-value state registration and deregistrations.
  */
 public interface KvStateRegistryGateway {

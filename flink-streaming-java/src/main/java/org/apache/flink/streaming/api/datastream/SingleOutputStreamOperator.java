@@ -92,7 +92,6 @@ public class SingleOutputStreamOperator<T> extends DataStream<T> {
 	 * across prep. 穿过；横穿 adv. 横过；在对面
 	 * submission n. 投降；提交（物）；服从；（向法官提出的）意见；谦恭
 	 * Otherwise adv. 否则；另外；在其他方面 adj. 另外的；其他方面的
-	 *
 	 * 设置ID为这个操作员
 	 * Sets an ID for this operator.
 	 *

@@ -274,6 +274,7 @@ public final class TaskDeploymentDescriptor implements Serializable {
 	}
 
 	/**
+	 * 将外部化数据从BLOB存储加载回对象。
 	 * Loads externalized data from the BLOB store back to the object.
 	 *
 	 * @param blobService

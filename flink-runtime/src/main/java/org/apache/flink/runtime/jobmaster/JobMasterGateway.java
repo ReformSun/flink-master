@@ -61,6 +61,7 @@ public interface JobMasterGateway extends
 	KvStateRegistryGateway {
 
 	/**
+	 * 关闭当前的执行job
 	 * Cancels the currently executed job.
 	 *
 	 * @param timeout of this operation
@@ -77,6 +78,7 @@ public interface JobMasterGateway extends
 	CompletableFuture<Acknowledge> stop(@RpcTimeout Time timeout);
 
 	/**
+	 * 触发调整正在执行的job
 	 * Triggers rescaling of the executed job.
 	 *
 	 * @param newParallelism new parallelism of the job
@@ -90,6 +92,7 @@ public interface JobMasterGateway extends
 		@RpcTimeout Time timeout);
 
 	/**
+	 * 触发调整给定的算子
 	 * Triggers rescaling of the given set of operators.
 	 *
 	 * @param operators set of operators which shall be rescaled
@@ -105,6 +108,7 @@ public interface JobMasterGateway extends
 		@RpcTimeout Time timeout);
 
 	/**
+	 * 更新给定的任务执行状态
 	 * Updates the task execution state for a given task.
 	 *
 	 * @param taskExecutionState New task execution state for a given task
@@ -205,6 +209,7 @@ public interface JobMasterGateway extends
 			final Exception cause);
 
 	/**
+	 * 注册任务管理对象到任务管理者
 	 * Registers the task manager at the job manager.
 	 *
 	 * @param taskManagerRpcAddress the rpc address of the task manager
@@ -218,6 +223,7 @@ public interface JobMasterGateway extends
 			@RpcTimeout final Time timeout);
 
 	/**
+	 * 发送心跳到jobmanager从taskManager
 	 * Sends the heartbeat to job manager from task manager.
 	 *
 	 * @param resourceID unique id of the task manager
@@ -228,6 +234,7 @@ public interface JobMasterGateway extends
 		final AccumulatorReport accumulatorReport);
 
 	/**
+	 * 发送心跳请求从resourceMananger
 	 * Sends heartbeat request from the resource manager.
 	 *
 	 * @param resourceID unique id of the resource manager
@@ -259,6 +266,7 @@ public interface JobMasterGateway extends
 	CompletableFuture<ArchivedExecutionGraph> requestJob(@RpcTimeout Time timeout);
 
 	/**
+	 * 触发器获取执行任务的保存点
 	 * Triggers taking a savepoint of the executed job.
 	 *
 	 * @param targetDirectory to which to write the savepoint data or null if the
@@ -272,6 +280,7 @@ public interface JobMasterGateway extends
 		final Time timeout);
 
 	/**
+	 * 请求关于操作员背压的统计数据
 	 * Requests the statistics on operator back pressure.
 	 *
 	 * @param jobVertexId JobVertex for which the stats are requested.

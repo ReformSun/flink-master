@@ -97,7 +97,7 @@ public class StreamGraphGenerator {
 	// Keep track of which Transforms we have already transformed, this is necessary because
 	// we have loops, i.e. feedback edges.
 	/**
-	 * 已经被转化
+	 * 已经被转化.
 	 */
 	private Map<StreamTransformation<?>, Collection<Integer>> alreadyTransformed;
 
@@ -140,11 +140,10 @@ public class StreamGraphGenerator {
 	}
 
 	/**
-	 *
 	 * 对partition的转换没有生成具体的StreamNode和StreamEdge，而是添加一个虚拟节点，当partition的下游transform添加Edge
 	 * 时（调用StreamNode.addEdge），会把partition信息写入edge中
 	 *
-	 * Transforms one {@code StreamTransformation}.
+	 * <p>Transforms one {@code StreamTransformation}.
 	 *
 	 * <p>This checks whether we already transformed it and exits early in that case. If not it
 	 * delegates to one of the transformation specific methods.
@@ -240,8 +239,9 @@ public class StreamGraphGenerator {
 
 	/**
 	 * Transforms a {@code PartitionTransformation}.
-	 * 为此，我们在StreamGraph中创建一个包含分区属性的虚拟节点
-	 * <p>For this we create a virtual node in the {@code StreamGraph} that holds the partition
+	 *
+	 * <p>为此，我们在StreamGraph中创建一个包含分区属性的虚拟节点
+	 * For this we create a virtual node in the {@code StreamGraph} that holds the partition
 	 * property. @see StreamGraphGenerator
 	 */
 	private <T> Collection<Integer> transformPartition(PartitionTransformation<T> partition) {
@@ -535,7 +535,7 @@ public class StreamGraphGenerator {
 	/**
 	 * 该函数首先对该transform进行递归转换，确保上游的都已经完成了转化，然后通过transform构造出StreamNode，最后与上游的transform进行连接，构造出StreamNode
 	 *
-	 * Transforms a {@code OneInputTransformation}.
+	 * <p>Transforms a {@code OneInputTransformation}.
 	 *
 	 * <p>This recursively transforms the inputs, creates a new {@code StreamNode} in the graph and
 	 * wired the inputs to this new node.

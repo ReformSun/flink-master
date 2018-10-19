@@ -55,8 +55,8 @@ import static org.apache.flink.util.Preconditions.checkArgument;
 import static org.apache.flink.util.Preconditions.checkNotNull;
 
 /**
- * The runner for the job manager. It deals with job level leader election and make underlying job manager
- * properly reacted.
+ * 它处理任务级领导选举和让基础的任务管理作出反应
+ * The runner for the job manager. It deals with job level leader election and make underlying job manager properly reacted.
  */
 public class JobManagerRunner implements LeaderContender, OnCompletionActions, AutoCloseableAsync {
 
@@ -194,7 +194,7 @@ public class JobManagerRunner implements LeaderContender, OnCompletionActions, A
 	}
 
 	//----------------------------------------------------------------------------------------------
-	// Lifecycle management
+	// Lifecycle management 生命周期管理
 	//----------------------------------------------------------------------------------------------
 
 	public void start() throws Exception {
@@ -300,8 +300,8 @@ public class JobManagerRunner implements LeaderContender, OnCompletionActions, A
 	}
 
 	//----------------------------------------------------------------------------------------------
-	// Leadership methods
-	//----------------------------------------------------------------------------------------------
+	// Leadership methods 领导权方法 答应给予领导权
+	//---------------------------------------- ------------------------------------------------------
 
 	@Override
 	public void grantLeadership(final UUID leaderSessionID) {

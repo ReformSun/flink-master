@@ -175,8 +175,10 @@ public abstract class FlinkKafkaConsumerBase<T> extends RichParallelSourceFuncti
 	 * 这个偏移量还原，如果这个消费者从检查点恢复状态
 	 * The offsets to restore to, if the consumer restores state from a checkpoint.
 	 * 这个map将被通过状态初始化方法构建
+	 *
 	 * <p>This map will be populated by the {@link #initializeState(FunctionInitializationContext)} method.
 	 * 在使用恢复状态作为分区发现者播种时，使用排序映射作为排序非常重要
+	 *
 	 * <p>Using a sorted map as the ordering is important when using restored state
 	 * to seed the partition discoverer.
 	 */

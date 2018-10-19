@@ -29,6 +29,9 @@ import java.io.IOException;
 import java.util.UUID;
 
 /**
+ * HighAvailabilityServices可以访问高可用性所需的所有服务
+  建立。特别是，这些服务提供对高可用性存储的访问
+  注册管理机构，以及分布式柜台和领导人选举。
  * The HighAvailabilityServices give access to all services needed for a highly-available
  * setup. In particular, the services provide access to highly available storage and
  * registries, as well as distributed counters and leader election.
@@ -68,6 +71,7 @@ public interface HighAvailabilityServices extends AutoCloseable {
 	// ------------------------------------------------------------------------
 
 	/**
+	 * 获取集群资源管理器的领导者检索器。
 	 * Gets the leader retriever for the cluster's resource manager.
 	 */
 	LeaderRetrievalService getResourceManagerLeaderRetriever();

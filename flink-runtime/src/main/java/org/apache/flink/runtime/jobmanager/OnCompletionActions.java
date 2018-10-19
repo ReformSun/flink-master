@@ -22,8 +22,9 @@ import org.apache.flink.runtime.executiongraph.ArchivedExecutionGraph;
 import org.apache.flink.runtime.jobmaster.JobMaster;
 
 /**
- * Interface for completion actions once a Flink job has reached
- * a terminal state.
+ * 一个flink任务完成最终状态后的完成动作的接口
+ * 理解 当一个flink任务完成最终状态后 所要做的动作 必须实现这个接口 并把动作写到响应的接口中
+ * Interface for completion actions once a Flink job has reached a terminal state.
  */
 public interface OnCompletionActions {
 

@@ -86,6 +86,7 @@ import static org.apache.flink.shaded.netty4.io.netty.handler.codec.http.HttpVer
 import static org.apache.flink.util.Preconditions.checkNotNull;
 
 /**
+ * 简单的文件服务器 处理前端静态文件的请求
  * Simple file server handler that serves requests to web frontend's static files, such as
  * HTML, CSS, or JS files.
  *
@@ -95,7 +96,9 @@ import static org.apache.flink.util.Preconditions.checkNotNull;
 @ChannelHandler.Sharable
 public class StaticFileServerHandler<T extends RestfulGateway> extends RedirectHandler<T> {
 
-	/** Timezone in which this server answers its "if-modified" requests. */
+	/**
+	 * 这个服务器回答他的if-modified请求的时区
+	 * Timezone in which this server answers its "if-modified" requests. */
 	private static final TimeZone GMT_TIMEZONE = TimeZone.getTimeZone("GMT");
 
 	/** Date format for HTTP. */

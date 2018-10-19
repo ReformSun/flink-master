@@ -345,6 +345,7 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 	}
 
 	/**
+	 * 暂停这个工作和关停全部其它服务包括rpc
 	 * Suspend the job and shutdown all other services including rpc.
 	 */
 	@Override

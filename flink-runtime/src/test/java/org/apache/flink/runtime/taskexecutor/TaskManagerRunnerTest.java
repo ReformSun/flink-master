@@ -52,6 +52,7 @@ public class TaskManagerRunnerTest extends TestLogger {
 
 		taskManagerRunner.start();
 
+
 		try {
 			// wait until we trigger the jvm termination
 			jvmTerminationFuture.get();

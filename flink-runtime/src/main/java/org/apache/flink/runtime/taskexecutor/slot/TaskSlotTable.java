@@ -48,6 +48,8 @@ import java.util.Set;
 import java.util.UUID;
 
 /**
+ * 多个{@link TaskSlot}实例的容器。此外，它维护多个索引
+  用于更快地访问任务和分配的插槽集
  * Container for multiple {@link TaskSlot} instances. Additionally, it maintains multiple indices
  * for faster access to tasks and sets of allocated slots.
  *

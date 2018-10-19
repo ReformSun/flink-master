@@ -22,6 +22,7 @@ import org.apache.flink.streaming.api.watermark.Watermark
 import org.apache.flink.types.Row
 
 /**
+  * 提供一种为rowtime属性生成水印的策略
   * Provides a strategy to generate watermarks for a rowtime attribute.
   *
   * A watermark strategy is either a [[PeriodicWatermarkAssigner]] or
@@ -30,7 +31,9 @@ import org.apache.flink.types.Row
   */
 sealed abstract class WatermarkStrategy extends Serializable
 
-/** A periodic watermark assigner. */
+/** periodic 周期的 定期的
+  * 定期水印分配器
+  * A periodic watermark assigner. */
 abstract class PeriodicWatermarkAssigner extends WatermarkStrategy {
 
   /**
@@ -48,7 +51,9 @@ abstract class PeriodicWatermarkAssigner extends WatermarkStrategy {
   def getWatermark: Watermark
 }
 
-/** A punctuated watermark assigner. */
+/** punctuated 不时打断某物 加标点
+  * 一个加标点的水印分配器
+  * A punctuated watermark assigner. */
 abstract class PunctuatedWatermarkAssigner extends WatermarkStrategy {
 
   /**
@@ -61,7 +66,9 @@ abstract class PunctuatedWatermarkAssigner extends WatermarkStrategy {
   def getWatermark(row: Row, timestamp: Long): Watermark
 }
 
-/** A strategy which indicates the watermarks should be preserved from the underlying datastream.*/
+/**
+  * 一种策略 指示应从基础数据流中保存水印
+  * A strategy which indicates the watermarks should be preserved from the underlying datastream.*/
 final class PreserveWatermarks extends WatermarkStrategy {
 
   override def equals(obj: scala.Any): Boolean =  {

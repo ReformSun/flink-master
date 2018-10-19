@@ -30,6 +30,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
+ * 多个{@link Task}的容器属于同一个插槽。 {@link TaskSlot}可以处于以下状态之一：
  * Container for multiple {@link Task} belonging to the same slot. A {@link TaskSlot} can be in one
  * of the following states:
  * <ul>

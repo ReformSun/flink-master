@@ -23,6 +23,7 @@ import javax.annotation.Nonnull;
 import java.util.UUID;
 
 /**
+ * 允许从一组竞争者中选择出领导者的服务接口
  * Interface for a service which allows to elect a leader among a group of contenders.
  *
  * Prior to using this service, it has to be started calling the start method. The start method

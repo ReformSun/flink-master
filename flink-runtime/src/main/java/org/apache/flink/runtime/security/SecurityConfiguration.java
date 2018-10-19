@@ -64,6 +64,7 @@ public class SecurityConfiguration {
 	private final String zkLoginContextName;
 
 	/**
+	 * 从全局配置中创建安全配置
 	 * Create a security configuration from the global configuration.
 	 * @param flinkConf the Flink global configuration.
 */

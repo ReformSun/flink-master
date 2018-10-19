@@ -69,11 +69,11 @@ public class StreamNode implements Serializable {
 	private TypeSerializer<?> typeSerializerOut;
 
 	/**
-	 * 输入边缘对象
+	 * 输入边缘对象.
 	 */
 	private List<StreamEdge> inEdges = new ArrayList<StreamEdge>();
 	/**
-	 * 输出边缘对象
+	 * 输出边缘对象.
 	 */
 	private List<StreamEdge> outEdges = new ArrayList<StreamEdge>();
 

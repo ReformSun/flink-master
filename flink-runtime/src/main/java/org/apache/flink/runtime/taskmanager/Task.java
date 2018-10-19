@@ -103,6 +103,7 @@ import static org.apache.flink.util.Preconditions.checkNotNull;
 import static org.apache.flink.util.Preconditions.checkState;
 
 /**
+ * Task表示在TaskManager上执行并行子任务。
  * The Task represents one execution of a parallel subtask on a TaskManager.
  * A Task wraps a Flink operator (which may be a user function) and
  * runs it, providing all services necessary for example to consume input data,
@@ -675,7 +676,7 @@ public class Task implements Runnable, TaskActions, CheckpointListener {
 				metrics,
 				this);
 
-			// now load and instantiate the task's invokable code
+			// now load and instantiate the task's invokable code 现在加载并实例化任务的可调用代码
 			invokable = loadAndInstantiateInvokable(userCodeClassLoader, nameOfInvokableClass, env);
 
 			// ----------------------------------------------------------------
