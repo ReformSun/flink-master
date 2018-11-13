@@ -36,6 +36,7 @@ import static org.apache.flink.util.Preconditions.checkNotNull;
 
 
 /**
+ * 此实用程序类实现了在另一个组件上注册一个组件的基础,例如，在ResourceManager中注册TaskExecutor。
  * This utility class implements the basis of registering one component at another component,
  * for example registering the TaskExecutor at the ResourceManager.
  * This {@code RetryingRegistration} implements both the initial address resolution
@@ -172,6 +173,7 @@ public abstract class RetryingRegistration<F extends Serializable, G extends Rpc
 		G gateway, F fencingToken, long timeoutMillis) throws Exception;
 
 	/**
+	 * 此方法将目标地址解析为可调用网关，然后开始注册。
 	 * This method resolves the target address to a callable gateway and starts the
 	 * registration after that.
 	 */

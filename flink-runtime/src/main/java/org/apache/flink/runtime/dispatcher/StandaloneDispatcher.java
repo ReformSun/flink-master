@@ -32,6 +32,9 @@ import org.apache.flink.runtime.rpc.RpcService;
 import javax.annotation.Nullable;
 
 /**
+ * Dispatcher实现为每个生成{@link JobMaster}
+  在同一过程中提交了{@link JobGraph}。这个调度员
+  可以用作所有不同会话群集的默认值。
  * Dispatcher implementation which spawns a {@link JobMaster} for each
  * submitted {@link JobGraph} within in the same process. This dispatcher
  * can be used as the default for all different session clusters.

@@ -335,6 +335,7 @@ public abstract class ClusterEntrypoint implements FatalErrorHandler {
 			LOG.debug("Starting Dispatcher REST endpoint.");
 			webMonitorEndpoint.start();
 
+			// 创建资源管理器
 			resourceManager = createResourceManager(
 				configuration,
 				ResourceID.generate(),

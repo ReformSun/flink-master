@@ -41,6 +41,7 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 /**
+ * 归档执行图表示{@link ExecutionGraph}的可序列化形式。
  * An archived execution graph represents a serializable form of the {@link ExecutionGraph}.
  */
 public class ArchivedExecutionGraph implements AccessExecutionGraph, Serializable {

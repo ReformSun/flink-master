@@ -85,6 +85,10 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
+ * Dispatcher组件的基类。 Dispatcher组件负责
+ 接收作业提交，持久化，生成JobManagers执行
+ 工作并在主故障的情况下恢复它们。而且，它知道
+ 关于Flink会话集群的状态。
  * Base class for the Dispatcher component. The Dispatcher component is responsible
  * for receiving job submissions, persisting them, spawning JobManagers to execute
  * the jobs and to recover them in case of a master failure. Furthermore, it knows

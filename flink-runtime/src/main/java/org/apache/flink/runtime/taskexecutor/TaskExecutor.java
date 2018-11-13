@@ -1021,6 +1021,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 		if (registrationTimeoutId.equals(currentRegistrationTimeoutId)) {
 			final Time maxRegistrationDuration = taskManagerConfiguration.getMaxRegistrationDuration();
 
+			// 无法在指定的最长注册持续时间300000毫秒内在ResourceManager中注册。这表明此实例存在问题。现在终止。
 			onFatalError(
 				new RegistrationTimeoutException(
 					String.format("Could not register at the ResourceManager within the specified maximum " +

@@ -59,6 +59,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 /**
+ * 插槽管理器负责维护所有已注册任务管理器插槽的视图，
  * The slot manager is responsible for maintaining a view on all registered task manager slots,
  * their allocation and all pending slot requests. Whenever a new slot is registered or and
  * allocated slot is freed, then it tries to fulfill another pending slot request. Whenever there

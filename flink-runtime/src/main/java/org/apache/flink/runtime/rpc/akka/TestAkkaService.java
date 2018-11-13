@@ -1,6 +1,5 @@
 package org.apache.flink.runtime.rpc.akka;
 
-import org.apache.flink.configuration.ConfigConstants;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.configuration.ConfigurationUtils;
 import org.apache.flink.runtime.rpc.RpcService;
