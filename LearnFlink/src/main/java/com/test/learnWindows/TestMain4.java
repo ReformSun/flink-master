@@ -87,7 +87,7 @@ public class TestMain4 {
 	}
 
 	public static void testMethod4(StreamExecutionEnvironment env) {
-		DataStreamSource<SunWordWithCount> input = env.fromElements(new SunWordWithCount("a",1),new SunWordWithCount("a",1),new SunWordWithCount("a",1),new SunWordWithCount("d",1));
+		DataStreamSource<SunWordWithCount> input = env.fromElements(new SunWordWithCount("a",1),new SunWordWithCount("a",1),new SunWordWithCount("a",1),new SunWordWithCount("d",1)).setParallelism(1);
 		DataStream<SunWordWithCount> dataStream = input.keyBy(new KeySelector<SunWordWithCount, String>() {
 			@Override
 			public String getKey(SunWordWithCount value) throws Exception {
@@ -99,8 +99,8 @@ public class TestMain4 {
 				public SunWordWithCount reduce(SunWordWithCount a, SunWordWithCount b) {
 					return new SunWordWithCount(a.word,a.count + b.count);
 				}
-			});
-		dataStream.addSink(new Print2());
+			}).setParallelism(1);
+		dataStream.addSink(new Print2()).setParallelism(1);
 	}
 
 	public static void testMethod5() {
