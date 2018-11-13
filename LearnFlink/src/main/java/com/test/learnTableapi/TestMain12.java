@@ -22,14 +22,15 @@ public class TestMain12 {
 
 		TableSchemaBuilder tableSchemaBuilder = TableSchema.builder();
 		TableSchema tableSchema = tableSchemaBuilder.field("user_name", Types.STRING).field("user_count",Types.LONG).field("_sysTime", Types.SQL_TIMESTAMP).build();
-		KafkaTableSource kafkaTableSource = KafkaUtil.getKafkaTableSource("monitorBlocklyQueueKeyJsonTestMain11_2",tableSchema,"_sysTime");
+		KafkaTableSource kafkaTableSource = KafkaUtil.getKafkaTableSource("monitorBlocklyQueueKeyJsonTestMain11_3",tableSchema,"_sysTime");
 		tableEnv.registerTableSource("kafkasource", kafkaTableSource);
 //		testMethod1(tableEnv);
 //		testMethod3(tableEnv);
 //		testMethod4(tableEnv);
 //		testMethod5(tableEnv);
 //		testMethod6(tableEnv);
-		testMethod7(tableEnv);
+//		testMethod7(tableEnv);
+		testMethod8(tableEnv);
 		sEnv.execute();
 	}
 
@@ -42,6 +43,19 @@ public class TestMain12 {
 		tableEnvironment.registerTable("tableName1",table);
 		tableEnvironment.registerTable("tableName2",sqlResult);
 		Table sqlResult2 = tableEnvironment.sqlQuery("SELECT cast(t2.value1-t1.value1 as FLOAT) / t1.value1 * 100  as a748658 FROM tableName2 as t2 JOIN tableName1 as t1 ON t1.start_time = t2.start_time-INTERVAL '1' MINUTE");
+		DataStream<Row> stream2 = tableEnvironment.toAppendStream(sqlResult2, Row.class, qConfig);
+		stream2.addSink(new CustomRowPrint("test3.txt"));
+	}
+
+	public static void testMethod8(StreamTableEnvironment tableEnvironment) {
+		StreamQueryConfig qConfig = new StreamQueryConfig();
+		Table sqlResult = tableEnvironment.sqlQuery("SELECT SUM(user_count) as value1,HOP_START(_sysTime, INTERVAL '1' MINUTE, INTERVAL '5' MINUTE) as start_time FROM kafkasource WHERE user_name = '小张' GROUP BY HOP(_sysTime, INTERVAL '1' MINUTE, INTERVAL '5' MINUTE)");
+		RowTypeInfo rowTypeInfo = new RowTypeInfo(Types.LONG,Types.SQL_TIMESTAMP);
+		DataStream<Row> stream = tableEnvironment.toAppendStream(sqlResult, rowTypeInfo, qConfig);
+		Table table = tableEnvironment.fromDataStream(stream,"value1,start_time");
+		tableEnvironment.registerTable("tableName1",table);
+		tableEnvironment.registerTable("tableName2",sqlResult);
+		Table sqlResult2 = tableEnvironment.sqlQuery("SELECT cast(t2.value1-t1.value1 as FLOAT) / t1.value1 * 100 <=20 as a748658 FROM tableName2 as t2 JOIN tableName1 as t1 ON t1.start_time = t2.start_time-INTERVAL '5' MINUTE");
 		DataStream<Row> stream2 = tableEnvironment.toAppendStream(sqlResult2, Row.class, qConfig);
 		stream2.addSink(new CustomRowPrint("test3.txt"));
 	}

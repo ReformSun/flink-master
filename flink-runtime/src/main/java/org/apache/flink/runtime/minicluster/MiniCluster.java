@@ -606,7 +606,7 @@ public class MiniCluster implements JobExecutorService, AutoCloseableAsync {
 
 		final CompletableFuture<JobSubmissionResult> submissionFuture = submitJob(job);
 
-		final CompletableFuture<JobResult> jobResultFuture = submissionFuture.thenCompose(
+      		final CompletableFuture<JobResult> jobResultFuture = submissionFuture.thenCompose(
 			(JobSubmissionResult ignored) -> requestJobResult(job.getJobID()));
 
 		final JobResult jobResult;

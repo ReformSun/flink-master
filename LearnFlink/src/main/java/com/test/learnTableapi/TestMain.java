@@ -44,11 +44,24 @@ public class TestMain {
         tableEnv.registerTableSource("testTable", csvTableSource);
 //		testMethod2(tableEnv);
 //		testMethod1(tableEnv);
-		testMethod3(tableEnv);
+//		testMethod3(tableEnv);
+//		testMethod4(tableEnv);
+		testMethod5(tableEnv);
         //执行
         sEnv.execute();
 
     }
+
+	public static void testMethod5(StreamTableEnvironment tableEnv) {
+		Table sqlResult = tableEnv.sql("select CONCAT(cast(age as VARCHAR),cast(rex as VARCHAR)) from testTable");
+		sqlResult.writeToSink(new CsvTableSink("file:///E:\\Asunjihua\\idea\\flink-master\\LearnFlink\\src\\main\\resources\\aaaaaa.csv", ",", 1, FileSystem.WriteMode.OVERWRITE));
+	}
+
+	public static void testMethod4(StreamTableEnvironment tableEnv) {
+		//查询
+		Table sqlResult = tableEnv.sql("select COUNT(DISTINCT(age)) from testTable");
+		sqlResult.writeToSink(new CsvTableSink("file:///Users/apple/Documents/AgentJava/intellProject/LearnFlink/src/main/resources/aaaaaa.csv", ",", 1, FileSystem.WriteMode.OVERWRITE));
+	}
 
 	public static void testMethod3(StreamTableEnvironment tableEnv) {
 		//查询
@@ -64,6 +77,7 @@ public class TestMain {
 //        sqlResult.printSchema();
 		sqlResult.writeToSink(new CsvTableSink("file:///Users/apple/Documents/AgentJava/intellProject/LearnFlink/src/main/resources/aaaaaa.csv", ",", 1, FileSystem.WriteMode.OVERWRITE));
 	}
+
 
 	public static void testMethod2(StreamTableEnvironment tableEnv) {
 		Properties propertie = new Properties();
