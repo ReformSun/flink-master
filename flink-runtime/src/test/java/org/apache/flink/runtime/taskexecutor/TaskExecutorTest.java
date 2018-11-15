@@ -187,6 +187,7 @@ public class TaskExecutorTest extends TestLogger {
 
 	@Before
 	public void setup() throws IOException {
+// 启动rpc服务
 		rpc = new TestingRpcService();
 		timerService = new TimerService<>(TestingUtils.defaultExecutor(), timeout.toMilliseconds());
 

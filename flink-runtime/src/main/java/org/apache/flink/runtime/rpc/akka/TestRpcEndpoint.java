@@ -5,7 +5,7 @@ import org.apache.flink.runtime.rpc.RpcService;
 
 import java.util.concurrent.CompletableFuture;
 
-public class TestRpcEndpoint extends RpcEndpoint{
+public class TestRpcEndpoint extends RpcEndpoint implements TestGateway{
 
 	protected TestRpcEndpoint(RpcService rpcService, String endpointId) {
 		super(rpcService, endpointId);
@@ -18,5 +18,10 @@ public class TestRpcEndpoint extends RpcEndpoint{
 	@Override
 	public CompletableFuture<Void> postStop() {
 		return null;
+	}
+
+	@Override
+	public void testMethod() {
+		System.out.println("dd");
 	}
 }
