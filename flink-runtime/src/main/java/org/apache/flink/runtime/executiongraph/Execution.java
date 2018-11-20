@@ -528,6 +528,7 @@ public class Execution implements AccessExecution, Archiveable<ArchivedExecution
 	}
 
 	/**
+	 * 将执行部署到先前分配的资源中
 	 * Deploys the execution to the previously assigned resource.
 	 *
 	 * @throws JobException if the execution cannot be deployed to the assigned resource
@@ -537,9 +538,10 @@ public class Execution implements AccessExecution, Archiveable<ArchivedExecution
 
 		checkNotNull(slot, "In order to deploy the execution we first have to assign a resource via tryAssignResource.");
 
-		// Check if the TaskManager died in the meantime
+		// Check if the TaskManager died in the meantime 检验taskManager在此期间是否死掉
 		// This only speeds up the response to TaskManagers failing concurrently to deployments.
 		// The more general check is the rpcTimeout of the deployment call
+		// 判断分配的slot是否还处于活跃状态
 		if (!slot.isAlive()) {
 			throw new JobException("Target slot (TaskManager) for deployment is no longer alive.");
 		}

@@ -20,7 +20,7 @@ public class TestMain5 {
 			env.getConfig().disableSysoutLogging();
 			env.getConfig().setRestartStrategy(RestartStrategies.fixedDelayRestart(4, 10000));
 			env.enableCheckpointing(5000); // create a checkpoint every 5 seconds
-			input = env.addSource(KafkaUtil.getKafkaTableSource("ddddddd"));
+			input = env.addSource(KafkaUtil.getKafkaTableSource("ddddddd")).setParallelism(1);
 			testMethod1(input);
 		}catch (Exception e){
 			e.printStackTrace();
@@ -39,11 +39,11 @@ public class TestMain5 {
 			public void flatMap(String value, Collector<SunWordWithCount> out) throws Exception {
 				out.collect(new SunWordWithCount(value,1));
 			}
-		}).keyBy("word").reduce(new RichReduceFunction<SunWordWithCount>() {
+		}).setParallelism(1).keyBy("word").reduce(new RichReduceFunction<SunWordWithCount>() {
 			@Override
 			public SunWordWithCount reduce(SunWordWithCount value1, SunWordWithCount value2) throws Exception {
 				return new SunWordWithCount(value1.word,value1.count + value2.count);
 			}
-		}).addSink(new CustomWordCountPrint());
+		}).addSink(new CustomWordCountPrint()).setParallelism(2);
 	}
 }

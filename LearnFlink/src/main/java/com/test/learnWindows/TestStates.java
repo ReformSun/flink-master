@@ -1,8 +1,11 @@
 package com.test.learnWindows;
 
+import com.sun.corba.se.spi.legacy.connection.GetEndPointInfoAgainException;
+import com.test.customPartition.TestPartition;
 import com.test.flatMap_1.SunFunctionStates1;
 import com.test.sink.CustomWordCountPrint;
 import org.apache.flink.api.common.functions.FlatMapFunction;
+import org.apache.flink.api.common.functions.Partitioner;
 import org.apache.flink.api.common.functions.RichReduceFunction;
 import org.apache.flink.api.java.functions.KeySelector;
 import org.apache.flink.api.java.operators.DataSource;
@@ -27,7 +30,8 @@ public class TestStates {
 
         env.setStateBackend(new RocksDBStateBackend(fsStateBackend));
 //        testMethod1(env);
-		testMethod2(env);
+//		testMethod2(env);
+		testMethod3(env);
         try {
             env.execute();
         } catch (Exception e) {
@@ -70,4 +74,12 @@ public class TestStates {
 		dataStream1.addSink(new CustomWordCountPrint());
 
 	}
+
+
+	// 自定义分组
+	public static void testMethod3(StreamExecutionEnvironment env){
+		DataStreamSource<Tuple2<Long,Long>> dataStreamSource = env.fromElements(Tuple2.of(1L,3L), Tuple2.of(1L,5L), Tuple2.of(1L,3L), Tuple2.of(1L,7L));
+		dataStreamSource.partitionCustom(new TestPartition(),1 ).flatMap(new SunFunctionStates1()).print().setParallelism(1);
+
+    }
 }
