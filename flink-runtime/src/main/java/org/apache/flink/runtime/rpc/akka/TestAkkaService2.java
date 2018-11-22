@@ -4,6 +4,7 @@ import org.apache.flink.api.common.time.Time;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.configuration.ConfigurationUtils;
 import org.apache.flink.runtime.clusterframework.types.ResourceID;
+import org.apache.flink.runtime.registration.RegistrationResponse;
 import org.apache.flink.runtime.resourcemanager.ResourceManagerGateway;
 import org.apache.flink.runtime.rpc.RpcGateway;
 import org.apache.flink.runtime.rpc.RpcService;
@@ -24,7 +25,8 @@ public class TestAkkaService2 {
 
 		try {
 			RpcService rpcService = AkkaRpcServiceUtils.createRpcService("127.0.0.1",8081,configuration);
-			testMethod1(rpcService);
+//			testMethod1(rpcService);
+			testMethod2(rpcService);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -50,6 +52,33 @@ public class TestAkkaService2 {
 	}
 
 	public static void testMethod2(RpcService rpcService){
+
+		CompletableFuture<ResourceManagerGateway> testEndpoint2 = rpcService.connect("akka.tcp://flink@127.0.0.1:6123/user/resourcemanager",ResourceManagerGateway.class);
+
+
+		testEndpoint2.whenComplete((a,b) -> {
+			if (b != null){
+				System.out.println("error");
+			}
+			CompletableFuture<RegistrationResponse> registrationResponseCompletableFuture = a.registerTaskExecutor("", ResourceID.generate(),8080,null, Time.milliseconds(10));
+			registrationResponseCompletableFuture.whenComplete((c,d) -> {
+
+			});
+		}).join();
+
+//		testEndpoint2.handle((ResourceManagerGateway resourceManagerGateway, Throwable throwable) -> {
+//			try {
+//				return resourceManagerGateway.registerTaskExecutor("", ResourceID.generate(),8080,null, Time.milliseconds(10)).get();
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
+//			} catch (ExecutionException e) {
+//				e.printStackTrace();
+//			}
+//			return null;
+//		}).join();
+
+
+		rpcService.stopService();
 
 	}
 

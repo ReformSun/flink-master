@@ -19,9 +19,10 @@ public class TestResourceManager {
 		Configuration configuration = ConfigurationUtils.createConfiguration(propertie);
 
 		try {
-			RpcService rpcService = AkkaRpcServiceUtils.createRpcService("localhost",6123,configuration);
+			RpcService rpcService = AkkaRpcServiceUtils.createRpcService("127.0.0.1",6123,configuration);
 			// akka.tcp://flink@localhost:6123/user/resourcemanager(00000000000000000000000000000000)
-			testMethod2(rpcService);
+//			testMethod2(rpcService);
+			testMethod1(rpcService);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
