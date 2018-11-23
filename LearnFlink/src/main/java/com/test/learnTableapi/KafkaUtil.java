@@ -19,7 +19,8 @@ public class KafkaUtil {
 	public static KafkaTableSource getKafkaTableSource(String topic,TableSchema tableSchema,String rowTimeName){
 		Properties propertie = new Properties();
 		propertie.setProperty("input-topic",topic);
-		propertie.setProperty("bootstrap.servers", "172.31.24.30:9092");
+//		propertie.setProperty("bootstrap.servers", "172.31.24.30:9092,172.31.24.36:9092");
+		propertie.setProperty("bootstrap.servers", "172.31.35.58:9092");
 		propertie.setProperty("group.id", "serverCollector");
 		Kafka010JsonTableSource.Builder jsonTableSourceBuilder = Kafka010JsonTableSource.builder().forTopic(propertie.getProperty("input-topic"));
 		jsonTableSourceBuilder.withKafkaProperties(propertie);

@@ -471,10 +471,11 @@ public abstract class FlinkKafkaConsumerBase<T> extends RichParallelSourceFuncti
 				topicsDescriptor,
 				getRuntimeContext().getIndexOfThisSubtask(),
 				getRuntimeContext().getNumberOfParallelSubtasks());
+//		在分区发现者中 初始化消费者
 		this.partitionDiscoverer.open();
 
 		subscribedPartitionsToStartOffsets = new HashMap<>();
-
+//		根据topic 得到消费者中所有的分区信息
 		List<KafkaTopicPartition> allPartitions = partitionDiscoverer.discoverPartitions();
 
 		if (restoredState != null) {
@@ -780,11 +781,12 @@ public abstract class FlinkKafkaConsumerBase<T> extends RichParallelSourceFuncti
 	}
 
 	// ------------------------------------------------------------------------
-	//  Checkpoint and restore
+	//  Checkpoint and restore 检查点 和 还原
 	// ------------------------------------------------------------------------
 
 	@Override
 	public final void initializeState(FunctionInitializationContext context) throws Exception {
+
 
 		OperatorStateStore stateStore = context.getOperatorStateStore();
 
@@ -795,6 +797,7 @@ public abstract class FlinkKafkaConsumerBase<T> extends RichParallelSourceFuncti
 				OFFSETS_STATE_NAME,
 				TypeInformation.of(new TypeHint<Tuple2<KafkaTopicPartition, Long>>() {})));
 
+//		如果可以从先前的状态恢复和不从老的flink1.1 和 flink 1.2 状态恢复
 		if (context.isRestored() && !restoredFromOldState) {
 			restoredState = new TreeMap<>(new KafkaTopicPartition.Comparator());
 

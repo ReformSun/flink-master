@@ -19,6 +19,7 @@ import org.apache.flink.runtime.rpc.RpcEndpoint;
 import org.apache.flink.runtime.rpc.RpcService;
 import org.apache.flink.runtime.taskexecutor.FileType;
 import org.apache.flink.runtime.taskexecutor.SlotReport;
+import org.apache.flink.runtime.taskexecutor.TaskExecutorGateway;
 import org.apache.flink.runtime.taskexecutor.TaskExecutorRegistrationSuccess;
 
 import javax.annotation.Nullable;
@@ -48,14 +49,17 @@ public class TestResourceManagerGatewayImp extends RpcEndpoint implements Resour
 
 	@Override
 	public CompletableFuture<RegistrationResponse> registerTaskExecutor(String taskExecutorAddress, ResourceID resourceId, int dataPort, HardwareDescription hardwareDescription, Time timeout) {
-//		new TaskExecutorRegistrationSuccess(
-//			new InstanceID(),
-//			resourceId,
-//			300000,
-//			new ClusterInformation("",9000));
 //
-//		CompletableFuture<RegistrationResponse> completableFuture = new CompletableFuture<>();
-		return null;
+
+		CompletableFuture<TaskExecutorGateway> taskExecutorGatewayFuture = getRpcService().connect(taskExecutorAddress, TaskExecutorGateway.class);
+
+		return taskExecutorGatewayFuture.handleAsync((a,b) -> {
+			return new TaskExecutorRegistrationSuccess(
+			new InstanceID(),
+			resourceId,
+			300000,
+			new ClusterInformation("",9000));
+		});
 	}
 
 	@Override

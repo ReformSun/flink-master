@@ -39,6 +39,7 @@ public class SavepointRestoreSettings implements Serializable {
 	private final String restorePath;
 
 	/**
+	 * 允许 非恢复状态
 	 * Flag indicating whether non restored state is allowed if the savepoint
 	 * contains state for an operator that is not part of the job.
 	 */
