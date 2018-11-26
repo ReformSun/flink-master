@@ -28,9 +28,9 @@ public class TestMain14 {
 		StreamTableEnvironment tableEnv = TableEnvironment.getTableEnvironment(sEnv);
 		sEnv.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
 		sEnv.enableCheckpointing(6000);
+		sEnv.setParallelism(1);
 		FsStateBackend fsStateBackend = new FsStateBackend(new Path("file:///Users/apple/Desktop/rockdata").toUri(),new Path("file:///Users/apple/Desktop/savepoint").toUri());
 		sEnv.setStateBackend(new RocksDBStateBackend(fsStateBackend));
-
 
 		TableSchemaBuilder tableSchemaBuilder = TableSchema.builder();
 		TableSchema tableSchema = tableSchemaBuilder.field("user_name", Types.STRING).field("user_count",Types.LONG).field("_sysTime", Types.SQL_TIMESTAMP).build();

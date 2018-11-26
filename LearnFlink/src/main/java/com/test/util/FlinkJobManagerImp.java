@@ -28,7 +28,8 @@ public class FlinkJobManagerImp implements FlinkJobManager {
 //    private final String baseUrl = "http://10.4.247.17:8081";
 //    private final String baseUrl = "http://172.31.35.58:8081";
 //    private final String baseUrl = "http://172.31.35.58:8081";
-    private final String baseUrl = "http://10.4.251.99:8081";
+//    private final String baseUrl = "http://10.4.251.99:8081";
+	private final String baseUrl = "http://localhost:8081";
     private static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     private static Gson gson = new GsonBuilder().enableComplexMapKeySerialization().create();
     private static FlinkJobManagerImp instance;

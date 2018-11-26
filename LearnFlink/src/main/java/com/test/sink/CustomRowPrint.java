@@ -13,6 +13,7 @@ import java.nio.file.StandardOpenOption;
 
 public class CustomRowPrint extends RichSinkFunction<Row> {
 	private String fileName;
+	private String baseUrl = "/Users/apple/Documents/AgentJava/flink-master";
 
 	public CustomRowPrint(String fileName) {
 		this.fileName = fileName;
@@ -23,7 +24,7 @@ public class CustomRowPrint extends RichSinkFunction<Row> {
 		writerFile(value.toString());
 	}
 	public  void writerFile(String s) throws IOException {
-		Path logFile = Paths.get("./LearnFlink/src/main/resources/" + fileName);
+		Path logFile = Paths.get( baseUrl + "/LearnFlink/src/main/resources/" + fileName);
 		try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)){
 			writer.newLine();
 			writer.write(s);

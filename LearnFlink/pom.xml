@@ -206,6 +206,30 @@
 	  </dependency>
 
 	  <dependency>
+		  <groupId>org.apache.kafka</groupId>
+		  <artifactId>kafka_${scala.binary.version}</artifactId>
+		  <version>0.8.2.2</version>
+	  </dependency>
+
+	  <dependency>
+		  <groupId>org.apache.kafka</groupId>
+		  <artifactId>kafka_${scala.binary.version}</artifactId>
+		  <version>0.9.0.1</version>
+	  </dependency>
+
+	  <dependency>
+		  <groupId>org.apache.kafka</groupId>
+		  <artifactId>kafka_${scala.binary.version}</artifactId>
+		  <version>0.10.2.1</version>
+	  </dependency>
+
+	  <dependency>
+		  <groupId>org.apache.kafka</groupId>
+		  <artifactId>kafka_${scala.binary.version}</artifactId>
+		  <version>0.11.0.2</version>
+	  </dependency>
+
+	  <dependency>
 		  <groupId>org.postgresql</groupId>
 		  <artifactId>postgresql</artifactId>
 		  <version>42.2.2</version>
@@ -229,6 +253,13 @@
 		  <version>${scala.version}</version>
 	  </dependency>
 
+	  <dependency>
+		  <groupId>org.apache.calcite</groupId>
+		  <artifactId>calcite-core</artifactId>
+		  <!-- When updating the Calcite version, make sure to update the dependency exclusions -->
+		  <version>1.16.0</version>
+	  </dependency>
+
 
 	  <dependency>
 		  <groupId>com.alibaba</groupId>
@@ -247,11 +278,63 @@
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>com.test.learnTableapi.TestMain14</mainClass>
+						</manifest>
+					</archive>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+					<!--<descriptors>-->
+						<!--<descriptor>src/main/assembly/assembly.xml</descriptor>-->
+					<!--</descriptors>-->
+					<!--<outputDirectory>${project.build.directory}</outputDirectory>-->
+					<!--<appendAssemblyId>false</appendAssemblyId>-->
+				</configuration>
+				<executions>
+					<execution>
+						<id>create-distribution</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
 				<!--<inherited></inherited>-->
 				<configuration>
 					<skip>true</skip>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-ideal-manifest.json</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/classes</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/target/LearnFlink/</directory>
+									<includes>
+										<include>**/*.class</include>
+									</includes>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -262,7 +345,7 @@
 						<manifestEntries>
 							<ideal-Agent-version>${project.version}</ideal-Agent-version>
 							<Built-Date>${maven.build.timestamp}</Built-Date>
-							<Main-Class>com.test.learnTableapi.testMain14</Main-Class>
+							<Main-Class>com.test.learnTableapi.TestMain14</Main-Class>
 						</manifestEntries>
 					</archive>
 				</configuration>
