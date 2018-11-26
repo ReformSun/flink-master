@@ -6,9 +6,9 @@ public class TestSend {
     public static void main(String[] args) {
 //        testMethod1();
 //        testMethod2();
-//		testMethod3();
+		testMethod3();
 
-		testMethod4();
+//		testMethod4();
     }
 
 

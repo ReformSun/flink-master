@@ -321,7 +321,14 @@ public class FlinkJobManagerImp implements FlinkJobManager {
     }
 
 	@Override
-	public ReadResult triggerSavepoints(String jobid,String triggerId) {
+	public ReadResult triggerSavepoints(String jobid) {
+		String u = baseUrl + "/jobs/" + jobid+"/savepoints";
+		Request request = new Request.Builder().url(u).build();
+		return sendRequest(request);
+	}
+
+	@Override
+	public ReadResult getSavepointStatus(String jobid, String triggerId) {
 		String u = baseUrl + "/jobs/" + jobid+"/savepoints/" + triggerId;
 		Request request = new Request.Builder().url(u).build();
 		return sendRequest(request);

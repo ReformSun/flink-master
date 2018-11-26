@@ -14,5 +14,6 @@ public interface FlinkJobManager {
 	ReadResult queryDatasetJob(String jobName, String entry_class, JSONObject datasetMap);
     public ReadResult stopCluster();
     public ReadResult getConfig();
-    public ReadResult triggerSavepoints(String jobid,String triggerId);
+    public ReadResult triggerSavepoints(String jobid);
+	public ReadResult getSavepointStatus(String jobid,String triggerId);
 }
