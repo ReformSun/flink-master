@@ -29,7 +29,7 @@ public class TestMain14 {
 		sEnv.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
 		sEnv.enableCheckpointing(6000);
 		sEnv.setParallelism(1);
-		FsStateBackend fsStateBackend = new FsStateBackend(new Path("file:///Users/apple/Desktop/rockdata").toUri(),new Path("file:///Users/apple/Desktop/savepoint").toUri());
+		FsStateBackend fsStateBackend = new FsStateBackend(new Path("file:///root/rockdata").toUri(),new Path("file:///root/savepoint").toUri());
 		sEnv.setStateBackend(new RocksDBStateBackend(fsStateBackend));
 
 		TableSchemaBuilder tableSchemaBuilder = TableSchema.builder();
@@ -51,6 +51,6 @@ public class TestMain14 {
 		tableEnvironment.registerTable("tableName2",sqlResult);
 		Table sqlResult2 = tableEnvironment.sqlQuery("SELECT cast(t2.value1-t1.value1 as FLOAT) / t1.value1 * 100  as a748658 FROM tableName2 as t2 JOIN tableName1 as t1 ON t1.start_time = t2.start_time-INTERVAL '1' MINUTE");
 		DataStream<Row> stream2 = tableEnvironment.toAppendStream(sqlResult2, Row.class, qConfig);
-		stream2.addSink(new CustomRowPrint("test3.txt"));
+		stream2.addSink(new CustomRowPrint("test.txt"));
 	}
 }

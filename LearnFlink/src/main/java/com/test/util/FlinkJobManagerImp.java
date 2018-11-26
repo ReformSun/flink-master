@@ -25,11 +25,11 @@ public class FlinkJobManagerImp implements FlinkJobManager {
     private static Pattern pattern = Pattern.compile("[\\w-]+\\.jar{1}");
     private static Logger logger = Logger.getLogger(FlinkJobManagerImp.class);
     //    private final String baseUrl = "http://172.24.157.3:8081";
-//    private final String baseUrl = "http://10.4.247.17:8081";
+    private final String baseUrl = "http://10.4.247.17:8081";
 //    private final String baseUrl = "http://172.31.35.58:8081";
 //    private final String baseUrl = "http://172.31.35.58:8081";
 //    private final String baseUrl = "http://10.4.251.99:8081";
-	private final String baseUrl = "http://localhost:8081";
+//	private final String baseUrl = "http://localhost:8081";
     private static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     private static Gson gson = new GsonBuilder().enableComplexMapKeySerialization().create();
     private static FlinkJobManagerImp instance;
@@ -320,7 +320,14 @@ public class FlinkJobManagerImp implements FlinkJobManager {
         return sendRequest(request);
     }
 
-    private ReadResult sendRequest(Request request){
+	@Override
+	public ReadResult triggerSavepoints(String jobid,String triggerId) {
+		String u = baseUrl + "/jobs/" + jobid+"/savepoints/" + triggerId;
+		Request request = new Request.Builder().url(u).build();
+		return sendRequest(request);
+	}
+
+	private ReadResult sendRequest(Request request){
 
         OkHttpClient client = new OkHttpClient();
         try {

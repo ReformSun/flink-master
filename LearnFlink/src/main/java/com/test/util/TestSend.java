@@ -4,9 +4,11 @@ import java.io.UnsupportedEncodingException;
 
 public class TestSend {
     public static void main(String[] args) {
-        testMethod1();
+//        testMethod1();
 //        testMethod2();
+//		testMethod3();
 
+		testMethod4();
     }
 
 
@@ -28,9 +30,22 @@ public class TestSend {
         }
     }
 
-    public static void testMethod3(){
+	/**
+	 * 触发检查点
+	 */
+	public static void testMethod3(){
+		FlinkJobManager flinkJobManager = FlinkJobManagerImp.getInstance();
+		ReadResult readResult = flinkJobManager.triggerSavepoints("d706815e316b7e34104a95421e3bb351","d706815e316b7e34104a95421e3bb352");
+		System.out.println(readResult.getResponseBody());
+	}
 
-    }
+	/**
+	 * 得到job详情
+	 */
+	public static void testMethod4(){
+		FlinkJobManager flinkJobManager = FlinkJobManagerImp.getInstance();
+		flinkJobManager.getJobsDetail("d706815e316b7e34104a95421e3bb351");
+	}
 
 
 }
