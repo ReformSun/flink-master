@@ -18,7 +18,7 @@
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
     <flink.version>1.5.0</flink.version>
-	  <Internal.resources.baseDir>/Users/apple/Documents/AgentJava/flink-master
+	  <Internal.resources.baseDir>E:\Asunjihua\idea\flink-master
 	  </Internal.resources.baseDir>
 	  <okhttp.version>3.5.0</okhttp.version>
   </properties>
@@ -68,117 +68,88 @@
 
 
     <!--学习flink table api 需要增加的jar包-->
-
 	  <dependency>
 		  <groupId>org.apache.flink</groupId>
 		  <artifactId>flink-java</artifactId>
 		  <version>${project.version}</version>
-		  <scope>system</scope>
-		  <systemPath>${Internal.resources.baseDir}/flink-java/target/flink-java-${project.version}.jar</systemPath>
 	  </dependency>
 	  <dependency>
 		  <groupId>org.apache.flink</groupId>
 		  <artifactId>flink-streaming-java_2.11</artifactId>
 		  <version>${project.version}</version>
-		  <scope>system</scope>
-		  <systemPath>${Internal.resources.baseDir}/flink-streaming-java/target/flink-streaming-java_2.11-${project.version}.jar</systemPath>
 	  </dependency>
 	  <dependency>
 		  <groupId>org.apache.flink</groupId>
 		  <artifactId>flink-clients_2.11</artifactId>
 		  <version>${project.version}</version>
-		  <scope>system</scope>
-		  <systemPath>${Internal.resources.baseDir}/flink-clients/target/flink-clients_2.11-${project.version}.jar</systemPath>
-	  </dependency>
-
-    <dependency>
-      <groupId>org.apache.flink</groupId>
-      <artifactId>flink-table_2.11</artifactId>
-		<version>${project.version}</version>
-		<scope>system</scope>
-		<systemPath>${Internal.resources.baseDir}/flink-libraries/flink-table/target/flink-table_2.11-${project.version}.jar</systemPath>
-    </dependency>
-
-    <dependency>
-      <groupId>org.apache.flink</groupId>
-      <artifactId>flink-scala_2.11</artifactId>
-		<version>${project.version}</version>
-		<scope>system</scope>
-		<systemPath>${Internal.resources.baseDir}/flink-scala/target/flink-scala_2.11-${project.version}.jar</systemPath>
-    </dependency>
-
-    <dependency>
-      <groupId>org.apache.flink</groupId>
-      <artifactId>flink-streaming-scala_2.11</artifactId>
-		<version>${project.version}</version>
-		<scope>system</scope>
-		<systemPath>${Internal.resources.baseDir}/flink-streaming-scala/target/flink-streaming-scala_2.11-${project.version}.jar</systemPath>
-    </dependency>
-
-
-	  <dependency>
-		  <groupId>org.apache.flink</groupId>
-		  <artifactId>flink-connector-kafka-0.9_2.11</artifactId>
-		  <version>${project.version}</version>
-		  <scope>system</scope>
-		  <systemPath>${Internal.resources.baseDir}/flink-connectors/flink-connector-kafka-0.9/target/flink-connector-kafka-0.9_2.11-${project.version}.jar</systemPath>
 	  </dependency>
 
 	  <dependency>
 		  <groupId>org.apache.flink</groupId>
-		  <artifactId>flink-connector-kafka-0.8_2.11</artifactId>
+		  <artifactId>flink-table_2.11</artifactId>
 		  <version>${project.version}</version>
-		  <scope>system</scope>
-		  <systemPath>${Internal.resources.baseDir}/flink-connectors/flink-connector-kafka-0.8/target/flink-connector-kafka-0.8_2.11-${project.version}.jar</systemPath>
 	  </dependency>
 
 	  <dependency>
 		  <groupId>org.apache.flink</groupId>
-		  <artifactId>flink-connector-kafka-base_${scala.binary.version}</artifactId>
+		  <artifactId>flink-scala_2.11</artifactId>
 		  <version>${project.version}</version>
-		  <scope>system</scope>
-		  <systemPath>${Internal.resources.baseDir}/flink-connectors/flink-connector-kafka-base/target/flink-connector-kafka-base_2.11-${project.version}.jar</systemPath>
 	  </dependency>
 
-    <dependency>
-      <groupId>org.apache.flink</groupId>
-      <artifactId>flink-connector-kafka-0.10_2.11</artifactId>
-		<version>${project.version}</version>
-		<scope>system</scope>
-		<systemPath>${Internal.resources.baseDir}/flink-connectors/flink-connector-kafka-0.10/target/flink-connector-kafka-0.10_2.11-${project.version}.jar</systemPath>
-    </dependency>
+	  <dependency>
+		  <groupId>org.apache.flink</groupId>
+		  <artifactId>flink-streaming-scala_2.11</artifactId>
+		  <version>${project.version}</version>
+	  </dependency>
 
-    <dependency>
-      <groupId>org.apache.flink</groupId>
-      <artifactId>flink-json</artifactId>
-		<version>${project.version}</version>
-		<scope>system</scope>
-		<systemPath>${Internal.resources.baseDir}/flink-formats/flink-json/target/flink-json-${project.version}.jar</systemPath>
-    </dependency>
+
+	  <!--<dependency>-->
+		  <!--<groupId>org.apache.flink</groupId>-->
+		  <!--<artifactId>flink-connector-kafka-0.9_2.11</artifactId>-->
+		  <!--<version>${project.version}</version>-->
+	  <!--</dependency>-->
+
+	  <!--<dependency>-->
+		  <!--<groupId>org.apache.flink</groupId>-->
+		  <!--<artifactId>flink-connector-kafka-0.8_2.11</artifactId>-->
+		  <!--<version>${project.version}</version>-->
+	  <!--</dependency>-->
+
+	  <!--<dependency>-->
+		  <!--<groupId>org.apache.flink</groupId>-->
+		  <!--<artifactId>flink-connector-kafka-base_${scala.binary.version}</artifactId>-->
+		  <!--<version>${project.version}</version>-->
+	  <!--</dependency>-->
+
+	  <dependency>
+		  <groupId>org.apache.flink</groupId>
+		  <artifactId>flink-connector-kafka-0.10_2.11</artifactId>
+		  <version>${project.version}</version>
+	  </dependency>
+
+	  <dependency>
+		  <groupId>org.apache.flink</groupId>
+		  <artifactId>flink-json</artifactId>
+		  <version>${project.version}</version>
+	  </dependency>
 
 
 	  <dependency>
 		  <groupId>org.apache.flink</groupId>
 		  <artifactId>flink-statebackend-rocksdb_2.11</artifactId>
 		  <version>${project.version}</version>
-		  <scope>system</scope>
-		  <systemPath>${Internal.resources.baseDir}/flink-state-backends/flink-statebackend-rocksdb/target/flink-statebackend-rocksdb_2.11-${project.version}.jar</systemPath>
 	  </dependency>
 
 	  <dependency>
 		  <artifactId>flink-core</artifactId>
 		  <groupId>org.apache.flink</groupId>
 		  <version>${project.version}</version>
-		  <scope>system</scope>
-		  <systemPath>${Internal.resources.baseDir}/flink-core/target/flink-core-${project.version}.jar</systemPath>
 	  </dependency>
 
 	  <dependency>
 		  <artifactId>flink-runtime_2.11</artifactId>
 		  <groupId>org.apache.flink</groupId>
 		  <version>${project.version}</version>
-		  <scope>system</scope>
-		  <systemPath>${Internal.resources.baseDir}/flink-runtime/target/flink-runtime_2.11-${project.version}.jar</systemPath>
 	  </dependency>
 
 	  <!--数据库访问-->
@@ -186,47 +157,171 @@
 		  <groupId>org.apache.flink</groupId>
 		  <artifactId>flink-jdbc</artifactId>
 		  <version>${project.version}</version>
-		  <scope>system</scope>
-		  <systemPath>${Internal.resources.baseDir}/flink-connectors/flink-jdbc/target/flink-jdbc-${project.version}.jar</systemPath>
 	  </dependency>
 
 	  <dependency>
 		  <groupId>org.apache.flink</groupId>
 		  <artifactId>force-shading</artifactId>
 		  <version>${project.version}</version>
-		  <scope>system</scope>
-		  <systemPath>${Internal.resources.baseDir}/tools/force-shading/target/force-shading-${project.version}.jar</systemPath>
 	  </dependency>
 
+	  <!--<dependency>-->
+		  <!--<groupId>org.apache.flink</groupId>-->
+		  <!--<artifactId>flink-java</artifactId>-->
+		  <!--<version>${project.version}</version>-->
+		  <!--<scope>system</scope>-->
+		  <!--<systemPath>${Internal.resources.baseDir}/flink-java/target/flink-java-${project.version}.jar</systemPath>-->
+	  <!--</dependency>-->
+	  <!--<dependency>-->
+		  <!--<groupId>org.apache.flink</groupId>-->
+		  <!--<artifactId>flink-streaming-java_2.11</artifactId>-->
+		  <!--<version>${project.version}</version>-->
+		  <!--<scope>system</scope>-->
+		  <!--<systemPath>${Internal.resources.baseDir}/flink-streaming-java/target/flink-streaming-java_2.11-${project.version}.jar</systemPath>-->
+	  <!--</dependency>-->
+	  <!--<dependency>-->
+		  <!--<groupId>org.apache.flink</groupId>-->
+		  <!--<artifactId>flink-clients_2.11</artifactId>-->
+		  <!--<version>${project.version}</version>-->
+		  <!--<scope>system</scope>-->
+		  <!--<systemPath>${Internal.resources.baseDir}/flink-clients/target/flink-clients_2.11-${project.version}.jar</systemPath>-->
+	  <!--</dependency>-->
+
+    <!--<dependency>-->
+      <!--<groupId>org.apache.flink</groupId>-->
+      <!--<artifactId>flink-table_2.11</artifactId>-->
+		<!--<version>${project.version}</version>-->
+		<!--<scope>system</scope>-->
+		<!--<systemPath>${Internal.resources.baseDir}/flink-libraries/flink-table/target/flink-table_2.11-${project.version}.jar</systemPath>-->
+    <!--</dependency>-->
+
+    <!--<dependency>-->
+      <!--<groupId>org.apache.flink</groupId>-->
+      <!--<artifactId>flink-scala_2.11</artifactId>-->
+		<!--<version>${project.version}</version>-->
+		<!--<scope>system</scope>-->
+		<!--<systemPath>${Internal.resources.baseDir}/flink-scala/target/flink-scala_2.11-${project.version}.jar</systemPath>-->
+    <!--</dependency>-->
+
+    <!--<dependency>-->
+      <!--<groupId>org.apache.flink</groupId>-->
+      <!--<artifactId>flink-streaming-scala_2.11</artifactId>-->
+		<!--<version>${project.version}</version>-->
+		<!--<scope>system</scope>-->
+		<!--<systemPath>${Internal.resources.baseDir}/flink-streaming-scala/target/flink-streaming-scala_2.11-${project.version}.jar</systemPath>-->
+    <!--</dependency>-->
+
+
+	  <!--<dependency>-->
+		  <!--<groupId>org.apache.flink</groupId>-->
+		  <!--<artifactId>flink-connector-kafka-0.9_2.11</artifactId>-->
+		  <!--<version>${project.version}</version>-->
+		  <!--<scope>system</scope>-->
+		  <!--<systemPath>${Internal.resources.baseDir}/flink-connectors/flink-connector-kafka-0.9/target/flink-connector-kafka-0.9_2.11-${project.version}.jar</systemPath>-->
+	  <!--</dependency>-->
+
+	  <!--<dependency>-->
+		  <!--<groupId>org.apache.flink</groupId>-->
+		  <!--<artifactId>flink-connector-kafka-0.8_2.11</artifactId>-->
+		  <!--<version>${project.version}</version>-->
+		  <!--<scope>system</scope>-->
+		  <!--<systemPath>${Internal.resources.baseDir}/flink-connectors/flink-connector-kafka-0.8/target/flink-connector-kafka-0.8_2.11-${project.version}.jar</systemPath>-->
+	  <!--</dependency>-->
+
+	  <!--<dependency>-->
+		  <!--<groupId>org.apache.flink</groupId>-->
+		  <!--<artifactId>flink-connector-kafka-base_${scala.binary.version}</artifactId>-->
+		  <!--<version>${project.version}</version>-->
+		  <!--<scope>system</scope>-->
+		  <!--<systemPath>${Internal.resources.baseDir}/flink-connectors/flink-connector-kafka-base/target/flink-connector-kafka-base_2.11-${project.version}.jar</systemPath>-->
+	  <!--</dependency>-->
+
+    <!--<dependency>-->
+      <!--<groupId>org.apache.flink</groupId>-->
+      <!--<artifactId>flink-connector-kafka-0.10_2.11</artifactId>-->
+		<!--<version>${project.version}</version>-->
+		<!--<scope>system</scope>-->
+		<!--<systemPath>${Internal.resources.baseDir}/flink-connectors/flink-connector-kafka-0.10/target/flink-connector-kafka-0.10_2.11-${project.version}.jar</systemPath>-->
+    <!--</dependency>-->
+
+    <!--<dependency>-->
+      <!--<groupId>org.apache.flink</groupId>-->
+      <!--<artifactId>flink-json</artifactId>-->
+		<!--<version>${project.version}</version>-->
+		<!--<scope>system</scope>-->
+		<!--<systemPath>${Internal.resources.baseDir}/flink-formats/flink-json/target/flink-json-${project.version}.jar</systemPath>-->
+    <!--</dependency>-->
+
+
+	  <!--<dependency>-->
+		  <!--<groupId>org.apache.flink</groupId>-->
+		  <!--<artifactId>flink-statebackend-rocksdb_2.11</artifactId>-->
+		  <!--<version>${project.version}</version>-->
+		  <!--<scope>system</scope>-->
+		  <!--<systemPath>${Internal.resources.baseDir}/flink-state-backends/flink-statebackend-rocksdb/target/flink-statebackend-rocksdb_2.11-${project.version}.jar</systemPath>-->
+	  <!--</dependency>-->
+
+	  <!--<dependency>-->
+		  <!--<artifactId>flink-core</artifactId>-->
+		  <!--<groupId>org.apache.flink</groupId>-->
+		  <!--<version>${project.version}</version>-->
+		  <!--<scope>system</scope>-->
+		  <!--<systemPath>${Internal.resources.baseDir}/flink-core/target/flink-core-${project.version}.jar</systemPath>-->
+	  <!--</dependency>-->
+
+	  <!--<dependency>-->
+		  <!--<artifactId>flink-runtime_2.11</artifactId>-->
+		  <!--<groupId>org.apache.flink</groupId>-->
+		  <!--<version>${project.version}</version>-->
+		  <!--<scope>system</scope>-->
+		  <!--<systemPath>${Internal.resources.baseDir}/flink-runtime/target/flink-runtime_2.11-${project.version}.jar</systemPath>-->
+	  <!--</dependency>-->
+
+	  <!--&lt;!&ndash;数据库访问&ndash;&gt;-->
+	  <!--<dependency>-->
+		  <!--<groupId>org.apache.flink</groupId>-->
+		  <!--<artifactId>flink-jdbc</artifactId>-->
+		  <!--<version>${project.version}</version>-->
+		  <!--<scope>system</scope>-->
+		  <!--<systemPath>${Internal.resources.baseDir}/flink-connectors/flink-jdbc/target/flink-jdbc-${project.version}.jar</systemPath>-->
+	  <!--</dependency>-->
+
+	  <!--<dependency>-->
+		  <!--<groupId>org.apache.flink</groupId>-->
+		  <!--<artifactId>force-shading</artifactId>-->
+		  <!--<version>${project.version}</version>-->
+		  <!--<scope>system</scope>-->
+		  <!--<systemPath>${Internal.resources.baseDir}/tools/force-shading/target/force-shading-${project.version}.jar</systemPath>-->
+	  <!--</dependency>-->
+
+	  <!--<dependency>-->
+		  <!--<groupId>org.apache.kafka</groupId>-->
+		  <!--<artifactId>kafka_${scala.binary.version}</artifactId>-->
+		  <!--<version>0.8.2.2</version>-->
+	  <!--</dependency>-->
+
+	  <!--<dependency>-->
+		  <!--<groupId>org.apache.kafka</groupId>-->
+		  <!--<artifactId>kafka_${scala.binary.version}</artifactId>-->
+		  <!--<version>0.9.0.1</version>-->
+	  <!--</dependency>-->
+
+	  <!--<dependency>-->
+		  <!--<groupId>org.apache.kafka</groupId>-->
+		  <!--<artifactId>kafka_${scala.binary.version}</artifactId>-->
+		  <!--<version>0.10.2.1</version>-->
+	  <!--</dependency>-->
+
+	  <!--<dependency>-->
+		  <!--<groupId>org.apache.kafka</groupId>-->
+		  <!--<artifactId>kafka_${scala.binary.version}</artifactId>-->
+		  <!--<version>0.11.0.2</version>-->
+	  <!--</dependency>-->
 
 	  <dependency>
 		  <groupId>org.rocksdb</groupId>
 		  <artifactId>rocksdbjni</artifactId>
 		  <version>5.8.6</version>
-	  </dependency>
-
-	  <dependency>
-		  <groupId>org.apache.kafka</groupId>
-		  <artifactId>kafka_${scala.binary.version}</artifactId>
-		  <version>0.8.2.2</version>
-	  </dependency>
-
-	  <dependency>
-		  <groupId>org.apache.kafka</groupId>
-		  <artifactId>kafka_${scala.binary.version}</artifactId>
-		  <version>0.9.0.1</version>
-	  </dependency>
-
-	  <dependency>
-		  <groupId>org.apache.kafka</groupId>
-		  <artifactId>kafka_${scala.binary.version}</artifactId>
-		  <version>0.10.2.1</version>
-	  </dependency>
-
-	  <dependency>
-		  <groupId>org.apache.kafka</groupId>
-		  <artifactId>kafka_${scala.binary.version}</artifactId>
-		  <version>0.11.0.2</version>
 	  </dependency>
 
 	  <dependency>
@@ -282,7 +377,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>com.test.learnTableapi.TestMain14</mainClass>
+							<mainClass>com.test.learnWindows.TestMain3</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>

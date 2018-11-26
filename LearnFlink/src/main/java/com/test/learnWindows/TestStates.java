@@ -24,11 +24,12 @@ import java.io.IOException;
 public class TestStates {
     public static void main(String[] args) throws IOException {
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-        env.enableCheckpointing(6000);
-
-		FsStateBackend fsStateBackend = new FsStateBackend(new Path("file:///Users/apple/Desktop/rockdata").toUri(),new Path("file:///Users/apple/Desktop/savepoint").toUri());
-
-        env.setStateBackend(new RocksDBStateBackend(fsStateBackend));
+        env.setParallelism(4);
+//        env.enableCheckpointing(6000);
+//
+//		FsStateBackend fsStateBackend = new FsStateBackend(new Path("file:///Users/apple/Desktop/rockdata").toUri(),new Path("file:///Users/apple/Desktop/savepoint").toUri());
+//
+//        env.setStateBackend(new RocksDBStateBackend(fsStateBackend));
 //        testMethod1(env);
 //		testMethod2(env);
 		testMethod3(env);
@@ -47,7 +48,7 @@ public class TestStates {
 	}
 
 	public static void testMethod2(StreamExecutionEnvironment env) {
-		DataStreamSource<String> input = env.addSource(KafkaUtil.getKafkaTableSource("wordcount"));
+		DataStreamSource<String> input = env.addSource(KafkaUtil.getKafkaConsumer09Source("wordcount"));
 		DataStream<SunWordWithCount> dataStream = input.flatMap(new FlatMapFunction<String, SunWordWithCount>() {
 			@Override
 			public void flatMap(String value, Collector<SunWordWithCount> out) throws Exception {

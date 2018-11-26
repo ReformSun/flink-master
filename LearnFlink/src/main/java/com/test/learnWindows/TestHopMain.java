@@ -25,7 +25,7 @@ public class TestHopMain {
 	}
 
 	public static void testMethod1(StreamExecutionEnvironment env) {
-		DataStreamSource<String> input = env.addSource(KafkaUtil.getKafkaTableSource("ddddddd"));
+		DataStreamSource<String> input = env.addSource(KafkaUtil.getKafkaConsumer09Source("ddddddd"));
 		input.flatMap(new FlatMapFunction<String, SunWordWithCount>() {
 			@Override
 			public void flatMap(String value, Collector<SunWordWithCount> out) throws Exception {

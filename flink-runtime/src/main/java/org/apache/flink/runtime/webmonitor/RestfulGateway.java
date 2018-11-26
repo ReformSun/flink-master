@@ -183,8 +183,7 @@ public interface RestfulGateway extends RpcGateway {
 			JobVertexID jobVertexId) {
 		throw new UnsupportedOperationException();
 	}
-
-	/**
+ 	/**
 	 * Trigger rescaling of the given job.
 	 *
 	 * @param jobId specifying the job to rescale

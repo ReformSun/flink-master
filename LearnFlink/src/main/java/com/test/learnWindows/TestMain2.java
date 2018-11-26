@@ -21,7 +21,7 @@ public class TestMain2 {
 			env.getConfig().disableSysoutLogging();
 			env.getConfig().setRestartStrategy(RestartStrategies.fixedDelayRestart(4, 10000));
 			env.enableCheckpointing(5000); // create a checkpoint every 5 seconds
-			input = env.addSource(KafkaUtil.getKafkaTableSource("ddddddd"));
+			input = env.addSource(KafkaUtil.getKafkaConsumer09Source("ddddddd"));
 //			testMethod1(input);
 			testMethod2(input);
 		}catch (Exception e){

@@ -323,21 +323,10 @@ public class FlinkJobManagerImp implements FlinkJobManager {
 	@Override
 	public ReadResult triggerSavepoints(String jobid) {
 		String u = baseUrl + "/jobs/" + jobid+"/savepoints";
-
 		Map<String,Object> map = new LinkedHashMap();
 		map.put("target-directory","/root/savepoint");
-		map.put("cancel-job",false);
-//		RequestBody body =RequestBody.create(JSON,bodyS);
-//		OkHttpClient.Builder builder = new OkHttpClient.Builder();
-//		builder.connectTimeout(2, TimeUnit.MINUTES);
-//		builder.readTimeout(2,TimeUnit.MINUTES);
-//
-//		Request request = new Request.Builder()
-//			.url(url).header("Content-Type","application/json;charset=utf-8")
-//			.header("Accept","application/json, text/plain, */*").header("Accept-Encoding","gzip, deflate").post(body)
-//			.build();
-		return null;
-//		return sendRequest(request);
+		map.put("cancel-job",true);
+		return sendRequest(getPostRequest(u,gson.toJson(map)));
 	}
 
 	@Override
@@ -361,7 +350,16 @@ public class FlinkJobManagerImp implements FlinkJobManager {
     }
 
     private Request getPostRequest(String url,String body){
+		RequestBody requestBody =RequestBody.create(JSON,body);
+		OkHttpClient.Builder builder = new OkHttpClient.Builder();
+		builder.connectTimeout(2, TimeUnit.MINUTES);
+		builder.readTimeout(2,TimeUnit.MINUTES);
 
+		Request request = new Request.Builder()
+			.url(url).header("Content-Type","application/json;charset=utf-8")
+			.header("Accept","application/json, text/plain, */*").header("Accept-Encoding","gzip, deflate").post(requestBody)
+			.build();
+		return request;
 	}
 
 }

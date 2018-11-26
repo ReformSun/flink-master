@@ -16,7 +16,7 @@ public class Test {
 	private static final Logger LOG = LoggerFactory.getLogger(Test.class);
 
 	public static void main(String[] args) {
-		Configuration globalConfiguration = GlobalConfiguration.loadConfiguration("/Users/apple/Documents/AgentJava/flink-master/flink-dist/target/flink-1.7-SNAPSHOT-bin/flink-1.7-SNAPSHOT/conf");
+		Configuration globalConfiguration = GlobalConfiguration.loadConfiguration("E:\\Asunjihua\\idea\\flink-master\\flink-dist\\target\\flink-1.7-SNAPSHOT-bin\\flink-1.7-SNAPSHOT\\conf");
 		ResourceID resourceID = ResourceID.generate();
 
 		SignalHandler.register(LOG);
