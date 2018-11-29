@@ -16,4 +16,6 @@ public interface FlinkJobManager {
     public ReadResult getConfig();
     public ReadResult triggerSavepoints(String jobid);
 	public ReadResult getSavepointStatus(String jobid,String triggerId);
+	public ReadResult triggerRescaling(String jobid);
+	public ReadResult getRescalingStatus(String jobid,String triggerId);
 }

@@ -2,6 +2,15 @@ package test;
 
 public class TimeAndNumber {
 	private Long timestamp;
+
+	public Long getTimestamp() {
+		return timestamp;
+	}
+
+	public Long getNumber() {
+		return number;
+	}
+
 	private Long number;
 
 	public TimeAndNumber(Long timestamp, Long number) {

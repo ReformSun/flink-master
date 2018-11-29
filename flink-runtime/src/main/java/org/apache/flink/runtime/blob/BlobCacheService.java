@@ -33,10 +33,10 @@ import static org.apache.flink.util.Preconditions.checkNotNull;
  */
 public class BlobCacheService implements BlobService {
 
-	/** Caching store for permanent BLOBs. */
+	/** Caching store for permanent BLOBs.永久性存储  */
 	private final PermanentBlobCache permanentBlobCache;
 
-	/** Store for transient BLOB files. */
+	/** Store for transient BLOB files.短暂存储 */
 	private final TransientBlobCache transientBlobCache;
 
 	/**

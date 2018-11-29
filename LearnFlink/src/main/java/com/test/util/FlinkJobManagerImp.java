@@ -336,6 +336,18 @@ public class FlinkJobManagerImp implements FlinkJobManager {
 		return sendRequest(request);
 	}
 
+	@Override
+	public ReadResult triggerRescaling(String jobid) {
+		String u = baseUrl + "/jobs/" + jobid+"/rescaling";
+		String body = "{}";
+		return sendRequest(getPatchRequest(u,body));
+	}
+
+	@Override
+	public ReadResult getRescalingStatus(String jobid, String triggerId) {
+		return null;
+	}
+
 	private ReadResult sendRequest(Request request){
 
         OkHttpClient client = new OkHttpClient();
@@ -361,5 +373,19 @@ public class FlinkJobManagerImp implements FlinkJobManager {
 			.build();
 		return request;
 	}
+
+	private Request getPatchRequest(String url,String body){
+		RequestBody requestBody =RequestBody.create(JSON,body);
+		OkHttpClient.Builder builder = new OkHttpClient.Builder();
+		builder.connectTimeout(2, TimeUnit.MINUTES);
+		builder.readTimeout(2,TimeUnit.MINUTES);
+
+		Request request = new Request.Builder()
+			.url(url).header("Content-Type","application/json;charset=utf-8")
+			.header("Accept","application/json, text/plain, */*").header("Accept-Encoding","gzip, deflate").patch(requestBody).build();
+		return request;
+	}
+
+
 
 }

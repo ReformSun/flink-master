@@ -104,6 +104,7 @@ public final class TaskDeploymentDescriptor implements Serializable {
 	}
 
 	/**
+	 * 被序列化的job信息
 	 * Serialized job information or <tt>null</tt> if offloaded.
 	 */
 	private MaybeOffloaded<JobInformation> serializedJobInformation;

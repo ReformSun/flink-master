@@ -14,7 +14,7 @@ public class TestSend {
 		/**
 		 * 提交job
 		 */
-//		testMethod1();
+		testMethod1();
 //        testMethod2();
 		/**
 		 * 触发检查点
@@ -27,7 +27,7 @@ public class TestSend {
 		 */
 //		testMethod5(jobid,"");
 
-		testMethod6(jobid);
+//		testMethod6(jobid);
     }
 
 

@@ -579,6 +579,7 @@ public class Execution implements AccessExecution, Archiveable<ArchivedExecution
 						attemptNumber, getAssignedResourceLocation().getHostname()));
 			}
 
+			// 创建部署描述信息 根据分配的slot信息 task任务的唯一id 任务恢复的信息 尝试次数
 			final TaskDeploymentDescriptor deployment = vertex.createDeploymentDescriptor(
 				attemptId,
 				slot,
