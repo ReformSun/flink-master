@@ -66,6 +66,7 @@ public class SpanningRecordSerializer<T extends IOReadableWritable> implements R
 	}
 
 	/**
+	 * 序列化完成的记录到一个中间数据序列化buffer中然后开始复制它到目标的buffer中
 	 * Serializes the complete record to an intermediate data serialization
 	 * buffer and starts copying it to the target buffer (if available).
 	 *

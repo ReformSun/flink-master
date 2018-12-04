@@ -60,6 +60,7 @@ import static org.apache.flink.util.Preconditions.checkNotNull;
 import static org.apache.flink.util.Preconditions.checkState;
 
 /**
+ * 一个输入网关消费一个或者更多个单一消费者中间结果分区
  * An input gate consumes one or more partitions of a single produced intermediate result.
  *
  * <p> Each intermediate result is partitioned over its producing parallel subtasks; each of these
@@ -244,8 +245,8 @@ public class SingleInputGate implements InputGate {
 		return bufferPool;
 	}
 
-	@Override
-	public int getPageSize() {
+		@Override
+		public int getPageSize() {
 		if (bufferPool != null) {
 			return bufferPool.getMemorySegmentSize();
 		}
@@ -508,6 +509,7 @@ public class SingleInputGate implements InputGate {
 	}
 
 	private Optional<BufferOrEvent> getNextBufferOrEvent(boolean blocking) throws IOException, InterruptedException {
+		// 如果已接收到所有的endofPartitionevent事件，则说明每个resultsubpartition中的数据都被消费完成
 		if (hasReceivedAllEndOfPartitionEvents) {
 			return Optional.empty();
 		}
@@ -515,7 +517,7 @@ public class SingleInputGate implements InputGate {
 		if (isReleased) {
 			throw new IllegalStateException("Released");
 		}
-
+		// 触发所有的输入通道向resultsubpatition发起请求
 		requestPartitions();
 
 		InputChannel currentChannel;

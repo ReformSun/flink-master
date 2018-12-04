@@ -25,6 +25,8 @@ import java.io.Serializable;
 import static org.apache.flink.util.Preconditions.checkNotNull;
 
 /**
+ * 从消费任务看结果分区的位置 结果分区分为3中情况
+ * 本地local 远程 remote 不知道 unknow
  * Location of a result partition from the perspective of the consuming task.
  *
  * <p>The location indicates both the instance, on which the partition is produced and the state of

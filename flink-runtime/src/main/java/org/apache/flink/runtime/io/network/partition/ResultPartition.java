@@ -103,10 +103,14 @@ public class ResultPartition implements ResultPartitionWriter, BufferPoolOwner {
 	private final boolean sendScheduleOrUpdateConsumersMessage;
 
 	// - Runtime state --------------------------------------------------------
-
+	/**
+	 * 标注结果分区的状态，是否被释放，为true已被释放
+	 */
 	private final AtomicBoolean isReleased = new AtomicBoolean();
 
 	/**
+	 * 被引用的结果子分区数（一个结果分区有多个自分区，每个自分区对应多个下级的单个子任务。每个子任务会消费
+	 * 对应的自分区数据，当自分区对应的消费者都没有消费完时。原子计数器总数为自分区数。每消费完一个减去1）
 	 * The total number of references to subpartitions of this result. The result partition can be
 	 * safely released, iff the reference count is zero. A reference count of -1 denotes that the
 	 * result partition has been released.
@@ -302,6 +306,7 @@ public class ResultPartition implements ResultPartitionWriter, BufferPoolOwner {
 	}
 
 	/**
+	 * 释放 的意思不是把类释放掉 而是把管理的生产者生产的数据释放掉
 	 * Releases the result partition.
 	 */
 	public void release(Throwable cause) {
@@ -410,16 +415,18 @@ public class ResultPartition implements ResultPartitionWriter, BufferPoolOwner {
 	}
 
 	/**
+	 * 通知一个子分区已经被释放掉
 	 * Notification when a subpartition is released.
 	 */
 	void onConsumedSubpartition(int subpartitionIndex) {
 
+		// 结果分区已被释放 则直接返回
 		if (isReleased.get()) {
 			return;
 		}
-
+		// 原子计数器减1后 获得未完成的子分区计数
 		int refCnt = pendingReferences.decrementAndGet();
-
+		// 如果全部完成，通知分区管理器，他会把结果分区释放掉
 		if (refCnt == 0) {
 			partitionManager.onConsumedPartition(this);
 		}

@@ -24,6 +24,7 @@ import org.apache.flink.runtime.io.network.buffer.Buffer;
 import java.io.IOException;
 
 /**
+ * 记录的反序列化器
  * Interface for turning sequences of memory segments into records.
  */
 public interface RecordDeserializer<T extends IOReadableWritable> {

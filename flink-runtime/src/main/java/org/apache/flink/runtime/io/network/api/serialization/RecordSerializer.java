@@ -24,6 +24,7 @@ import org.apache.flink.runtime.io.network.buffer.BufferBuilder;
 import java.io.IOException;
 
 /**
+ * 序列化器
  * Interface for turning records into sequences of memory segments.
  */
 public interface RecordSerializer<T extends IOReadableWritable> {

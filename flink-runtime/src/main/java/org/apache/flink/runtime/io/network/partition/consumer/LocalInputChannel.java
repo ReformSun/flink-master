@@ -41,6 +41,7 @@ import static org.apache.flink.util.Preconditions.checkNotNull;
 import static org.apache.flink.util.Preconditions.checkState;
 
 /**
+ * 请求一个本地子分区结果的输入通道
  * An input channel, which requests a local subpartition.
  */
 public class LocalInputChannel extends InputChannel implements BufferAvailabilityListener {
@@ -57,7 +58,7 @@ public class LocalInputChannel extends InputChannel implements BufferAvailabilit
 	/** Task event dispatcher for backwards events. */
 	private final TaskEventDispatcher taskEventDispatcher;
 
-	/** The consumed subpartition */
+	/** The consumed subpartition 被消耗的子分区*/
 	private volatile ResultSubpartitionView subpartitionView;
 
 	private volatile boolean isReleased;

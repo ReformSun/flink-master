@@ -3,6 +3,8 @@ package com.test.learnWindows;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.test.customAssignTAndW.CustomAssignerTimestampsAndWatermark;
+import com.test.customEvictor.CustomEvictor;
+import com.test.customTrigger.CustomTrigger;
 import com.test.sink.CustomPrint;
 import com.test.sink.CustomWordCountPrint;
 import org.apache.flink.api.common.functions.FlatMapFunction;
@@ -60,7 +62,8 @@ public class TestMain5 {
 //			testMethod1(input);
 //			testMethod2(input);
 //			testMethod3(input);
-			testMethod4(input);
+//			testMethod4(input);
+//			testMethod5(input);
 		}catch (Exception e){
 			e.printStackTrace();
 		}
@@ -87,6 +90,7 @@ public class TestMain5 {
 		}).setParallelism(4).addSink(new CustomWordCountPrint()).setParallelism(1);
 	}
 
+
 	public static void testMethod2(DataStreamSource<String> input) {
 		input.flatMap(new FlatMapFunction<String, TimeAndNumber>() {
 			@Override
@@ -108,77 +112,5 @@ public class TestMain5 {
 		}).setParallelism(2);
 	}
 
-	public static void testMethod3(DataStreamSource<String> input) {
-		input.flatMap(new FlatMapFunction<String, TimeAndNumber>() {
-			@Override
-			public void flatMap(String value, Collector<TimeAndNumber> out) throws Exception {
-				JsonElement jsonElement = jsonParser.parse(value);
-				Long timestamp = jsonElement.getAsJsonObject().get("timestamp").getAsLong();
-				Long number = jsonElement.getAsJsonObject().get("number").getAsLong();
-				out.collect(new TimeAndNumber(timestamp,number));
-			}
-		}).setParallelism(1).windowAll(TumblingEventTimeWindows.of(Time.seconds(6),Time.seconds(0))).trigger(new Trigger<TimeAndNumber, TimeWindow>() {
-			@Override
-			public TriggerResult onElement(TimeAndNumber element, long timestamp, TimeWindow window, TriggerContext ctx) throws Exception {
-				ctx.registerEventTimeTimer(111);
-				System.out.println(ctx.getCurrentWatermark());
-				return TriggerResult.FIRE;
-			}
 
-			@Override
-			public TriggerResult onProcessingTime(long time, TimeWindow window, TriggerContext ctx) throws Exception {
-				return TriggerResult.FIRE;
-			}
-
-			@Override
-			public TriggerResult onEventTime(long time, TimeWindow window, TriggerContext ctx) throws Exception {
-				return TriggerResult.FIRE;
-			}
-
-			@Override
-			public void clear(TimeWindow window, TriggerContext ctx) throws Exception {
-
-			}
-		}).reduce(new ReduceFunction<TimeAndNumber>() {
-			@Override
-			public TimeAndNumber reduce(TimeAndNumber value1, TimeAndNumber value2) throws Exception {
-				return null;
-			}
-		}).setParallelism(1).addSink(new RichSinkFunction<TimeAndNumber>() {
-			@Override
-			public void invoke(TimeAndNumber value) throws Exception {
-				Path logFile = Paths.get(".\\LearnFlink\\src\\main\\resources\\test.txt");
-				try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)){
-					writer.newLine();
-					writer.write(value.toString());
-				}
-			}
-		}).setParallelism(1);
-	}
-
-	public static void testMethod4(DataStreamSource<String> input) {
-		input.flatMap(new FlatMapFunction<String, TimeAndNumber>() {
-			@Override
-			public void flatMap(String value, Collector<TimeAndNumber> out) throws Exception {
-				JsonElement jsonElement = jsonParser.parse(value);
-				Long timestamp = jsonElement.getAsJsonObject().get("timestamp").getAsLong();
-				Long number = jsonElement.getAsJsonObject().get("number").getAsLong();
-				out.collect(new TimeAndNumber(timestamp,number));
-			}
-		}).assignTimestampsAndWatermarks(new CustomAssignerTimestampsAndWatermark()).setParallelism(1).setParallelism(1).windowAll(TumblingEventTimeWindows.of(Time.seconds(70),Time.seconds(1))).reduce(new ReduceFunction<TimeAndNumber>() {
-			@Override
-			public TimeAndNumber reduce(TimeAndNumber value1, TimeAndNumber value2) throws Exception {
-				return new TimeAndNumber(value1.getTimestamp(),value1.getNumber() + value2.getNumber());
-			}
-		}).addSink(new RichSinkFunction<TimeAndNumber>() {
-			@Override
-			public void invoke(TimeAndNumber value) throws Exception {
-				Path logFile = Paths.get(".\\LearnFlink\\src\\main\\resources\\test.txt");
-				try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)){
-					writer.newLine();
-					writer.write(value.toString());
-				}
-			}
-		}).setParallelism(1);
-	}
 }

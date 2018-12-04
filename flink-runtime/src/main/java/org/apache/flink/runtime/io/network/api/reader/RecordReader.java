@@ -24,6 +24,7 @@ import org.apache.flink.runtime.io.network.partition.consumer.InputGate;
 import java.io.IOException;
 
 /**
+ * 记录的读取器
  * Record oriented reader for immutable types.
  *
  * @param <T> Thy type of the records that is read.

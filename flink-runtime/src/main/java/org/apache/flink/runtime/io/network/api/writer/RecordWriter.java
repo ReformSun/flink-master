@@ -38,6 +38,7 @@ import static org.apache.flink.runtime.io.network.api.serialization.RecordSerial
 import static org.apache.flink.util.Preconditions.checkState;
 
 /**
+ * 记录的写入器
  * A record-oriented runtime result writer.
  *
  * <p>The RecordWriter wraps the runtime's {@link ResultPartitionWriter} and takes care of

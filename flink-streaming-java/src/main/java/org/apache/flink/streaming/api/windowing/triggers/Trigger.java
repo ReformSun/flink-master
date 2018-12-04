@@ -154,6 +154,7 @@ public abstract class Trigger<T, W extends Window> implements Serializable {
 		void registerProcessingTimeTimer(long time);
 
 		/**
+		 * 注册一个事件事件的回调，当当前的水印通过指定值时间
 		 * Register an event-time callback. When the current watermark passes the specified
 		 * time {@link Trigger#onEventTime(long, Window, TriggerContext)} is called with the time specified here.
 		 *

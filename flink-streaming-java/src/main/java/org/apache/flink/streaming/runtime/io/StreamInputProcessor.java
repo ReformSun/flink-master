@@ -169,6 +169,7 @@ public class StreamInputProcessor<IN> {
 
 		while (true) {
 			if (currentRecordDeserializer != null) {
+				// 通过当前的记录反序列化器获得反序列化结果进行处理
 				DeserializationResult result = currentRecordDeserializer.getNextRecord(deserializationDelegate);
 
 				if (result.isBufferConsumed()) {
@@ -180,7 +181,7 @@ public class StreamInputProcessor<IN> {
 					StreamElement recordOrMark = deserializationDelegate.getInstance();
 
 					if (recordOrMark.isWatermark()) {
-						// handle watermark
+						// handle watermark 处理水印
 						statusWatermarkValve.inputWatermark(recordOrMark.asWatermark(), currentChannel);
 						continue;
 					} else if (recordOrMark.isStreamStatus()) {
@@ -188,13 +189,13 @@ public class StreamInputProcessor<IN> {
 						statusWatermarkValve.inputStreamStatus(recordOrMark.asStreamStatus(), currentChannel);
 						continue;
 					} else if (recordOrMark.isLatencyMarker()) {
-						// handle latency marker
+						// handle latency marker 处理潜伏期标记
 						synchronized (lock) {
 							streamOperator.processLatencyMarker(recordOrMark.asLatencyMarker());
 						}
 						continue;
 					} else {
-						// now we can do the actual processing
+						// now we can do the actual processing 现在我们可以做实际的处理
 						StreamRecord<IN> record = recordOrMark.asRecord();
 						synchronized (lock) {
 							numRecordsIn.inc();

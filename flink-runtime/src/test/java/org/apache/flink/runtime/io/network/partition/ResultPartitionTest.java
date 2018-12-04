@@ -29,6 +29,8 @@ import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.IOException;
+
 import static org.apache.flink.runtime.io.network.buffer.BufferBuilderTestUtils.createFilledBufferConsumer;
 import static org.junit.Assert.assertFalse;
 import static org.mockito.Matchers.any;
@@ -50,6 +52,27 @@ public class ResultPartitionTest {
 	@AfterClass
 	public static void shutdown() {
 		ioManager.shutdown();
+	}
+
+
+	@Test
+	public void testLearn(){
+		// 模拟消费者监听对象
+		ResultPartitionConsumableNotifier notifier = mock(ResultPartitionConsumableNotifier.class);
+		// 生成结果分区对象
+		ResultPartition partition = createPartition(notifier, ResultPartitionType.PIPELINED, true);
+		try {
+			// 增加分区消费者
+			partition.addBufferConsumer(createFilledBufferConsumer(BufferBuilderTestUtils.BUFFER_SIZE), 0);
+			// 验证方法notifyPartitionConsumable是否被调用
+			verify(notifier, times(1))
+				.notifyPartitionConsumable(
+					eq(partition.getJobId()),
+					eq(partition.getPartitionId()),
+					any(TaskActions.class));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -141,6 +164,8 @@ public class ResultPartitionTest {
 	public void testAddOnReleasedBlockingPartition() throws Exception {
 		testAddOnReleasedPartition(ResultPartitionType.BLOCKING);
 	}
+
+
 
 	/**
 	 * Tests {@link ResultPartition#addBufferConsumer} on a partition which has already been released.
