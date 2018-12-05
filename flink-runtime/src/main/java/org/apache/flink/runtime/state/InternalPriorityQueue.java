@@ -38,6 +38,7 @@ import java.util.function.Predicate;
 public interface InternalPriorityQueue<T> {
 
 	/**
+	 * 获取队列的最上面的元素只要队列不为空和传递这个元素给消费者直到一个Predicate拒绝这个元素，这个被拒绝的元素不能被删除从队列中并且成为新的栈顶
 	 * Polls from the top of the queue as long as the the queue is not empty and passes the elements to
 	 * {@link Consumer} until a {@link Predicate} rejects an offered element. The rejected element is not
 	 * removed from the queue and becomes the new head.

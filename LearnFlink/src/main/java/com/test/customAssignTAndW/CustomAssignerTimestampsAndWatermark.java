@@ -30,6 +30,7 @@ public class CustomAssignerTimestampsAndWatermark implements AssignerWithPeriodi
 	@Nullable
 	@Override
 	public Watermark getCurrentWatermark() {
+		// return the watermark as current highest timestamp minus the out-of-orderness bound
 		return new Watermark(currentMaxTimestamp - maxOutOfOrderness);
 	}
 

@@ -41,6 +41,7 @@ import static org.apache.flink.util.Preconditions.checkArgument;
 import static org.apache.flink.util.Preconditions.checkNotNull;
 
 /**
+ * 将计时器存储在java堆栈上
  * {@link InternalTimerService} that stores timers on the Java heap.
  */
 public class HeapInternalTimerService<K, N> implements InternalTimerService<N>, ProcessingTimeCallback {
@@ -55,6 +56,7 @@ public class HeapInternalTimerService<K, N> implements InternalTimerService<N>, 
 	private final KeyGroupedInternalPriorityQueue<TimerHeapInternalTimer<K, N>> processingTimeTimersQueue;
 
 	/**
+	 * 当前正在处于飞行状态的时间定时器
 	 * Event time timers that are currently in-flight.
 	 */
 	private final KeyGroupedInternalPriorityQueue<TimerHeapInternalTimer<K, N>> eventTimeTimersQueue;

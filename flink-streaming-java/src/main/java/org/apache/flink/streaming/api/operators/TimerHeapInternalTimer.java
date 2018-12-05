@@ -41,7 +41,7 @@ public final class TimerHeapInternalTimer<K, N> implements InternalTimer<K, N>, 
 	@Nonnull
 	private final N namespace;
 
-	/** The expiration timestamp. */
+	/** The expiration timestamp. 到期时间戳 */
 	private final long timestamp;
 
 	/**

@@ -107,7 +107,7 @@ public class StatusWatermarkValve {
 					channelStatuses[channelIndex].isWatermarkAligned = true;
 				}
 
-				// now, attempt to find a new min watermark across all aligned channels
+				// now, attempt to find a new min watermark across all aligned channels 现在，尝试在所有对齐的通道上找到新的最小水印
 				findAndOutputNewMinWatermarkAcrossAlignedChannels();
 			}
 		}

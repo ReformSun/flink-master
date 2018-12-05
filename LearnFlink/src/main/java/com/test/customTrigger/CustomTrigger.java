@@ -17,6 +17,7 @@ public class CustomTrigger extends Trigger<TimeAndNumber,TimeWindow> {
 			// if the watermark is already past the window fire immediately 如果窗口最大时间超过当前的水印，窗口数据立即发射
 			return TriggerResult.FIRE;
 		} else {
+			// 注册事件时间定时器
 			ctx.registerEventTimeTimer(window.maxTimestamp());
 			return TriggerResult.CONTINUE;
 		}

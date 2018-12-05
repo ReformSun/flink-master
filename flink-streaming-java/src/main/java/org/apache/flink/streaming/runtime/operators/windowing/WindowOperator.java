@@ -292,14 +292,16 @@ public class WindowOperator<K, IN, ACC, OUT, W extends Window>
 
 	@Override
 	public void processElement(StreamRecord<IN> element) throws Exception {
+		// 获取分配窗口
 		final Collection<W> elementWindows = windowAssigner.assignWindows(
 			element.getValue(), element.getTimestamp(), windowAssignerContext);
 
 		//if element is handled by none of assigned elementWindows
 		boolean isSkippedElement = true;
-
+		// 得到窗台后端的key值
 		final K key = this.<K>getKeyedStateBackend().getCurrentKey();
 
+		// 判断窗口分配器类型 分为两种MergingWindowAssigner和其它
 		if (windowAssigner instanceof MergingWindowAssigner) {
 			MergingWindowSet<W> mergingWindows = getMergingWindowSet();
 
@@ -359,20 +361,23 @@ public class WindowOperator<K, IN, ACC, OUT, W extends Window>
 
 				triggerContext.key = key;
 				triggerContext.window = actualWindow;
-
+				// 调用窗口触发器 得到触发结果
 				TriggerResult triggerResult = triggerContext.onElement(element);
-
+				// 得到触发结果是否是发射
 				if (triggerResult.isFire()) {
 					ACC contents = windowState.get();
 					if (contents == null) {
 						continue;
 					}
+					// 发射窗口内容
 					emitWindowContents(actualWindow, contents);
 				}
-
+				// 是否是purge
 				if (triggerResult.isPurge()) {
+					// 清空窗口数据
 					windowState.clear();
 				}
+				// 注册一个时钟 清理窗口数据
 				registerCleanupTimer(actualWindow);
 			}
 
@@ -381,7 +386,7 @@ public class WindowOperator<K, IN, ACC, OUT, W extends Window>
 		} else {
 			for (W window: elementWindows) {
 
-				// drop if the window is already late
+				// drop if the window is already late 如果窗口已经过期的滤掉
 				if (isWindowLate(window)) {
 					continue;
 				}
@@ -392,20 +397,23 @@ public class WindowOperator<K, IN, ACC, OUT, W extends Window>
 
 				triggerContext.key = key;
 				triggerContext.window = window;
-
+				// 调用窗口触发器
 				TriggerResult triggerResult = triggerContext.onElement(element);
-
+				// 得到触发结果是否是发射
 				if (triggerResult.isFire()) {
 					ACC contents = windowState.get();
 					if (contents == null) {
 						continue;
 					}
+					// 发射窗口内容
 					emitWindowContents(window, contents);
 				}
-
+				// 是否是purge
 				if (triggerResult.isPurge()) {
+					// 清空窗口数据
 					windowState.clear();
 				}
+				// 注册一个时钟 清理窗口数据
 				registerCleanupTimer(window);
 			}
 		}
