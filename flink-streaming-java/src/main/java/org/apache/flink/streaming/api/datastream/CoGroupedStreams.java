@@ -271,7 +271,7 @@ public class CoGroupedStreams<T1, T2> {
 		 * {@link #with(CoGroupFunction, TypeInformation)} method to set an operator-specific parallelism.
 		 */
 		public <T> DataStream<T> apply(CoGroupFunction<T1, T2, T> function, TypeInformation<T> resultType) {
-			//clean the closure
+			//clean the closure 清洁封口
 			function = input1.getExecutionEnvironment().clean(function);
 
 			UnionTypeInfo<T1, T2> unionType = new UnionTypeInfo<>(input1.getType(), input2.getType());

@@ -118,6 +118,7 @@ public class RecordWriter<T extends IOReadableWritable> {
 	}
 
 	/**
+	 * 这用于将LatencyMark发送到随机目标通道
 	 * This is used to send LatencyMarks to a random target channel.
 	 */
 	public void randomEmit(T record) throws IOException, InterruptedException {

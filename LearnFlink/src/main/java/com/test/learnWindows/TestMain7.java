@@ -3,12 +3,15 @@ package com.test.learnWindows;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.test.customAssignTAndW.CustomAssignerTimestampsAndWatermark;
+import com.test.flatMap_1.FlatMapFunctionTimeAndNumber;
 import com.test.sink.CustomWordCountPrint;
+import org.apache.flink.api.common.functions.CoGroupFunction;
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.common.functions.JoinFunction;
 import org.apache.flink.api.common.functions.RichReduceFunction;
 import org.apache.flink.api.java.functions.KeySelector;
 import org.apache.flink.streaming.api.TimeCharacteristic;
+import org.apache.flink.streaming.api.datastream.CoGroupedStreams;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.datastream.JoinedStreams;
@@ -28,19 +31,14 @@ import java.nio.file.StandardOpenOption;
 
 /**
  * 学习flink的jion操作
+ *
+ * 学习jion的操作 必须直到coGroup的原理
+ * 而coGroup的实现又是基于union和keyStream实现的
  */
-public class TestMain7 {
-	private static JsonParser jsonParser = new JsonParser();
+public class TestMain7 extends AbstractTestMain1{
 	public static void main(String[] args) {
-		final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-		DataStreamSource<String> input = null;
-		DataStreamSource<String> input2 = null;
 		try{
-			env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
-			input = env.addSource(KafkaUtil.getKafkaConsumer09Source("ddddddd")).setParallelism(1);
-			input2 = env.addSource(KafkaUtil.getKafkaConsumer09Source("ccccccc")).setParallelism(1);
 			testMethod1(input,input2);
-
 		}catch (Exception e){
 			e.printStackTrace();
 		}
@@ -58,25 +56,8 @@ public class TestMain7 {
 	 * @param input2
 	 */
 	public static void testMethod1(DataStreamSource<String> input,DataStreamSource<String> input2) {
-		DataStream<TimeAndNumber> dataStream = input.flatMap(new FlatMapFunction<String, TimeAndNumber>() {
-			@Override
-			public void flatMap(String value, Collector<TimeAndNumber> out) throws Exception {
-				JsonElement jsonElement = jsonParser.parse(value);
-				Long timestamp = jsonElement.getAsJsonObject().get("timestamp").getAsLong();
-				Long number = jsonElement.getAsJsonObject().get("number").getAsLong();
-				out.collect(new TimeAndNumber(timestamp,number));
-			}
-		}).assignTimestampsAndWatermarks(new CustomAssignerTimestampsAndWatermark());
-
-		DataStream<TimeAndNumber> dataStream2 = input2.flatMap(new FlatMapFunction<String, TimeAndNumber>() {
-			@Override
-			public void flatMap(String value, Collector<TimeAndNumber> out) throws Exception {
-				JsonElement jsonElement = jsonParser.parse(value);
-				Long timestamp = jsonElement.getAsJsonObject().get("timestamp").getAsLong();
-				Long number = jsonElement.getAsJsonObject().get("number").getAsLong();
-				out.collect(new TimeAndNumber(timestamp,number));
-			}
-		}).assignTimestampsAndWatermarks(new CustomAssignerTimestampsAndWatermark());
+		DataStream<TimeAndNumber> dataStream = input.flatMap(new FlatMapFunctionTimeAndNumber()).assignTimestampsAndWatermarks(new CustomAssignerTimestampsAndWatermark());
+		DataStream<TimeAndNumber> dataStream2 = input2.flatMap(new FlatMapFunctionTimeAndNumber()).assignTimestampsAndWatermarks(new CustomAssignerTimestampsAndWatermark());
 
 		 JoinedStreams<TimeAndNumber,TimeAndNumber> joinedStreams = dataStream.join(dataStream2);
 
@@ -86,22 +67,18 @@ public class TestMain7 {
 				 return value.getTimestamp();
 			 }
 		 });
-
 		JoinedStreams.Where.EqualTo equalTo = where.equalTo(new KeySelector<TimeAndNumber, Long>() {
 			 @Override
 			 public Long getKey(TimeAndNumber value) throws Exception {
 				 return value.getTimestamp();
 			 }
 		 });
-
 		DataStream<TimeAndNumber> dataStream3 = equalTo.window(TumblingEventTimeWindows.of(Time.seconds(70),Time.seconds(0))).apply(new JoinFunction<TimeAndNumber,TimeAndNumber,TimeAndNumber>() {
 			@Override
 			public TimeAndNumber join(TimeAndNumber first, TimeAndNumber second) throws Exception {
 				return new TimeAndNumber(first.getTimestamp(),first.getNumber() + second.getNumber());
 			}
 		});
-
-
 		dataStream3.addSink(new RichSinkFunction<TimeAndNumber>() {
 			@Override
 			public void invoke(TimeAndNumber value) throws Exception {
@@ -112,9 +89,32 @@ public class TestMain7 {
 				}
 			}
 		}).setParallelism(1);
+	}
 
+	public static void testMethod2(DataStreamSource<String> input,DataStreamSource<String> input2) {
+		DataStream<TimeAndNumber> dataStream = input.flatMap(new FlatMapFunctionTimeAndNumber()).assignTimestampsAndWatermarks(new CustomAssignerTimestampsAndWatermark());
+		DataStream<TimeAndNumber> dataStream2 = input2.flatMap(new FlatMapFunctionTimeAndNumber()).assignTimestampsAndWatermarks(new CustomAssignerTimestampsAndWatermark());
+		CoGroupedStreams<TimeAndNumber,TimeAndNumber> coGroupedStreams = dataStream.coGroup(dataStream2);
+		CoGroupedStreams.Where where = coGroupedStreams.where(new KeySelector<TimeAndNumber, Long>() {
+			@Override
+			public Long getKey(TimeAndNumber value) throws Exception {
+				return value.getTimestamp();
+			}
+		});
 
+		CoGroupedStreams.Where.EqualTo equalTo = where.equalTo(new KeySelector<TimeAndNumber, Long>() {
+			@Override
+			public Long getKey(TimeAndNumber value) throws Exception {
+				return value.getTimestamp();
+			}
+		});
 
+		equalTo.window(TumblingEventTimeWindows.of(Time.seconds(70),Time.seconds(0))).apply(new CoGroupFunction<TimeAndNumber,TimeAndNumber,TimeAndNumber>() {
+			@Override
+			public void coGroup(Iterable<TimeAndNumber> first, Iterable<TimeAndNumber> second, Collector<TimeAndNumber> out) throws Exception {
+
+			}
+		});
 	}
 
 
