@@ -298,7 +298,7 @@ public class WindowOperator<K, IN, ACC, OUT, W extends Window>
 
 		//if element is handled by none of assigned elementWindows
 		boolean isSkippedElement = true;
-		// 得到窗台后端的key值
+		// 得到状态后端的key值
 		final K key = this.<K>getKeyedStateBackend().getCurrentKey();
 
 		// 判断窗口分配器类型 分为两种MergingWindowAssigner和其它
