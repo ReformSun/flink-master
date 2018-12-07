@@ -31,9 +31,17 @@ import java.nio.file.StandardOpenOption;
 
 /**
  * 学习flink的jion操作
+ * org.apache.flink.runtime.state.heap.HeapListState
  *
  * 学习jion的操作 必须直到coGroup的原理
  * 而coGroup的实现又是基于union和keyStream实现的
+ *
+ * 当使用join时
+ * WindowOperator 的保存操作状态的模型是HeapListState
+ * HeapListState可以保存一个key只对应多个值的情况
+ *
+ *
+ *
  */
 public class TestMain7 extends AbstractTestMain1{
 	public static void main(String[] args) {
