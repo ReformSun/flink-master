@@ -2,6 +2,7 @@ package com.test.learnWindows;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+import com.test.customAssignTAndW.CustomAssignerTimesTampTyple3;
 import com.test.customAssignTAndW.CustomAssignerTimestampsAndWatermark;
 import com.test.flatMap_1.FlatMapFunctionTimeAndNumber;
 import com.test.sink.CustomWordCountPrint;
@@ -10,24 +11,34 @@ import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.common.functions.JoinFunction;
 import org.apache.flink.api.common.functions.RichReduceFunction;
 import org.apache.flink.api.java.functions.KeySelector;
+import org.apache.flink.api.java.tuple.Tuple;
+import org.apache.flink.api.java.tuple.Tuple3;
+import org.apache.flink.api.java.tuple.Tuple3;
 import org.apache.flink.streaming.api.TimeCharacteristic;
 import org.apache.flink.streaming.api.datastream.CoGroupedStreams;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.datastream.JoinedStreams;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.streaming.api.functions.AssignerWithPeriodicWatermarks;
 import org.apache.flink.streaming.api.functions.sink.RichSinkFunction;
+import org.apache.flink.streaming.api.watermark.Watermark;
 import org.apache.flink.streaming.api.windowing.assigners.TumblingEventTimeWindows;
 import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.util.Collector;
 import test.SunWordWithCount;
 import test.TimeAndNumber;
 
+import javax.annotation.Nullable;
 import java.io.BufferedWriter;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
  * 学习flink的jion操作
@@ -46,7 +57,8 @@ import java.nio.file.StandardOpenOption;
 public class TestMain7 extends AbstractTestMain1{
 	public static void main(String[] args) {
 		try{
-			testMethod1(input,input2);
+//			testMethod1(getInput(),getInput2());
+			testMethod3();
 		}catch (Exception e){
 			e.printStackTrace();
 		}
@@ -99,6 +111,7 @@ public class TestMain7 extends AbstractTestMain1{
 		}).setParallelism(1);
 	}
 
+
 	public static void testMethod2(DataStreamSource<String> input,DataStreamSource<String> input2) {
 		DataStream<TimeAndNumber> dataStream = input.flatMap(new FlatMapFunctionTimeAndNumber()).assignTimestampsAndWatermarks(new CustomAssignerTimestampsAndWatermark());
 		DataStream<TimeAndNumber> dataStream2 = input2.flatMap(new FlatMapFunctionTimeAndNumber()).assignTimestampsAndWatermarks(new CustomAssignerTimestampsAndWatermark());
@@ -123,6 +136,62 @@ public class TestMain7 extends AbstractTestMain1{
 
 			}
 		});
+	}
+
+	public static void testMethod3(){
+
+		List<Tuple3<String,Integer,Long>> list = new ArrayList<>();
+		Long date = 1534472180000L;
+
+		for (int i = 0; i < 26; i++) {
+			if (i == 0){
+				char[] chars = {(char)(i + 97)};
+				Tuple3<String,Integer,Long> tuple3 = new Tuple3(new String(chars),i + 1,date + i * 1000);
+				list.add(tuple3);
+			}
+			char[] chars = {(char)(i + 97)};
+			Tuple3<String,Integer,Long> tuple3 = new Tuple3(new String(chars),i + 1,date + i * 1000);
+			list.add(tuple3);
+		}
+
+	    DataStream<Tuple3<String,Integer,Long>> dataStreamSource1 = env.fromCollection(list).assignTimestampsAndWatermarks(new CustomAssignerTimesTampTyple3());
+		DataStream<Tuple3<String,Integer,Long>> dataStreamSource2 = env.fromCollection(list).assignTimestampsAndWatermarks(new CustomAssignerTimesTampTyple3());
+
+		JoinedStreams<Tuple3<String,Integer,Long>,Tuple3<String,Integer,Long>> joinedStreams = dataStreamSource1.join(dataStreamSource2);
+
+		JoinedStreams.Where where = joinedStreams.where(new KeySelector<Tuple3<String,Integer,Long>, String>() {
+			@Override
+			public String getKey(Tuple3<String, Integer,Long> value) throws Exception {
+				return value.getField(0);
+			}
+		});
+
+		JoinedStreams.Where.EqualTo equalTo = where.equalTo(new KeySelector<Tuple3<String,Integer,Long>, String>() {
+			@Override
+			public String getKey(Tuple3<String,Integer,Long> value) throws Exception {
+				return value.getField(0);
+			}
+		});
+
+		equalTo.window(TumblingEventTimeWindows.of(Time.seconds(70),Time.seconds(0))).apply(new JoinFunction<Tuple3<String,Integer,Long>,Tuple3<String,Integer,Long>,Tuple3<String,
+			Integer,Long>>() {
+			@Override
+			public Tuple3<String, Integer,Long> join(Tuple3<String, Integer,Long> first, Tuple3<String, Integer,Long> second) throws Exception {
+				return new Tuple3<String,Integer,Long>(first.getField(0),(Integer) first.getField(1) + (Integer)first.getField(1),first.getField(2));
+			}
+		}).print().setParallelism(1);
+
+//		equalTo.window(TumblingEventTimeWindows.of(Time.seconds(70),Time.seconds(0))).apply((Tuple3<String, Integer,Long> first, Tuple3<String, Integer,Long> second) -> {
+//			try{
+//				return new Tuple3<String,Integer,Long>(first.getField(0),(Integer) first.getField(1) + (Integer)first.getField(1),first.getField(2));
+//
+//			}catch (Exception e){
+//			    e.printStackTrace();
+//			}
+//		}).print()
+//			.setParallelism(1);
+
+
 	}
 
 

@@ -23,7 +23,7 @@ public class TestMain8 extends AbstractTestMain1{
 	public static void main(String[] args) {
 		try{
 //			testMethod1(input,input2);
-			testMethod2(input,input2);
+			testMethod2(getInput(),getInput2());
 
 		}catch (Exception e){
 			e.printStackTrace();
