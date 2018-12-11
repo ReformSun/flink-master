@@ -8,7 +8,7 @@ import javax.annotation.Nullable;
 
 public class CustomAssignerTimesTampTyple3 implements AssignerWithPunctuatedWatermarks<Tuple3<String,Integer,Long>>{
 
-	private long maxOutOfOrderness = 3500L;
+	private long maxOutOfOrderness = 0L;
 	private long currentMaxTimestamp;
 	@Nullable
 	@Override

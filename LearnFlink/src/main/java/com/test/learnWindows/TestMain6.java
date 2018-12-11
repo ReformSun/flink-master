@@ -2,15 +2,24 @@ package com.test.learnWindows;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+import com.test.customAssignTAndW.CustomAssignerTimesTampTyple3;
 import com.test.customAssignTAndW.CustomAssignerTimestampsAndWatermark;
 import com.test.customEvictor.CustomEvictor;
 import com.test.customTrigger.CustomTrigger;
+import com.test.sink.CustomPrintTuple4;
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.common.functions.ReduceFunction;
+import org.apache.flink.api.java.functions.KeySelector;
+import org.apache.flink.api.java.tuple.Tuple3;
+import org.apache.flink.api.java.tuple.Tuple4;
 import org.apache.flink.streaming.api.TimeCharacteristic;
+import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
+import org.apache.flink.streaming.api.datastream.KeyedStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.sink.RichSinkFunction;
+import org.apache.flink.streaming.api.functions.windowing.AllWindowFunction;
+import org.apache.flink.streaming.api.functions.windowing.WindowFunction;
 import org.apache.flink.streaming.api.windowing.assigners.TumblingEventTimeWindows;
 import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.streaming.api.windowing.triggers.Trigger;
@@ -25,6 +34,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * 学习和测试windows 相关的类
@@ -108,20 +119,22 @@ import java.nio.file.StandardOpenOption;
  */
 
 
-public class TestMain6 {
+public class TestMain6 extends AbstractTestMain1 {
 
 	private static JsonParser jsonParser = new JsonParser();
 	public static void main(String[] args) {
-		final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 		DataStreamSource<String> input = null;
 		try{
 			env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
-			input = env.addSource(KafkaUtil.getKafkaConsumer09Source("ddddddd")).setParallelism(1);
+			input =getInput();
 //			testMethod1(input);
 //			testMethod2(input);
 //			testMethod3(input);
 //			testMethod4(input);
-			testMethod5(input);
+//			testMethod5(input);
+//			testMethod7();
+//			testMethod8();
+			testMethod10(input);
 		}catch (Exception e){
 			e.printStackTrace();
 		}
@@ -247,6 +260,103 @@ public class TestMain6 {
 				return new TimeAndNumber(value1.getTimestamp(),value1.getNumber() + value2.getNumber());
 			}
 		}).addSink(new RichSinkFunction<TimeAndNumber>() {
+			@Override
+			public void invoke(TimeAndNumber value) throws Exception {
+				Path logFile = Paths.get(".\\LearnFlink\\src\\main\\resources\\test.txt");
+				try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)){
+					writer.newLine();
+					writer.write(value.toString());
+				}
+			}
+		}).setParallelism(1);
+	}
+
+	public static void testMethod7() {
+		List<Tuple3<String,Integer,Long>> list = getTestdata();
+		DataStream<Tuple3<String,Integer,Long>> dataStreamSource1 = env.fromCollection(list).assignTimestampsAndWatermarks(new CustomAssignerTimesTampTyple3()).setParallelism(1);
+		KeyedStream<Tuple3<String,Integer,Long>,String> keyedStream = dataStreamSource1.keyBy(new KeySelector<Tuple3<String,Integer,Long>, String>() {
+			@Override
+			public String getKey(Tuple3<String, Integer, Long> value) throws Exception {
+				return value.getField(0);
+			}
+		});
+
+		DataStream dataStream = keyedStream.window(TumblingEventTimeWindows.of(Time.seconds(70),Time.seconds(0))).apply(new WindowFunction<Tuple3<String,Integer,Long>, Tuple4<String,String,Integer,Long>, String, TimeWindow>() {
+			@Override
+			public void apply(String s, TimeWindow window, Iterable<Tuple3<String, Integer, Long>> input, Collector< Tuple4<String,String,Integer,Long>> out) throws Exception {
+				Iterator<Tuple3<String, Integer, Long>> iterator = input.iterator();
+				while (iterator.hasNext()){
+					Tuple3<String, Integer, Long> tuple3 = iterator.next();
+					out.collect(new Tuple4<>(window.toString(),tuple3.getField(0),tuple3.getField(1),tuple3.getField(2)));
+				}
+			}
+		}).setParallelism(2);
+
+		dataStream.addSink(new CustomPrintTuple4()).setParallelism(1);
+	}
+
+	public static void testMethod8() {
+		List<Tuple3<String,Integer,Long>> list = getTestdata();
+		DataStream<Tuple3<String,Integer,Long>> dataStreamSource1 = env.fromCollection(list).assignTimestampsAndWatermarks(new CustomAssignerTimesTampTyple3()).setParallelism(1);
+		KeyedStream<Tuple3<String,Integer,Long>,String> keyedStream = dataStreamSource1.keyBy(new KeySelector<Tuple3<String,Integer,Long>, String>() {
+			@Override
+			public String getKey(Tuple3<String, Integer, Long> value) throws Exception {
+				return value.getField(0);
+			}
+		});
+
+		DataStream dataStream = keyedStream.windowAll(TumblingEventTimeWindows.of(Time.seconds(70),Time.seconds(0))).apply(new AllWindowFunction<Tuple3<String,Integer,Long>, Tuple4<String,String,Integer,Long>, TimeWindow>() {
+			@Override
+			public void apply(TimeWindow window, Iterable<Tuple3<String, Integer, Long>> values, Collector<Tuple4<String, String, Integer, Long>> out) throws Exception {
+				Iterator<Tuple3<String, Integer, Long>> iterator = values.iterator();
+				while (iterator.hasNext()){
+					Tuple3<String, Integer, Long> tuple3 = iterator.next();
+					out.collect(new Tuple4<>(window.toString(),tuple3.getField(0),tuple3.getField(1),tuple3.getField(2)));
+				}
+			}
+		}).setParallelism(1);
+
+		dataStream.addSink(new CustomPrintTuple4()).setParallelism(1);
+	}
+
+	public static void testMethod9() {
+		List<Tuple3<String,Integer,Long>> list = getTestdata();
+		DataStream<Tuple3<String,Integer,Long>> dataStreamSource1 = env.fromCollection(list).assignTimestampsAndWatermarks(new CustomAssignerTimesTampTyple3()).setParallelism(1);
+
+		DataStream dataStream = dataStreamSource1.windowAll(TumblingEventTimeWindows.of(Time.seconds(70),Time.seconds(0))).apply(new AllWindowFunction<Tuple3<String,Integer,Long>, Tuple4<String,String,Integer,Long>, TimeWindow>() {
+			@Override
+			public void apply(TimeWindow window, Iterable<Tuple3<String, Integer, Long>> values, Collector<Tuple4<String, String, Integer, Long>> out) throws Exception {
+				Iterator<Tuple3<String, Integer, Long>> iterator = values.iterator();
+				while (iterator.hasNext()){
+					Tuple3<String, Integer, Long> tuple3 = iterator.next();
+					out.collect(new Tuple4<>(window.toString(),tuple3.getField(0),tuple3.getField(1),tuple3.getField(2)));
+				}
+			}
+		});
+
+		dataStream.addSink(new CustomPrintTuple4());
+	}
+
+	public static void testMethod10(DataStreamSource<String> input) {
+		input.flatMap(new FlatMapFunction<String, TimeAndNumber>() {
+			@Override
+			public void flatMap(String value, Collector<TimeAndNumber> out) throws Exception {
+				JsonElement jsonElement = jsonParser.parse(value);
+				Long timestamp = jsonElement.getAsJsonObject().get("timestamp").getAsLong();
+				Long number = jsonElement.getAsJsonObject().get("number").getAsLong();
+				out.collect(new TimeAndNumber(timestamp,number));
+			}
+		}).assignTimestampsAndWatermarks(new CustomAssignerTimestampsAndWatermark()).setParallelism(1).keyBy(new KeySelector<TimeAndNumber, Long>() {
+			@Override
+			public Long getKey(TimeAndNumber value) throws Exception {
+				return value.getNumber();
+			}
+		}).windowAll(TumblingEventTimeWindows.of(Time.seconds(70),Time.seconds(0))).trigger(new CustomTrigger()).evictor(new CustomEvictor()).reduce(new ReduceFunction<TimeAndNumber>() {
+			@Override
+			public TimeAndNumber reduce(TimeAndNumber value1, TimeAndNumber value2) throws Exception {
+				return new TimeAndNumber(value1.getTimestamp(),value1.getNumber() + value2.getNumber());
+			}
+		}).setParallelism(2).addSink(new RichSinkFunction<TimeAndNumber>() {
 			@Override
 			public void invoke(TimeAndNumber value) throws Exception {
 				Path logFile = Paths.get(".\\LearnFlink\\src\\main\\resources\\test.txt");

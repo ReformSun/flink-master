@@ -102,29 +102,5 @@ public class TestMain8 extends AbstractTestMain1{
 				return new TimeAndNumber(value1.getTimestamp(),value1.getNumber() + value2.getNumber());
 			}
 		}).addSink(new CustomTimeAndNumberSink());
-
-
-
-
-//		function = input1.getExecutionEnvironment().clean(function);
-
-//		CoGroupedStreams.UnionTypeInfo<T1, T2> unionType = new CoGroupedStreams.UnionTypeInfo<>(input1.getType(), input2.getType());
-//		CoGroupedStreams.UnionKeySelector<T1, T2, KEY> unionKeySelector = new CoGroupedStreams.UnionKeySelector<>(keySelector1, keySelector2);
-
-//		DataStream<CoGroupedStreams.TaggedUnion<T1, T2>> taggedInput1 = input1
-//			.map(new CoGroupedStreams.Input1Tagger<T1, T2>())
-//			.setParallelism(input1.getParallelism())
-//			.returns(unionType);
-//		DataStream<CoGroupedStreams.TaggedUnion<T1, T2>> taggedInput2 = input2
-//			.map(new CoGroupedStreams.Input2Tagger<T1, T2>())
-//			.setParallelism(input2.getParallelism())
-//			.returns(unionType);
-//
-//		DataStream<CoGroupedStreams.TaggedUnion<T1, T2>> unionStream = taggedInput1.union(taggedInput2);
-//
-//		// we explicitly create the keyed stream to manually pass the key type information in
-//		WindowedStream<CoGroupedStreams.TaggedUnion<T1, T2>, KEY, W> windowOp =
-//			new KeyedStream<CoGroupedStreams.TaggedUnion<T1, T2>, KEY>(unionStream, unionKeySelector, keyType)
-//				.window(windowAssigner);
 	}
 }
