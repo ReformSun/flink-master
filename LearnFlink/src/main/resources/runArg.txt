@@ -44,3 +44,9 @@ cluster
 org.apache.flink.runtime.taskexecutor.TaskManagerRunner
 --configDir
 /Users/apple/Documents/AgentJava/flink-master/flink-dist/target/flink-1.7-SNAPSHOT-bin/flink-1.7-SNAPSHOT/conf
+
+
+https://www.cnblogs.com/hiver/p/7850954.html
+在flink-master目录下执行
+mvn clean package -DskipTests -pl ./flink-runtime -am
+

@@ -28,7 +28,9 @@ import java.io.IOException;
 import static org.apache.flink.util.Preconditions.checkArgument;
 
 /**
+ * 此记录编写器保持数据在缓冲区中最多的时间是某一延迟时间
  * This record writer keeps data in buffers at most for a certain timeout. It spawns a separate thread
+ * 它产生一个单独的线程，在定义的时间间隔內刷新输出，以确保数据不会在缓冲区内太长时间
  * that flushes the outputs in a defined interval, to make sure data does not linger in the buffers for too long.
  *
  * @param <T> The type of elements written.

@@ -141,6 +141,13 @@ public class HeapKeyedStateBackend<K> extends AbstractKeyedStateBackend<K> {
 		final HeapPriorityQueueSet<T> priorityQueue = priorityQueueSetFactory.create(
 			stateName,
 			metaInfo.getElementSerializer());
+		StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
+		for (int i = 0; i < stackTraceElements.length; i++) {
+			StackTraceElement stackTraceElement = stackTraceElements[i];
+			LOG.info( stackTraceElement.getClassName() + " " +stackTraceElement.getMethodName());
+		}
+
+		LOG.info(stateName + " HeapKeyedStateBackend_d" + keyGroupRange.getStartKeyGroup() + "dddd" + keyGroupRange.getEndKeyGroup() + Thread.getAllStackTraces().toString());
 
 		HeapPriorityQueueSnapshotRestoreWrapper<T> wrapper =
 			new HeapPriorityQueueSnapshotRestoreWrapper<>(

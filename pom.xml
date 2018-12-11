@@ -878,7 +878,8 @@ under the License.
 						<artifactId>maven-javadoc-plugin</artifactId>
 						<version>2.9.1</version><!--$NO-MVN-MAN-VER$-->
 						<configuration>
-							<quiet>true</quiet>
+							<!--<quiet>true</quiet>-->
+							<skip>true</skip>
 						</configuration>
 						<executions>
 							<execution>
@@ -1164,6 +1165,9 @@ under the License.
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
 			</plugin>
 			<plugin>
 				<!-- just define the Java version to be used for compiling and plugins -->

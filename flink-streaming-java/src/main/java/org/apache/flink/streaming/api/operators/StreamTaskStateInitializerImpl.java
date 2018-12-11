@@ -262,7 +262,7 @@ public class StreamTaskStateInitializerImpl implements StreamTaskStateInitialize
 			taskInfo.getMaxNumberOfParallelSubtasks(),
 			taskInfo.getNumberOfParallelSubtasks(),
 			taskInfo.getIndexOfThisSubtask());
-
+		LOG.info(taskInfo.getTaskName() + "name" + taskInfo.getTaskNameWithSubtasks() + "_____" + keyGroupRange.getStartKeyGroup() + "ccc" + keyGroupRange.getEndKeyGroup());
 		BackendRestorerProcedure<AbstractKeyedStateBackend<K>, KeyedStateHandle> backendRestorer =
 			new BackendRestorerProcedure<>(
 				() -> stateBackend.createKeyedStateBackend(

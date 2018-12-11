@@ -73,9 +73,13 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
+ * 全部流任务的基础类，一个任务就是一个本地执行的单元被分配和执行在taskmanager中，
  * Base class for all streaming tasks. A task is the unit of local processing that is deployed
+ * 每个任务运行一个或者多个被任务执行链所组织的StreamOperator
  * and executed by the TaskManagers. Each task runs one or more {@link StreamOperator}s which form
+ * 执行者被链接到一起，同步执行在一个同样的线程中，因此在同一个分区中，
  * the Task's operator chain. Operators that are chained together execute synchronously in the
+ * 这些链的常见的情况是连续的map flatmap filter 的任务
  * same thread and hence on the same stream partition. A common case for these chains
  * are successive map/flatmap/filter tasks.
  *
@@ -140,10 +144,10 @@ public abstract class StreamTask<OUT, OP extends StreamOperator<OUT>>
 	/** The configuration of this streaming task. */
 	protected final StreamConfig configuration;
 
-	/** Our state backend. We use this to create checkpoint streams and a keyed state backend. */
+	/** Our state backend. We use this to create checkpoint streams and a keyed state backend. 通过这个状态后端，去创建检查点流和key状态后端*/
 	protected StateBackend stateBackend;
 
-	/** The external storage where checkpoint data is persisted. */
+	/** The external storage where checkpoint data is persisted. 保留检查点数据的外部存储*/
 	private CheckpointStorage checkpointStorage;
 
 	/**
@@ -156,7 +160,7 @@ public abstract class StreamTask<OUT, OP extends StreamOperator<OUT>>
 	/** The map of user-defined accumulators of this task. */
 	private final Map<String, Accumulator<?, ?>> accumulatorMap;
 
-	/** The currently active background materialization threads. */
+	/** The currently active background materialization threads.当前活跃的后台事项线程 */
 	private final CloseableRegistry cancelables = new CloseableRegistry();
 
 	/**
@@ -168,7 +172,7 @@ public abstract class StreamTask<OUT, OP extends StreamOperator<OUT>>
 	/** Flag to mark this task as canceled. */
 	private volatile boolean canceled;
 
-	/** Thread pool for async snapshot workers. */
+	/** Thread pool for async snapshot workers.异步快照工作者的线程池 */
 	private ExecutorService asyncOperationsThreadPool;
 
 	/** Handler for exceptions during checkpointing in the stream task. Used in synchronous part of the checkpoint. */
@@ -242,7 +246,7 @@ public abstract class StreamTask<OUT, OP extends StreamOperator<OUT>>
 		try {
 			// -------- Initialize ---------
 			LOG.debug("Initializing {}.", getName());
-
+			// 初始化异步快照的线程池
 			asyncOperationsThreadPool = Executors.newCachedThreadPool();
 
 			CheckpointExceptionHandlerFactory cpExceptionHandlerFactory = createCheckpointExceptionHandlerFactory();
@@ -253,7 +257,9 @@ public abstract class StreamTask<OUT, OP extends StreamOperator<OUT>>
 
 			asynchronousCheckpointExceptionHandler = new AsyncCheckpointExceptionHandler(this);
 
+			// 创建状态后端，后面会使用他创建检查点流和key状态后端
 			stateBackend = createStateBackend();
+			// 根据状态后端创建检查点外部存储
 			checkpointStorage = stateBackend.createCheckpointStorage(getEnvironment().getJobID());
 
 			// if the clock is not already set, then assign a default TimeServiceProvider
@@ -263,11 +269,12 @@ public abstract class StreamTask<OUT, OP extends StreamOperator<OUT>>
 
 				timerService = new SystemProcessingTimeService(this, getCheckpointLock(), timerThreadFactory);
 			}
-
+			// 初始化 执行链
 			operatorChain = new OperatorChain<>(this, streamRecordWriters);
+			// 得到头部执行者
 			headOperator = operatorChain.getHeadOperator();
 
-			// task specific initialization
+			// task specific initialization 任务特定初始化
 			init();
 
 			// save the work of reloading state, etc, if the task is already canceled
@@ -278,15 +285,16 @@ public abstract class StreamTask<OUT, OP extends StreamOperator<OUT>>
 			// -------- Invoke --------
 			LOG.debug("Invoking {}", getName());
 
-			// we need to make sure that any triggers scheduled in open() cannot be
+			// we need to make sure that any triggers scheduled in open() cannot be 我们需要确保任何触发器调度在全部执行者被打开之前 open（）不能被执行
 			// executed before all operators are opened
 			synchronized (lock) {
 
-				// both the following operations are protected by the lock
-				// so that we avoid race conditions in the case that initializeState()
+				// both the following operations are protected by the lock 一下操作都会被锁保护
+				// so that we avoid race conditions in the case that initializeState() 因此我们就可以避免竞争的条件
 				// registers a timer, that fires before the open() is called.
 
 				initializeState();
+				// 调用所有的执行者的open方法
 				openAllOperators();
 			}
 

@@ -23,6 +23,8 @@ import org.apache.flink.runtime.state.KeyGroupRange;
 import org.apache.flink.runtime.state.KeyGroupRangeAssignment;
 import org.apache.flink.runtime.state.KeyGroupedInternalPriorityQueue;
 import org.apache.flink.runtime.state.PriorityComparator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
@@ -50,6 +52,7 @@ public class HeapPriorityQueueSet<T extends HeapPriorityQueueElement>
 	extends HeapPriorityQueue<T>
 	implements KeyGroupedInternalPriorityQueue<T> {
 
+	private static final Logger LOG = LoggerFactory.getLogger(HeapPriorityQueueSet.class);
 	/**
 	 * Function to extract the key from contained elements.
 	 */
@@ -89,6 +92,7 @@ public class HeapPriorityQueueSet<T extends HeapPriorityQueueElement>
 
 		super(elementPriorityComparator, minimumCapacity);
 
+		LOG.info(keyGroupRange.getStartKeyGroup() + "HeapPriorityQueueSet_d" + keyGroupRange.getEndKeyGroup());
 		this.keyExtractor = keyExtractor;
 
 		this.totalNumberOfKeyGroups = totalNumberOfKeyGroups;

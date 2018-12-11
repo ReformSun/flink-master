@@ -28,6 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 这个类允许注册Closeable的实例，如果这个类被关闭注册者将全部被关闭
  * This class allows to register instances of {@link Closeable}, which are all closed if this registry is closed.
  *
  * <p>Registering to an already closed registry will throw an exception and close the provided {@link Closeable}

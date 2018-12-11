@@ -49,6 +49,7 @@ public final class KeyGroupRangeAssignment {
 	}
 
 	/**
+	 * 根据给定的key和最大并行度获取key-groups
 	 * Assigns the given key to a key-group index.
 	 *
 	 * @param key the key to assign
@@ -71,6 +72,7 @@ public final class KeyGroupRangeAssignment {
 	}
 
 	/**
+	 * 计算 在给定并行度和最大并行度下，分配执行者key-groups的范围
 	 * Computes the range of key-groups that are assigned to a given operator under the given parallelism and maximum
 	 * parallelism.
 	 *

@@ -371,6 +371,7 @@ under the License.
 				<artifactId>maven-checkstyle-plugin</artifactId>
 
 				<configuration>
+					<skip>true</skip>
 					<suppressionsLocation combine.self="override">/tools/maven/suppressions-runtime.xml</suppressionsLocation>
 				</configuration>
 			</plugin>
