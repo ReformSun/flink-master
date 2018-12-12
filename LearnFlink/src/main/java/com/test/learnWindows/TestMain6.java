@@ -6,6 +6,7 @@ import com.test.customAssignTAndW.CustomAssignerTimesTampTyple3;
 import com.test.customAssignTAndW.CustomAssignerTimestampsAndWatermark;
 import com.test.customEvictor.CustomEvictor;
 import com.test.customTrigger.CustomTrigger;
+import com.test.sink.CustomPrintTuple3;
 import com.test.sink.CustomPrintTuple4;
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.common.functions.ReduceFunction;
@@ -134,6 +135,7 @@ public class TestMain6 extends AbstractTestMain1 {
 //			testMethod5(input);
 			testMethod7();
 //			testMethod8();
+//			testMethod9();
 //			testMethod10(input);
 		}catch (Exception e){
 			e.printStackTrace();
@@ -271,6 +273,61 @@ public class TestMain6 extends AbstractTestMain1 {
 		}).setParallelism(1);
 	}
 
+	/**
+	 * 0 = {Tuple3@972} "(a,1,1534472020000)"
+	 * 1 = {Tuple3@973} "(a,2,1534472040000)"
+	 * 2 = {Tuple3@974} "(b,3,1534472050000)"
+	 * 3 = {Tuple3@975} "(b,4,1534472060000)"
+	 * 4 = {Tuple3@976} "(c,5,1534472070000)"
+	 * 窗口大小为 70000  1534472020000 - 1534472020000 % 700000
+	 *  index   element             watermark                            window                                       condition
+	 *  1       1534472020000          1534472020000            1534471960000 ~  1534472030000                       1534472029999 <= 1534472020000
+	 *  2       1534472040000          1534472040000          	1534472030000 ~ 1534472100000                       1534472099999 <= 1534472040000   1534472029999 <= 1534472040000窗口触发
+	 *  3       1534472050000          1534472050000			1534472030000 ~ 1534472100000		                 1534472099999 <= 1534472050000
+	 *  4       1534472060000          1534472060000			1534472030000 ~ 1534472100000		                 1534472099999 <= 1534472060000
+	 *  5       1534472070000          1534472070000			1534472030000 ~ 1534472100000                        1534472099999 <= 1534472070000
+	 *
+	 *  上面的是预测值
+	 *
+	 *  实际输出
+	 *  (TimeWindow{start=1534471960000, end=1534472030000},a,1,1534472020000)
+	 *  (TimeWindow{start=1534472030000, end=1534472100000},a,2,1534472040000)
+	 *  (TimeWindow{start=1534472030000, end=1534472100000},b,3,1534472050000)
+	 *  (TimeWindow{start=1534472030000, end=1534472100000},b,4,1534472060000)
+	 *  (TimeWindow{start=1534472030000, end=1534472100000},c,5,1534472070000)
+	 *
+	 *
+	 *  不指定key分组 测试9
+	 *  (TimeWindow{start=1534471960000, end=1534472030000},a,1,1534472020000)
+	 *  (TimeWindow{start=1534472030000, end=1534472100000},a,2,1534472040000)
+	 *  (TimeWindow{start=1534472030000, end=1534472100000},b,3,1534472050000)
+	 *  (TimeWindow{start=1534472030000, end=1534472100000},b,4,1534472060000)
+	 *  (TimeWindow{start=1534472030000, end=1534472100000},c,5,1534472070000)
+	 *
+	 *  输出结果一样
+	 *
+	 *  设置3个平行度 在测试9中 出现错误 java.lang.IllegalArgumentException: The parallelism of non parallel operator must be 1.
+	 *  设置3个平行度 在测试7中
+	 *  输出值
+	 *  (TimeWindow{start=1534472030000, end=1534472100000},b,3,1534472050000)
+	 * (TimeWindow{start=1534472030000, end=1534472100000},b,4,1534472060000)
+	 * (TimeWindow{start=1534471960000, end=1534472030000},a,1,1534472020000)
+	 * (TimeWindow{start=1534472030000, end=1534472100000},a,2,1534472040000)
+	 * (TimeWindow{start=1534472030000, end=1534472100000},c,5,1534472070000)
+	 * 在apply方法中获取当前的线程名字 放到tuple4中
+	 * 输出值：
+	 * (Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),a,1,1534472020000)
+	 * (Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),a,2,1534472040000)
+	 * (Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),c,5,1534472070000)
+	 * (Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (1/3),b,3,1534472050000)
+	 * (Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (1/3),b,4,1534472060000)
+	 *
+	 * 通过上面两个输出的
+	 *
+	 *
+	 * StatusWatermarkValve 水印窗台阀门
+	 *
+	 */
 	public static void testMethod7() {
 		List<Tuple3<String,Integer,Long>> list = getTestdata();
 		DataStream<Tuple3<String,Integer,Long>> dataStreamSource1 = env.fromCollection(list).setParallelism(1).assignTimestampsAndWatermarks(new CustomAssignerTimesTampTyple3()).setParallelism(1);
@@ -285,9 +342,10 @@ public class TestMain6 extends AbstractTestMain1 {
 			@Override
 			public void apply(String s, TimeWindow window, Iterable<Tuple3<String, Integer, Long>> input, Collector< Tuple4<String,String,Integer,Long>> out) throws Exception {
 				Iterator<Tuple3<String, Integer, Long>> iterator = input.iterator();
+				String s1 = Thread.currentThread().getName();
 				while (iterator.hasNext()){
 					Tuple3<String, Integer, Long> tuple3 = iterator.next();
-					out.collect(new Tuple4<>(window.toString(),tuple3.getField(0),tuple3.getField(1),tuple3.getField(2)));
+					out.collect(new Tuple4<>(s1,tuple3.getField(0),tuple3.getField(1),tuple3.getField(2)));
 				}
 			}
 		}).setParallelism(3);
@@ -319,6 +377,16 @@ public class TestMain6 extends AbstractTestMain1 {
 		dataStream.addSink(new CustomPrintTuple4()).setParallelism(1);
 	}
 
+	/**
+	 * 不指定key分组
+	 *
+	 * (TimeWindow{start=1534472030000, end=1534472100000},b,3,1534472050000)
+	 * (TimeWindow{start=1534472030000, end=1534472100000},b,4,1534472060000)
+	 * (TimeWindow{start=1534472030000, end=1534472100000},a,2,1534472040000)
+	 * (TimeWindow{start=1534471960000, end=1534472030000},a,1,1534472020000)
+	 * (TimeWindow{start=1534472030000, end=1534472100000},c,5,1534472070000)
+	 *
+	 */
 	public static void testMethod9() {
 		List<Tuple3<String,Integer,Long>> list = getTestdata();
 		DataStream<Tuple3<String,Integer,Long>> dataStreamSource1 = env.fromCollection(list).assignTimestampsAndWatermarks(new CustomAssignerTimesTampTyple3()).setParallelism(1);
@@ -332,7 +400,7 @@ public class TestMain6 extends AbstractTestMain1 {
 					out.collect(new Tuple4<>(window.toString(),tuple3.getField(0),tuple3.getField(1),tuple3.getField(2)));
 				}
 			}
-		});
+		}).setParallelism(3);
 
 		dataStream.addSink(new CustomPrintTuple4());
 	}
