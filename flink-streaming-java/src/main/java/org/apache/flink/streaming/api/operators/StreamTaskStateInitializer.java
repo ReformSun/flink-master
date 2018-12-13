@@ -26,6 +26,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 /**
+ * 这是流任务向执行者公开的接口 创建流执行状态上下文
  * This is the interface through which stream task expose a {@link StreamOperatorStateContext} to their operators.
  * Operators, in turn, can use the context to initialize everything connected to their state, such as backends or
  * a timer service manager.

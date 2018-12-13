@@ -84,6 +84,7 @@ public interface KeyedStateBackend<K>
 			StateDescriptor<S, T> stateDescriptor) throws Exception;
 
 	/**
+	 * 创建或检索由此状态后端支持的分区状态。
 	 * Creates or retrieves a partitioned state backed by this state backend.
 	 *
 	 * TODO: NOTE: This method does a lot of work caching / retrieving states just to update the namespace.

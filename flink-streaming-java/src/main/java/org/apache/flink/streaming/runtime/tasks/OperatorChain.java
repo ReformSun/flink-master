@@ -67,6 +67,7 @@ import java.util.Random;
 import static org.apache.flink.util.Preconditions.checkNotNull;
 
 /**
+ * 这个执行者链包含所有的执行者，这些执行者被作为一条链进行执行在一个简单的流任务中
  * The {@code OperatorChain} contains all operators that are executed as one chain within a single
  * {@link StreamTask}.
  *
@@ -101,12 +102,13 @@ public class OperatorChain<OUT, OP extends StreamOperator<OUT>> implements Strea
 		final ClassLoader userCodeClassloader = containingTask.getUserCodeClassLoader();
 		final StreamConfig configuration = containingTask.getConfiguration();
 
+		// 得到头部执行者 通过流任务的配置和用户代码的类加载器
 		headOperator = configuration.getStreamOperator(userCodeClassloader);
 
-		// we read the chained configs, and the order of record writer registrations by output name
+		// we read the chained configs, and the order of record writer registrations by output name 读取链接配置，以及记录编写者注册的输出名字的顺序
 		Map<Integer, StreamConfig> chainedConfigs = configuration.getTransitiveChainedTaskConfigsWithSelf(userCodeClassloader);
 
-		// create the final output stream writers
+		// create the final output stream writers 创建最终的输出流编写者
 		// we iterate through all the out edges from this job vertex and create a stream output
 		List<StreamEdge> outEdgesInOrder = configuration.getOutEdgesInOrder(userCodeClassloader);
 		Map<StreamEdge, RecordWriterOutput<?>> streamOutputMap = new HashMap<>(outEdgesInOrder.size());

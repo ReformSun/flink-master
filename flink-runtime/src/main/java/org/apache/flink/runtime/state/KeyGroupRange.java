@@ -24,7 +24,10 @@ import java.io.Serializable;
 import java.util.Iterator;
 
 /**
+ * 此类定义了一系列key-group的索引
  * This class defines a range of key-group indexes. Key-groups are the granularity into which the keyspace of a job
+ * 一个作业的秘钥空间被分区被用于状态后端的键的状态句柄
+ * 理解：一个job的秘钥空间使用来进行分区使用，并且被用于状态后端的状态句柄的秘钥  Key-groups就是job秘钥空间的粒度
  * is partitioned for keyed state-handling in state backends. The boundaries of the range are inclusive.
  */
 public class KeyGroupRange implements KeyGroupsList, Serializable {

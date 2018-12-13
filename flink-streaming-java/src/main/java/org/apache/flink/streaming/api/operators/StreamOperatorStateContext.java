@@ -25,6 +25,7 @@ import org.apache.flink.runtime.state.StatePartitionStreamProvider;
 import org.apache.flink.util.CloseableIterable;
 
 /**
+ * 此接口代表一个上下文，从这个上下文中可以初始化连接到状态所有内容 例如：
  * This interface represents a context from which a stream operator can initialize everything connected to state such
  * as e.g. backends, raw state, and timer service manager.
  */

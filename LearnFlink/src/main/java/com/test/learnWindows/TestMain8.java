@@ -1,9 +1,14 @@
 package com.test.learnWindows;
 
 import com.test.flatMap_1.FlatMapFunctionTimeAndNumber;
+import com.test.sink.CustomPrintTuple3;
 import com.test.sink.CustomTimeAndNumberSink;
+import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.api.common.functions.ReduceFunction;
+import org.apache.flink.api.common.functions.RichReduceFunction;
 import org.apache.flink.api.java.functions.KeySelector;
+import org.apache.flink.api.java.tuple.Tuple3;
+import org.apache.flink.api.java.tuple.Tuple4;
 import org.apache.flink.streaming.api.TimeCharacteristic;
 import org.apache.flink.streaming.api.datastream.*;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
@@ -15,6 +20,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.List;
 
 /**
  * 学习flink的uniom操作
@@ -23,7 +29,8 @@ public class TestMain8 extends AbstractTestMain1{
 	public static void main(String[] args) {
 		try{
 //			testMethod1(input,input2);
-			testMethod2(getInput(),getInput2());
+//			testMethod2(getInput(),getInput2());
+			testMethod3();
 
 		}catch (Exception e){
 			e.printStackTrace();
@@ -102,5 +109,27 @@ public class TestMain8 extends AbstractTestMain1{
 				return new TimeAndNumber(value1.getTimestamp(),value1.getNumber() + value2.getNumber());
 			}
 		}).addSink(new CustomTimeAndNumberSink());
+	}
+
+	public static void testMethod3() {
+		List<Tuple3<String,Integer,Long>> list = getTestdata();
+		DataStream<Tuple3<String,Integer,Long>> dataStreamSource1 = env.fromCollection(list);
+
+		DataStream dataStream = dataStreamSource1.keyBy(new KeySelector<Tuple3<String,Integer,Long>, String>() {
+			@Override
+			public String getKey(Tuple3<String, Integer, Long> value) throws Exception {
+				return value.getField(0);
+			}
+		}).reduce(new ReduceFunction<Tuple3<String, Integer, Long>>() {
+			@Override
+			public Tuple3<String, Integer, Long> reduce(Tuple3<String, Integer, Long> value1, Tuple3<String,Integer,Long> value2) throws Exception {
+				Integer integer1 = value1.getField(1);
+				Integer integer2 = value2.getField(1);
+
+				return new Tuple3<String, Integer, Long>(value1.getField(0),integer1.intValue() + integer2.intValue(),value1.getField(2));
+			}
+		}).setParallelism(4);
+
+		dataStream.addSink(new CustomPrintTuple3()).setParallelism(1);
 	}
 }

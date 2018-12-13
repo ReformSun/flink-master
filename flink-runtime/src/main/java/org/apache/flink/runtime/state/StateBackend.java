@@ -151,8 +151,8 @@ public interface StateBackend extends java.io.Serializable {
 	 * Creates a new {@link AbstractKeyedStateBackend} that is responsible for holding <b>keyed state</b>
 	 * and checkpointing it. Uses default TTL time provider.
 	 *
-	 * Keyed State 是绑定了一个key的状态
-	 * <p><i>Keyed State</i> is state where each value is bound to a key.
+	 * <p>Keyed State 是绑定了一个key的状态
+	 * <i>Keyed State</i> is state where each value is bound to a key.
 	 * 把状态组织起来的key的类型
 	 * @param <K> The type of the keys by which the state is organized.
 	 * 把key状态后端给予的job，算子，和key 通过他们进行分组

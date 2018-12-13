@@ -215,15 +215,17 @@ public abstract class AbstractStreamOperator<OUT>
 	@Override
 	public final void initializeState() throws Exception {
 
+		// 类型序列化器
 		final TypeSerializer<?> keySerializer = config.getStateKeySerializer(getUserCodeClassloader());
 
+		// 得到流任务
 		final StreamTask<?, ?> containingTask =
 			Preconditions.checkNotNull(getContainingTask());
 		final CloseableRegistry streamTaskCloseableRegistry =
 			Preconditions.checkNotNull(containingTask.getCancelables());
 		final StreamTaskStateInitializer streamTaskStateManager =
 			Preconditions.checkNotNull(containingTask.createStreamTaskStateInitializer());
-
+		// 得到流执行者状态上下文
 		final StreamOperatorStateContext context =
 			streamTaskStateManager.streamOperatorStateContext(
 				getOperatorID(),
@@ -231,8 +233,9 @@ public abstract class AbstractStreamOperator<OUT>
 				this,
 				keySerializer,
 				streamTaskCloseableRegistry);
-
+		// 从上下文中获取执行者状态后端
 		this.operatorStateBackend = context.operatorStateBackend();
+		// 得到key状态后端
 		this.keyedStateBackend = context.keyedStateBackend();
 
 		if (keyedStateBackend != null) {
