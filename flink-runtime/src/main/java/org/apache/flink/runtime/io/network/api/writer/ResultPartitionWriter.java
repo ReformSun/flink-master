@@ -25,6 +25,7 @@ import org.apache.flink.runtime.io.network.partition.ResultPartitionID;
 import java.io.IOException;
 
 /**
+ * 面向缓冲区的运行时结果编写器API，用于生成结果。
  * A buffer-oriented runtime result writer API for producing results.
  */
 public interface ResultPartitionWriter {
@@ -38,6 +39,7 @@ public interface ResultPartitionWriter {
 	int getNumTargetKeyGroups();
 
 	/**
+	 * 将bufferConsumer添加到具有给定索引的子分区。
 	 * Adds the bufferConsumer to the subpartition with the given index.
 	 *
 	 * <p>For PIPELINED {@link org.apache.flink.runtime.io.network.partition.ResultPartitionType}s,
@@ -57,6 +59,7 @@ public interface ResultPartitionWriter {
 	void flushAll();
 
 	/**
+	 * 在一个指定的子分区中手动触发排队{@link BufferConsumer BufferConsumers}的消耗。
 	 * Manually trigger consumption from enqueued {@link BufferConsumer BufferConsumers} in one specified subpartition.
 	 */
 	void flush(int subpartitionIndex);

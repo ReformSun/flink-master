@@ -46,9 +46,12 @@ import static org.apache.flink.util.Preconditions.checkNotNull;
 import static org.apache.flink.util.Preconditions.checkState;
 
 /**
+ * 当个任务生成的数据的结果分区
  * A result partition for data produced by a single task.
  *
- * <p> This class is the runtime part of a logical {@link IntermediateResultPartition}. Essentially,
+ * <p> 这个类是一个逻辑中间结果分区运行时的部分，实质上，一个结果分区是一个缓冲区实例的集合
+ * This class is the runtime part of a logical {@link IntermediateResultPartition}. Essentially,
+ * 这些缓冲区是有一个或者多个子结果分区实例组成，子结果分区根据消费者任务和数据的数量进一步分区
  * a result partition is a collection of {@link Buffer} instances. The buffers are organized in one
  * or more {@link ResultSubpartition} instances, which further partition the data depending on the
  * number of consuming tasks and the data {@link DistributionPattern}.
@@ -57,7 +60,7 @@ import static org.apache.flink.util.Preconditions.checkState;
  * happens either remotely (see {@link RemoteInputChannel}) or locally (see {@link LocalInputChannel})
  *
  * <h2>Life-cycle</h2>
- *
+ *每个结果分区都有三个阶段的生命周期 生产，消费，释放
  * The life-cycle of each result partition has three (possibly overlapping) phases:
  * <ol>
  * <li><strong>Produce</strong>: </li>
@@ -91,7 +94,7 @@ public class ResultPartition implements ResultPartitionWriter, BufferPoolOwner {
 	/** Type of this partition. Defines the concrete subpartition implementation to use. */
 	private final ResultPartitionType partitionType;
 
-	/** The subpartitions of this partition. At least one. */
+	/** The subpartitions of this partition. At least one. 这个分区的所有自分区，最少一个*/
 	private final ResultSubpartition[] subpartitions;
 
 	private final ResultPartitionManager partitionManager;

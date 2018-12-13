@@ -50,3 +50,5 @@ https://www.cnblogs.com/hiver/p/7850954.html
 在flink-master目录下执行
 mvn clean package -DskipTests -pl ./flink-runtime -am
 
+mvn clean package -DskipTests -pl ./flink-streaming-java -am
+

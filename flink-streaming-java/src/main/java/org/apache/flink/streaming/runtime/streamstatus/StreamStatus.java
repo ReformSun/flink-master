@@ -26,6 +26,7 @@ import org.apache.flink.streaming.runtime.tasks.SourceStreamTask;
 import org.apache.flink.streaming.runtime.tasks.StreamTask;
 
 /**
+ * Stream Status元素通知流任务是否应继续期望发送记录和水印到输入流中
  * A Stream Status element informs stream tasks whether or not they should continue to expect records and watermarks
  * from the input stream that sent them. There are 2 kinds of status, namely {@link StreamStatus#IDLE} and
  * {@link StreamStatus#ACTIVE}. Stream Status elements are generated at the sources, and may be propagated through
@@ -37,10 +38,14 @@ import org.apache.flink.streaming.runtime.tasks.StreamTask;
  *
  * <ul>
  *     <li>Source tasks: A source task is considered to be idle if its head operator, i.e. a {@link StreamSource}, will
+ *     一个任务是被任务空闲的如果他的头操作员，StreamSource 将不能无限期的发送记录， 例如kafka消费者数据源还没有分区读取
  *         not emit records for an indefinite amount of time. This is the case, for example, for Flink's Kafka Consumer,
+ *         或者没有记录读取从分配的分区中，一旦头部操作员检测到它将恢复发送数据，这个数据源将被任务是活跃的，
  *         where sources might initially have no assigned partitions to read from, or no records can be read from the
+ *         StreamSource 负责切换状态包含数据源和并确保没有记录
  *         assigned partitions. Once the head {@link StreamSource} operator detects that it will resume emitting data,
  *         the source task is considered to be active. {@link StreamSource}s are responsible for toggling the status
+ *         （和可能是水印，在Flink的Kafka Consumer中，它可以直接在源代码中生成水印）当任务是空闲的时候 它将被发射
  *         of the containing source task and ensuring that no records (and possibly watermarks, in the case of Flink's
  *         Kafka Consumer which can generate watermarks directly within the source) will be emitted while the task is
  *         idle. This guarantee should be enforced on sources through
@@ -50,6 +55,16 @@ import org.apache.flink.streaming.runtime.tasks.StreamTask;
  *         received Stream Status element from all input streams is a {@link StreamStatus#IDLE}. As long as one of its
  *         input streams is active, i.e. the last received Stream Status element from the input stream is
  *         {@link StreamStatus#ACTIVE}, the task is active.</li>
+ *
+ *       <li>
+ *           StreamStatus可以代表两种状态,一种是IDLE,一种是ACTIVE.
+ *           以StreamStatus的角度会将任务分成SourceTask和StreamTask,StreamStatus从SourceTask生成并发出用来通知StreamTask是否会继续收到数据元素或者watermark.
+ *           当SourceTask读取不到输入数据的时候它会通过发送一个IDEL状态表示暂时停止提交数据元素和watermark,一旦SourceTask发现可以读取到数据的时候他会发送一个ACTIVE状态
+ *            当StreamTask的所有SourceTask 全部 处于IDEL状态的时候认为这个StreamTask处于IDEL状态
+ *           由于SourceTask保证在IDEL状态和ACTIVE状态之间不会发生数据元素,所以StreamTask可以在不需要检查当前的状态的情况下安全的处理和传播收到数据元素.但是由
+ *           于拓扑的任何地方都可以产生watermark,所以当前StreamTask在发送watermark之前必须检查当前的状态,如果当前的状态是IDEL,则watermark会被阻塞.
+ *             对于有多个输入的StreamTask,输入流的watermark暂时处于IDEL状态或刚恢复到ACTIVE状态但是它的watermark落后于所有operator中最小的watermark,
+ *             它的watermark不应该用来绝定是否提高watermark,也不能通过operator链向下传播.(注释的句子写的太长没读太懂).</li>
  * </ul>
  *
  * <p>Stream Status elements received at downstream tasks also affect and control how their operators process and advance

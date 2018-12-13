@@ -49,7 +49,8 @@ import java.util.Random;
  * org.apache.flink.streaming.api.datastream.JoinedStreams.JoinCoGroupFunction
  * org.apache.flink.streaming.api.datastream.CoGroupedStreams
  *org.apache.flink.runtime.state.heap.HeapPriorityQueue
- *
+ * org.apache.flink.streaming.api.operators.HeapInternalTimerService
+ *org.apache.flink.runtime.state.KeyGroupedInternalPriorityQueue
  *
  * 学习jion的操作 必须直到coGroup的原理
  * 而coGroup的实现又是基于union和keyStream实现的
@@ -65,6 +66,19 @@ import java.util.Random;
  * 首先把两个流自己通过一个map处理 两个流分别被两个Input1Tagger 和Input2Tagger 处理 就是把数据包装了一下
  * 包装为TaggedUnion 他可以把数据标注成第一个流的或者是第个流的
  *
+ * 把两个流合并后，借用keyStream的分组功能，把相等的key值相等的放在一起处理，这个相等的实现的逻辑主要借助keystream 逻辑介绍参考测试8
+ * 但是窗口的和测试8有一点区别， 窗口针对每个key在当前窗口内都会注册一个new TimerHeapInternalTimer<>(time, (K) keyContext.getCurrentKey(), namespace)
+ * 根据当前的key值，当窗口被触发时HeapInternalTimerService类的advanceWatermark方法被调用（注意advanceWatermark方法调用详情：
+ * at org.apache.flink.streaming.api.operators.HeapInternalTimerService.advanceWatermark(HeapInternalTimerService.java:252)
+ at org.apache.flink.streaming.api.operators.InternalTimeServiceManager.advanceWatermark(InternalTimeServiceManager.java:130)
+ at org.apache.flink.streaming.api.operators.AbstractStreamOperator.processWatermark(AbstractStreamOperator.java:750)
+ at org.apache.flink.streaming.runtime.io.StreamInputProcessor$ForwardingValveOutputHandler.handleWatermark(StreamInputProcessor.java:264)
+ - locked <0x140f> (a java.lang.Object)
+ at org.apache.flink.streaming.runtime.streamstatus.StatusWatermarkValve.findAndOutputNewMinWatermarkAcrossAlignedChannels(StatusWatermarkValve.java:191)
+ at org.apache.flink.streaming.runtime.streamstatus.StatusWatermarkValve.inputWatermark(StatusWatermarkValve.java:112)
+ at org.apache.flink.streaming.runtime.io.StreamInputProcessor.processInput(StreamInputProcessor.java:186)
+ * 此时如果触发窗口，则advanceWatermark会调用KeyGroupedInternalPriorityQueue实例类bulkPoll方法 顺出出栈定时器，并调用onEventTime方法和设置key上下文为定时器内的key值，如果定时器内的窗口被触发，这个定时器内的key
+ * 值就会被从状态后端中取出，发射出去
  * 然后窗口触发后会把窗口内的所有数据发射
  *
  * 但是会先经过CoGroupWindowFunction类的apply(KEY key,W window,Iterable<TaggedUnion<T1, T2>> values,Collector<T> out)方法预处理
@@ -83,10 +97,13 @@ import java.util.Random;
  * 3,5
  *
  * 关键问题怎么实现的在一个窗口内相等的指定key值的做处理
+ * 怎么处理的请看测试6
  *
+ * 在以上的分析中我们知道了 join操作世纪是借助CoGroup的操作
  *
+ * join 操作的简单逻辑是
  *
- *
+ * 先把两个流合并成一个流然后对流进行用key分组，然后使用窗口进行处理
  *
  *
  *
