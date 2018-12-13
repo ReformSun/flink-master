@@ -13,7 +13,7 @@ import java.nio.file.StandardOpenOption;
 public class CustomPrintTuple4 extends RichSinkFunction<Tuple4> {
 	@Override
 	public void invoke(Tuple4 value) throws Exception {
-		java.nio.file.Path logFile = Paths.get(".\\LearnFlink\\src\\main\\resources\\test.txt");
+		java.nio.file.Path logFile = Paths.get("./LearnFlink/src/main/resources/test.txt");
 		try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)){
 			writer.newLine();
 			writer.write(value.toString());
