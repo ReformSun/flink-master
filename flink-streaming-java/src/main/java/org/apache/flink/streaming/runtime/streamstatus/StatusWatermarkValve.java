@@ -53,15 +53,16 @@ public class StatusWatermarkValve {
 	// ------------------------------------------------------------------------
 
 	/**
+	 * 全部的输入通道当前的窗台数组  水印和流状态的变化被输入阀门。
 	 * Array of current status of all input channels. Changes as watermarks & stream statuses are
 	 * fed into the valve.
 	 */
 	private final InputChannelStatus[] channelStatuses;
 
-	/** The last watermark emitted from the valve. */
+	/** The last watermark emitted from the valve. 阀门发出最后一个水印 */
 	private long lastOutputWatermark;
 
-	/** The last stream status emitted from the valve. */
+	/** The last stream status emitted from the valve.最后的流状态从阀门被发射 */
 	private StreamStatus lastOutputStreamStatus;
 
 	/**
@@ -175,6 +176,7 @@ public class StatusWatermarkValve {
 		boolean hasAlignedChannels = false;
 
 		// determine new overall watermark by considering only watermark-aligned channels across all channels
+		// 通过仅考虑所有通道上的水印对齐通道来确定新的整体水印
 		for (InputChannelStatus channelStatus : channelStatuses) {
 			if (channelStatus.isWatermarkAligned) {
 				hasAlignedChannels = true;

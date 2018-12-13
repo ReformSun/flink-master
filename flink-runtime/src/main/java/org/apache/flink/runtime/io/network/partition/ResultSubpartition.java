@@ -30,6 +30,7 @@ import java.util.ArrayDeque;
 import static org.apache.flink.util.Preconditions.checkNotNull;
 
 /**
+ * 结果分区实例的一个单一的子分区
  * A single subpartition of a {@link ResultPartition} instance.
  */
 public abstract class ResultSubpartition {

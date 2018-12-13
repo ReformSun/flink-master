@@ -323,8 +323,52 @@ public class TestMain6 extends AbstractTestMain1 {
 	 *
 	 * 通过上面两个输出的
 	 *
+	 * 为什么最后一个窗口没有发送可以出发窗口的数据，但是窗口被触发的
+	 * 注意:当source通知下游SourceTask永久关闭的时候会发送一个前面说的值为Watermark.MAX_WATERMARK的watermark而不是一个IDEL状态.
+	 *
 	 *
 	 * StatusWatermarkValve 水印窗台阀门
+	 *
+	 * org.apache.flink.streaming.runtime.io.RecordWriterOutput
+	 * org.apache.flink.streaming.runtime.io.StreamRecordWriter
+	 * org.apache.flink.streaming.runtime.io.StreamInputProcessor
+	 * org.apache.flink.streaming.runtime.partitioner.KeyGroupStreamPartitioner
+	 * org.apache.flink.runtime.state.KeyGroupRangeAssignment
+	 *
+	 *
+	 * 对于有key分组的并且是多个平行度的流任务 怎么实现窗口在不同的平行分区上被触发的额
+	 * RecordWriterOutput 发送数据 发现当前task的执行结果到下一个分区任务
+	 * RecordWriterOutput的emitWatermark方法 就是发射水印
+	 *
+	 * StreamRecordWriter	记录的写入器，就是把当前流任务的结果记录写到通道中或者缓冲区中
+	 * RecordWriterOutput的emitWatermark方法会调用StreamRecordWriter的broadcastEmit方法 就是把水印记录广播给所有的子任务
+	 *
+	 * 测试验证：在StreamInputProcessor的processInput方法中处理水印的地方添加LOG.info( Thread.currentThread().getName() + "水印：" + recordOrMark.asWatermark().toString());代码
+	 * 打印每个任务接受上个任务发过来的水印发现 上个任务发送的水印，下级所有的子任务都会接受到 符合前面逻辑
+	 *
+	 *
+	 *
+	 * 							 任务2_1
+
+	 * 任务1  --》   key
+	 *
+	 *                           任务2_2
+	 *
+	 *
+	 *   如图所示 当一个任务对应多个子任务事，并且使用key进行分组  整个flink的运行逻辑
+	 *
+	 *   任务1产生结果记录
+	 *   1：key的分组逻辑 当任务1记录要发射时 经过的StreamRecordWriter类的emit方法进行发射 会调用到父类RecordWriter的emit方法
+	 *   而emit的实现是先根据记录和所有的发射通道选在通道：
+	 *   for (int targetChannel : channelSelector.selectChannels(record, numChannels)) {
+	 *        sendToTarget(record, targetChannel);
+	 *    }
+	 *    通道选择的实现是KeyGroupStreamPartitioner的selectChannels方法选择出符合要求的通道
+	 *    实现逻辑是：先通过定义的keyselector类获取要记录要分组的key值
+	 *    然后通过KeyGroupRangeAssignment类的assignKeyToParallelOperator的方法分配key所属的分区的通道（computeOperatorIndexForKeyGroup方法的算法和分配给分区KeyGroupRange的算法一样）
+	 *    然后根据通道发射记录
+	 *    2：而水印是采用广播的是形式发送的，这样任务任务2_1和任务2_2都可以接受水印数据，这样就能保证了不同分区内的同一个窗口被同时触发，
+	 *
 	 *
 	 */
 	public static void testMethod7() {

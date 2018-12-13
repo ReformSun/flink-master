@@ -23,7 +23,7 @@ import java.nio.file.StandardOpenOption;
 import java.util.List;
 
 /**
- * 学习flink的uniom操作
+ * 学习flink的uniom操作和keyStream的实现逻辑
  */
 public class TestMain8 extends AbstractTestMain1{
 	public static void main(String[] args) {
@@ -84,7 +84,7 @@ public class TestMain8 extends AbstractTestMain1{
 	 *
 	 *  执行完成后更新状态后端内的值
 	 *
-	 *  此时窗台后端的当前key就是次record的值 因为setKeyContextElement1操作在前
+	 *  此时窗台后端的当前key就是此record的值 因为setKeyContextElement1操作在前
 	 *
 	 *
 	 *

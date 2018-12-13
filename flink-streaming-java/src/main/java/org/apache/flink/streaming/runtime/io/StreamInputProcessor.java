@@ -182,7 +182,8 @@ public class StreamInputProcessor<IN> {
 
 					if (recordOrMark.isWatermark()) {
 						// handle watermark 处理水印
-						statusWatermarkValve.inputWatermark(recordOrMark.asWatermark(), currentChannel);
+						LOG.info( Thread.currentThread().getName() + "水印：" + recordOrMark.asWatermark().toString());
+							statusWatermarkValve.inputWatermark(recordOrMark.asWatermark(), currentChannel);
 						continue;
 					} else if (recordOrMark.isStreamStatus()) {
 						// handle stream status
