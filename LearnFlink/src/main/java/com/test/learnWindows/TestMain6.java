@@ -133,10 +133,9 @@ public class TestMain6 extends AbstractTestMain1 {
 //			testMethod3(input);
 //			testMethod4(input);
 //			testMethod5(input);
-			testMethod7();
+//			testMethod7();
 //			testMethod8();
-//			testMethod9();
-//			testMethod10(input);
+			testMethod10(input);
 		}catch (Exception e){
 			e.printStackTrace();
 		}
@@ -374,7 +373,7 @@ public class TestMain6 extends AbstractTestMain1 {
 	 */
 	public static void testMethod7() {
 		List<Tuple3<String,Integer,Long>> list = getTestdata();
-		DataStream<Tuple3<String,Integer,Long>> dataStreamSource1 = env.fromCollection(list).setParallelism(1).assignTimestampsAndWatermarks(new CustomAssignerTimesTampTyple3()).setParallelism(1);
+		DataStream<Tuple3<String,Integer,Long>> dataStreamSource1 = env.fromCollection(list).assignTimestampsAndWatermarks(new CustomAssignerTimesTampTyple3()).setParallelism(1);
 		KeyedStream<Tuple3<String,Integer,Long>,String> keyedStream = dataStreamSource1.keyBy(new KeySelector<Tuple3<String,Integer,Long>, String>() {
 			@Override
 			public String getKey(Tuple3<String, Integer, Long> value) throws Exception {
@@ -386,13 +385,13 @@ public class TestMain6 extends AbstractTestMain1 {
 			@Override
 			public void apply(String s, TimeWindow window, Iterable<Tuple3<String, Integer, Long>> input, Collector< Tuple4<String,String,Integer,Long>> out) throws Exception {
 				Iterator<Tuple3<String, Integer, Long>> iterator = input.iterator();
-				String s1 = Thread.currentThread().getName();
+				String threadname = Thread.currentThread().getName();
 				while (iterator.hasNext()){
 					Tuple3<String, Integer, Long> tuple3 = iterator.next();
-					out.collect(new Tuple4<>(s1,tuple3.getField(0),tuple3.getField(1),tuple3.getField(2)));
+					out.collect(new Tuple4<>(threadname,tuple3.getField(0),tuple3.getField(1),tuple3.getField(2)));
 				}
 			}
-		}).setParallelism(3);
+		}).setParallelism(4);
 
 		dataStream.addSink(new CustomPrintTuple4()).setParallelism(1);
 	}
