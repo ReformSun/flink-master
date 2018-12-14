@@ -2,15 +2,16 @@ package com.test.asyncFunction;
 
 import org.apache.flink.streaming.api.functions.async.ResultFuture;
 import org.apache.flink.streaming.api.functions.async.RichAsyncFunction;
+import org.apache.flink.types.Row;
 
-public class CustomRichAsyncFunction extends RichAsyncFunction{
+public class CustomRichAsyncFunction extends RichAsyncFunction<Row,Row>{
 	@Override
-	public void asyncInvoke(Object input, ResultFuture resultFuture) throws Exception {
+	public void asyncInvoke(Row input, ResultFuture<Row> resultFuture) throws Exception {
 
 	}
 
 	@Override
-	public void timeout(Object input, ResultFuture resultFuture) throws Exception {
+	public void timeout(Row input, ResultFuture<Row> resultFuture) throws Exception {
 
 	}
 }

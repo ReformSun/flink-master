@@ -1,126 +1,13 @@
 
-(TimeWindow{start=1534471960000, end=1534472030000},a,1,1534472020000)
-(TimeWindow{start=1534472030000, end=1534472100000},a,2,1534472040000)
-(TimeWindow{start=1534472030000, end=1534472100000},c,5,1534472070000)
-(TimeWindow{start=1534472030000, end=1534472100000},b,3,1534472050000)
-(TimeWindow{start=1534472030000, end=1534472100000},b,4,1534472060000)
-
-0 = {Tuple3@972} "(a,1,1534472020000)"
-1 = {Tuple3@973} "(a,2,1534472040000)"
-2 = {Tuple3@974} "(b,3,1534472050000)"
-3 = {Tuple3@975} "(b,4,1534472060000)"
-4 = {Tuple3@976} "(c,5,1534472070000)"
+(a,xiaoming,1534472020000)
+(a,xiaowang,1534472040000)
+(b,xiaoliu,1534472050000)
+(b,xiaoxia,1534472060000)
+(c,null,1534472070000)
 
 
-
-(TimeWindow{start=1534471960000, end=1534472030000},a,1,1534472020000)
-(TimeWindow{start=1534472030000, end=1534472100000},a,2,1534472040000)
-(TimeWindow{start=1534472030000, end=1534472100000},c,5,1534472070000)
-(TimeWindow{start=1534472030000, end=1534472100000},b,3,1534472050000)
-(TimeWindow{start=1534472030000, end=1534472100000},b,4,1534472060000)
-
-
-
-
-(TimeWindow{start=1534471960000, end=1534472030000},a,1,1534472020000)
-(TimeWindow{start=1534472030000, end=1534472100000},a,2,1534472040000)
-(TimeWindow{start=1534472030000, end=1534472100000},c,5,1534472070000)
-(TimeWindow{start=1534472030000, end=1534472100000},b,3,1534472050000)
-(TimeWindow{start=1534472030000, end=1534472100000},b,4,1534472060000)
-
-
-(TimeWindow{start=1534471960000, end=1534472030000},a,1,1534472020000)
-(TimeWindow{start=1534472030000, end=1534472100000},a,2,1534472040000)
-(TimeWindow{start=1534472030000, end=1534472100000},b,4,1534472060000)
-(TimeWindow{start=1534472030000, end=1534472100000},c,5,1534472070000)
-(TimeWindow{start=1534472030000, end=1534472100000},b,3,1534472050000)
-
-(TimeWindow{start=1534472030000, end=1534472100000},b,3,1534472050000)
-(TimeWindow{start=1534471960000, end=1534472030000},a,1,1534472020000)
-(TimeWindow{start=1534472030000, end=1534472100000},b,4,1534472060000)
-(TimeWindow{start=1534472030000, end=1534472100000},c,5,1534472070000)
-(TimeWindow{start=1534472030000, end=1534472100000},a,2,1534472040000)
-
-(TimeWindow{start=1534472030000, end=1534472100000},b,3,1534472050000)
-(TimeWindow{start=1534472030000, end=1534472100000},b,4,1534472060000)
-(TimeWindow{start=1534472030000, end=1534472100000},a,2,1534472040000)
-(TimeWindow{start=1534471960000, end=1534472030000},a,1,1534472020000)
-(TimeWindow{start=1534472030000, end=1534472100000},c,5,1534472070000)
-
-djj
-
-
-(TimeWindow{start=1534472030000, end=1534472100000},b,3,1534472050000)
-(TimeWindow{start=1534472030000, end=1534472100000},b,4,1534472060000)
-(TimeWindow{start=1534471960000, end=1534472030000},a,1,1534472020000)
-(TimeWindow{start=1534472030000, end=1534472100000},a,2,1534472040000)
-(TimeWindow{start=1534472030000, end=1534472100000},c,5,1534472070000)
-
-cc
-
-
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),a,1,1534472020000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),a,2,1534472040000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),c,5,1534472070000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (1/3),b,3,1534472050000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (1/3),b,4,1534472060000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (1/3),b,3,1534472050000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (1/3),b,4,1534472060000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),a,1,1534472020000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),a,2,1534472040000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),c,5,1534472070000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),a,1,1534472020000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),a,2,1534472040000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),c,5,1534472070000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (1/3),b,3,1534472050000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (1/3),b,4,1534472060000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),a,1,1534472020000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),a,2,1534472040000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),c,5,1534472070000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (1/3),b,3,1534472050000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (1/3),b,4,1534472060000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (1/3),b,3,1534472050000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (1/3),b,4,1534472060000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),a,1,1534472020000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),a,2,1534472040000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),c,5,1534472070000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),a,1,1534472020000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (1/3),b,3,1534472050000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (1/3),b,4,1534472060000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),a,1,1534472020000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),a,2,1534472040000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),c,5,1534472070000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),a,1,1534472020000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),a,2,1534472040000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),c,5,1534472070000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (1/3),b,3,1534472050000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (1/3),b,4,1534472060000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (1/3),b,3,1534472050000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (1/3),b,4,1534472060000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),a,1,1534472020000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),a,2,1534472040000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),c,5,1534472070000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (1/3),b,3,1534472050000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (1/3),b,4,1534472060000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),a,1,1534472020000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (1/3),b,3,1534472050000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (1/3),b,4,1534472060000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),a,2,1534472040000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),c,5,1534472070000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (1/3),b,3,1534472050000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (1/3),b,4,1534472060000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),a,1,1534472020000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (1/3),b,3,1534472050000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (1/3),b,4,1534472060000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),a,2,1534472040000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),c,5,1534472070000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (1/3),b,3,1534472050000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (1/3),b,4,1534472060000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),a,1,1534472020000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),a,2,1534472040000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),c,5,1534472070000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),a,1,1534472020000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),a,2,1534472040000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (2/3),c,5,1534472070000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (1/3),b,3,1534472050000)
-(Window(TumblingEventTimeWindows(70000), EventTimeTrigger, WindowFunction$15) (1/3),b,4,1534472060000)
+(b,xiaoliu,1534472050000)
+(a,xiaoming,1534472020000)
+(a,xiaowang,1534472040000)
+(c,null,1534472070000)
+(b,xiaoxia,1534472060000)

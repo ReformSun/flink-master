@@ -21,6 +21,7 @@
 	  <Internal.resources.baseDir>E:\Asunjihua\idea\flink-master
 	  </Internal.resources.baseDir>
 	  <okhttp.version>3.5.0</okhttp.version>
+	  <vertx.version>3.5.2</vertx.version>
   </properties>
 
   <dependencies>
@@ -380,6 +381,30 @@
 		  <groupId>org.influxdb</groupId>
 		  <artifactId>influxdb-java</artifactId>
 		  <version>2.14</version>
+	  </dependency>
+	  <!--定时缓存-->
+	  <dependency>
+		  <groupId>com.google.guava</groupId>
+		  <artifactId>guava</artifactId>
+		  <version>23.0</version>
+	  </dependency>
+
+	  <dependency>
+		  <groupId>io.vertx</groupId>
+		  <artifactId>vertx-jdbc-client</artifactId>
+		  <version>${vertx.version}</version>
+	  </dependency>
+
+	  <dependency>
+		  <groupId>io.vertx</groupId>
+		  <artifactId>vertx-core</artifactId>
+		  <version>${vertx.version}</version>
+	  </dependency>
+
+	  <dependency>
+		  <groupId>io.vertx</groupId>
+		  <artifactId>vertx-mysql-postgresql-client</artifactId>
+		  <version>3.6.0</version>
 	  </dependency>
 
   </dependencies>
