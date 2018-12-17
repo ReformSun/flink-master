@@ -5,7 +5,7 @@ import org.apache.flink.table.expressions.In;
 
 import java.util.Map;
 
-public class CustomCacheConf implements PostgreConf,TableConf{
+public class CustomCachePostpreConf implements PostgreConf,TableConf{
 
 	private Map<String,Object> postgreConf;
 	private TableSchema tableSchema;

@@ -12,13 +12,13 @@ import io.vertx.ext.sql.SQLConnection;
 
 import java.util.concurrent.TimeUnit;
 
-public class CustomCacheImp implements CustomCache{
+public class CustomCachePosrpreImp implements CustomCache{
 	private transient Cache<String, String> cache;
 	private transient JDBCClient jdbcClient;
-	private CustomCacheConf customCacheConf;
+	private CustomCachePostpreConf customCacheConf;
 	private String sql = null;
 
-	public CustomCacheImp(CustomCacheConf customCacheConf) throws Exception {
+	public CustomCachePosrpreImp(CustomCachePostpreConf customCacheConf) throws Exception {
 		this.customCacheConf = customCacheConf;
 		sql = "select * from " + customCacheConf.getTableName();
 		initDataBase();

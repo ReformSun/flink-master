@@ -2,6 +2,9 @@ package com.test.cache;
 
 import java.util.Map;
 
+/**
+ * 直接使用postgre的异步客户端
+ */
 public interface PostgreConf {
 	/**
 	 * 设置数据库的连接信息

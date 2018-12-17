@@ -1,21 +1,35 @@
 package com.test.cache;
 
 public enum CommonValue {
+	// common
+	PASSWORD("password"),
+	PASSWORD_KEY("password"),
+
+	// postpre
 //	数据库默认值
 	HOST("localhost"),
 	PORT("5432"),
 	DATABASE("testdb"),
 	USERNAME("root"),
-	PASSWORD("password"),
 	CONNECTTIMEOUT(3),
 // 数据库配置map中的key值
 	HOST_KEY("host"),
 	PORT_KEY("port"),
 	DATABASE_KEY("database"),
 	USERNAME_KEY("username"),
-	PASSWORD_KEY("password"),
 	TABLENAME_KEY("tablename"),
-	CONNECTTIMEOUT_KEY("connectTimeout");
+	CONNECTTIMEOUT_KEY("connectTimeout"),
+	// DataBase
+	// 默认值
+	DATABASE_URL("localhost"),
+	USER("root"),
+	DRIVER_CLASS("Driver_class"),
+	// key值
+	DATABASE_URL_KEY("url"),
+	USER_KEY("user"),
+	DRIVER_CLASS_KEY("driver_class")
+	;
+
 
 
 
