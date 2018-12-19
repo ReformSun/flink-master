@@ -1,5 +1,7 @@
 package com.test.cache;
 
+import java.util.concurrent.TimeUnit;
+
 public enum CommonValue {
 	// common
 	PASSWORD("password"),
@@ -27,7 +29,14 @@ public enum CommonValue {
 	// key值
 	DATABASE_URL_KEY("url"),
 	USER_KEY("user"),
-	DRIVER_CLASS_KEY("driver_class")
+	DRIVER_CLASS_KEY("driver_class"),
+	// 缓存器配置信息
+	// 默认值
+	INTERVAL(5L),
+	UNIT(TimeUnit.MILLISECONDS),
+	// key值
+	INTERVAL_KEY("refreshinterval"),
+	UNIT_KEY("unit")
 	;
 
 

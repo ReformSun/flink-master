@@ -12,7 +12,7 @@ import io.vertx.ext.sql.SQLConnection;
 
 import java.util.concurrent.TimeUnit;
 
-public class CustomCachePosrpreImp implements CustomCache{
+public class CustomCachePosrpreImp implements CustomCache<String>{
 	private transient Cache<String, String> cache;
 	private transient JDBCClient jdbcClient;
 	private CustomCachePostpreConf customCacheConf;

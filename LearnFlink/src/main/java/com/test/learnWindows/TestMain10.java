@@ -1,6 +1,9 @@
 package com.test.learnWindows;
 
 import com.test.asyncFunction.CustomAsyncFunctonTuple3;
+import com.test.asyncFunction.CustomAsyncFunctonTuple3_1;
+import com.test.cache.CustomCacheDataBaseConf;
+import com.test.cache.Key;
 import com.test.map.CustomMapTuple3;
 import com.test.sink.CustomPrintTuple3;
 import org.apache.flink.api.common.functions.MapFunction;
@@ -12,7 +15,9 @@ import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.operators.OneInputStreamOperator;
 import org.apache.flink.streaming.api.operators.async.AsyncWaitOperator;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 操作算子：
@@ -54,7 +59,8 @@ public class TestMain10 extends AbstractTestMain1 {
 	public static void main(String[] args) {
 		try{
 //			testMethod1();
-			testMethod2();
+//			testMethod2();
+			testMethod3();
 		}catch (Exception e){
 			e.printStackTrace();
 		}
@@ -76,6 +82,28 @@ public class TestMain10 extends AbstractTestMain1 {
 		List<Tuple3<String,Integer,Long>> list = getTestdata();
 		DataStream<Tuple3<String,Integer,Long>> dataStreamSource1 = env.fromCollection(list).setParallelism(1);
 		AsyncWaitOperator asyncWaitOperator = new AsyncWaitOperator(new CustomAsyncFunctonTuple3(),11111,2222, AsyncDataStream.OutputMode.ORDERED);
+		DataStream dataStream = dataStreamSource1.transform("test",new TypeHint<Tuple3<String,String,Long>>(){}.getTypeInfo(),asyncWaitOperator);
+		dataStream.addSink(new CustomPrintTuple3()).setParallelism(1);
+	}
+
+	public static void testMethod3() throws Exception {
+		List<Tuple3<String,Integer,Long>> list = getTestdata();
+		DataStream<Tuple3<String,Integer,Long>> dataStreamSource1 = env.fromCollection(list).setParallelism(1);
+		Map<String,Object> map = new HashMap<>();
+//		设置数据库配置信息
+		map.put("url","jdbc:postgresql://10.4.247.20:5432/apm_test");
+		map.put("driver_class","org.postgresql.Driver");
+		map.put("user","apm");
+		map.put("password","apm");
+		// 配置缓存池
+		map.put("refreshinterval",10000L);
+		// 设置表明
+		map.put("tablename","flink_map");
+		CustomCacheDataBaseConf customCacheDataBaseConf = new CustomCacheDataBaseConf();
+		customCacheDataBaseConf.setDataBaseConf(map);
+		customCacheDataBaseConf.setFirstKey(new Key("mapname","long"));
+		customCacheDataBaseConf.setSecondKey(new Key("mapvalue","string"));
+		AsyncWaitOperator asyncWaitOperator = new AsyncWaitOperator(new CustomAsyncFunctonTuple3_1(customCacheDataBaseConf),11111,2222, AsyncDataStream.OutputMode.ORDERED);
 		DataStream dataStream = dataStreamSource1.transform("test",new TypeHint<Tuple3<String,String,Long>>(){}.getTypeInfo(),asyncWaitOperator);
 		dataStream.addSink(new CustomPrintTuple3()).setParallelism(1);
 	}

@@ -1,5 +1,7 @@
 package com.test.cache;
 
-public interface CustomCache {
-	public Value getValue(String key);
+import java.util.concurrent.ExecutionException;
+
+public interface CustomCache<T> {
+	public Value getValue(T key) throws ExecutionException;
 }

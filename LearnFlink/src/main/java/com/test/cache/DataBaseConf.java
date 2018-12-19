@@ -30,4 +30,9 @@ public interface DataBaseConf {
 	public String getDriver_class();
 	public String getUser();
 	public String getPassword();
+	/**
+	 * 得到join表的名字
+	 * @param
+	 */
+	public String getTableName() throws Exception;
 }

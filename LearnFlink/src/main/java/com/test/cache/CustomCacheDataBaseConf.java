@@ -2,15 +2,18 @@ package com.test.cache;
 
 import org.apache.flink.table.api.TableSchema;
 
+import java.io.Serializable;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
-public class CustomCacheDataBaseConf implements DataBaseConf,TableConf {
+public class CustomCacheDataBaseConf implements DataBaseConf,KeysConf,CacheConf,Serializable {
 	private Map<String,Object> databaseConf;
 	private TableSchema tableSchema;
-	private String keyName;
+	private Key firstKey;
+	private Key secondKey;
 	@Override
 	public void setDataBaseConf(Map<String, Object> config) {
-
+		databaseConf = config;
 	}
 
 	@Override
@@ -57,23 +60,52 @@ public class CustomCacheDataBaseConf implements DataBaseConf,TableConf {
 		return CommonValue.PASSWORD.getString();
 	}
 
+
+
 	@Override
-	public void setTableSchema(TableSchema tableSchema) {
-		this.tableSchema = tableSchema;
+	public String getTableName() throws Exception {
+		if (databaseConf != null){
+			Object object = databaseConf.get(CommonValue.TABLENAME_KEY.getString());
+			if (object == null)throw new Exception(CommonValue.TABLENAME_KEY.getString() + " 键对应的值不能为空");
+			if (object instanceof String)return (String)object;
+			return object.toString();
+		}
+		return CommonValue.USERNAME.getString();
 	}
 
 	@Override
-	public TableSchema getTableSchema() {
-		return tableSchema;
+	public Key getFirstKey() {
+		return firstKey;
 	}
 
 	@Override
-	public void setKeyName(String name) {
-		this.keyName = name;
+	public Key getSecondKey() {
+		return secondKey;
 	}
 
 	@Override
-	public String getKeyName() {
-		return keyName;
+	public void setFirstKey(Key firstKey) {
+		this.firstKey = firstKey;
+	}
+
+	@Override
+	public void setSecondKey(Key secondKey) {
+		this.secondKey = secondKey;
+	}
+
+	@Override
+	public Long getRefreshInterval() throws Exception {
+		if (databaseConf != null){
+			Object object = databaseConf.get(CommonValue.INTERVAL_KEY.getString());
+			if (object == null)throw new Exception(CommonValue.INTERVAL_KEY.getString() + " 键对应的值不能为空");
+			if (object instanceof Long)return (Long) object;
+			throw new Exception(CommonValue.INTERVAL_KEY.getString() + " 键对应的值类型不对，应为Long型");
+		}
+		return (Long) CommonValue.INTERVAL.getValue();
+	}
+
+	@Override
+	public TimeUnit getRefreshIntervalUnit() {
+		return (TimeUnit)CommonValue.UNIT.getValue();
 	}
 }
