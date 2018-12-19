@@ -49,6 +49,35 @@ import java.util.Map;
  * 然后调用他们的invoke方法初始化状态后端，key后端，定时器服务，初始化执行链，调用执行链中各个链节点的open方法配置他们
  * 各个链节点就是各个算子 具体的执行过程
  *
+ * 数据实现了这些接口到底怎样发送和接受的那
+ * org.apache.flink.streaming.api.functions.source.FromElementsFunction
+ * org.apache.flink.streaming.api.operators.StreamSourceContexts
+ * ManualWatermarkContext AutomaticWatermarkContext NonTimestampContext类都在org.apache.flink.streaming.api.operators.StreamSourceContexts类中
+ * org.apache.flink.streaming.api.operators.Output
+ * org.apache.flink.streaming.runtime.tasks.OperatorChain
+ * org.apache.flink.streaming.runtime.io.RecordWriterOutput
+ * source
+ * 只继乘了AbstractUdfStreamOperator接口 它是怎样实现数据的发送的那
+ * env.fromCollection(list)
+ * 以FromElementsFunction为例；StreamSource包含用户自定义的userFunction方法
+ * 当StreamSource被初始化和运行起来时，会被调用run方法，run方法会调用用户自定义的方法（首先有一个前提当StreamSource初始化时会初始化一个source上下文，这个上下文是会通过StreamSourceContexts类创建，
+ * 这个上下文有三种种ManualWatermarkContext，AutomaticWatermarkContext和NonTimestampContext，根据选择系统处理时间决定）
+ * 上下文对应时间类型关系
+ * ManualWatermarkContext  EventTime 事件时间
+ * AutomaticWatermarkContext IngestionTime 数据进入flink的时间
+ * NonTimestampContext ProcessingTime 数据被处理的时间
+ *
+ * 每个上下文在初始化时，都拥有了StreamSource实例化对象的Output对象
+ * Output对象的collect方法实现了发射数据记录的功能
+ * Output对象的emitWatermark方法实现了发射水印的功能
+ *
+ * 而Output对象的实例化是在OperatorChain类构造方法中初始化的
+ * this.chainEntryPoint = createOutputCollector(containingTask,configuration,chainedConfigs,userCodeClassloader,streamOutputMap,allOps);
+ * streamOutputMap参数包含了每个输出边outEdge所对应的RecordWriterOutput实例化对象
+ * RecordWriterOutput是对netty网络传输服务更高层次的封装，它可以直接进行和下一个子任务交互
+ *
+ *
+ * 所以当我们在用户自定义方法userFunction中调用sourceContext的collect方法把数据传给sourceContext时，就会直接发送给下一个子任务，也就是调用Output.collect -》 RecordWriterOutput.collect -》RecordWriterOutput.pushToRecordWriter
  * 异步io
  *
  *

@@ -22,4 +22,19 @@ public class Event {
 		this.b = b;
 		this.c = c;
 	}
+
+	@Override
+	public String toString() {
+		return  "a=" + a + ";b=" + b + ";c=" + c;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		return super.hashCode();
+	}
 }
