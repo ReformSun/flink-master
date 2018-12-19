@@ -22,6 +22,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * http://blog.chinaunix.net/uid-29038263-id-5765739.html
+ *
  * cep  Complex Event Process  复杂事件处理
  * 实现原理学习
  * org.apache.flink.cep.nfa.State
