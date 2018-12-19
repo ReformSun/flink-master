@@ -1,21 +1,11 @@
 package com.test.cache;
 
-import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
-import io.vertx.core.Vertx;
-import io.vertx.core.VertxOptions;
-import io.vertx.core.json.JsonObject;
-import io.vertx.ext.asyncsql.impl.AsyncSQLClientImpl;
-import io.vertx.ext.jdbc.JDBCClient;
-import io.vertx.ext.jdbc.spi.impl.C3P0DataSourceProvider;
-import io.vertx.ext.sql.ResultSet;
-import io.vertx.ext.sql.SQLConnection;
-import org.omg.CORBA.portable.CustomValue;
-import scala.reflect.internal.Trees;
+
 
 import javax.sql.DataSource;
 import java.io.Serializable;
@@ -59,8 +49,7 @@ public class CustomCacheDataBaseImp<T> implements CustomCache<T>,Serializable{
 			.put(CommonValue.DRIVER_CLASS_KEY.getString(),customCacheConf.getDriver_class())
 			.put(CommonValue.USER_KEY.getString(),customCacheConf.getUser())
 			.put(CommonValue.PASSWORD_KEY.getString(),customCacheConf.getPassword());
-		VertxOptions vo = new VertxOptions();
-		Vertx vertx = Vertx.vertx(vo);
+
 //		jdbcClient = JDBCClient.createNonShared(vertx, sQLClientConfig);
 		C3P0DataSourceProvider c3P0DataSourceProvider = new C3P0DataSourceProvider();
 		dataSource = c3P0DataSourceProvider.getDataSource(sQLClientConfig);
