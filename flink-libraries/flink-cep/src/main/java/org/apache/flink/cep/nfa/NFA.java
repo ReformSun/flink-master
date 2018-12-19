@@ -57,6 +57,7 @@ import java.util.Stack;
 import static org.apache.flink.cep.nfa.MigrationUtils.deserializeComputationStates;
 
 /**
+ * 非确定性有限自动实现
  * Non-deterministic finite automaton implementation.
  *
  * <p>The {@link AbstractKeyedCEPPatternOperator CEP operator}
@@ -82,6 +83,7 @@ import static org.apache.flink.cep.nfa.MigrationUtils.deserializeComputationStat
 public class NFA<T> {
 
 	/**
+	 * 一组所有有效的NFA状态 有NFACompiler返回
 	 * A set of all the valid NFA states, as returned by the
 	 * {@link NFACompiler NFACompiler}.
 	 * These are directly derived from the user-specified pattern.

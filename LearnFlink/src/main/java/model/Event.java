@@ -4,6 +4,7 @@ public class Event {
 	private String a;
 	private int b;
 	private double c;
+	private long time;
 
 	public String getA() {
 		return a;
@@ -17,10 +18,15 @@ public class Event {
 		return c;
 	}
 
-	public Event(int b, String a, double c) {
+	public long getTime() {
+		return time;
+	}
+
+	public Event(int b, String a, double c, long time) {
 		this.a = a;
 		this.b = b;
 		this.c = c;
+		this.time = time;
 	}
 
 	@Override
