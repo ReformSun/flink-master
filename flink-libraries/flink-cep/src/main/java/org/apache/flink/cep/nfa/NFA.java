@@ -281,7 +281,7 @@ public class NFA<T> {
 		final PriorityQueue<ComputationState> newPartialMatches = new PriorityQueue<>(NFAState.COMPUTATION_STATE_COMPARATOR);
 		final PriorityQueue<ComputationState> potentialMatches = new PriorityQueue<>(NFAState.COMPUTATION_STATE_COMPARATOR);
 
-		// iterate over all current computations
+		// iterate over all current computations 遍历当前的所有计算
 		for (ComputationState computationState : nfaState.getPartialMatches()) {
 			final Collection<ComputationState> newComputationStates = computeNextStates(
 				sharedBuffer,
@@ -697,29 +697,40 @@ public class NFA<T> {
 		return takeBranches == 0 && ignoreBranches == 0 ? 0 : ignoreBranches + Math.max(1, takeBranches);
 	}
 
+	/**
+	 * 创建决策图
+	 * @param context
+	 * @param computationState
+	 * @param event
+	 * @return
+	 */
 	private OutgoingEdges<T> createDecisionGraph(
 			ConditionContext<T> context,
 			ComputationState computationState,
 			T event) {
+		// 获得状态
 		State<T> state = getState(computationState);
+		// 根据状态创建转出边
 		final OutgoingEdges<T> outgoingEdges = new OutgoingEdges<>(state);
-
+		// 创建堆
 		final Stack<State<T>> states = new Stack<>();
 		states.push(state);
 
 		//First create all outgoing edges, so to be able to reason about the Dewey version
 		while (!states.isEmpty()) {
 			State<T> currentState = states.pop();
+			// 获取当前状态的状态转化类
 			Collection<StateTransition<T>> stateTransitions = currentState.getStateTransitions();
 
-			// check all state transitions for each state
+			// check all state transitions for each state 校验每个状态的所有状态过渡
 			for (StateTransition<T> stateTransition : stateTransitions) {
 				try {
+					// 校验过滤条件
 					if (checkFilterCondition(context, stateTransition.getCondition(), event)) {
-						// filter condition is true
+						// filter condition is true 过滤条件为真
 						switch (stateTransition.getAction()) {
 							case PROCEED:
-								// simply advance the computation state, but apply the current event to it
+								// simply advance the computation state, but apply the current event to it 如果状态是继续 把当前状态过渡的目标状态放进堆中
 								// PROCEED is equivalent to an epsilon transition
 								states.push(stateTransition.getTargetState());
 								break;

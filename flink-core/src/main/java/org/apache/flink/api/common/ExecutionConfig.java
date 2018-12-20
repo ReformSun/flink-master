@@ -623,6 +623,7 @@ public class ExecutionConfig implements Serializable, Archiveable<ArchivedExecut
 	}
 
 	/**
+	 * 返回对象重用是否启动
 	 * Returns whether object reuse has been enabled or disabled. @see #enableObjectReuse()
 	 */
 	public boolean isObjectReuseEnabled() {

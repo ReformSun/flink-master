@@ -30,7 +30,9 @@ import java.util.Queue;
 public class NFAState {
 
 	/**
+	 * 在状态机器中当前设的计算状态
 	 * Current set of {@link ComputationState computation states} within the state machine.
+	 * 这些是“活动”中间状态，等待新匹配事件转换到新的有效状态。
 	 * These are the "active" intermediate states that are waiting for new matching
 	 * events to transition to new valid states.
 	 */
