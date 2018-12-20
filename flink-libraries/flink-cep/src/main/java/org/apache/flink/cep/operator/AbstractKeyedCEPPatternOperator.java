@@ -86,6 +86,9 @@ public abstract class AbstractKeyedCEPPatternOperator<IN, KEY, OUT, F extends Fu
 	private final NFACompiler.NFAFactory<IN> nfaFactory;
 
 	private transient ValueState<NFAState> computationStates;
+	/**
+	 * 存储元素和时间戳
+	 */
 	private transient MapState<Long, List<IN>> elementQueueState;
 	private transient SharedBuffer<IN> partialMatches;
 
@@ -98,7 +101,9 @@ public abstract class AbstractKeyedCEPPatternOperator<IN, KEY, OUT, F extends Fu
 	 * decide if an incoming element is late or not.
 	 */
 	private long lastWatermark;
-
+	/**
+	 * 事件比较器
+	 */
 	private final EventComparator<IN> comparator;
 
 	/**
@@ -136,7 +141,7 @@ public abstract class AbstractKeyedCEPPatternOperator<IN, KEY, OUT, F extends Fu
 	public void initializeState(StateInitializationContext context) throws Exception {
 		super.initializeState(context);
 
-		// initializeState through the provided context
+		// initializeState through the provided context 通过提供的上下文初始化状态
 		computationStates = context.getKeyedStateStore().getState(
 				new ValueStateDescriptor<>(
 						NFA_STATE_NAME,
@@ -182,7 +187,6 @@ public abstract class AbstractKeyedCEPPatternOperator<IN, KEY, OUT, F extends Fu
 				"watermark-callbacks",
 				VoidNamespaceSerializer.INSTANCE,
 				this);
-
 		this.nfa = nfaFactory.createNFA();
 	}
 
@@ -190,7 +194,7 @@ public abstract class AbstractKeyedCEPPatternOperator<IN, KEY, OUT, F extends Fu
 	public void processElement(StreamRecord<IN> element) throws Exception {
 		if (isProcessingTime) {
 			if (comparator == null) {
-				// there can be no out of order elements in processing time
+				// there can be no out of order elements in processing time 在处理时间中，不能出现乱序数据
 				NFAState nfaState = getNFAState();
 				long timestamp = getProcessingTimeService().getCurrentProcessingTime();
 				advanceTime(nfaState, timestamp);
@@ -200,7 +204,7 @@ public abstract class AbstractKeyedCEPPatternOperator<IN, KEY, OUT, F extends Fu
 				long currentTime = timerService.currentProcessingTime();
 				bufferEvent(element.getValue(), currentTime);
 
-				// register a timer for the next millisecond to sort and emit buffered data
+				// register a timer for the next millisecond to sort and emit buffered data 注册一个定时器，为下一毫秒去分类和发射缓存数据
 				timerService.registerProcessingTimeTimer(VoidNamespace.INSTANCE, currentTime + 1);
 			}
 
@@ -242,13 +246,14 @@ public abstract class AbstractKeyedCEPPatternOperator<IN, KEY, OUT, F extends Fu
 	}
 
 	private void bufferEvent(IN event, long currentTime) throws Exception {
+		// 更加当前时间，获取当前时间所对应的元素
 		List<IN> elementsForTimestamp =  elementQueueState.get(currentTime);
 		if (elementsForTimestamp == null) {
 			elementsForTimestamp = new ArrayList<>();
 		}
-
+		// 判断对象重用是否开启
 		if (getExecutionConfig().isObjectReuseEnabled()) {
-			// copy the StreamRecord so that it cannot be changed
+			// copy the StreamRecord so that it cannot be changed 复制流记录以致其无法被更改
 			elementsForTimestamp.add(inputSerializer.copy(event));
 		} else {
 			elementsForTimestamp.add(event);

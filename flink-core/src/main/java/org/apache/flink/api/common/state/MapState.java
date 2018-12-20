@@ -24,6 +24,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
+ * 分区键值状态的接口，这个键值对能够被增加，更新，检索
  * {@link State} interface for partitioned key-value state. The key-value pair can be
  * added, updated and retrieved.
  *
