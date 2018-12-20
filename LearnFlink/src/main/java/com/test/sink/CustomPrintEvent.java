@@ -10,9 +10,18 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
 public class CustomPrintEvent extends RichSinkFunction<Event> {
+	private String path = "test.txt";
+
+	public CustomPrintEvent(String path) {
+		this.path = path;
+	}
+
+	public CustomPrintEvent() {
+	}
+
 	@Override
 	public void invoke(Event value) throws Exception {
-		java.nio.file.Path logFile = Paths.get(".\\LearnFlink\\src\\main\\resources\\test.txt");
+		java.nio.file.Path logFile = Paths.get("./LearnFlink/src/main/resources/" + path);
 		try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)){
 			writer.newLine();
 			writer.write(value.toString());

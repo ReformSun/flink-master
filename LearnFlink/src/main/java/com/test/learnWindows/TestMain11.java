@@ -11,13 +11,14 @@ import org.apache.flink.cep.pattern.conditions.IterativeCondition;
 import org.apache.flink.cep.pattern.conditions.SimpleCondition;
 import org.apache.flink.streaming.api.TimeCharacteristic;
 import org.apache.flink.streaming.api.datastream.DataStream;
+import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.runtime.streamrecord.StreamRecord;
 import org.apache.flink.util.Collector;
 import org.apache.flink.util.OutputTag;
-import scala.collection.Iterator;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -87,7 +88,8 @@ public class TestMain11 extends AbstractTestMain11 {
 			}
 		});
 //		testMethod1(dataStreamSource1,pattern1);
-		testMethod2(dataStreamSource1,pattern1);
+//		testMethod2(dataStreamSource1,pattern1);
+		testMethod3(dataStreamSource1,pattern1);
 	}
 
 
@@ -124,7 +126,7 @@ public class TestMain11 extends AbstractTestMain11 {
 			public void flatSelect(Map<String, List<Event>> pattern, Collector<Event> out) throws Exception {
 				System.out.println(pattern.toString());
 				List<Event> list = pattern.get("pattern1");
-				Iterator<Event> iterator  = (Iterator<Event>) list.iterator();
+				Iterator<Event> iterator  = list.iterator();
 				while (iterator.hasNext()){
 					Event event = iterator.next();
 					out.collect(event);
@@ -137,6 +139,9 @@ public class TestMain11 extends AbstractTestMain11 {
 	/**
 	 * 处理延迟方面的匹配
 	 * org.apache.flink.cep.operator.FlatSelectTimeoutCepOperator
+	 * 学习一下SingleOutputStreamOperator
+	 *
+	 *
 	 * @param dataStream
 	 * @param pattern
 	 */
@@ -146,17 +151,37 @@ public class TestMain11 extends AbstractTestMain11 {
 		SingleOutputStreamOperator<Event> dataStream1 = patternStream.flatSelect(outputTag, new PatternFlatTimeoutFunction<Event, Event>() {
 			@Override
 			public void timeout(Map<String, List<Event>> pattern, long timeoutTimestamp, Collector<Event> out) throws Exception {
-
+				System.out.println(pattern.toString());
+				List<Event> list = pattern.get("pattern1");
+				Iterator<Event> iterator  = list.iterator();
+				while (iterator.hasNext()){
+					Event event = iterator.next();
+					out.collect(event);
+				}
 			}
 		}, new PatternFlatSelectFunction<Event, Event>() {
 			@Override
 			public void flatSelect(Map<String, List<Event>> pattern, Collector<Event> out) throws Exception {
-
+				System.out.println(pattern.toString());
+				List<Event> list = pattern.get("pattern1");
+				Iterator<Event> iterator  = list.iterator();
+				while (iterator.hasNext()){
+					Event event = iterator.next();
+					out.collect(event);
+				}
 			}
 		});
 
 		DataStream<Event> dataStream2 = dataStream1.getSideOutput(outputTag);
 		dataStream2.addSink(new CustomPrintEvent()).setParallelism(1);
+		dataStream1.addSink(new CustomPrintEvent("test1.txt")).setParallelism(1);
+
+	}
+	public static void testMethod3_1(){
+		env.setStreamTimeCharacteristic(TimeCharacteristic.ProcessingTime);
+		List<Event> inputEvents = getTestMain11data();
+		DataStreamSource<Event> dataStreamSource1 = env.fromCollection(inputEvents).setParallelism(1);
+
 
 
 	}
