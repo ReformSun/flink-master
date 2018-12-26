@@ -28,7 +28,7 @@ public class TestMain3 extends AbstractTestCollection {
 //			testMethod2();
 //			testMethod3();
 //			testMethod4();
-			testMethod4_1();
+//			testMethod4_1();
 //			testMethod5();
 //			testMethod6();
 //			testMethod7();
@@ -41,6 +41,7 @@ public class TestMain3 extends AbstractTestCollection {
 //			testMethod9_3();
 //			testMethod9_4();
 //			testMethod9_5();
+			testMethod10();
 		}catch (Exception e){
 			e.printStackTrace();
 		}
@@ -255,6 +256,11 @@ public class TestMain3 extends AbstractTestCollection {
 				return value.getB() == 50;
 			}
 		});
+		simplePattern(getInputFromCollection(3,6,20,9),pattern,"end");
+	}
+
+	public static void testMethod10() {
+		Pattern<Event,Event> pattern = CommonMain.getPatternWhere().notNext("end");
 		simplePattern(getInputFromCollection(3,6,20,9),pattern,"end");
 	}
 
