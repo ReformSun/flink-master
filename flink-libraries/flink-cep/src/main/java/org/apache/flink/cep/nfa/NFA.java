@@ -408,6 +408,7 @@ public class NFA<T> {
 	}
 
 	/**
+	 * 存储已经解析装换的类
 	 * Class for storing resolved transitions. It counts at insert time the number of
 	 * branching transitions both for IGNORE and TAKE actions.
  	 */
@@ -539,7 +540,7 @@ public class NFA<T> {
 			final long timestamp) throws Exception {
 
 		final ConditionContext<T> context = new ConditionContext<>(this, sharedBuffer, computationState);
-
+		// 状态为take
 		final OutgoingEdges<T> outgoingEdges = createDecisionGraph(context, computationState, event.getEvent());
 
 		// Create the computing version based on the previously computed edges

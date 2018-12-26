@@ -87,9 +87,9 @@ public class TestMain11 extends AbstractTestMain11 {
 				return false;
 			}
 		});
-//		testMethod1(dataStreamSource1,pattern1);
+		testMethod1(dataStreamSource1,pattern1);
 //		testMethod2(dataStreamSource1,pattern1);
-		testMethod3(dataStreamSource1,pattern1);
+//		testMethod3(dataStreamSource1,pattern1);
 	}
 
 
@@ -181,9 +181,6 @@ public class TestMain11 extends AbstractTestMain11 {
 		env.setStreamTimeCharacteristic(TimeCharacteristic.ProcessingTime);
 		List<Event> inputEvents = getTestMain11data();
 		DataStreamSource<Event> dataStreamSource1 = env.fromCollection(inputEvents).setParallelism(1);
-
-
-
 	}
 
 

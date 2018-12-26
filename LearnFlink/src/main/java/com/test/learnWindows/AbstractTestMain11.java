@@ -18,7 +18,7 @@ public abstract class AbstractTestMain11 extends AbstractTestMain1 {
 
 		for (int i = 0; i < 5; i++) {
 
-			if (i < 2){
+			if (i % 2 == 0){
 				date = date + 20000;
 				Event event = new Event(i, "a", 1.0,date);
 				inputEvents.add(event);
