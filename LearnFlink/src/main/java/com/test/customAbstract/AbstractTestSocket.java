@@ -21,7 +21,7 @@ public abstract class AbstractTestSocket extends AbstractTestCommon{
 		gsonBuilder.registerTypeAdapter(Event.class,eventDeserializer);
 		gson = gsonBuilder.create();
 	}
-	public static DataStream<Event> getInput(){
+	public static DataStream<Event> getInputFromSocket(){
 		DataStreamSource<String> input =  env.addSource(new SocketSource()).setParallelism(1);
 		DataStream<Event> dataStream = input.map(new RichMapFunction<String, Event>() {
 			@Override

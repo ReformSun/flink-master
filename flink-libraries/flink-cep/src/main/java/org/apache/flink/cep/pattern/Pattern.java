@@ -275,6 +275,7 @@ public class Pattern<T, F extends T> {
 	}
 
 	/**
+	 * 将新模式加到现有模式中 新模式强制执行非严格的连续性
 	 * Appends a new pattern to the existing one. The new pattern enforces non-strict
 	 * temporal contiguity. This means that a matching event of this pattern and the
 	 * preceding matching event might be interleaved with other events which are ignored.
@@ -353,6 +354,7 @@ public class Pattern<T, F extends T> {
 
 	/**
 	 * Specifies that this pattern is greedy.
+	 * 这意味着更多的事件将于此模式匹配
 	 * This means as many events as possible will be matched to this pattern.
 	 *
 	 * @return The same pattern with {@link Quantifier#greedy} set to true.
