@@ -285,6 +285,4 @@ public class TestMain3 extends AbstractTestCollection {
 		});
 		simplePattern(getInputFromCollection(6,9,10),pattern2,"first");
 	}
-
-
 }
