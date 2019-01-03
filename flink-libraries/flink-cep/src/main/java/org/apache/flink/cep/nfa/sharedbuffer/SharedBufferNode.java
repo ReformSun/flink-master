@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 在共享缓存区内的一个实体，允许存储相关联的两个不同的实体
  * An entry in {@link SharedBuffer} that allows to store relations between different entries.
  */
 public class SharedBufferNode {

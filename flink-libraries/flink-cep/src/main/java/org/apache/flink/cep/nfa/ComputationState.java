@@ -36,6 +36,7 @@ public class ComputationState {
 	private final String currentStateName;
 
 	// The current version of the currentStateName to discriminate the valid pattern paths in the SharedBuffer
+	// 当前版本的currentStateName用于区分SharedBuffer中的有效模式路径
 	private final DeweyNumber version;
 
 	// Timestamp of the first element in the pattern

@@ -19,6 +19,12 @@ import static com.test.learnCep.CommonCep.simplePattern;
  * 组合条件
  * 停止条件
  * 连续事件条件 （1.严格连续性 2.宽松连续性 3.非确定性宽松连续性）
+ *
+ * org.apache.flink.cep.pattern.conditions
+ *
+ *
+ *
+ *
  */
 public class TestMain3 extends AbstractTestCollection {
 	public static void main(String[] args) {

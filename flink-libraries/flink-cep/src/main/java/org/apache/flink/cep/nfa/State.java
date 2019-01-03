@@ -42,7 +42,7 @@ public class State<T> implements Serializable {
 	private final String name;
 	// 状态类型
 	private StateType stateType;
-	// 转换状态
+	// 转换状态，一种状态中可以有很多的状态转换条件
 	private final Collection<StateTransition<T>> stateTransitions;
 
 	public State(final String name, final StateType stateType) {

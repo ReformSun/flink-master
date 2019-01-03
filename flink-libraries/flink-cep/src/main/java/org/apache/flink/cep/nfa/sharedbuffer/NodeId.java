@@ -28,6 +28,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 /**
+ * 共享缓存区节点唯一的标识符
  * Unique identifier for {@link SharedBufferNode}.
  */
 public class NodeId {

@@ -84,6 +84,7 @@ public class NFA<T> {
 
 	/**
 	 * 一组所有有效的NFA状态 有NFACompiler返回
+	 * 包含匹配名和匹配状态
 	 * A set of all the valid NFA states, as returned by the
 	 * {@link NFACompiler NFACompiler}.
 	 * These are directly derived from the user-specified pattern.
@@ -136,6 +137,7 @@ public class NFA<T> {
 	}
 
 	private State<T> getState(ComputationState state) {
+		// 通过匹配模式名获取
 		return states.get(state.getCurrentStateName());
 	}
 
@@ -313,11 +315,11 @@ public class NFA<T> {
 					//如果新的ComputationState到达最终态，则提取出其对应的事件匹配，并加入到待返回的结果集中
 					potentialMatches.add(newComputationState);
 				} else if (isStopState(newComputationState)) {
-					//reached stop state. release entry for the stop state
+					//reached stop state. release entry for the stop state 到达stop状态时，释放停止状态的实体
 					shouldDiscardPath = true;
-					sharedBuffer.releaseNode(newComputationState.getPreviousBufferEntry());
+					sharedBuffer.releaseNode(newComputationState.getPreviousBufferEntry());// 释放节点
 				} else {
-					// add new computation state; it will be processed once the next event arrives
+					// add new computation state; it will be processed once the next event arrives 增加新的计算状态
 					statesToRetain.add(newComputationState);
 				}
 			}
@@ -361,6 +363,7 @@ public class NFA<T> {
 			}
 		}
 
+		// 在nfa状态中设置新的部分匹配
 		nfaState.setNewPartialMatches(newPartialMatches);
 
 		return result;
@@ -736,6 +739,7 @@ public class NFA<T> {
 		final OutgoingEdges<T> outgoingEdges = new OutgoingEdges<>(state);
 		// 创建堆
 		final Stack<State<T>> states = new Stack<>();
+		// 把当前状态值放入堆容器中
 		states.push(state);
 
 		//First create all outgoing edges, so to be able to reason about the Dewey version
@@ -745,6 +749,7 @@ public class NFA<T> {
 			Collection<StateTransition<T>> stateTransitions = currentState.getStateTransitions();
 
 			// check all state transitions for each state 校验每个状态的所有状态过渡
+			// 逻辑分析：如果其实状态是TAke直接返回吧当前状态转换增加到输出边中
 			for (StateTransition<T> stateTransition : stateTransitions) {
 				try {
 					// 校验过滤条件 执行我们设置的过滤条件
@@ -770,6 +775,14 @@ public class NFA<T> {
 		return outgoingEdges;
 	}
 
+	/**
+	 * 执行用户自定义的过滤条件
+	 * @param context
+	 * @param condition IterativeCondition 用户自定义的过滤条件
+	 * @param event
+	 * @return
+	 * @throws Exception
+	 */
 	private boolean checkFilterCondition(
 			ConditionContext<T> context,
 			IterativeCondition<T> condition,

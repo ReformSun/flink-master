@@ -26,6 +26,7 @@ import org.apache.flink.core.memory.DataOutputView;
 import java.io.IOException;
 
 /**
+ * 在共享缓存区内的版本边，允许检索前任
  * Versioned edge in {@link SharedBuffer} that allows retrieving predecessors.
  */
 public class SharedBufferEdge {

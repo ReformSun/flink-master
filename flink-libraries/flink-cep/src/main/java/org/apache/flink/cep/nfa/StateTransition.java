@@ -24,6 +24,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
+ * 代表一个状态到另一个状态转换
  * Represents a transition from one {@link State} to another.
  *
  * @param <T> type of events that are handled by the {@link IterativeCondition}
@@ -31,9 +32,13 @@ import java.util.Objects;
 public class StateTransition<T> implements Serializable {
 	private static final long serialVersionUID = -4825345749997891838L;
 
+	// 状态转换的所处的活动
 	private final StateTransitionAction action;
+	// 此状态转换的上一个状态
 	private final State<T> sourceState;
+	// 此状态转换的下一个状态
 	private final State<T> targetState;
+	// 此状态转换的判断条件，用户自定义的过滤条件 过滤条件有很多种不同的类型and or等
 	private IterativeCondition<T> condition;
 
 	public StateTransition(

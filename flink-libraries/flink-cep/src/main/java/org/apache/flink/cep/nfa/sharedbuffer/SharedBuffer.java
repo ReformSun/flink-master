@@ -70,7 +70,8 @@ public class SharedBuffer<V> {
 	private static final String eventsStateName = "sharedBuffer-events";
 	private static final String eventsCountStateName = "sharedBuffer-events-count";
 
-	/** The buffer holding the unique events seen so far. */
+	// 以下三个对象会被保存在状态后端中
+	/** The buffer holding the unique events seen so far. 缓冲区包含迄今为止看到的唯一事件*/
 	private MapState<EventId, Lockable<V>> eventsBuffer;
 
 	/** The number of events seen so far in the stream per timestamp. */
@@ -115,6 +116,7 @@ public class SharedBuffer<V> {
 	}
 
 	/**
+	 * 注册事件 把事件存储在共享缓存区中
 	 * Adds another unique event to the shared buffer and assigns a unique id for it. It automatically creates a
 	 * lock on this event, so it won't be removed during processing of that event. Therefore the lock should be removed
 	 * after processing all {@link org.apache.flink.cep.nfa.ComputationState}s
@@ -126,12 +128,14 @@ public class SharedBuffer<V> {
 	 * @throws Exception Thrown if the system cannot access the state.
 	 */
 	public EventId registerEvent(V value, long timestamp) throws Exception {
+		// 通过时间，获取时间对应的唯一id值
 		Integer id = eventsCount.get(timestamp);
 		if (id == null) {
 			id = 0;
 		}
 
 		EventId eventId = new EventId(id, timestamp);
+		// 保存时间信息 被设置事件的映射id对象，通过引用计数的方式管理时间对象
 		eventsBuffer.put(eventId, new Lockable<>(value, 1));
 		eventsCount.put(timestamp, id + 1);
 		return eventId;
@@ -314,6 +318,7 @@ public class SharedBuffer<V> {
 	}
 
 	/**
+	 * 通过给的实体增加引用计数以致不会被删除
 	 * Increases the reference counter for the given entry so that it is not
 	 * accidentally removed.
 	 *
