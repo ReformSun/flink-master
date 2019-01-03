@@ -35,13 +35,14 @@ public class TestMain3 extends AbstractTestCollection {
 //			testMethod7_1();
 //			testMethod8();
 //			testMethod8_1();
-//			testMethod9();
+			testMethod9();
 //			testMethod9_1();
+//			testMethod9_1_1();
 //			testMethod9_2();
 //			testMethod9_3();
 //			testMethod9_4();
 //			testMethod9_5();
-			testMethod10();
+//			testMethod10();
 		}catch (Exception e){
 			e.printStackTrace();
 		}
@@ -141,6 +142,9 @@ public class TestMain3 extends AbstractTestCollection {
 	 * 3,6,20,9
 	 * first 1 2 3 7 8 9
 	 * end 2 3 4 8 9 10
+	 *
+	 * {} {1,2} {2,3} {3,4} {} {} {} {7,8} {8,9} {9,10} {} {} {} .....
+	 *
 	 */
 	public static void testMethod7() {
 		Pattern<Event,Event> pattern = CommonMain.getPatternWhere().followedBy("end").where(new SimpleCondition<Event>() {
@@ -154,6 +158,8 @@ public class TestMain3 extends AbstractTestCollection {
 
 	/**
 	 * 2 3 7 7 7 7 8 9
+	 *
+	 * {} {1.2} {2,3} {} {} {} [{3,7} {4,7} {5,7} {6,7}] {7,8} {8,9} .....
 	 */
 	public static void testMethod7_1() {
 		Pattern<Event,Event> pattern = Pattern.<Event>begin("start").followedBy("end").where(new SimpleCondition<Event>() {
@@ -183,6 +189,7 @@ public class TestMain3 extends AbstractTestCollection {
 
 	/**
 	 * 2 3 3 7 7 7 7 7 7 8 8 8 8 8 8 8 9 9 9 9 9 9 9 9
+	 * {} {1,2} [{1,3},{2,3}] {} {} {} [{1,7},{2,7},{3,7},{4,7},{5,7},{6,7}] [{1,8},{2,8},{3,8},{4,8},{5,8},{6,8},{7,8}] .......
 	 */
 	public static void testMethod8_1() {
 		Pattern<Event,Event> pattern = Pattern.<Event>begin("start").followedByAny("end").where(new SimpleCondition<Event>() {
@@ -211,6 +218,7 @@ public class TestMain3 extends AbstractTestCollection {
 
 	/**
 	 * 2 3 7 8 9
+	 * {} {1,2} {2,3} {} {} {} {6,7} {7,8} {8,9} {} {} {} {} {} {} {} {}.......
 	 */
 	public static void testMethod9_1() {
 		Pattern<Event,Event> pattern = Pattern.<Event>begin("start").next("end").where(new SimpleCondition<Event>() {
@@ -223,7 +231,31 @@ public class TestMain3 extends AbstractTestCollection {
 	}
 
 	/**
+	 * 2 3 8 9
+	 * {} {1,2} {2,3} {} {} {} {} {7,8} {8,9} {} {} {} {} {} {} {} {} ......
+	 */
+	public static void testMethod9_1_1(){
+		Pattern<Event,Event> pattern = Pattern.<Event>begin("start").where(new SimpleCondition<Event>() {
+			@Override
+			public boolean filter(Event value) throws Exception {
+
+				return value.getB() == 50;
+			}
+		}).next("end").where(new SimpleCondition<Event>() {
+			@Override
+			public boolean filter(Event value) throws Exception {
+				System.out.println(value.toString());
+				return value.getA().equals("a");
+			}
+		});
+		simplePattern(getInputFromCollection( 3,6,20,9),pattern,"end");
+	}
+
+	/**
 	 * 2 3 4 8 9 10
+	 *
+	 * 不加next 1 2 3  7 8 9
+	 * 和9_4一样
 	 */
 	public static void testMethod9_2() {
 		Pattern<Event,Event> pattern = CommonMain.getPatternWhere().next("end");
@@ -232,6 +264,7 @@ public class TestMain3 extends AbstractTestCollection {
 
 	/**
 	 * 1 2 3 7 8 9
+	 * {1} {2} {3} {} {} {} {7} {8} {9} {} {} {} {} {} {} {} {} {} {} {} {} {} ....
 	 */
 	public static void testMethod9_3() {
 		Pattern<Event,Event> pattern = CommonMain.getPatternWhere();
@@ -240,6 +273,10 @@ public class TestMain3 extends AbstractTestCollection {
 
 	/**
 	 * 2 3 4 8 9 10
+	 *
+	 * 理解了： 他的匹配逻辑是
+	 *
+	 * {} {1,2} {2,3} {3,4} {} {} {} {7,8} {8,9} {9,10} {} {} {} {} {} ....
 	 */
 	public static void testMethod9_4() {
 		Pattern<Event,Event> pattern = CommonMain.getPatternWhere1().next("end");

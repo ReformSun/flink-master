@@ -26,6 +26,7 @@ import java.util.Collection;
 import java.util.Objects;
 
 /**
+ * 代表NFA的一种状态
  * Represents a state of the {@link NFA}.
  *
  * <p>Each state is identified by a name and a state type. Furthermore, it contains a collection of
@@ -37,8 +38,11 @@ import java.util.Objects;
 public class State<T> implements Serializable {
 	private static final long serialVersionUID = 6658700025989097781L;
 
+	// 状态名
 	private final String name;
+	// 状态类型
 	private StateType stateType;
+	// 转换状态
 	private final Collection<StateTransition<T>> stateTransitions;
 
 	public State(final String name, final StateType stateType) {
