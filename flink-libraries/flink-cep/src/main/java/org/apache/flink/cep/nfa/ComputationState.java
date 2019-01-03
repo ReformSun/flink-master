@@ -26,6 +26,7 @@ import javax.annotation.Nullable;
 import java.util.Objects;
 
 /**
+ * 保存计算过事件的状态
  * Helper class which encapsulates the currentStateName of the NFA computation. It points to the current currentStateName,
  * the previous entry of the pattern, the current version and the starting timestamp
  * of the overall pattern.

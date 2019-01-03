@@ -139,6 +139,7 @@ public class NFA<T> {
 		return states.get(state.getCurrentStateName());
 	}
 
+	// 判断状态是否是起点
 	private boolean isStartState(ComputationState state) {
 		State<T> stateObject = getState(state);
 		if (stateObject == null) {
@@ -224,7 +225,9 @@ public class NFA<T> {
 	}
 
 	/**
+	 * 没有时间的时间戳低于给的那个
 	 * Prunes states assuming there will be no events with timestamp <b>lower</b> than the given one.
+	 * 清理共享缓存区和发射全部的延迟部分匹配
 	 * It cleares the sharedBuffer and also emits all timed out partial matches.
 	 *
 	 * @param sharedBuffer the SharedBuffer object that we need to work upon while processing
@@ -242,7 +245,9 @@ public class NFA<T> {
 		final PriorityQueue<ComputationState> newPartialMatches = new PriorityQueue<>(NFAState.COMPUTATION_STATE_COMPARATOR);
 
 		Map<EventId, T> eventsCache = new HashMap<>();
+		// 遍历nfa状态的部分匹配
 		for (ComputationState computationState : nfaState.getPartialMatches()) {
+			// 判断当前状态是否是延迟
 			if (isStateTimedOut(computationState, timestamp)) {
 
 				if (handleTimeout) {
@@ -268,7 +273,9 @@ public class NFA<T> {
 		return timeoutResult;
 	}
 
+	// 判断状态是否超时
 	private boolean isStateTimedOut(final ComputationState state, final long timestamp) {
+		// 判断条件是如果如果状态不是起点并且窗口时间大于零并且时间戳减去状态的开始时间戳大于或者等于窗口时间则为超时状态
 		return !isStartState(state) && windowTime > 0L && timestamp - state.getStartTimestamp() >= windowTime;
 	}
 
@@ -283,6 +290,7 @@ public class NFA<T> {
 
 		// iterate over all current computations 遍历当前的所有计算
 		for (ComputationState computationState : nfaState.getPartialMatches()) {
+			// 计算下一个状态
 			final Collection<ComputationState> newComputationStates = computeNextStates(
 				sharedBuffer,
 				computationState,
@@ -300,8 +308,9 @@ public class NFA<T> {
 			//if stop state reached in this path
 			boolean shouldDiscardPath = false;
 			for (final ComputationState newComputationState : newComputationStates) {
-
+				// 判断是否是结束状态
 				if (isFinalState(newComputationState)) {
+					//如果新的ComputationState到达最终态，则提取出其对应的事件匹配，并加入到待返回的结果集中
 					potentialMatches.add(newComputationState);
 				} else if (isStopState(newComputationState)) {
 					//reached stop state. release entry for the stop state
@@ -500,8 +509,16 @@ public class NFA<T> {
 	}
 
 	/**
+	 * 根据指定的状态，当前事件，它的时间戳和内部状态机，计算下一个计算状态
 	 * Computes the next computation states based on the given computation state, the current event,
 	 * its timestamp and the internal state machine. The algorithm is:
+	 * 有效转换个分支路径数
+	 * 执行转换
+	 * IGNORE 将一直保持指向前一个事件
+	 *  特殊情况，不要为起始状态执行
+	 * TAKE 将指向当前事件
+	 *
+	 *
 	 *<ol>
 	 *     <li>Decide on valid transitions and number of branching paths. See {@link OutgoingEdges}</li>
 	 * 	   <li>Perform transitions:
@@ -540,7 +557,7 @@ public class NFA<T> {
 			final long timestamp) throws Exception {
 
 		final ConditionContext<T> context = new ConditionContext<>(this, sharedBuffer, computationState);
-		// 状态为take
+		// 创建决断图 里面包含的是状态转换的行为为take类型的StateTransition
 		final OutgoingEdges<T> outgoingEdges = createDecisionGraph(context, computationState, event.getEvent());
 
 		// Create the computing version based on the previously computed edges
@@ -555,8 +572,10 @@ public class NFA<T> {
 		for (StateTransition<T> edge : edges) {
 			switch (edge.getAction()) {
 				case IGNORE: {
+					// 如果不是起始状态
 					if (!isStartState(computationState)) {
 						final DeweyNumber version;
+						// 判断边的目标状态和就算状态对应的状态是否是同一个
 						if (isEquivalentState(edge.getTargetState(), getState(computationState))) {
 							//Stay in the same state (it can be either looping one or singleton)
 							final int toIncrease = calculateIncreasingSelfState(
@@ -700,6 +719,8 @@ public class NFA<T> {
 
 	/**
 	 * 创建决策图
+	 * 一个状态模式 可以有多个过滤条件
+	 * 根据过滤条件可以获得符合条件的转换状态 每个装换状态包含它的下一个装换状态
 	 * @param context
 	 * @param computationState
 	 * @param event
@@ -726,7 +747,7 @@ public class NFA<T> {
 			// check all state transitions for each state 校验每个状态的所有状态过渡
 			for (StateTransition<T> stateTransition : stateTransitions) {
 				try {
-					// 校验过滤条件
+					// 校验过滤条件 执行我们设置的过滤条件
 					if (checkFilterCondition(context, stateTransition.getCondition(), event)) {
 						// filter condition is true 过滤条件为真
 						switch (stateTransition.getAction()) {
