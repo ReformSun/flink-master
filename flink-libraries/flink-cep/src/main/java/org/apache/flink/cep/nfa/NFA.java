@@ -350,6 +350,7 @@ public class NFA<T> {
 		} else {
 			for (ComputationState match : potentialMatches) {
 				Map<EventId, T> eventsCache = new HashMap<>();
+				// 获取当前部分匹配，所匹配到的值
 				Map<String, List<T>> materializedMatch =
 					sharedBuffer.materializeMatch(
 						sharedBuffer.extractPatterns(
@@ -357,8 +358,9 @@ public class NFA<T> {
 							match.getVersion()).get(0),
 						eventsCache
 					);
-
+				// 增加到结果集中
 				result.add(materializedMatch);
+				// 减少对前一个节点id的引用计数
 				sharedBuffer.releaseNode(match.getPreviousBufferEntry());
 			}
 		}

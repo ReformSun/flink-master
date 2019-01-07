@@ -30,7 +30,7 @@ import java.io.IOException;
  * Versioned edge in {@link SharedBuffer} that allows retrieving predecessors.
  */
 public class SharedBufferEdge {
-
+	// 目标的节点id
 	private final NodeId target;
 	private final DeweyNumber deweyNumber;
 

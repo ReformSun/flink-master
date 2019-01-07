@@ -212,6 +212,7 @@ public class SharedBuffer<V> {
 	}
 
 	/**
+	 * 返回从给定条目开始的上一个关系中的所有元素。
 	 * Returns all elements from the previous relation starting at the given entry.
 	 *
 	 * @param nodeId  id of the starting entry
@@ -225,30 +226,35 @@ public class SharedBuffer<V> {
 
 		List<Map<String, List<EventId>>> result = new ArrayList<>();
 
-		// stack to remember the current extraction states
+		// stack to remember the current extraction states //构建一个栈来记住当前提取的状态
 		Stack<ExtractionState> extractionStates = new Stack<>();
 
-		// get the starting shared buffer entry for the previous relation
+		// get the starting shared buffer entry for the previous relation 获得共享缓存区根据前一个关系
 		Lockable<SharedBufferNode> entryLock = entries.get(nodeId);
 
 		if (entryLock != null) {
+			// 获取实体元素
 			SharedBufferNode entry = entryLock.getElement();
+			// 根据记录项，首先构建一个提取状态加入栈
 			extractionStates.add(new ExtractionState(Tuple2.of(nodeId, entry), version, new Stack<>()));
 
 			// use a depth first search to reconstruct the previous relations
 			while (!extractionStates.isEmpty()) {
+				//出栈一个对象
 				final ExtractionState extractionState = extractionStates.pop();
-				// current path of the depth first search
+				// current path of the depth first search 深度优先搜索的当前路径
 				final Stack<Tuple2<NodeId, SharedBufferNode>> currentPath = extractionState.getPath();
+				// 得到实体
 				final Tuple2<NodeId, SharedBufferNode> currentEntry = extractionState.getEntry();
 
 				// termination criterion
 				if (currentEntry == null) {
 					final Map<String, List<EventId>> completePath = new LinkedHashMap<>();
-
+					// 遍历搜索路径
 					while (!currentPath.isEmpty()) {
+						// 得到节点id
 						final NodeId currentPathEntry = currentPath.pop().f0;
-
+						//出栈构建正向的完整路径存储到LinkedHashMultimap中，并加入到结果集
 						String page = currentPathEntry.getPageName();
 						List<EventId> values = completePath
 							.computeIfAbsent(page, k -> new ArrayList<>());
@@ -257,18 +263,23 @@ public class SharedBuffer<V> {
 					result.add(completePath);
 				} else {
 
-					// append state to the path
+					// append state to the path 拼接状态到当前路径中
 					currentPath.push(currentEntry);
-
+					// 第一次匹配 初始值设置为true
 					boolean firstMatch = true;
+					// 遍历当前共享缓冲区节点的所有边
 					for (SharedBufferEdge edge : currentEntry.f1.getEdges()) {
 						// we can only proceed if the current version is compatible to the version
 						// of this previous relation
+						// 获取版本号
 						final DeweyNumber currentVersion = extractionState.getVersion();
+						// 判断当前节点中的边的版本号和当前提取状态的版本号是否兼容
 						if (currentVersion.isCompatibleWith(edge.getDeweyNumber())) {
+							// 如果兼容，获取此边所对应的上一个节点id
 							final NodeId target = edge.getTarget();
+							// 构建新的路径
 							Stack<Tuple2<NodeId, SharedBufferNode>> newPath;
-
+							// 判断是否是第一次匹配，如果是新路径就是当前路径 如果不是
 							if (firstMatch) {
 								// for the first match we don't have to copy the current path
 								newPath = currentPath;
@@ -277,7 +288,7 @@ public class SharedBuffer<V> {
 								newPath = new Stack<>();
 								newPath.addAll(currentPath);
 							}
-
+							// 从边对应的前一个实体加到提取状态堆栈中，进行下一个操作
 							extractionStates.push(new ExtractionState(
 								target != null ? Tuple2.of(target, entries.get(target).getElement()) : null,
 								edge.getDeweyNumber(),
@@ -295,6 +306,13 @@ public class SharedBuffer<V> {
 		return materializeMatch(match, new HashMap<>());
 	}
 
+	/**
+	 * 实现匹配
+	 * 根据匹配的事件id和缓存得到匹配值
+	 * @param match
+	 * @param cache
+	 * @return
+	 */
 	public Map<String, List<V>> materializeMatch(Map<String, List<EventId>> match, Map<EventId, V> cache) {
 
 		Map<String, List<V>> materializedMatch = new LinkedHashMap<>(match.size());
@@ -390,6 +408,7 @@ public class SharedBuffer<V> {
 	}
 
 	/**
+	 * 帮助类去保存提出状态当提取一个有顺序的值根据那个版本实体边
 	 * Helper class to store the extraction state while extracting a sequence of values following
 	 * the versioned entry edges.
 	 */

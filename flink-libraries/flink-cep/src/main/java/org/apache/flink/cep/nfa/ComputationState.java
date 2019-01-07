@@ -42,9 +42,15 @@ public class ComputationState {
 	// Timestamp of the first element in the pattern
 	private final long startTimestamp;
 
+	/**
+	 * 前一个节点id
+	 */
 	@Nullable
 	private final NodeId previousBufferEntry;
 
+	/**
+	 * 开始事件id
+	 */
 	@Nullable
 	private final EventId startEventID;
 

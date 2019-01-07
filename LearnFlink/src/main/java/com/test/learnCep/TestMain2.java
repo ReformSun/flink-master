@@ -10,6 +10,8 @@ import org.apache.flink.streaming.api.TimeCharacteristic;
 import static com.test.learnCep.CommonCep.simplePattern;
 
 /**
+ *
+ * https://github.com/crestofwave1/oneFlink/blob/master/doc/CEP/FlinkCEPOfficeWeb.md
  * 循环模式的学习 quantifiers
  *
  * 这里的测试times,oneOrMore,timesOrMore非常好理解
