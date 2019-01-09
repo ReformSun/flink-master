@@ -569,8 +569,11 @@ public class NFA<T> {
 		// We need to defer the creation of computation states until we know how many edges start
 		// at this computation state so that we can assign proper version
 		final List<StateTransition<T>> edges = outgoingEdges.getEdges();
+		// 得到输出边中的Take状态的边的分支数减1和0的大小 也就是要被访问的分支的访问索引
 		int takeBranchesToVisit = Math.max(0, outgoingEdges.getTotalTakeBranches() - 1);
+		// 得到输出边中的Ignore状态的边的分支数
 		int ignoreBranchesToVisit = outgoingEdges.getTotalIgnoreBranches();
+		// 总的被跳过的Take状态的分支总数
 		int totalTakeToSkip = Math.max(0, outgoingEdges.getTotalTakeBranches() - 1);
 
 		final List<ComputationState> resultingComputationStates = new ArrayList<>();
@@ -608,15 +611,18 @@ public class NFA<T> {
 				}
 				break;
 				case TAKE:
+					// 得到边对应的下一个状态State
 					final State<T> nextState = edge.getTargetState();
+					// 得到边对应的上一个状态State
 					final State<T> currentState = edge.getSourceState();
-
+					// 得到当前状态对应的NodeId
 					final NodeId previousEntry = computationState.getPreviousBufferEntry();
-
+					// 得到当前计算状态的版本号 版本号计算方法 当前版本号加上被访问的分支的索引
 					final DeweyNumber currentVersion = computationState.getVersion().increase(takeBranchesToVisit);
+					// 获得下一个dewey数
 					final DeweyNumber nextVersion = new DeweyNumber(currentVersion).addStage();
 					takeBranchesToVisit--;
-
+					// 把当前状态的名字，事件的id 前一个节点和当前版本号存入共享缓存区中
 					final NodeId newEntry = sharedBuffer.put(
 						currentState.getName(),
 						event.getEventId(),
@@ -625,6 +631,7 @@ public class NFA<T> {
 
 					final long startTimestamp;
 					final EventId startEventId;
+					// 判断状态是否是开始状态
 					if (isStartState(computationState)) {
 						startTimestamp = timestamp;
 						startEventId = event.getEventId();
@@ -657,13 +664,15 @@ public class NFA<T> {
 					break;
 			}
 		}
-
+		// 当前状态是否是开始状态
 		if (isStartState(computationState)) {
+			// 如果是：计算自己的总的出边数量
 			int totalBranches = calculateIncreasingSelfState(
 					outgoingEdges.getTotalIgnoreBranches(),
 					outgoingEdges.getTotalTakeBranches());
-
+			// 根据总的出边数计算出开始版本号
 			DeweyNumber startVersion = computationState.getVersion().increase(totalBranches);
+			// 创建开始计算状态
 			ComputationState startState = ComputationState.createStartState(computationState.getCurrentStateName(), startVersion);
 			resultingComputationStates.add(startState);
 		}
@@ -691,6 +700,14 @@ public class NFA<T> {
 		sharedBuffer.lockNode(previousEntry);
 	}
 
+	/**
+	 * 如果下一个状态State内的转换器状态是PROCEED并且当前时间满足转换要求，则查看当前转换器对应的下一个状态是否是
+	 * Final状态，如果是返回当前转换器的下一个状态，如果不是继续查找
+	 * @param context
+	 * @param state
+	 * @param event
+	 * @return
+	 */
 	private State<T> findFinalStateAfterProceed(
 			ConditionContext<T> context,
 			State<T> state,

@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * 每一种可能的匹配都将被发射
  * Every possible match will be emitted.
  */
 public class NoSkipStrategy extends AfterMatchSkipStrategy {
