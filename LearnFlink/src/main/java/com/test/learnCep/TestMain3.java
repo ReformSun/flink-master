@@ -32,7 +32,8 @@ public class TestMain3 extends AbstractTestCollection {
 			env.setStreamTimeCharacteristic(TimeCharacteristic.ProcessingTime);
 //			testMethod1();
 //			testMethod2();
-			testMethod2_1();
+//			testMethod2_1();
+			testMethod2_2();
 //			testMethod3();
 //			testMethod4();
 //			testMethod4_1();
@@ -91,6 +92,11 @@ public class TestMain3 extends AbstractTestCollection {
 	public static void testMethod2_1() {
 		Pattern<Event,Event> pattern = CommonMain.getPatternWhere();
 		simplePattern(getInputFromCollection(15,19,20),pattern.oneOrMore(),null);
+	}
+
+	public static void testMethod2_2() {
+		Pattern<Event,Event> pattern = CommonMain.getPatternWhere();
+		simplePattern(getInputFromCollection(15,19,20),pattern.times(4),null);
 	}
 
 
