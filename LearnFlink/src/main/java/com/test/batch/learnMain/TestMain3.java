@@ -22,7 +22,7 @@ public class TestMain3 extends AbstractTestMain{
 	public static void testMethod1() {
 		IterativeDataSet<Tuple3<Long, String, String>> lines = getMovieData("test.csv").iterate(100);
 		DataSet<Movie> dataSet = lines.map(new MovieMapFunction());
-		DataSet<Movie> dataSet1 = lines.closeWith(dataSet);
+//		DataSet<Movie> dataSet1 = lines.closeWith(dataSet);
 		sink(dataSet);
 	}
 }
