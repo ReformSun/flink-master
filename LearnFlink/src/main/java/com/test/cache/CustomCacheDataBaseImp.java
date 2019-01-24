@@ -67,11 +67,13 @@ public class CustomCacheDataBaseImp<T> implements CustomCache<T>,Serializable{
 
 			@Override
 			public ListenableFuture<Value> reload(T key, Value oldValue) throws Exception {
-				ListenableFuture<Value> listenableFuture = Futures.submitAsync(() ->{
-					return Futures.immediateFuture(getValueFromDateBase(key));
-			},executor);
-				return listenableFuture;
+//				ListenableFuture<Value> listenableFuture = Futures.submitAsync(() ->{
+//					return Futures.immediateFuture(getValueFromDateBase(key));
+//			},executor);
+//				return listenableFuture;
+				return null;
 			}
+
 		});
 	}
 
