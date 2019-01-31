@@ -35,6 +35,7 @@ public final class OneShotLatch {
 	private volatile boolean triggered;
 
 	/**
+	 * 发射锁，被阻塞代码将现在返回
 	 * Fires the latch. Code that is blocked on {@link #await()} will now return.
 	 */
 	public void trigger() {
@@ -45,6 +46,7 @@ public final class OneShotLatch {
 	}
 
 	/**
+	 * 等待知道trigger方法被调用
 	 * Waits until {@link OneShotLatch#trigger()} is called. Once {@code trigger()} has been called this
 	 * call will always return immediately.
 	 *
