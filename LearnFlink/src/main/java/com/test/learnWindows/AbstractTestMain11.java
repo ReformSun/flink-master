@@ -1,6 +1,8 @@
 package com.test.learnWindows;
 
 import model.Event;
+import org.apache.flink.api.java.tuple.Tuple1;
+import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.api.java.tuple.Tuple3;
 import org.apache.flink.streaming.api.TimeCharacteristic;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
@@ -34,5 +36,26 @@ public abstract class AbstractTestMain11 extends AbstractTestMain1 {
 		}
 		return inputEvents;
 	}
+
+	public static List<Tuple2<String,Long>> getTestMain12data(){
+		List<Tuple2<String,Long>> inputEvents = new ArrayList<>(); // 构建数据源
+		Long date = 1534472000000L;
+
+		for (int i = 0; i < 5; i++) {
+			if (i % 2 == 0){
+				date = date + 20000;
+				inputEvents.add(new Tuple2<>("a",date));
+			}else if (i < 4){
+				date = date + 10000;
+				inputEvents.add(new Tuple2<>("a",date));
+			}else {
+				date = date + 10000;
+				inputEvents.add(new Tuple2<>("a",date));
+			}
+		}
+		return inputEvents;
+	}
+
+
 
 }

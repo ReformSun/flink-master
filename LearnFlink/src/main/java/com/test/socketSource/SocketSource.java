@@ -12,10 +12,14 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class SocketSource implements SourceFunction<String> {
-	private final int port = 9000;
+	private  int port = 9000;
 	private final String hostName = "localhost";
 	private  ServerSocket server;
 	public SocketSource() {
+	}
+
+	public SocketSource(int port) {
+		this.port = port;
 	}
 
 	@Override

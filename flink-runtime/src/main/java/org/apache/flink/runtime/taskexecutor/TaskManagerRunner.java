@@ -140,6 +140,7 @@ public class TaskManagerRunner implements FatalErrorHandler, AutoCloseableAsync 
 
 		// TODO: Temporary hack until the MetricQueryService has been ported to RpcEndpoint
 		final ActorSystem actorSystem = ((AkkaRpcService) rpcService).getActorSystem();
+		// 开启测量值查询服务
 		metricRegistry.startQueryService(actorSystem, resourceId);
 
 		// 缓存服务
