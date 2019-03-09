@@ -348,6 +348,13 @@ public class FlinkJobManagerImp implements FlinkJobManager {
 		return null;
 	}
 
+	@Override
+	public ReadResult getJobMetrics() {
+		String u = baseUrl + "/jobs/metrics";
+		Request request = new Request.Builder().url(u).build();
+		return sendRequest(request);
+	}
+
 	private ReadResult sendRequest(Request request){
 
         OkHttpClient client = new OkHttpClient();

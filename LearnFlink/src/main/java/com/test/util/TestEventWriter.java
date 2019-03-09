@@ -21,7 +21,8 @@ public class TestEventWriter {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		try {
 			time = sdf.parse("2018-09-20 1:33:00").getTime();
-			testMethod1(time);
+//			testMethod1(time);
+			testMethod2(time);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
@@ -50,6 +51,50 @@ public class TestEventWriter {
 				String s = gson.toJson(map);
 				writer.newLine();
 				writer.write(s);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * tid,pathhash,sid,pid,tm,cpathhash,st,du
+	 * tid:业务唯一TraceID流水号
+	 * pathhash:服务实例的唯一标识
+	 * sid:被调用者的spanid
+	 * pid:发起调用者的spanid
+	 * tm:时间戳,已经存在
+	 * cpathhash:调用者服务实例的唯一标识
+	 * st:成功或失败说明 false true 1 0
+	 * du:持续时间
+	 */
+	public static void testMethod2(long time){
+		Path logFile = Paths.get("./LearnFlink/src/main/resources/sdn.csv");
+		try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)){
+			for (int i = 0; i < 10000; i++) {
+				StringBuilder stringBuilder = new StringBuilder();
+				// tid
+				stringBuilder.append(RandomUtil.getRandomHash()).append(",");
+				// pathhash
+				stringBuilder.append(RandomUtil.getRandomHash()).append(",");
+				// sid
+				stringBuilder.append(RandomUtil.getRandomHash()).append(",");
+				// pid
+				stringBuilder.append(RandomUtil.getRandomHash()).append(",");
+				// tm
+				time = time + 60000;
+				stringBuilder.append(time).append(",");
+				// cpathhash
+				stringBuilder.append(RandomUtil.getRandomHash()).append(",");
+				// st
+				stringBuilder.append(RandomUtil.getRandom(2)).append(",");
+				// du
+				stringBuilder.append(RandomUtil.getRandomHash());
+
+
+				writer.newLine();
+				writer.write(stringBuilder.toString());
 			}
 
 		} catch (Exception e) {

@@ -28,6 +28,10 @@ public class TestSend {
 //		testMethod5(jobid,"");
 
 //		testMethod6(jobid);
+		/**
+		 * 获取测量值
+		 */
+		testMethod7();
     }
 
 
@@ -86,6 +90,13 @@ public class TestSend {
 	 */
 	public static void testMethod4(){
 		ReadResult readResult =flinkJobManager.getJobsDetail("d706815e316b7e34104a95421e3bb351");
+	}
+
+	/**
+	 * 获取job的所有测量值
+	 */
+	public static void testMethod7(){
+		ReadResult readResult =flinkJobManager.getJobMetrics();
 	}
 
 
