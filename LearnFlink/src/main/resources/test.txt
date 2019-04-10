@@ -1,0 +1,5 @@
+
+numberOfTimes:1模式：first  a=a;b=50;c=0.0:time=1534472020000
+numberOfTimes:1模式：second  a=c;b=70;c=3.0:time=1534472040000
+numberOfTimes:2模式：first  a=a;b=50;c=0.0:time=1534472020000
+numberOfTimes:2模式：second  a=c;b=70;c=3.0:time=1534472050000

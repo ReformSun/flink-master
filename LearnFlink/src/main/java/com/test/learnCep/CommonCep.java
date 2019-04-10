@@ -91,6 +91,12 @@ public class CommonCep {
 		dataStream1.addSink(new CustomPrintEvent("test1.txt")).setParallelism(1);
 	}
 
+	/**
+	 *
+	 * @param dataStream 流
+	 * @param pattern 需要匹配流中数据的规则信息
+	 * @param patternS 匹配数据的某个阶段 比如 begin方法里面传入的参数
+	 */
 	public static void simplePattern(DataStream<Event> dataStream,Pattern<Event,Event> pattern,String patternS){
 		PatternStream<Event> patternStream = CEP.pattern(dataStream,pattern);
 		DataStream<Event> dataStream1 = patternStream.flatSelect(new PatternFlatSelectFunction<Event, Event>() {
@@ -132,5 +138,10 @@ public class CommonCep {
 			}
 		});
 		dataStream1.addSink(new CustomPrintEvent("test.txt")).setParallelism(1);
+	}
+
+	public static void printCepData(DataStream<Event> dataStream,Pattern<Event,Event> pattern){
+		simplePattern(dataStream,pattern,"first");
+
 	}
 }

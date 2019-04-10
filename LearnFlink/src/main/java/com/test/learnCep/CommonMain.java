@@ -7,6 +7,8 @@ import org.apache.flink.cep.pattern.conditions.SimpleCondition;
 public class CommonMain {
 	/**
 	 * 两个where相当于And 并
+	 * 下面测试的意思就是
+	 * 事件既满足事件中属性a值满足等于a既满足属性中的b值等于50
 	 * @param
 	 */
 	public static Pattern<Event,Event> getPatternWhere(){
