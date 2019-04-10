@@ -13,6 +13,7 @@
 
 	<artifactId>LearnFlink</artifactId>
 	<name>LearnFlink</name>
+	<packaging>jar</packaging>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
@@ -31,11 +32,6 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
-
-
-
-
-
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
@@ -365,12 +361,12 @@
 		  <version>${scala.version}</version>
 	  </dependency>
 
-	  <dependency>
-		  <groupId>org.apache.calcite</groupId>
-		  <artifactId>calcite-core</artifactId>
-		  <!-- When updating the Calcite version, make sure to update the dependency exclusions -->
-		  <version>1.16.0</version>
-	  </dependency>
+	  <!--<dependency>-->
+		  <!--<groupId>org.apache.calcite</groupId>-->
+		  <!--<artifactId>calcite-core</artifactId>-->
+		  <!--&lt;!&ndash; When updating the Calcite version, make sure to update the dependency exclusions &ndash;&gt;-->
+		  <!--<version>1.16.0</version>-->
+	  <!--</dependency>-->
 
 
 	  <dependency>
@@ -390,11 +386,11 @@
 		  <version>2.14</version>
 	  </dependency>
 	  <!--定时缓存-->
-	  <dependency>
-		  <groupId>com.google.guava</groupId>
-		  <artifactId>guava</artifactId>
-		  <version>23.0</version>
-	  </dependency>
+	  <!--<dependency>-->
+		  <!--<groupId>com.google.guava</groupId>-->
+		  <!--<artifactId>guava</artifactId>-->
+		  <!--<version>23.0</version>-->
+	  <!--</dependency>-->
 
 	  <!--<dependency>-->
 		  <!--<groupId>io.vertx</groupId>-->
@@ -418,6 +414,11 @@
 		  <groupId>com.mchange</groupId>
 		  <artifactId>c3p0</artifactId>
 		  <version>0.9.5.2</version>
+	  </dependency>
+	  <dependency>
+		  <groupId>org.apache.flink</groupId>
+		  <artifactId>flink-connector-kafka-0.11_2.11</artifactId>
+		  <version>1.7-SNAPSHOT</version>
 	  </dependency>
 
   </dependencies>

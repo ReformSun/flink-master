@@ -16,7 +16,7 @@ public class CustomRowPrint extends RichSinkFunction<Row> {
 	private String baseUrl = "/Users/apple/Documents/AgentJava/flink-master/LearnFlink/src/main/resources/";
 
 	public CustomRowPrint(String fileName) {
-		baseUrl = "/root/";
+		baseUrl = "E:\\Asunjihua\\idea\\flink-master\\LearnFlink\\src\\main\\resources\\";
 		this.fileName = fileName;
 	}
 

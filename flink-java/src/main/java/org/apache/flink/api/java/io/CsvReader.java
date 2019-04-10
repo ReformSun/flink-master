@@ -132,6 +132,7 @@ public class CsvReader {
 	}
 
 	/**
+	 * 启用带引号的字符串解析。引用字符串中的字段分隔符将被忽略
 	 * Enables quoted String parsing. Field delimiters in quoted Strings are ignored.
 	 * A String is parsed as quoted if it starts and ends with a quoting character and as unquoted otherwise.
 	 * Leading or tailing whitespaces are not allowed.

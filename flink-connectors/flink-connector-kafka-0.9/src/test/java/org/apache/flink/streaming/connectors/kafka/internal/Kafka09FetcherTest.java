@@ -86,13 +86,16 @@ public class Kafka09FetcherTest {
 
 		// ----- the mock consumer with blocking poll calls ----
 		final MultiShotLatch blockerLatch = new MultiShotLatch();
-
+		// 模拟消费者
 		KafkaConsumer<?, ?> mockConsumer = mock(KafkaConsumer.class);
+		// 模拟消费者的poll方法
 		when(mockConsumer.poll(anyLong())).thenAnswer(new Answer<ConsumerRecords<?, ?>>() {
 
 			@Override
 			public ConsumerRecords<?, ?> answer(InvocationOnMock invocation) throws InterruptedException {
+				// 同步被触发
 				sync.trigger();
+				// 阻塞消费者的poll方法
 				blockerLatch.await();
 				return ConsumerRecords.empty();
 			}
@@ -101,12 +104,13 @@ public class Kafka09FetcherTest {
 		doAnswer(new Answer<Void>() {
 			@Override
 			public Void answer(InvocationOnMock invocation) {
+				// 触发阻塞锁
 				blockerLatch.trigger();
 				return null;
 			}
 		}).when(mockConsumer).wakeup();
 
-		// make sure the fetcher creates the mock consumer
+		// make sure the fetcher creates the mock consumer 模拟构造方法
 		whenNew(KafkaConsumer.class).withAnyArguments().thenReturn(mockConsumer);
 
 		// ----- create the test fetcher -----

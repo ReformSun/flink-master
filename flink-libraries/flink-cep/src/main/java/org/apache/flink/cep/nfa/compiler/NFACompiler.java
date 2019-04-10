@@ -152,6 +152,7 @@ public class NFACompiler {
 		}
 
 		/**
+		 * 核查匹配模式中是否有重复的模式名，如果有就抛出异常
 		 * Check if there are duplicate pattern names. If yes, it
 		 * throws a {@link MalformedPatternException}.
 		 */
@@ -227,6 +228,7 @@ public class NFACompiler {
 		}
 
 		/**
+		 * 创建所有的在开始和结束之间的状态
 		 * Creates all the states between Start and Final state.
 		 *
 		 * @param sinkState the state that last state should point to (always the Final state)
@@ -285,6 +287,7 @@ public class NFACompiler {
 			final State<T> lastSink;
 
 			final Quantifier quantifier = currentPattern.getQuantifier();
+			// 是否包含LOOPING量词
 			if (quantifier.hasProperty(Quantifier.QuantifierProperty.LOOPING)) {
 
 				// if loop has started then all notPatterns previous to the optional states are no longer valid
@@ -329,6 +332,7 @@ public class NFACompiler {
 		}
 
 		/**
+		 * 这个方法是创建一个两者选一个状态。这个状态的目标是Take类型的可选择的装换
 		 * This method creates an alternative state that is target for TAKE transition from an optional State.
 		 * Accepting an event in optional State discards all not Patterns that were present before it.
 		 *
@@ -416,6 +420,7 @@ public class NFACompiler {
 		}
 
 		/**
+		 * 通过给与的状态数量组成复杂的组合
 		 * Creates a "complex" state consisting of given number of states with
 		 * same {@link IterativeCondition}.
 		 *

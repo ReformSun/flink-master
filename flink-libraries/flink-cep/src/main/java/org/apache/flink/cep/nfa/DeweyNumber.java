@@ -41,7 +41,7 @@ public class DeweyNumber implements Serializable {
 
 	private static final long serialVersionUID = 6170434818252267825L;
 
-	// sequence of digits
+	// sequence of digits 数字序列
 	private final int[] deweyNumber;
 
 	public DeweyNumber(int start) {
@@ -49,6 +49,7 @@ public class DeweyNumber implements Serializable {
 	}
 
 	public DeweyNumber(DeweyNumber number) {
+		// 复制number内deweyNumber数
 		this.deweyNumber = Arrays.copyOf(number.deweyNumber, number.deweyNumber.length);
 	}
 
@@ -117,13 +118,16 @@ public class DeweyNumber implements Serializable {
 	 * @return A new dewey number derived from this whose last digit is increased by given number
 	 */
 	public DeweyNumber increase(int times) {
+		// 复制当前实例的deweyNumber数组，产生一个新的数组
 		int[] newDeweyNumber = Arrays.copyOf(deweyNumber, deweyNumber.length);
+		// 取出最大索引的值，并加上times再赋值给最大索引所在数组的值
 		newDeweyNumber[deweyNumber.length - 1] += times;
 
 		return new DeweyNumber(newDeweyNumber);
 	}
 
 	/**
+	 * 创建一个新的dewey数通过当前实例的dewey数，并拼接一个新的0值在新的序列中
 	 * Creates a new dewey number from this such that a 0 is appended as new last digit.
 	 *
 	 * @return A new dewey number which contains this as a prefix and has 0 as last digit

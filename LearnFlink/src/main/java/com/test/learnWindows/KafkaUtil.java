@@ -10,6 +10,7 @@ public class KafkaUtil {
 		Properties propertie = new Properties();
 		propertie.setProperty("input-topic",topic);
 		propertie.setProperty("bootstrap.servers", "172.31.35.58:9092");
+//		propertie.setProperty("bootstrap.servers", "172.31.24.36:9092");
 		propertie.setProperty("group.id", "serverCollector");
 		FlinkKafkaConsumer09 flinkKafkaConsumer09 = new FlinkKafkaConsumer010<>(
 			propertie.getProperty("input-topic"),

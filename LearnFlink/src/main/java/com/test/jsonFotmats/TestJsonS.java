@@ -1,4 +1,4 @@
-package com.test.serialize;
+package com.test.jsonFotmats;
 
 import org.apache.flink.api.common.typeinfo.TypeInformation;
 import org.apache.flink.api.common.typeinfo.Types;
@@ -6,6 +6,9 @@ import org.apache.flink.api.java.typeutils.RowTypeInfo;
 import org.apache.flink.formats.json.JsonRowSerializationSchema;
 import org.apache.flink.types.Row;
 
+/**
+ * 序列化
+ */
 public class TestJsonS {
 	public static void main(String[] args) {
 		testMethod2();

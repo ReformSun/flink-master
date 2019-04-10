@@ -53,4 +53,5 @@ public class TestMain14 {
 		DataStream<Row> stream2 = tableEnvironment.toAppendStream(sqlResult2, Row.class, qConfig);
 		stream2.addSink(new CustomRowPrint("test.txt"));
 	}
+
 }
