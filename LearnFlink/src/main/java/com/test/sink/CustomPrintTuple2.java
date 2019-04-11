@@ -13,7 +13,10 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
 public class CustomPrintTuple2<T,F> extends RichSinkFunction<Tuple2<T,F>> {
-	private String fileName;
+	private String fileName = "test1.txt";
+
+	public CustomPrintTuple2() {
+	}
 
 	public CustomPrintTuple2(String fileName) {
 		this.fileName = fileName;

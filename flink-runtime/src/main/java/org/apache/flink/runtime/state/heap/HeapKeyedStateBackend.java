@@ -354,7 +354,7 @@ public class HeapKeyedStateBackend<K> extends AbstractKeyedStateBackend<K> {
 				// deserialization of state happens eagerly at restore time
 				KeyedBackendSerializationProxy<K> serializationProxy =
 						new KeyedBackendSerializationProxy<>(userCodeClassLoader, true);
-
+				// 编码存储在内存中的被编码后的数据
 				serializationProxy.read(inView);
 
 				if (!keySerializerRestored) {
@@ -374,22 +374,24 @@ public class HeapKeyedStateBackend<K> extends AbstractKeyedStateBackend<K> {
 
 					keySerializerRestored = true;
 				}
-
+				// 状态后端元信息 获取此类的状态后端快照元信息
 				List<StateMetaInfoSnapshot> restoredMetaInfos =
 						serializationProxy.getStateMetaInfoSnapshots();
 
 				for (StateMetaInfoSnapshot restoredMetaInfo : restoredMetaInfos) {
+					// 重新存储元信息
 					restoredKvStateMetaInfos.put(restoredMetaInfo.getName(), restoredMetaInfo);
 
+					// 根据元信息获取获取状态快照重新存储信息 在被注册的状态中
 					StateSnapshotRestore snapshotRestore = registeredStates.get(restoredMetaInfo.getName());
 
 					//important: only create a new table we did not already create it previously
 					if (null == snapshotRestore) {
-
+						// 判断被存储的类信息的状态后端类型
 						if (restoredMetaInfo.getBackendStateType() == StateMetaInfoSnapshot.BackendStateType.KEY_VALUE) {
 							RegisteredKeyValueStateBackendMetaInfo<?, ?> registeredKeyedBackendStateMetaInfo =
 								new RegisteredKeyValueStateBackendMetaInfo<>(restoredMetaInfo);
-
+							// 重新生成一个状态表 根据状态后端元信息
 							snapshotRestore = snapshotStrategy.newStateTable(registeredKeyedBackendStateMetaInfo);
 							registeredStates.put(restoredMetaInfo.getName(), snapshotRestore);
 						} else {

@@ -53,8 +53,9 @@ public class SnapshotResult<T extends StateObject> implements StateObject {
 	 * @param jobManagerOwnedSnapshot Snapshot for report to job manager. Can be null.
 	 * @param taskLocalSnapshot Snapshot for report to local state manager. This is optional and requires
 	 *                             jobManagerOwnedSnapshot to be not null if this is not also null.
+	 *                          测试使用设为public
 	 */
-	private SnapshotResult(T jobManagerOwnedSnapshot, T taskLocalSnapshot) {
+	public SnapshotResult(T jobManagerOwnedSnapshot, T taskLocalSnapshot) {
 
 		if (jobManagerOwnedSnapshot == null && taskLocalSnapshot != null) {
 			throw new IllegalStateException("Cannot report local state snapshot without corresponding remote state!");

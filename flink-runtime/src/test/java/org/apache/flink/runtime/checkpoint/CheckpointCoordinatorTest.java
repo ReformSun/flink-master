@@ -2811,6 +2811,7 @@ public class CheckpointCoordinatorTest extends TestLogger {
 
 		Preconditions.checkArgument(keyGroupRange.getNumberOfKeyGroups() == states.size());
 
+		// 编码数据的偏移量
 		Tuple2<byte[], List<long[]>> serializedDataWithOffsets =
 				serializeTogetherAndTrackOffsets(Collections.<List<? extends Serializable>>singletonList(states));
 
@@ -2823,10 +2824,13 @@ public class CheckpointCoordinatorTest extends TestLogger {
 		return new KeyGroupsStateHandle(keyGroupRangeOffsets, allSerializedStatesHandle);
 	}
 
+	// 编码偏移量  保存的是值和每个值的偏移量
 	public static Tuple2<byte[], List<long[]>> serializeTogetherAndTrackOffsets(
 			List<List<? extends Serializable>> serializables) throws IOException {
 
+		// 偏移量
 		List<long[]> offsets = new ArrayList<>(serializables.size());
+		// 编码组值
 		List<byte[]> serializedGroupValues = new ArrayList<>();
 
 		int runningGroupsOffset = 0;
@@ -2837,6 +2841,7 @@ public class CheckpointCoordinatorTest extends TestLogger {
 
 			for (int i = 0; i < list.size(); ++i) {
 				currentOffsets[i] = runningGroupsOffset;
+				// 把待编码的对象进行编码处理
 				byte[] serializedValue = InstantiationUtil.serializeObject(list.get(i));
 				serializedGroupValues.add(serializedValue);
 				runningGroupsOffset += serializedValue.length;

@@ -44,8 +44,11 @@ class HeapValueState<K, N, V>
 	 * @param valueSerializer The serializer for the state.
 	 * @param namespaceSerializer The serializer for the namespace.
 	 * @param defaultValue The default value for the state.
+	 *
+	 *
+	 * 测试学习使用改成public
 	 */
-	private HeapValueState(
+	public HeapValueState(
 		StateTable<K, N, V> stateTable,
 		TypeSerializer<K> keySerializer,
 		TypeSerializer<V> valueSerializer,
