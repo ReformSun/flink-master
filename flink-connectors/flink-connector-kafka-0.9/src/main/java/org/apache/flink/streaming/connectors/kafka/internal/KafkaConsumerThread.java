@@ -28,10 +28,7 @@ import org.apache.flink.streaming.connectors.kafka.internals.KafkaTopicPartition
 import org.apache.flink.streaming.connectors.kafka.internals.KafkaTopicPartitionStateSentinel;
 import org.apache.flink.streaming.connectors.kafka.internals.metrics.KafkaMetricWrapper;
 
-import org.apache.kafka.clients.consumer.ConsumerRecords;
-import org.apache.kafka.clients.consumer.KafkaConsumer;
-import org.apache.kafka.clients.consumer.OffsetAndMetadata;
-import org.apache.kafka.clients.consumer.OffsetCommitCallback;
+import org.apache.kafka.clients.consumer.*;
 import org.apache.kafka.common.Metric;
 import org.apache.kafka.common.MetricName;
 import org.apache.kafka.common.TopicPartition;
@@ -261,6 +258,16 @@ public class KafkaConsumerThread extends Thread {
 					}
 				}
 
+				if (records == null){
+
+					ConsumerRecord consumerRecord = new ConsumerRecord("testtopic",1,11,null,null);
+					TopicPartition topicPartition = new TopicPartition("testtopic",1);
+					ArrayList<ConsumerRecord> list = new ArrayList<>();
+					list.add(consumerRecord);
+					Map<TopicPartition,List<ConsumerRecord>> map = new HashMap<>();
+					map.put(topicPartition,list);
+					records = new ConsumerRecords(map);
+				}
 				try {
 					handover.produce(records);
 					records = null;

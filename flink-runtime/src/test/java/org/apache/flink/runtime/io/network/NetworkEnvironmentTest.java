@@ -73,6 +73,50 @@ public class NetworkEnvironmentTest {
 	@Rule
 	public ExpectedException expectedException = ExpectedException.none();
 
+
+	/**
+	 * 学习NetworkEnvironment的运行原理
+	 */
+	@Test
+	public void testMethod1() throws IOException {
+		final NetworkEnvironment network = new NetworkEnvironment(
+			new NetworkBufferPool(numBuffers, memorySegmentSize),
+			new LocalConnectionManager(),
+			new ResultPartitionManager(),
+			new TaskEventDispatcher(),
+			new KvStateRegistry(),
+			null,
+			null,
+			IOManager.IOMode.SYNC,
+			0,
+			0,
+			2,
+			8,
+			enableCreditBasedFlowControl);
+
+		// result partitions
+		ResultPartition rp1 = createResultPartition(ResultPartitionType.PIPELINED, 2);
+		ResultPartition rp2 = createResultPartition(ResultPartitionType.BLOCKING, 2);
+		ResultPartition rp3 = createResultPartition(ResultPartitionType.PIPELINED_BOUNDED, 2);
+		ResultPartition rp4 = createResultPartition(ResultPartitionType.PIPELINED_BOUNDED, 8);
+		final ResultPartition[] resultPartitions = new ResultPartition[] {rp1, rp2, rp3, rp4};
+
+		// input gates
+		SingleInputGate ig1 = createSingleInputGate(ResultPartitionType.PIPELINED, 2);
+		SingleInputGate ig2 = createSingleInputGate(ResultPartitionType.BLOCKING, 2);
+		SingleInputGate ig3 = createSingleInputGate(ResultPartitionType.PIPELINED_BOUNDED, 2);
+		SingleInputGate ig4 = createSingleInputGate(ResultPartitionType.PIPELINED_BOUNDED, 8);
+		final SingleInputGate[] inputGates = new SingleInputGate[] {ig1, ig2, ig3, ig4};
+
+		// overall task to register
+		Task task = mock(Task.class);
+		when(task.getProducedPartitions()).thenReturn(resultPartitions);
+		when(task.getAllInputGates()).thenReturn(inputGates);
+
+		network.registerTask(task);
+		network.start();
+	}
+
 	/**
 	 * Verifies that {@link NetworkEnvironment#registerTask(Task)} sets up (un)bounded buffer pool
 	 * instances for various types of input and output channels.

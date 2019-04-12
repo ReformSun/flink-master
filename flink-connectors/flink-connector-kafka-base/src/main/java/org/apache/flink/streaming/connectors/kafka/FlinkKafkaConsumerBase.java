@@ -152,10 +152,10 @@ public abstract class FlinkKafkaConsumerBase<T> extends RichParallelSourceFuncti
 	/** The startup mode for the consumer (default is {@link StartupMode#GROUP_OFFSETS}). */
 	private StartupMode startupMode = StartupMode.GROUP_OFFSETS;
 
-	/** Specific startup offsets; only relevant when startup mode is {@link StartupMode#SPECIFIC_OFFSETS}. */
+	/** Specific startup offsets; only relevant when startup mode is {@link StartupMode#SPECIFIC_OFFSETS}. 特殊的开始偏移量 */
 	private Map<KafkaTopicPartition, Long> specificStartupOffsets;
 
-	/** Timestamp to determine startup offsets; only relevant when startup mode is {@link StartupMode#TIMESTAMP}. */
+	/** Timestamp to determine startup offsets; only relevant when startup mode is {@link StartupMode#TIMESTAMP}.  开始偏移量时间戳*/
 	private Long startupOffsetsTimestamp;
 
 	// ------------------------------------------------------------------------
@@ -460,18 +460,18 @@ public abstract class FlinkKafkaConsumerBase<T> extends RichParallelSourceFuncti
 
 	@Override
 	public void open(Configuration configuration) throws Exception {
-		// determine the offset commit mode
+		// determine the offset commit mode 决定偏移量的提交模式
 		this.offsetCommitMode = OffsetCommitModes.fromConfiguration(
 				getIsAutoCommitEnabled(),
 				enableCommitOnCheckpoints,
 				((StreamingRuntimeContext) getRuntimeContext()).isCheckpointingEnabled());
 
-		// create the partition discoverer
+		// create the partition discoverer 创建分区发现者
 		this.partitionDiscoverer = createPartitionDiscoverer(
 				topicsDescriptor,
 				getRuntimeContext().getIndexOfThisSubtask(),
 				getRuntimeContext().getNumberOfParallelSubtasks());
-//		在分区发现者中 初始化消费者
+//		在分区发现者中 初始化消费者 可以直接从kafka的broker中获取全部的主题和每个主题对应的全部分区信息
 		this.partitionDiscoverer.open();
 
 		subscribedPartitionsToStartOffsets = new HashMap<>();
@@ -479,13 +479,17 @@ public abstract class FlinkKafkaConsumerBase<T> extends RichParallelSourceFuncti
 		List<KafkaTopicPartition> allPartitions = partitionDiscoverer.discoverPartitions();
 
 		if (restoredState != null) {
+			// 遍历所有的分区信息
 			for (KafkaTopicPartition partition : allPartitions) {
+				// 判断分区信息是否在恢复的分区状态中
 				if (!restoredState.containsKey(partition)) {
+					// 如果不包含放入恢复状态中
 					restoredState.put(partition, KafkaTopicPartitionStateSentinel.EARLIEST_OFFSET);
 				}
 			}
-
+			// 遍历所有的恢复状态
 			for (Map.Entry<KafkaTopicPartition, Long> restoredStateEntry : restoredState.entrySet()) {
+				// 判断是否要求从老的状态中恢复
 				if (!restoredFromOldState) {
 					// seed the partition discoverer with the union state while filtering out
 					// restored partitions that should not be subscribed by this subtask
@@ -496,7 +500,9 @@ public abstract class FlinkKafkaConsumerBase<T> extends RichParallelSourceFuncti
 					}
 				} else {
 					// when restoring from older 1.1 / 1.2 state, the restored state would not be the union state;
+					// 老的1.1 和 1.2的状态，恢复状态不能作为联合状态
 					// in this case, just use the restored state as the subscribed partitions
+					// 如果要求 把恢复的分区信息放入指定容器中
 					subscribedPartitionsToStartOffsets.put(restoredStateEntry.getKey(), restoredStateEntry.getValue());
 				}
 			}
@@ -509,6 +515,7 @@ public abstract class FlinkKafkaConsumerBase<T> extends RichParallelSourceFuncti
 			// for SPECIFIC_OFFSETS and TIMESTAMP modes, we set the specific offsets now;
 			// for other modes (EARLIEST, LATEST, and GROUP_OFFSETS), the offset is lazily determined
 			// when the partition is actually read.
+			// 如果没有恢复状态值，说明是新任务或者没有启动检查点快照服务，启动用户可以指定启动模式
 			switch (startupMode) {
 				case SPECIFIC_OFFSETS:
 					if (specificStartupOffsets == null) {
@@ -787,12 +794,12 @@ public abstract class FlinkKafkaConsumerBase<T> extends RichParallelSourceFuncti
 	@Override
 	public final void initializeState(FunctionInitializationContext context) throws Exception {
 
-
+		// 从方法初始化上下文中获取算子状态存储信息
 		OperatorStateStore stateStore = context.getOperatorStateStore();
-
+		// 获取序列化后的存储信息值
 		ListState<Tuple2<KafkaTopicPartition, Long>> oldRoundRobinListState =
 			stateStore.getSerializableListState(DefaultOperatorStateBackend.DEFAULT_OPERATOR_STATE_NAME);
-
+		// 得到上一次的停止时，存储的kafka消费偏移量信息
 		this.unionOffsetStates = stateStore.getUnionListState(new ListStateDescriptor<>(
 				OFFSETS_STATE_NAME,
 				TypeInformation.of(new TypeHint<Tuple2<KafkaTopicPartition, Long>>() {})));
@@ -829,8 +836,9 @@ public abstract class FlinkKafkaConsumerBase<T> extends RichParallelSourceFuncti
 		if (!running) {
 			LOG.debug("snapshotState() called on closed source");
 		} else {
+			// 清空联合偏移量状态
 			unionOffsetStates.clear();
-
+			// 得到kafka fetcher对象
 			final AbstractFetcher<?, ?> fetcher = this.kafkaFetcher;
 			if (fetcher == null) {
 				// the fetcher has not yet been initialized, which means we need to return the

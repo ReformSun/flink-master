@@ -29,21 +29,21 @@ public enum StartupMode {
 	/** Start from committed offsets in ZK / Kafka brokers of a specific consumer group (default). */
 	GROUP_OFFSETS(KafkaTopicPartitionStateSentinel.GROUP_OFFSET),
 
-	/** Start from the earliest offset possible. */
+	/** Start from the earliest offset possible. 从最早可能的偏移量开始*/
 	EARLIEST(KafkaTopicPartitionStateSentinel.EARLIEST_OFFSET),
 
-	/** Start from the latest offset. */
+	/** Start from the latest offset. 从最新的偏移量开始*/
 	LATEST(KafkaTopicPartitionStateSentinel.LATEST_OFFSET),
 
 	/**
-	 * Start from user-supplied timestamp for each partition.
+	 * Start from user-supplied timestamp for each partition. 开始从用户提供的每个分区的时间戳开始
 	 * Since this mode will have specific offsets to start with, we do not need a sentinel value;
-	 * using Long.MIN_VALUE as a placeholder.
+	 * using Long.MIN_VALUE as a placeholder. 使用Long最小值作为占位符
 	 */
 	TIMESTAMP(Long.MIN_VALUE),
 
 	/**
-	 * Start from user-supplied specific offsets for each partition.
+	 * Start from user-supplied specific offsets for each partition. 开始从用户指定的每一个分区的特殊偏移量开始
 	 * Since this mode will have specific offsets to start with, we do not need a sentinel value;
 	 * using Long.MIN_VALUE as a placeholder.
 	 */

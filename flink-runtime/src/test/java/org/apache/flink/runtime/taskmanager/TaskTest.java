@@ -155,6 +155,18 @@ public class TaskTest extends TestLogger {
 	// ------------------------------------------------------------------------
 
 	@Test
+	public void testMethod1(){
+		try {
+			Task task = createTask(TestInvokableCorrect.class);
+			task.run();
+
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Test
 	public void testRegularExecution() {
 		try {
 			Task task = createTask(TestInvokableCorrect.class);
@@ -936,12 +948,15 @@ public class TaskTest extends TestLogger {
 			LibraryCacheManager libCache,
 			Configuration config,
 			ExecutionConfig execConfig) throws IOException {
-
+		// 分区结果管理
 		ResultPartitionManager partitionManager = mock(ResultPartitionManager.class);
+		//
 		ResultPartitionConsumableNotifier consumableNotifier = mock(ResultPartitionConsumableNotifier.class);
 		PartitionProducerStateChecker partitionProducerStateChecker = mock(PartitionProducerStateChecker.class);
+		// 任务事件调度器
 		TaskEventDispatcher taskEventDispatcher = mock(TaskEventDispatcher.class);
 		Executor executor = mock(Executor.class);
+		// 网络环境
 		NetworkEnvironment network = mock(NetworkEnvironment.class);
 		when(network.getResultPartitionManager()).thenReturn(partitionManager);
 		when(network.getDefaultIOMode()).thenReturn(IOManager.IOMode.SYNC);
@@ -988,7 +1003,7 @@ public class TaskTest extends TestLogger {
 		CheckpointResponder checkpointResponder = new ActorGatewayCheckpointResponder(jobManagerGateway);
 
 		SerializedValue<ExecutionConfig> serializedExecutionConfig = new SerializedValue<>(execConfig);
-
+		// 工作信息
 		JobInformation jobInformation = new JobInformation(
 			jobId,
 			"Test Job",
@@ -996,7 +1011,7 @@ public class TaskTest extends TestLogger {
 			new Configuration(),
 			Collections.emptyList(),
 			Collections.emptyList());
-
+		// 任务信息
 		TaskInformation taskInformation = new TaskInformation(
 			jobVertexId,
 			"Test Task",
@@ -1004,7 +1019,7 @@ public class TaskTest extends TestLogger {
 			1,
 			invokable.getName(),
 			new Configuration());
-
+		// 任务测量值分组
 		TaskMetricGroup taskMetricGroup = mock(TaskMetricGroup.class);
 		when(taskMetricGroup.getIOMetricGroup()).thenReturn(mock(TaskIOMetricGroup.class));
 

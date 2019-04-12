@@ -123,7 +123,7 @@ public class Kafka09Fetcher<T> extends AbstractFetcher<T, TopicPartition> {
 	public void runFetchLoop() throws Exception {
 		try {
 			final Handover handover = this.handover;
-
+			TopicPartition topicPartition = new TopicPartition("testtopic",1);
 			// kick off the actual Kafka consumer
 			consumerThread.start();
 
@@ -131,8 +131,14 @@ public class Kafka09Fetcher<T> extends AbstractFetcher<T, TopicPartition> {
 				// this blocks until we get the next records
 				// it automatically re-throws exceptions encountered in the consumer thread
 				final ConsumerRecords<byte[], byte[]> records = handover.pollNext();
+				List<ConsumerRecord<byte[], byte[]>> consumerRecords = records.records(topicPartition);
+				if (consumerRecords != null){
+					ConsumerRecord consumerRecord = consumerRecords.get(0);
+//					sourceContext.collect(consumerRecord);
 
-				// get the records for each topic partition
+				}
+
+				// get the records for each topic partition 获取每个主题分区内的记录值
 				for (KafkaTopicPartitionState<TopicPartition> partition : subscribedPartitionStates()) {
 
 					List<ConsumerRecord<byte[], byte[]>> partitionRecords =

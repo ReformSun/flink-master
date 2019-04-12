@@ -305,11 +305,12 @@ public class NetworkEnvironment {
 
 			try {
 				LOG.debug("Starting network connection manager");
+				// 开始连接管理
 				connectionManager.start(resultPartitionManager, taskEventDispatcher);
 			} catch (IOException t) {
 				throw new IOException("Failed to instantiate network connection manager.", t);
 			}
-
+			// 键值状态服务
 			if (kvStateServer != null) {
 				try {
 					kvStateServer.start();

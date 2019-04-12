@@ -165,10 +165,17 @@ class NettyServer {
 
 		bindFuture = bootstrap.bind().syncUninterruptibly();
 
-		localAddress = (InetSocketAddress) bindFuture.channel().localAddress();
-
-		final long duration = (System.nanoTime() - start) / 1_000_000;
-		LOG.info("Successful initialization (took {} ms). Listening on SocketAddress {}.", duration, localAddress);
+		// 测试使用
+		try {
+			bindFuture.channel().closeFuture().sync();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		// 原代码
+//		localAddress = (InetSocketAddress) bindFuture.channel().localAddress();
+//
+//		final long duration = (System.nanoTime() - start) / 1_000_000;
+//		LOG.info("Successful initialization (took {} ms). Listening on SocketAddress {}.", duration, localAddress);
 	}
 
 	NettyConfig getConfig() {

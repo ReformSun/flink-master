@@ -158,6 +158,7 @@ public interface CheckpointedFunction {
 	void snapshotState(FunctionSnapshotContext context) throws Exception;
 
 	/**
+	 * 这个方法在被平行方法实例是被创建分布式执行期间被调用
 	 * This method is called when the parallel function instance is created during distributed
 	 * execution. Functions typically set up their state storing data structures in this method.
 	 *

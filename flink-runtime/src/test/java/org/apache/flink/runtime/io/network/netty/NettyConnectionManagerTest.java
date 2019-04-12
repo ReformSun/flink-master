@@ -19,8 +19,14 @@
 package org.apache.flink.runtime.io.network.netty;
 
 import org.apache.flink.configuration.Configuration;
+import org.apache.flink.runtime.io.network.ConnectionID;
 import org.apache.flink.runtime.io.network.TaskEventDispatcher;
+import org.apache.flink.runtime.io.network.buffer.NetworkBufferPool;
+import org.apache.flink.runtime.io.network.partition.ResultPartitionID;
 import org.apache.flink.runtime.io.network.partition.ResultPartitionProvider;
+import org.apache.flink.runtime.io.network.partition.consumer.RemoteInputChannel;
+import org.apache.flink.runtime.io.network.partition.consumer.SingleInputGate;
+import org.apache.flink.shaded.netty4.io.netty.channel.ChannelFuture;
 import org.apache.flink.util.NetUtils;
 
 import org.apache.flink.shaded.netty4.io.netty.bootstrap.Bootstrap;
@@ -29,9 +35,13 @@ import org.apache.flink.shaded.netty4.io.netty.channel.EventLoopGroup;
 
 import org.junit.Test;
 
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.net.InetAddress;
+import java.net.InetSocketAddress;
 
+import static org.apache.flink.runtime.io.network.netty.PartitionRequestClientHandlerTest.createRemoteInputChannel;
+import static org.apache.flink.runtime.io.network.netty.PartitionRequestClientHandlerTest.createSingleInputGate;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 
@@ -39,6 +49,39 @@ import static org.mockito.Mockito.mock;
  * Simple netty connection manager test.
  */
 public class NettyConnectionManagerTest {
+
+
+	@Test
+	public void testMethod1() throws Exception {
+		int numberOfSlots = 2;
+
+		NettyConfig config = new NettyConfig(
+			InetAddress.getLocalHost(),
+			NetUtils.getAvailablePort(),
+			1024,
+			numberOfSlots,
+			new Configuration());
+
+		NettyConnectionManager connectionManager = new NettyConnectionManager(config);
+
+		connectionManager.start(
+			mock(ResultPartitionProvider.class),
+			mock(TaskEventDispatcher.class));
+
+		InetSocketAddress inetSocketAddress = new InetSocketAddress(8888);
+//		NettyClient client = connectionManager.getClient();
+		PartitionRequestClient partitionRequestClient = connectionManager.createPartitionRequestClient(new ConnectionID(inetSocketAddress,1));
+
+		ResultPartitionID resultPartitionID = new ResultPartitionID();
+		int subpartitionIndex = 1;
+		final NetworkBufferPool networkBufferPool = new NetworkBufferPool(10, 32);
+		final SingleInputGate inputGate = createSingleInputGate();
+		final RemoteInputChannel inputChannel = createRemoteInputChannel(inputGate, partitionRequestClient, 1, 2);
+		ChannelFuture channelFuture = partitionRequestClient.requestSubpartition(resultPartitionID,subpartitionIndex,inputChannel,100);
+
+
+	}
+
 
 	/**
 	 * Tests that the number of arenas and number of threads of the client and
