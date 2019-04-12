@@ -162,8 +162,13 @@ class NettyServer {
 		// --------------------------------------------------------------------
 		// Start Server
 		// --------------------------------------------------------------------
-
-		bindFuture = bootstrap.bind().syncUninterruptibly();
+		// 测试
+		try {
+			bindFuture = bootstrap.bind().sync();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+//		bindFuture = bootstrap.bind().syncUninterruptibly();
 
 		// 测试使用
 		try {

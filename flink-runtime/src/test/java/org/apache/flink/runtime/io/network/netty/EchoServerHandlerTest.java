@@ -2,12 +2,14 @@ package org.apache.flink.runtime.io.network.netty;
 
 
 import org.apache.flink.shaded.netty4.io.netty.buffer.ByteBuf;
+import org.apache.flink.shaded.netty4.io.netty.buffer.Unpooled;
+import org.apache.flink.shaded.netty4.io.netty.channel.ChannelFutureListener;
 import org.apache.flink.shaded.netty4.io.netty.channel.ChannelHandler;
 import org.apache.flink.shaded.netty4.io.netty.channel.ChannelHandlerContext;
 import org.apache.flink.shaded.netty4.io.netty.channel.ChannelInboundHandlerAdapter;
 
 
-public class EchoServerHandler extends ChannelInboundHandlerAdapter {
+public class EchoServerHandlerTest extends ChannelInboundHandlerAdapter {
 	@Override
 	public void channelRead(ChannelHandlerContext ctx,
 							Object msg) {
@@ -18,8 +20,8 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
 
 	@Override
 	public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
-//		ctx.writeAndFlush(Unpooled.EMPTY_BUFFER)//4
-//			.addListener(ChannelFutureListener.CLOSE);
+		ctx.writeAndFlush(Unpooled.EMPTY_BUFFER)//4
+			.addListener(ChannelFutureListener.CLOSE);
 	}
 
 	@Override
