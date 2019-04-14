@@ -106,7 +106,7 @@ public class PartitionRequestClient {
 				subpartitionIndex, partitionId, delayMs);
 
 		clientHandler.addInputChannel(inputChannel);
-
+		// 设置分区网络请求 通过分区id自分区索引编号，输入通道id 通道初始化省份证
 		final PartitionRequest request = new PartitionRequest(
 				partitionId, subpartitionIndex, inputChannel.getInputChannelId(), inputChannel.getInitialCredit());
 

@@ -163,24 +163,24 @@ class NettyServer {
 		// Start Server
 		// --------------------------------------------------------------------
 		// 测试
-		try {
-			bindFuture = bootstrap.bind().sync();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-//		bindFuture = bootstrap.bind().syncUninterruptibly();
+//		try {
+//			bindFuture = bootstrap.bind().sync();
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
+		bindFuture = bootstrap.bind().syncUninterruptibly();
 
 		// 测试使用
-		try {
-			bindFuture.channel().closeFuture().sync();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			bindFuture.channel().closeFuture().sync();
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
 		// 原代码
-//		localAddress = (InetSocketAddress) bindFuture.channel().localAddress();
-//
-//		final long duration = (System.nanoTime() - start) / 1_000_000;
-//		LOG.info("Successful initialization (took {} ms). Listening on SocketAddress {}.", duration, localAddress);
+		localAddress = (InetSocketAddress) bindFuture.channel().localAddress();
+
+		final long duration = (System.nanoTime() - start) / 1_000_000;
+		LOG.info("Successful initialization (took {} ms). Listening on SocketAddress {}.", duration, localAddress);
 	}
 
 	NettyConfig getConfig() {

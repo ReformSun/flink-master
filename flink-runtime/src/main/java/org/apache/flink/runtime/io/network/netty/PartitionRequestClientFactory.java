@@ -76,10 +76,13 @@ class PartitionRequestClientFactory {
 				// We create a "connecting future" and atomically add it to the map.
 				// Only the thread that really added it establishes the channel.
 				// The others need to wait on that original establisher's future.
+				// 初始化一个连接通道
 				ConnectingChannel connectingChannel = new ConnectingChannel(connectionId, this);
+				// 把连接信息和连接通道进行存储
 				Object old = clients.putIfAbsent(connectionId, connectingChannel);
 
 				if (old == null) {
+					// 通过Netty客户端连接请求，并把连接通道作为监听者
 					nettyClient.connect(connectionId.getAddress()).addListener(connectingChannel);
 
 					client = connectingChannel.waitForChannel();
@@ -166,6 +169,7 @@ class PartitionRequestClientFactory {
 			synchronized (connectLock) {
 				try {
 					NetworkClientHandler clientHandler = channel.pipeline().get(NetworkClientHandler.class);
+					// 初始化分区请求客户端
 					partitionRequestClient = new PartitionRequestClient(
 						channel, clientHandler, connectionId, clientFactory);
 

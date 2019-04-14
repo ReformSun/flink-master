@@ -14,8 +14,11 @@ public class EchoServerHandlerTest extends ChannelInboundHandlerAdapter {
 	public void channelRead(ChannelHandlerContext ctx,
 							Object msg) {
 		ByteBuf in = (ByteBuf) msg;
-		System.out.println("Server received: ");        //2
-		ctx.write(in);                            //3
+//		System.out.println("Server received: ");        //2
+//		ctx.write(in);                            //3
+
+		NettyMessage.PartitionRequest partitionRequest = NettyMessage.PartitionRequest.readFrom(in);
+		System.out.println(partitionRequest.toString());
 	}
 
 	@Override

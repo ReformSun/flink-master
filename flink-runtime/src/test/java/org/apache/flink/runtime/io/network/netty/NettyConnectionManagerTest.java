@@ -78,6 +78,7 @@ public class NettyConnectionManagerTest {
 		final SingleInputGate inputGate = createSingleInputGate();
 		final RemoteInputChannel inputChannel = createRemoteInputChannel(inputGate, partitionRequestClient, 1, 2);
 		ChannelFuture channelFuture = partitionRequestClient.requestSubpartition(resultPartitionID,subpartitionIndex,inputChannel,100);
+		channelFuture.channel().closeFuture().sync();
 
 
 	}

@@ -26,6 +26,7 @@ import org.apache.flink.shaded.netty4.io.netty.channel.ChannelHandler;
 import java.io.IOException;
 
 /**
+ * 通道管理者去读或者写网络信息在客户端这边
  * Channel handler to read and write network messages on client side.
  */
 public interface NetworkClientHandler extends ChannelHandler {
