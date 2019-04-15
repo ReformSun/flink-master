@@ -133,9 +133,12 @@ public class Kafka09Fetcher<T> extends AbstractFetcher<T, TopicPartition> {
 				final ConsumerRecords<byte[], byte[]> records = handover.pollNext();
 				List<ConsumerRecord<byte[], byte[]>> consumerRecords = records.records(topicPartition);
 				if (consumerRecords != null){
-					ConsumerRecord consumerRecord = consumerRecords.get(0);
-//					sourceContext.collect(consumerRecord);
-
+					ConsumerRecord<byte[],byte[]> consumerRecord = consumerRecords.get(0);
+					final T value = deserializer.deserialize(
+						consumerRecord.key(), consumerRecord.value(),
+						consumerRecord.topic(), consumerRecord.partition(), consumerRecord.offset());
+					sourceContext.collect(value);
+					continue;
 				}
 
 				// get the records for each topic partition 获取每个主题分区内的记录值

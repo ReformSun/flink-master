@@ -259,12 +259,11 @@ public class KafkaConsumerThread extends Thread {
 				}
 
 				if (records == null){
-
-					ConsumerRecord consumerRecord = new ConsumerRecord("testtopic",1,11,null,null);
+					ConsumerRecord<byte[],byte[]> consumerRecord = new ConsumerRecord("testtopic",1,11,"test".getBytes(),"testV".getBytes());
 					TopicPartition topicPartition = new TopicPartition("testtopic",1);
-					ArrayList<ConsumerRecord> list = new ArrayList<>();
+					ArrayList<ConsumerRecord<byte[],byte[]>> list = new ArrayList<>();
 					list.add(consumerRecord);
-					Map<TopicPartition,List<ConsumerRecord>> map = new HashMap<>();
+					Map<TopicPartition,List<ConsumerRecord<byte[],byte[]>>> map = new HashMap<>();
 					map.put(topicPartition,list);
 					records = new ConsumerRecords(map);
 				}
