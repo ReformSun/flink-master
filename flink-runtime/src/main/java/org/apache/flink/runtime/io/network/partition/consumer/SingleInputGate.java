@@ -153,12 +153,16 @@ public class SingleInputGate implements InputGate {
 	private final TaskActions taskActions;
 
 	/**
+	 * 正在到来的缓存区的缓存池，从远程通道正在到来的数据被复制到从这个池中获取的缓存区
 	 * Buffer pool for incoming buffers. Incoming data from remote channels is copied to buffers
 	 * from this pool.
 	 */
 	private BufferPool bufferPool;
 
-	/** Global network buffer pool to request and recycle exclusive buffers (only for credit-based). */
+	/**
+	 *
+	 * Global network buffer pool to request and recycle exclusive buffers (only for credit-based).
+	 * */
 	private NetworkBufferPool networkBufferPool;
 
 	private final boolean isCreditBased;

@@ -181,6 +181,11 @@ public class NetworkEnvironment {
 	//  Task operations
 	// --------------------------------------------------------------------------------------------
 
+	/**
+	 * 注册任务到网络环境中
+	 * @param task
+	 * @throws IOException
+	 */
 	public void registerTask(Task task) throws IOException {
 		final ResultPartition[] producedPartitions = task.getProducedPartitions();
 
@@ -193,9 +198,10 @@ public class NetworkEnvironment {
 				setupPartition(partition);
 			}
 
-			// Setup the buffer pool for each buffer reader
+			// Setup the buffer pool for each buffer reader 获取任务中所有的输入大门
 			final SingleInputGate[] inputGates = task.getAllInputGates();
 			for (SingleInputGate gate : inputGates) {
+				// 设置到环境变量中
 				setupInputGate(gate);
 			}
 		}

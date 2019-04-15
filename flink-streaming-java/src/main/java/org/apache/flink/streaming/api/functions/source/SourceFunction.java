@@ -192,6 +192,7 @@ public interface SourceFunction<T> extends Function, Serializable {
 	interface SourceContext<T> {
 
 		/**
+		 * 发射一个元素
 		 * Emits one element from the source, without attaching a timestamp. In most cases,
 		 * this is the default way of emitting elements.
 		 *
@@ -211,6 +212,7 @@ public interface SourceFunction<T> extends Function, Serializable {
 		void collect(T element);
 
 		/**
+		 * 发射一个元素从数据源并且附上一个时间戳
 		 * Emits one element from the source, and attaches the given timestamp. This method
 		 * is relevant for programs using {@link TimeCharacteristic#EventTime}, where the
 		 * sources assign timestamps themselves, rather than relying on a {@link TimestampAssigner}
@@ -234,6 +236,7 @@ public interface SourceFunction<T> extends Function, Serializable {
 		void collectWithTimestamp(T element, long timestamp);
 
 		/**
+		 * 发射给予的水印
 		 * Emits the given {@link Watermark}. A Watermark of value {@code t} declares that no
 		 * elements with a timestamp {@code t' <= t} will occur any more. If further such
 		 * elements will be emitted, those elements are considered <i>late</i>.
