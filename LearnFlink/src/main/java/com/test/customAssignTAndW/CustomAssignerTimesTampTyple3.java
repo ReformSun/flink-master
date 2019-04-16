@@ -1,10 +1,12 @@
 package com.test.customAssignTAndW;
 
+import com.test.util.FileWriter;
 import org.apache.flink.api.java.tuple.Tuple3;
 import org.apache.flink.streaming.api.functions.AssignerWithPunctuatedWatermarks;
 import org.apache.flink.streaming.api.watermark.Watermark;
 
 import javax.annotation.Nullable;
+import java.io.IOException;
 
 public class CustomAssignerTimesTampTyple3<T,F,J> implements AssignerWithPunctuatedWatermarks<Tuple3<T,F,J>>{
 
@@ -33,7 +35,11 @@ public class CustomAssignerTimesTampTyple3<T,F,J> implements AssignerWithPunctua
 		}else {
 			timestamp = element.getField(index);
 		}
-
+		try {
+			FileWriter.writerFile(element,"test2.txt");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		currentMaxTimestamp = Math.max(currentMaxTimestamp,timestamp);
 		return timestamp;
 	}

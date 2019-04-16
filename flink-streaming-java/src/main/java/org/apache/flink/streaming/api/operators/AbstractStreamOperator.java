@@ -575,6 +575,11 @@ public abstract class AbstractStreamOperator<OUT>
 		}
 	}
 
+	/**
+	 * 设置key上下文元素
+	 * @param record
+	 * @throws Exception
+	 */
 	@Override
 	@SuppressWarnings({"unchecked", "rawtypes"})
 	public void setKeyContextElement1(StreamRecord record) throws Exception {
@@ -594,6 +599,10 @@ public abstract class AbstractStreamOperator<OUT>
 		}
 	}
 
+	/**
+	 * 设置当前key值
+	 * @param key
+	 */
 	@SuppressWarnings({"unchecked", "rawtypes"})
 	public void setCurrentKey(Object key) {
 		if (keyedStateBackend != null) {
