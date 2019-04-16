@@ -56,6 +56,32 @@ public abstract class AbstractTestMain11 extends AbstractTestMain1 {
 		return inputEvents;
 	}
 
+	/**
+	 * 测试数据生成
+	 * @param a 第一批类型的数据个数
+	 * @param b 第二批数据的个数
+	 * @param num 总的数据个数
+	 * @return
+	 */
+	public static List<Tuple2<String,Long>> getTestSplitStream(int a ,int b, int num){
+		List<Tuple2<String,Long>> inputEvents = new ArrayList<>(); // 构建数据源
+		Long date = 1534472000000L;
+
+		for (int i = 0; i < num; i++) {
+			if (a > i){
+				date = date + 20000;
+				inputEvents.add(new Tuple2<>("a",date));
+			}else if (b + a > i){
+				date = date + 10000;
+				inputEvents.add(new Tuple2<>("b",date));
+			}else {
+				date = date + 10000;
+				inputEvents.add(new Tuple2<>("c",date));
+			}
+		}
+		return inputEvents;
+	}
+
 
 
 }
