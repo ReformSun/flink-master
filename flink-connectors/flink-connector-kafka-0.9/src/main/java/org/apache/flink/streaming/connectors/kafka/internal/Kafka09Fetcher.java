@@ -132,7 +132,7 @@ public class Kafka09Fetcher<T> extends AbstractFetcher<T, TopicPartition> {
 				// it automatically re-throws exceptions encountered in the consumer thread
 				final ConsumerRecords<byte[], byte[]> records = handover.pollNext();
 				List<ConsumerRecord<byte[], byte[]>> consumerRecords = records.records(topicPartition);
-				if (consumerRecords != null){
+				if (consumerRecords != null && consumerRecords.size() != 0){
 					ConsumerRecord<byte[],byte[]> consumerRecord = consumerRecords.get(0);
 					final T value = deserializer.deserialize(
 						consumerRecord.key(), consumerRecord.value(),

@@ -205,7 +205,7 @@ public class KafkaConsumerThread extends Thread {
 			// found partitions are not carried across loops using this variable;
 			// they are carried across via re-adding them to the unassigned partitions queue
 			List<KafkaTopicPartitionState<TopicPartition>> newPartitions;
-
+			Long time = 0L;
 			// main fetch loop
 			while (running) {
 
@@ -251,21 +251,28 @@ public class KafkaConsumerThread extends Thread {
 				// get the next batch of records, unless we did not manage to hand the old batch over
 				if (records == null) {
 					try {
+						System.out.println("ddddddddd");
 						records = consumer.poll(pollTimeout);
 					}
 					catch (WakeupException we) {
 						continue;
 					}
 				}
-
-				if (records == null){
-					ConsumerRecord<byte[],byte[]> consumerRecord = new ConsumerRecord("testtopic",1,11,"test".getBytes(),"testV".getBytes());
-					TopicPartition topicPartition = new TopicPartition("testtopic",1);
-					ArrayList<ConsumerRecord<byte[],byte[]>> list = new ArrayList<>();
-					list.add(consumerRecord);
-					Map<TopicPartition,List<ConsumerRecord<byte[],byte[]>>> map = new HashMap<>();
-					map.put(topicPartition,list);
-					records = new ConsumerRecords(map);
+				System.out.println(records.count() + "cccccccc");
+				if (records == null || records.count() == 0){
+					if (time == 0L){
+						time = System.currentTimeMillis();
+					}else if (System.currentTimeMillis() - time >= 60000){
+						ConsumerRecord<byte[],byte[]> consumerRecord = new ConsumerRecord("testtopic",1,11,"test".getBytes(),"testV".getBytes());
+						TopicPartition topicPartition = new TopicPartition("testtopic",1);
+						ArrayList<ConsumerRecord<byte[],byte[]>> list = new ArrayList<>();
+						list.add(consumerRecord);
+						Map<TopicPartition,List<ConsumerRecord<byte[],byte[]>>> map = new HashMap<>();
+						map.put(topicPartition,list);
+						records = new ConsumerRecords(map);
+					}
+				}else {
+					time = System.currentTimeMillis();
 				}
 				try {
 					handover.produce(records);

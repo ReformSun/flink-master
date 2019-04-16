@@ -24,7 +24,7 @@ public abstract class AbstractTestMain1 {
 		return input;
 	}
 	public static DataStreamSource<String> getInput(String topic){
-		DataStreamSource<String> input =  env.addSource(KafkaUtil.getKafkaConsumer09Source(topic)).setParallelism(1);
+		DataStreamSource<String> input =  env.addSource(KafkaUtil.getKafkaConsumer010Source(topic)).setParallelism(1);
 		return input;
 	}
 	public static DataStreamSource<String> getInput2(){
