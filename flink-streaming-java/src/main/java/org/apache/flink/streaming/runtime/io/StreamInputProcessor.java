@@ -179,7 +179,7 @@ public class StreamInputProcessor<IN> {
 
 				if (result.isFullRecord()) {
 					StreamElement recordOrMark = deserializationDelegate.getInstance();
-
+					// 判断发过来的元素所属的类型
 					if (recordOrMark.isWatermark()) {
 						// handle watermark 处理水印
 						LOG.info( Thread.currentThread().getName() + "水印：" + recordOrMark.asWatermark().toString());
