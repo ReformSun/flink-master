@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class CustomAssignerTimesTampTyple3<T,F,J> implements AssignerWithPunctuatedWatermarks<Tuple3<T,F,J>>{
 
-	private long maxOutOfOrderness = 0L;
+	private long maxOutOfOrderness = 10000L;
 	private long currentMaxTimestamp;
 	private int index = 0;
 

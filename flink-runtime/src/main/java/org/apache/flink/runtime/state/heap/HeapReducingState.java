@@ -52,8 +52,9 @@ class HeapReducingState<K, N, V>
 	 * @param namespaceSerializer The serializer for the namespace.
 	 * @param defaultValue The default value for the state.
 	 * @param reduceFunction The reduce function used for reducing state.
+	 *                       测试使用 打开为public
 	 */
-	private HeapReducingState(
+	public HeapReducingState(
 		StateTable<K, N, V> stateTable,
 		TypeSerializer<K> keySerializer,
 		TypeSerializer<V> valueSerializer,

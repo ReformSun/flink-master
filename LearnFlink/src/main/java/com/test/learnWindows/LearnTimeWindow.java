@@ -6,7 +6,10 @@ import com.test.util.DataUtil;
 import com.test.window.EventTimeTrigger;
 import com.test.window.TumblingEventTimeWindows;
 import org.apache.calcite.avatica.util.TimeUnit;
+import org.apache.flink.api.common.ExecutionConfig;
+import org.apache.flink.api.common.state.ReducingStateDescriptor;
 import org.apache.flink.api.common.time.Time;
+import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.api.java.tuple.Tuple3;
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import static org.apache.flink.streaming.api.windowing.time.Time.*;
@@ -39,7 +42,8 @@ public class LearnTimeWindow {
 
 	public static void main(String[] args) {
 //		testMethod2();
-		testMethod2_1();
+//		testMethod2_1();
+		testMethod4();
 	}
 
 	public static void testMethod1(){
@@ -93,7 +97,13 @@ public class LearnTimeWindow {
 		List<Tuple3<String,Integer,Long>> list = DataUtil.getListFromFile(null);
 		Iterator<Tuple3<String,Integer,Long>> iterator = list.iterator();
 		while (iterator.hasNext()){
-//			customAssignerTimesTampTyple3.extractTimestamp()
+			Tuple3<String,Integer,Long> tuple = iterator.next();
+			customAssignerTimesTampTyple3.extractTimestamp(tuple,0);
+			System.out.println(customAssignerTimesTampTyple3.checkAndGetNextWatermark(tuple,0).toString());
 		}
+	}
+	
+	public static void testMethod5(){
+
 	}
 }
