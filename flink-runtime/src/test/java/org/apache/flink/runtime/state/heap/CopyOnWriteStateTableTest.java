@@ -49,70 +49,7 @@ import java.util.Random;
 public class CopyOnWriteStateTableTest extends TestLogger {
 
 
-	@Test
-	public void testMethod1(){
-		// 生成状态表
-		final CopyOnWriteStateTable<Integer, Integer, ArrayList<Integer>> stateTable = getStateTable();
-		ArrayList<Integer> state_1_1 = new ArrayList<>();
-		state_1_1.add(41);
-		stateTable.put(1,2,state_1_1);
 
-		StateTransformationFunction<ArrayList<Integer>, Integer> function =
-			new StateTransformationFunction<ArrayList<Integer>, Integer>() {
-				@Override
-				public ArrayList<Integer> apply(ArrayList<Integer> previousState, Integer value) throws Exception {
-					previousState.add(value);
-					return previousState;
-				}
-			};
-		try {
-			stateTable.transform(1,2,3333,function);
-			state_1_1 = function.apply(state_1_1,3333);
-			ArrayList<Integer> integers = stateTable.get(1,2);
-			Assert.assertEquals(state_1_1,integers);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	@Test
-	public void testMethod2(){
-		CopyOnWriteStateTable<Integer, Integer, ArrayList<Integer>> stateTable = getStateTable();
-		ArrayList<Integer> state_1_1 = new ArrayList<>();
-		state_1_1.add(41);
-		stateTable.put(1,2,state_1_1);
-		Assert.assertEquals(1,state_1_1.size());
-		state_1_1.add(44);
-		ArrayList<Integer> integers = stateTable.get(1,2);
-		Assert.assertEquals(2,integers.size());
-	}
-	@Test
-	public void testMethod3(){
-		CopyOnWriteStateTable<Integer, Integer, ArrayList<Integer>> stateTable = getStateTable();
-		ArrayList<Integer> state_1_1 = new ArrayList<>();
-		state_1_1.add(41);
-//		stateTable.put(1,1,state_1_1);
-		stateTable.put(null,null,state_1_1);
-
-	}
-
-
-
-	private CopyOnWriteStateTable<Integer, Integer, ArrayList<Integer>> getStateTable(){
-		RegisteredKeyValueStateBackendMetaInfo<Integer, ArrayList<Integer>> metaInfo =
-			new RegisteredKeyValueStateBackendMetaInfo<>(
-				StateDescriptor.Type.UNKNOWN,
-				"test",
-				IntSerializer.INSTANCE,
-				new ArrayListSerializer<>(IntSerializer.INSTANCE)); // we use mutable state objects.
-
-		final MockInternalKeyContext<Integer> keyContext = new MockInternalKeyContext<>(IntSerializer.INSTANCE);
-
-		// 生成状态表
-		final CopyOnWriteStateTable<Integer, Integer, ArrayList<Integer>> stateTable =
-			new CopyOnWriteStateTable<>(keyContext, metaInfo);
-		return stateTable;
-	}
 
 
 	/**
