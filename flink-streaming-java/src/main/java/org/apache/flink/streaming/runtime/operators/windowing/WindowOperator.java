@@ -433,11 +433,12 @@ public class WindowOperator<K, IN, ACC, OUT, W extends Window>
 
 	@Override
 	public void onEventTime(InternalTimer<K, W> timer) throws Exception {
+		// 得到定时器的key和命名空间值
 		triggerContext.key = timer.getKey();
 		triggerContext.window = timer.getNamespace();
 
 		MergingWindowSet<W> mergingWindows;
-
+		// 设置窗口状态值通过
 		if (windowAssigner instanceof MergingWindowAssigner) {
 			mergingWindows = getMergingWindowSet();
 			W stateWindow = mergingWindows.getStateWindow(triggerContext.window);
@@ -453,7 +454,7 @@ public class WindowOperator<K, IN, ACC, OUT, W extends Window>
 			windowState.setCurrentNamespace(triggerContext.window);
 			mergingWindows = null;
 		}
-
+		// 调用触发器，通过定时器的时间戳去判断这个定时器是否被发射
 		TriggerResult triggerResult = triggerContext.onEventTime(timer.getTimestamp());
 
 		if (triggerResult.isFire()) {

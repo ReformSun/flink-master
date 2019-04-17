@@ -5,6 +5,8 @@ import com.test.sink.CustomPrintTuple3;
 import com.test.sink.CustomPrintTuple4;
 import com.test.util.DataUtil;
 import com.test.util.FileWriter;
+import com.test.window.EventTimeTrigger;
+import com.test.window.TumblingEventTimeWindows;
 import model.Event;
 import org.apache.flink.api.java.functions.KeySelector;
 import org.apache.flink.api.java.tuple.Tuple;
@@ -16,7 +18,6 @@ import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.datastream.KeyedStream;
 import org.apache.flink.streaming.api.functions.timestamps.AscendingTimestampExtractor;
 import org.apache.flink.streaming.api.functions.windowing.WindowFunction;
-import org.apache.flink.streaming.api.windowing.assigners.TumblingEventTimeWindows;
 import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.util.Collector;
@@ -24,6 +25,9 @@ import org.apache.flink.util.Collector;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * 默认的时间时间触发器{@link org.apache.flink.streaming.api.windowing.triggers.EventTimeTrigger}
+ */
 public class TestWindow1 extends AbstractTestMain11{
 	public static void main(String[] args) {
 		env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
@@ -92,6 +96,25 @@ public class TestWindow1 extends AbstractTestMain11{
 		dataStream.addSink(new CustomPrintTuple4()).setParallelism(1);
 	}
 
+	/**
+	 * (a,1,1534472000000)
+	 * (a,1,1534472000192)
+	 * (a,2,1534472040138)
+	 * (a,3,1534472002365)
+	 * (a,1,1534472060000)
+	 * 统计结果
+	 * (a,2,1534472000000)
+	 * (a,3,1534472040138)
+	 *
+	 * (a,1,1534472000000)
+	 * (a,1,1534472025860)
+	 * (a,2,1534472011500)
+	 * (a,3,1534472045604)
+	 * (a,1,1534472060000)
+	 * 统计结果
+	 * (a,4,1534472000000)
+	 * (a,4,1534472045604)
+	 */
 	public static void testMethod3(){
 //		List<Tuple3<String,Integer,Long>> list = DataUtil.getTuple3_Int_timetamp_timeOutOfOrder_1M(5);
 		List<Tuple3<String,Integer,Long>> list = DataUtil.getListFromFile(null);
@@ -103,12 +126,12 @@ public class TestWindow1 extends AbstractTestMain11{
 			.keyBy(new KeySelector<Tuple3<String,Integer,Long>, String>() {
 				@Override
 				public String getKey(Tuple3<String, Integer, Long> value) throws Exception {
-					FileWriter.writerFile(value,"test1.txt");
+//					FileWriter.writerFile(value,"test1.txt");
 					return value.getField(0);
 				}
 			});
 
-		DataStream dataStream = keyedStream.window(TumblingEventTimeWindows.of(Time.seconds(60),Time.seconds(0))).sum(1).setParallelism(1);
+		DataStream dataStream = keyedStream.window(TumblingEventTimeWindows.of(Time.seconds(60),Time.seconds(0))).trigger(new EventTimeTrigger()).sum(1).setParallelism(1);
 
 		dataStream.addSink(new CustomPrintTuple3()).setParallelism(1);
 	}

@@ -250,6 +250,7 @@ public class HeapInternalTimerService<K, N> implements InternalTimerService<N>, 
 
 	public void advanceWatermark(long time) throws Exception {
 		currentWatermark = time;
+		// 比对定时任务中的时间戳和水位线的大小，如果小于或者等于水位线
 		eventTimeTimersQueue.bulkPoll(
 			(timer) -> (timer.getTimestamp() <= time),
 			(timer) -> {

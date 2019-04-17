@@ -79,6 +79,110 @@ public class HeapInternalTimerServiceTest {
 	}
 
 	@Test
+	public  void testMethod1(){
+		int totalNoOfTimers = 100;
+
+		int totalNoOfKeyGroups = 100;
+		int startKeyGroupIdx = 0;
+		int endKeyGroupIdx = totalNoOfKeyGroups - 1; // we have 0 to 99
+
+		@SuppressWarnings("unchecked")
+		Set<TimerHeapInternalTimer<Integer, String>>[] expectedNonEmptyTimerSets = new HashSet[totalNoOfKeyGroups];
+		TestKeyContext keyContext = new TestKeyContext();
+
+		final KeyGroupRange keyGroupRange = new KeyGroupRange(startKeyGroupIdx, endKeyGroupIdx);
+
+		final PriorityQueueSetFactory priorityQueueSetFactory =
+			createQueueFactory(keyGroupRange, totalNoOfKeyGroups);
+
+		HeapInternalTimerService<Integer, String> timerService = createInternalTimerService(
+			keyGroupRange,
+			keyContext,
+			new TestProcessingTimeService(),
+			IntSerializer.INSTANCE,
+			StringSerializer.INSTANCE,
+			priorityQueueSetFactory);
+
+		timerService.startTimerService(IntSerializer.INSTANCE, StringSerializer.INSTANCE, mock(Triggerable.class));
+		for (int i = 0; i < totalNoOfTimers; i++) {
+
+			// create the timer to be registered
+			TimerHeapInternalTimer<Integer, String> timer = new TimerHeapInternalTimer<>(10 + i, i, "hello_world_" + i);
+			int keyGroupIdx =  KeyGroupRangeAssignment.assignToKeyGroup(timer.getKey(), totalNoOfKeyGroups);
+
+			// add it in the adequate expected set of timers per keygroup
+			Set<TimerHeapInternalTimer<Integer, String>> timerSet = expectedNonEmptyTimerSets[keyGroupIdx];
+			if (timerSet == null) {
+				timerSet = new HashSet<>();
+				expectedNonEmptyTimerSets[keyGroupIdx] = timerSet;
+			}
+			timerSet.add(timer);
+
+			// register the timer as both processing and event time one
+			keyContext.setCurrentKey(timer.getKey());
+			timerService.registerEventTimeTimer(timer.getNamespace(), timer.getTimestamp());
+			timerService.registerProcessingTimeTimer(timer.getNamespace(), timer.getTimestamp());
+		}
+		try {
+			timerService.advanceWatermark(15);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	/**
+	 * 测试定时器优先级堆栈
+	 */
+	@Test
+	public void testMethod2(){
+		int totalNoOfKeyGroups = 100;
+		int startKeyGroupIdx = 0;
+		int endKeyGroupIdx = totalNoOfKeyGroups - 1; // we have 0 to 99
+		final KeyGroupRange keyGroupRange = new KeyGroupRange(startKeyGroupIdx, endKeyGroupIdx);
+		final PriorityQueueSetFactory priorityQueueSetFactory =
+			createQueueFactory(keyGroupRange, totalNoOfKeyGroups);
+
+		TypeSerializer<Integer> keySerializer = IntSerializer.INSTANCE;
+		TypeSerializer<String> namespaceSerializer = StringSerializer.INSTANCE;
+		TimerSerializer<Integer,String> timerSerializer = new TimerSerializer<>(keySerializer, namespaceSerializer);
+		KeyGroupedInternalPriorityQueue<TimerHeapInternalTimer<Integer,String>> queue = createTimerQueue("__test_event_timers", timerSerializer, priorityQueueSetFactory);
+		for (int i = 0; i < 100; i++) {
+			TimerHeapInternalTimer<Integer, String> timer = new TimerHeapInternalTimer<>(10 + i, i, "hello_world_" + i);
+			queue.add(timer);
+		}
+		long time = 15;
+//		queue.bulkPoll((timer)->(timer.getTimestamp() <= time),(timer)->{
+//			System.out.println(timer.getTimestamp());
+//		});
+		System.out.println(queue.size() + "_start");
+		queue.bulkPoll((timer)->(true),(timer)->{
+			System.out.println(timer.getTimestamp());
+		});
+		System.out.println(queue.size() + "_end");
+	}
+	@Test
+	public void testMethod3(){
+		int totalNoOfKeyGroups = 100;
+		int startKeyGroupIdx = 0;
+		int endKeyGroupIdx = totalNoOfKeyGroups - 1; // we have 0 to 99
+		final KeyGroupRange keyGroupRange = new KeyGroupRange(startKeyGroupIdx, endKeyGroupIdx);
+		final PriorityQueueSetFactory priorityQueueSetFactory = new HeapPriorityQueueSetFactory(keyGroupRange, totalNoOfKeyGroups, 128);
+
+		TypeSerializer<Integer> keySerializer = IntSerializer.INSTANCE;
+		TypeSerializer<String> namespaceSerializer = StringSerializer.INSTANCE;
+		TimerSerializer<Integer,String> timerSerializer = new TimerSerializer<>(keySerializer, namespaceSerializer);
+		KeyGroupedInternalPriorityQueue<TimerHeapInternalTimer<Integer,String>> queue = priorityQueueSetFactory.create("__test_event_timers",timerSerializer);
+		for (int i = 0; i < 100; i++) {
+			TimerHeapInternalTimer<Integer, String> timer = new TimerHeapInternalTimer<>(10 + i, i, "hello_world_" + i);
+			queue.add(timer);
+		}
+		System.out.println(queue.size() + "_start");
+		System.out.println(queue.peek().getTimestamp());
+		System.out.println(queue.size() + "_end");
+	}
+
+	@Test
 	public void testKeyGroupStartIndexSetting() {
 
 		int startKeyGroupIdx = 7;
