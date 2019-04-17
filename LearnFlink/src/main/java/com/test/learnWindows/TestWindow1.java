@@ -127,7 +127,14 @@ public class TestWindow1 extends AbstractTestMain11{
 	 * 统计结果
 	 * (a,2,1534472000000)
 	 * (a,3,1534472040138)
-	 *
+	 * 因为(a,2,1534472040138)到达的时候前一个窗口关闭，统计窗口内的数据
+	 * 当(a,3,1534472002365)数据在到达是。数据所在窗口已经关闭，过滤掉该数据
+	 * {@link org.apache.flink.streaming.runtime.operators.windowing.WindowOperator}
+	 * 详情在上面类的390行的
+	 * // drop if the window is already late 如果窗口已经过期的滤掉
+	 * if (isWindowLate(window)) { 判断窗口是否过期
+	 * 		continue;
+	 * } 的代码逻辑
 	 * (a,1,1534472000000)
 	 * (a,1,1534472025860)
 	 * (a,2,1534472011500)

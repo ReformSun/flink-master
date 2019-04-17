@@ -9,12 +9,23 @@ import javax.annotation.Nullable;
 import java.io.IOException;
 
 public class CustomAssignerTimesTampTyple3<T,F,J> implements AssignerWithPunctuatedWatermarks<Tuple3<T,F,J>>{
-
-	private long maxOutOfOrderness = 10000L;
+	/**
+	 * 单位毫秒
+	 */
+	private long maxOutOfOrderness = 0;
 	private long currentMaxTimestamp;
 	private int index = 0;
 
 	public CustomAssignerTimesTampTyple3(int index) {
+		this.index = index;
+	}
+
+	public CustomAssignerTimesTampTyple3(long maxOutOfOrderness) {
+		this.maxOutOfOrderness = maxOutOfOrderness;
+	}
+
+	public CustomAssignerTimesTampTyple3(long maxOutOfOrderness, int index) {
+		this.maxOutOfOrderness = maxOutOfOrderness;
 		this.index = index;
 	}
 
