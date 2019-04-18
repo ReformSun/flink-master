@@ -15,9 +15,17 @@ import java.util.List;
 
 public class FileSourceTuple3 implements SourceFunction<Tuple3<String,Integer,Long>> {
 	private String path;
+	// 单位毫秒 调整数据发送速度
+	private long interval = 0;
 	public FileSourceTuple3() {
 		path = URLUtil.baseUrl + "source.txt";
 	}
+
+	public FileSourceTuple3(long interval) {
+		this.interval = interval;
+		path = URLUtil.baseUrl + "source.txt";
+	}
+
 	public FileSourceTuple3(String path) {
 		this.path = path;
 	}
@@ -34,6 +42,9 @@ public class FileSourceTuple3 implements SourceFunction<Tuple3<String,Integer,Lo
 					tuple3.f1 = Integer.valueOf(list2.get(1));
 					tuple3.f2 = Long.valueOf(list2.get(2));
 					ctx.collect(tuple3);
+				}
+				if (interval > 0){
+					Thread.sleep(interval);
 				}
 
 			}

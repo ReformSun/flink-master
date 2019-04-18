@@ -21,7 +21,9 @@ public class TestRichFlatMapFunction extends RichFlatMapFunction<Tuple3<String, 
 	public void open(Configuration parameters) throws Exception {
 
 		RuntimeContext runtimeContext = getRuntimeContext();
-		counter = runtimeContext.getMetricGroup().counter(1);
+		runtimeContext.getMetricGroup().addGroup("aaa");
+		MetricGroup metricGroup = runtimeContext.getMetricGroup();
+		counter = metricGroup.counter(1);
 		super.open(parameters);
 	}
 }

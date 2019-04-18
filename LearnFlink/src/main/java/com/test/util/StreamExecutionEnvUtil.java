@@ -24,7 +24,7 @@ public class StreamExecutionEnvUtil {
 		return env;
 	}
 
-	private static Configuration getConfiguration(){
+	public static Configuration getConfiguration(){
 		return GlobalConfiguration.loadConfiguration("./LearnFlink/src/main/resources/");
 	}
 

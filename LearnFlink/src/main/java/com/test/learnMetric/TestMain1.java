@@ -1,5 +1,6 @@
 package com.test.learnMetric;
 
+import com.test.filesource.FileSourceTuple3;
 import com.test.learnMetric.function.TestRichFlatMapFunction;
 import com.test.sink.CustomPrint;
 import com.test.sink.CustomPrintTuple3;
@@ -20,7 +21,8 @@ public class TestMain1 {
 	public static void main(String[] args) {
 		try{
 //			testMethod1();
-			testMethod2();
+//			testMethod2();
+			testMethod3();
 		}catch (Exception e){
 			e.printStackTrace();
 		}
@@ -49,6 +51,7 @@ public class TestMain1 {
 	}
 
 	public static void testMethod3(){
-//	    env.readTextFile()
+		DataStreamSource<Tuple3<String,Integer,Long>> dataStreamSource = env.addSource(new FileSourceTuple3(10000));
+		dataStreamSource.flatMap(new TestRichFlatMapFunction()).addSink(new CustomPrint(null));
 	}
 }
