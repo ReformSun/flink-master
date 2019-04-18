@@ -21,6 +21,8 @@ package org.apache.flink.runtime.metrics.groups;
 import org.apache.flink.api.common.JobID;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.configuration.MetricOptions;
+import org.apache.flink.metrics.MeterView;
+import org.apache.flink.metrics.SimpleCounter;
 import org.apache.flink.runtime.metrics.MetricRegistryConfiguration;
 import org.apache.flink.runtime.metrics.MetricRegistryImpl;
 import org.apache.flink.runtime.metrics.dump.QueryScopeInfo;
@@ -116,9 +118,19 @@ public class TaskManagerJobGroupTest extends TestLogger {
 		JobID jid = new JobID();
 		TaskManagerMetricGroup tm = new TaskManagerMetricGroup(registry, "host", "id");
 		TaskManagerJobMetricGroup job = new TaskManagerJobMetricGroup(registry, tm, jid, "jobname");
-
 		QueryScopeInfo.JobQueryScopeInfo info = job.createQueryServiceMetricInfo(new DummyCharacterFilter());
 		assertEquals("", info.scope);
 		assertEquals(jid.toString(), info.jobID);
+	}
+	@Test
+	public void testMethod1(){
+		JobID jid = new JobID();
+		TaskManagerMetricGroup tm = new TaskManagerMetricGroup(registry, "host", "id");
+		TaskManagerJobMetricGroup job = new TaskManagerJobMetricGroup(registry, tm, jid, "jobname");
+		SimpleCounter simpleCounter = new SimpleCounter();
+		simpleCounter.inc();
+		job.addMetric("dd",simpleCounter);
+		registry.getQueryService();
+
 	}
 }

@@ -366,6 +366,12 @@
 		  <version>${scala.version}</version>
 	  </dependency>
 
+	  <dependency>
+		  <groupId>org.apache.flink</groupId>
+		  <artifactId>flink-metrics-slf4j</artifactId>
+		  <version>${project.version}</version>
+	  </dependency>
+
 	  <!--<dependency>-->
 		  <!--<groupId>org.apache.calcite</groupId>-->
 		  <!--<artifactId>calcite-core</artifactId>-->
