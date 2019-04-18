@@ -12,4 +12,17 @@ public class LearmStreamElement {
 	public static void main(String[] args) {
 
 	}
+
+	/**
+	 * 元素处理顺序
+	 * LatencyMarker
+	 * StreamRecord
+	 * Watermark 这个水印是上一个元素的水印
+	 * StreamRecord
+	 * WatermarkStreamRecord
+	 * Watermark
+	 */
+	public static void testMethod1(){
+
+	}
 }

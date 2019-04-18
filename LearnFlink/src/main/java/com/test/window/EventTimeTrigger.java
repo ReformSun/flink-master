@@ -17,6 +17,16 @@ public class EventTimeTrigger extends Trigger<Object, TimeWindow> {
 
 	public EventTimeTrigger() {}
 
+	/**
+	 * 这的上下文是
+	 * {@link org.apache.flink.streaming.runtime.operators.windowing.WindowOperator.Context}
+	 * @param element The element that arrived.
+	 * @param timestamp The timestamp of the element that arrived.
+	 * @param window The window to which the element is being added.
+	 * @param ctx A context object that can be used to register timer callbacks.
+	 * @return
+	 * @throws Exception
+	 */
 	@Override
 	public TriggerResult onElement(Object element, long timestamp, TimeWindow window, TriggerContext ctx) throws Exception {
 		// 判断当前窗口是否小于或者等于当前水印，如果小于或者等于 触发发射数据 否则把窗口最大时间戳注册到定时器服务中
@@ -24,6 +34,7 @@ public class EventTimeTrigger extends Trigger<Object, TimeWindow> {
 			// if the watermark is already past the window fire immediately
 			return TriggerResult.FIRE;
 		} else {
+			// 注册窗口的时间到时间定时器中 这是上下文中已经是当前事件的key和namespace值
 			ctx.registerEventTimeTimer(window.maxTimestamp());
 			return TriggerResult.CONTINUE;
 		}

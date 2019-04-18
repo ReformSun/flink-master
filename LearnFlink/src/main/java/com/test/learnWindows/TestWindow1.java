@@ -34,7 +34,7 @@ import java.util.List;
  * 如果时间时间小于或者等于水位时间取出注册的定时器，定时器中包含这个事件的数据信息
  * 如果满足条件会调用org.apache.flink.streaming.runtime.operators.windowing.WindowOperator的onEventTime方法
  * 然后会再调用
- * {@link org.apache.flink.streaming.runtime.operators.windowing.WindowOperator.WindowContext}类的onEventTime方法
+ * {@link org.apache.flink.streaming.runtime.operators.windowing.WindowOperator.Context}类的onEventTime方法
  * 这之前已经把定时器内包含的key值。赋值给了上下文。这个是如果去表中去取数据就能取到事件的信息
  * (逻辑详情查看{@link org.apache.flink.runtime.state.heap.HeapValueState}的测试方法)
  * 然后最后会调用自定义的或者默认的时间触发器{@link org.apache.flink.streaming.api.windowing.triggers.EventTimeTrigger}的onEventTime方法

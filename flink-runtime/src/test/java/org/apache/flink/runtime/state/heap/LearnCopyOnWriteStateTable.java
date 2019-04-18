@@ -1,5 +1,6 @@
 package org.apache.flink.runtime.state.heap;
 
+import org.apache.flink.api.common.functions.ReduceFunction;
 import org.apache.flink.api.common.state.StateDescriptor;
 import org.apache.flink.api.common.typeutils.base.IntSerializer;
 import org.apache.flink.runtime.state.ArrayListSerializer;
@@ -86,6 +87,12 @@ public class LearnCopyOnWriteStateTable {
 
 	}
 
+	@Test
+	public void testMethod5(){
+		CopyOnWriteStateTable<Integer, Integer, ArrayList<Integer>> stateTable = getStateTable();
+		HeapReducingState.ReduceTransformation<Integer> reduceTransformation = new HeapReducingState.ReduceTransformation<Integer>(new SumReducer());
+	}
+
 
 	private CopyOnWriteStateTable<Integer, Integer, ArrayList<Integer>> getStateTable(){
 		RegisteredKeyValueStateBackendMetaInfo<Integer, ArrayList<Integer>> metaInfo =
@@ -101,5 +108,14 @@ public class LearnCopyOnWriteStateTable {
 		final CopyOnWriteStateTable<Integer, Integer, ArrayList<Integer>> stateTable =
 			new CopyOnWriteStateTable<>(keyContext, metaInfo);
 		return stateTable;
+	}
+
+	private static class SumReducer implements ReduceFunction<Integer> {
+		private static final long serialVersionUID = 1L;
+		@Override
+		public Integer reduce(Integer value1,
+							  Integer value2) throws Exception {
+			return value1 + value2;
+		}
 	}
 }
