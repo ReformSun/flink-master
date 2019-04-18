@@ -12,7 +12,7 @@ public class FileMetricReporter extends AbstractReporter implements Scheduled {
 	private static final String lineSeparator = System.lineSeparator();
 	@Override
 	public String filterCharacters(String input) {
-		return null;
+		return input;
 	}
 
 	@Override
