@@ -1,5 +1,6 @@
 package com.test.learnMetric;
 
+import com.test.learnMetric.group.GroupUtil;
 import com.test.learnMetric.group.TestMetricGroup;
 import com.test.util.StreamExecutionEnvUtil;
 import org.apache.flink.configuration.Configuration;
@@ -9,6 +10,7 @@ import org.apache.flink.runtime.jobgraph.OperatorID;
 import org.apache.flink.runtime.metrics.MetricRegistryConfiguration;
 import org.apache.flink.runtime.metrics.MetricRegistryImpl;
 import org.apache.flink.runtime.metrics.groups.OperatorMetricGroup;
+import org.apache.flink.runtime.metrics.groups.TaskMetricGroup;
 
 public class TestMain2 {
 	private static MetricRegistryImpl metricRegistry;
@@ -21,7 +23,8 @@ public class TestMain2 {
 
 	public static void testMethod1(){
 		OperatorID operatorID = new OperatorID();
-		OperatorMetricGroup operatorMetricGroup = new OperatorMetricGroup(metricRegistry,null,operatorID,"test");
+		TaskMetricGroup taskMetricGroup = GroupUtil.getTaskMetricGroup(metricRegistry);
+		OperatorMetricGroup operatorMetricGroup = new OperatorMetricGroup(metricRegistry,taskMetricGroup,operatorID,"test");
 		metricRegistry.register(new SimpleCounter(),"aa",operatorMetricGroup);
 		Counter counter = operatorMetricGroup.counter(1);
 		for (int i = 0; i < 100; i++) {

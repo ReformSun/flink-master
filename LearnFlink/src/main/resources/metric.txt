@@ -1,0 +1,145 @@
+
+
+=========================== Starting metrics report ===========================
+
+-- Counters -------------------------------------------------------------------
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 1
+null.null.null.null.null.null.null: 0
+
+-- Gauges ---------------------------------------------------------------------
+
+-- Meters ---------------------------------------------------------------------
+null.null.null.null.null.null.null: 0.0
+null.null.null.null.null.null.null: 0.0
+null.null.null.null.null.null.null: 0.0
+null.null.null.null.null.null.null: 0.0
+null.null.null.null.null.null.null: 0.0
+null.null.null.null.null.null.null: 0.0
+null.null.null.null.null.null.null: 0.0
+
+-- Histograms -----------------------------------------------------------------
+
+=========================== Finished metrics report ===========================
+
+
+=========================== Starting metrics report ===========================
+
+-- Counters -------------------------------------------------------------------
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 2
+null.null.null.null.null.null.null: 0
+
+-- Gauges ---------------------------------------------------------------------
+
+-- Meters ---------------------------------------------------------------------
+null.null.null.null.null.null.null: 0.0
+null.null.null.null.null.null.null: 0.0
+null.null.null.null.null.null.null: 0.0
+null.null.null.null.null.null.null: 0.0
+null.null.null.null.null.null.null: 0.0
+null.null.null.null.null.null.null: 0.0
+null.null.null.null.null.null.null: 0.0
+
+-- Histograms -----------------------------------------------------------------
+
+=========================== Finished metrics report ===========================
+
+
+=========================== Starting metrics report ===========================
+
+-- Counters -------------------------------------------------------------------
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 3
+null.null.null.null.null.null.null: 0
+
+-- Gauges ---------------------------------------------------------------------
+
+-- Meters ---------------------------------------------------------------------
+null.null.null.null.null.null.null: 0.0
+null.null.null.null.null.null.null: 0.0
+null.null.null.null.null.null.null: 0.0
+null.null.null.null.null.null.null: 0.0
+null.null.null.null.null.null.null: 0.0
+null.null.null.null.null.null.null: 0.0
+null.null.null.null.null.null.null: 0.0
+
+-- Histograms -----------------------------------------------------------------
+
+=========================== Finished metrics report ===========================
+
+
+=========================== Starting metrics report ===========================
+
+-- Counters -------------------------------------------------------------------
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 4
+null.null.null.null.null.null.null: 0
+
+-- Gauges ---------------------------------------------------------------------
+
+-- Meters ---------------------------------------------------------------------
+null.null.null.null.null.null.null: 0.0
+null.null.null.null.null.null.null: 0.0
+null.null.null.null.null.null.null: 0.0
+null.null.null.null.null.null.null: 0.0
+null.null.null.null.null.null.null: 0.0
+null.null.null.null.null.null.null: 0.0
+null.null.null.null.null.null.null: 0.0
+
+-- Histograms -----------------------------------------------------------------
+
+=========================== Finished metrics report ===========================
+
+
+=========================== Starting metrics report ===========================
+
+-- Counters -------------------------------------------------------------------
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 0
+null.null.null.null.null.null.null: 5
+null.null.null.null.null.null.null: 0
+
+-- Gauges ---------------------------------------------------------------------
+
+-- Meters ---------------------------------------------------------------------
+null.null.null.null.null.null.null: 0.0
+null.null.null.null.null.null.null: 0.0
+null.null.null.null.null.null.null: 0.0
+null.null.null.null.null.null.null: 0.0
+null.null.null.null.null.null.null: 0.0
+null.null.null.null.null.null.null: 0.0
+null.null.null.null.null.null.null: 0.0
+
+-- Histograms -----------------------------------------------------------------
+
+=========================== Finished metrics report ===========================
