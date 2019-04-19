@@ -27,12 +27,14 @@ public class FileMetricReporter extends AbstractReporter implements Scheduled {
 
 	@Override
 	public void report() {
-		StringBuilder builder = new StringBuilder();
-		builder
-			.append(lineSeparator)
-			.append("=========================== Starting metrics report ===========================")
-			.append(lineSeparator);
+		reportCounter();
+		reportGauges();
+		reportMeters();
+		reportHistograms();
+	}
 
+	private void reportCounter(){
+		StringBuilder builder = new StringBuilder();
 		builder
 			.append(lineSeparator)
 			.append("-- Counters -------------------------------------------------------------------")
@@ -42,7 +44,15 @@ public class FileMetricReporter extends AbstractReporter implements Scheduled {
 				.append(metric.getValue()).append(": ").append(metric.getKey().getCount())
 				.append(lineSeparator);
 		}
+		try {
+			FileWriter.writerFile(builder.toString(), "metric/metricounters.txt");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
+	private void reportGauges(){
+		StringBuilder builder = new StringBuilder();
 		builder
 			.append(lineSeparator)
 			.append("-- Gauges ---------------------------------------------------------------------")
@@ -52,7 +62,15 @@ public class FileMetricReporter extends AbstractReporter implements Scheduled {
 				.append(metric.getValue()).append(": ").append(metric.getKey().getValue())
 				.append(lineSeparator);
 		}
+		try {
+			FileWriter.writerFile(builder.toString(), "metric/metricgauges.txt");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
+	private void reportMeters(){
+		StringBuilder builder = new StringBuilder();
 		builder
 			.append(lineSeparator)
 			.append("-- Meters ---------------------------------------------------------------------")
@@ -62,7 +80,15 @@ public class FileMetricReporter extends AbstractReporter implements Scheduled {
 				.append(metric.getValue()).append(": ").append(metric.getKey().getRate())
 				.append(lineSeparator);
 		}
+		try {
+			FileWriter.writerFile(builder.toString(), "metric/metricmeters.txt");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
+	private void reportHistograms(){
+		StringBuilder builder = new StringBuilder();
 		builder
 			.append(lineSeparator)
 			.append("-- Histograms -----------------------------------------------------------------")
@@ -83,13 +109,8 @@ public class FileMetricReporter extends AbstractReporter implements Scheduled {
 				.append(", p999=").append(stats.getQuantile(0.999))
 				.append(lineSeparator);
 		}
-
-		builder
-			.append(lineSeparator)
-			.append("=========================== Finished metrics report ===========================")
-			.append(lineSeparator);
 		try {
-			FileWriter.writerFile(builder.toString(),"metric.txt");
+			FileWriter.writerFile(builder.toString(), "metric/metrichistograms.txt");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

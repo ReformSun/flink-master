@@ -1,0 +1,871 @@
+
+
+-- Meters ---------------------------------------------------------------------
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.0
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.016666666666666666
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.016666666666666666
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.016666666666666666
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.016666666666666666
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.03333333333333333
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.03333333333333333
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.03333333333333333
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.03333333333333333
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.05
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.05
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.05
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.05
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.06666666666666667
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.06666666666666667
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.06666666666666667
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.06666666666666667
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.08333333333333333
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.08333333333333333
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.08333333333333333
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.08333333333333333
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.11666666666666667
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.11666666666666667
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.11666666666666667
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.11666666666666667
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.11666666666666667
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.11666666666666667
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.11666666666666667
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.11666666666666667
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.11666666666666667
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.11666666666666667
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.11666666666666667
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.11666666666666667
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.11666666666666667
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.11666666666666667
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.11666666666666667
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.11666666666666667
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.11666666666666667
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.11666666666666667
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.11666666666666667
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.11666666666666667
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.11666666666666667
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.11666666666666667
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.11666666666666667
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.11666666666666667
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
+
+
+-- Meters ---------------------------------------------------------------------
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsInPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Sink: Unnamed.0.numRecordsOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesOutPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInRemotePerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numRecordsInPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source.0.numRecordsOutPerSecond: 0.1
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Source: Custom Source -> Flat Map -> Sink: Unnamed.0.numBytesInLocalPerSecond: 0.0
+localhost.taskmanager.9a462639-db49-4f96-a9d4-808360dbd916.LearnMetric.Flat Map.0.numRecordsInPerSecond: 0.1
