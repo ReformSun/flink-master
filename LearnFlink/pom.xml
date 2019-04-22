@@ -24,7 +24,6 @@
 	  <okhttp.version>3.5.0</okhttp.version>
 	  <vertx.version>3.5.2</vertx.version>
   </properties>
-
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -404,6 +403,12 @@
 	  <!--</dependency>-->
 
 	  <!--<dependency>-->
+		  <!--<groupId>com.google.guava</groupId>-->
+		  <!--<artifactId>guava</artifactId>-->
+		  <!--<version>19.0</version>-->
+	  <!--</dependency>-->
+
+	  <!--<dependency>-->
 		  <!--<groupId>io.vertx</groupId>-->
 		  <!--<artifactId>vertx-jdbc-client</artifactId>-->
 		  <!--<version>${vertx.version}</version>-->
@@ -425,6 +430,93 @@
 		  <groupId>com.mchange</groupId>
 		  <artifactId>c3p0</artifactId>
 		  <version>0.9.5.2</version>
+	  </dependency>
+
+	  <!--学习calcite-->
+
+	  <!--<dependency>-->
+		  <!--<groupId>org.apache.flink</groupId>-->
+		  <!--<artifactId>flink-streaming-scala_${scala.binary.version}</artifactId>-->
+		  <!--<version>${project.version}</version>-->
+		  <!--<scope>provided</scope>-->
+	  <!--</dependency>-->
+
+	  <dependency>
+		  <groupId>org.apache.flink</groupId>
+		  <artifactId>flink-shaded-jackson</artifactId>
+		  <scope>provided</scope>
+	  </dependency>
+
+	  <!-- Used for base64 encoding of UDFs -->
+	  <dependency>
+		  <groupId>commons-codec</groupId>
+		  <artifactId>commons-codec</artifactId>
+	  </dependency>
+
+	  <!-- Used for code generation -->
+	  <dependency>
+		  <groupId>org.apache.commons</groupId>
+		  <artifactId>commons-lang3</artifactId>
+	  </dependency>
+
+	  <!-- Used for code generation -->
+	  <dependency>
+		  <groupId>org.codehaus.janino</groupId>
+		  <artifactId>janino</artifactId>
+	  </dependency>
+	  <!-- Used for translation of table programs -->
+	  <dependency>
+		  <groupId>org.apache.calcite</groupId>
+		  <artifactId>calcite-core</artifactId>
+		  <!-- When updating the Calcite version, make sure to update the dependency exclusions -->
+		  <version>1.16.0</version>
+		  <!--<exclusions>-->
+			  <!--&lt;!&ndash; Dependencies that are not needed for how we use Calcite right now &ndash;&gt;-->
+			  <!--<exclusion>-->
+				  <!--<groupId>org.apache.calcite.avatica</groupId>-->
+				  <!--<artifactId>avatica-metrics</artifactId>-->
+			  <!--</exclusion>-->
+			  <!--<exclusion>-->
+				  <!--<groupId>com.fasterxml.jackson.core</groupId>-->
+				  <!--<artifactId>jackson-core</artifactId>-->
+			  <!--</exclusion>-->
+			  <!--<exclusion>-->
+				  <!--<groupId>com.fasterxml.jackson.core</groupId>-->
+				  <!--<artifactId>jackson-annotations</artifactId>-->
+			  <!--</exclusion>-->
+			  <!--<exclusion>-->
+				  <!--<groupId>com.fasterxml.jackson.core</groupId>-->
+				  <!--<artifactId>jackson-databind</artifactId>-->
+			  <!--</exclusion>-->
+			  <!--&lt;!&ndash;<exclusion>&ndash;&gt;-->
+				  <!--&lt;!&ndash;<groupId>com.google.protobuf</groupId>&ndash;&gt;-->
+				  <!--&lt;!&ndash;<artifactId>protobuf-java</artifactId>&ndash;&gt;-->
+			  <!--&lt;!&ndash;</exclusion>&ndash;&gt;-->
+			  <!--<exclusion>-->
+				  <!--<groupId>org.apache.httpcomponents</groupId>-->
+				  <!--<artifactId>httpclient</artifactId>-->
+			  <!--</exclusion>-->
+			  <!--<exclusion>-->
+				  <!--<groupId>org.apache.httpcomponents</groupId>-->
+				  <!--<artifactId>httpcore</artifactId>-->
+			  <!--</exclusion>-->
+			  <!--<exclusion>-->
+				  <!--<groupId>commons-dbcp</groupId>-->
+				  <!--<artifactId>commons-dbcp</artifactId>-->
+			  <!--</exclusion>-->
+		  <!--</exclusions>-->
+	  </dependency>
+	  <!-- Common dependency of calcite-core and janino -->
+	  <dependency>
+		  <groupId>org.codehaus.janino</groupId>
+		  <artifactId>commons-compiler</artifactId>
+		  <version>3.0.7</version>
+	  </dependency>
+	  <!-- Common dependency of calcite-core and flink-table -->
+	  <dependency>
+		  <groupId>org.codehaus.janino</groupId>
+		  <artifactId>janino</artifactId>
+		  <version>3.0.7</version>
 	  </dependency>
 
 
