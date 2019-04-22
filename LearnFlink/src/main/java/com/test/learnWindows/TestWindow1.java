@@ -8,19 +8,24 @@ import com.test.util.FileWriter;
 import com.test.window.EventTimeTrigger;
 import com.test.window.TumblingEventTimeWindows;
 import model.Event;
+import org.apache.flink.api.common.functions.MapFunction;
+import org.apache.flink.api.common.functions.ReduceFunction;
+import org.apache.flink.api.common.typeinfo.Types;
 import org.apache.flink.api.java.functions.KeySelector;
 import org.apache.flink.api.java.tuple.Tuple;
 import org.apache.flink.api.java.tuple.Tuple3;
 import org.apache.flink.api.java.tuple.Tuple4;
+import org.apache.flink.api.java.typeutils.TupleTypeInfo;
 import org.apache.flink.streaming.api.TimeCharacteristic;
-import org.apache.flink.streaming.api.datastream.DataStream;
-import org.apache.flink.streaming.api.datastream.DataStreamSource;
-import org.apache.flink.streaming.api.datastream.KeyedStream;
+import org.apache.flink.streaming.api.datastream.*;
+import org.apache.flink.streaming.api.functions.ProcessFunction;
 import org.apache.flink.streaming.api.functions.timestamps.AscendingTimestampExtractor;
+import org.apache.flink.streaming.api.functions.windowing.ProcessWindowFunction;
 import org.apache.flink.streaming.api.functions.windowing.WindowFunction;
 import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.util.Collector;
+import org.apache.flink.util.OutputTag;
 
 import java.util.Iterator;
 import java.util.List;
@@ -55,7 +60,9 @@ public class TestWindow1 extends AbstractTestMain11{
 		env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
 		try{
 //			testMethod2();
-			testMethod3();
+//			testMethod3();
+			testMethod4();
+//			testMethod5();
 		}catch (Exception e){
 			e.printStackTrace();
 		}
@@ -160,9 +167,86 @@ public class TestWindow1 extends AbstractTestMain11{
 				}
 			});
 
-		DataStream dataStream = keyedStream.window(TumblingEventTimeWindows.of(Time.seconds(60),Time.seconds(0))).trigger(new EventTimeTrigger()).sum(1).setParallelism(1);
+		DataStream dataStream = keyedStream.window(TumblingEventTimeWindows.of(Time.seconds(60),Time.seconds(0)))
+			.sideOutputLateData(new OutputTag("aa"))
+			.trigger(new EventTimeTrigger())
+			.sum(1).setParallelism(1);
 
 		dataStream.addSink(new CustomPrintTuple3()).setParallelism(1);
+	}
+
+	public static void testMethod4(){
+		List<Tuple3<String,Integer,Long>> list = DataUtil.getListFromFile(null);
+		System.out.println(list.size() + " asdfg");
+		DataStream<Tuple3<String,Integer,Long>> dataStreamSource1 = env.fromCollection(list).setParallelism(1)
+			.assignTimestampsAndWatermarks(new CustomAssignerTimesTampTyple3())
+			.setParallelism(1);
+		KeyedStream<Tuple3<String,Integer,Long>,String> keyedStream = dataStreamSource1
+			.keyBy(new KeySelector<Tuple3<String,Integer,Long>, String>() {
+				@Override
+				public String getKey(Tuple3<String, Integer, Long> value) throws Exception {
+//					FileWriter.writerFile(value,"test1.txt");
+					return value.getField(0);
+				}
+			});
+
+		WindowedStream<Tuple3<String,Integer,Long>,String,TimeWindow> windowedStream = keyedStream.window(TumblingEventTimeWindows.of(Time.seconds(60),Time.seconds(0)));
+
+		TupleTypeInfo tupleTypeInfo = new TupleTypeInfo(Types.STRING,Types.INT,Types.LONG);
+		OutputTag outputTag = new OutputTag("aaa",tupleTypeInfo);
+
+		SingleOutputStreamOperator dataStream = windowedStream.sideOutputLateData(outputTag).trigger(new EventTimeTrigger())
+			.sum(1).setParallelism(1);
+		dataStream.addSink(new CustomPrintTuple3()).setParallelism(1);
+
+		dataStream.getSideOutput(outputTag).map(new MapFunction<Tuple3<String,Integer,Long>,String>() {
+			@Override
+			public String map(Tuple3<String,Integer,Long> value) throws Exception {
+				return value.toString();
+			}
+		}).print();
+
+	}
+
+	public static void testMethod5(){
+		List<Tuple3<String,Integer,Long>> list = DataUtil.getListFromFile(null);
+		System.out.println(list.size() + " asdfg");
+		DataStream<Tuple3<String,Integer,Long>> dataStreamSource1 = env.fromCollection(list).setParallelism(1)
+			.assignTimestampsAndWatermarks(new CustomAssignerTimesTampTyple3())
+			.setParallelism(1);
+		KeyedStream<Tuple3<String,Integer,Long>,String> keyedStream = dataStreamSource1
+			.keyBy(new KeySelector<Tuple3<String,Integer,Long>, String>() {
+				@Override
+				public String getKey(Tuple3<String, Integer, Long> value) throws Exception {
+//					FileWriter.writerFile(value,"test1.txt");
+					return value.getField(0);
+				}
+			});
+
+		WindowedStream<Tuple3<String,Integer,Long>,String,TimeWindow> windowedStream = keyedStream.window(TumblingEventTimeWindows.of(Time.seconds(60),Time.seconds(0)));
+
+		TupleTypeInfo tupleTypeInfo = new TupleTypeInfo(Types.STRING,Types.INT,Types.LONG);
+		OutputTag outputTag = new OutputTag("aaa",tupleTypeInfo);
+
+		SingleOutputStreamOperator<String> dataStream = windowedStream.sideOutputLateData(outputTag).trigger(new EventTimeTrigger()).process(new
+																																				 ProcessWindowFunction<Tuple3<String,Integer,Long>, String, String, TimeWindow>() {
+			@Override
+			public void process(String s, Context context, Iterable<Tuple3<String, Integer, Long>> elements, Collector<String> out) throws Exception {
+				System.out.println("aa");
+				out.collect("aaaaaaa");
+			}
+		});
+
+
+		dataStream.print();
+
+		dataStream.getSideOutput(outputTag).map(new MapFunction<Tuple3<String,Integer,Long>,String>() {
+			@Override
+			public String map(Tuple3<String,Integer,Long> value) throws Exception {
+				return value.toString();
+			}
+		}).print();
+
 	}
 
 }

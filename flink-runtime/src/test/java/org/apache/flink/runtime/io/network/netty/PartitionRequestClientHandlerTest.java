@@ -19,17 +19,16 @@
 package org.apache.flink.runtime.io.network.netty;
 
 import org.apache.flink.api.common.JobID;
+import org.apache.flink.configuration.Configuration;
 import org.apache.flink.runtime.io.network.ConnectionID;
 import org.apache.flink.runtime.io.network.ConnectionManager;
-import org.apache.flink.runtime.io.network.buffer.Buffer;
-import org.apache.flink.runtime.io.network.buffer.BufferListener;
-import org.apache.flink.runtime.io.network.buffer.BufferPool;
-import org.apache.flink.runtime.io.network.buffer.BufferProvider;
-import org.apache.flink.runtime.io.network.buffer.NetworkBufferPool;
+import org.apache.flink.runtime.io.network.TaskEventDispatcher;
+import org.apache.flink.runtime.io.network.buffer.*;
 import org.apache.flink.runtime.io.network.netty.NettyMessage.BufferResponse;
 import org.apache.flink.runtime.io.network.netty.NettyMessage.ErrorResponse;
 import org.apache.flink.runtime.io.network.partition.PartitionNotFoundException;
 import org.apache.flink.runtime.io.network.partition.ResultPartitionID;
+import org.apache.flink.runtime.io.network.partition.ResultPartitionProvider;
 import org.apache.flink.runtime.io.network.partition.ResultPartitionType;
 import org.apache.flink.runtime.io.network.partition.consumer.InputChannelID;
 import org.apache.flink.runtime.io.network.partition.consumer.RemoteInputChannel;
@@ -44,9 +43,12 @@ import org.apache.flink.shaded.netty4.io.netty.buffer.UnpooledByteBufAllocator;
 import org.apache.flink.shaded.netty4.io.netty.channel.Channel;
 import org.apache.flink.shaded.netty4.io.netty.channel.ChannelHandlerContext;
 
+import org.apache.flink.util.NetUtils;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
@@ -57,6 +59,70 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class PartitionRequestClientHandlerTest {
+
+	private final static int numBuffers = 1024;
+
+	private final static int memorySegmentSize = 128;
+	@Test
+	public void testMethod1() throws Exception{
+		int numberOfSlots = 2;
+
+		NettyConfig config = new NettyConfig(
+			InetAddress.getLocalHost(),
+			NetUtils.getAvailablePort(),
+			1024,
+			numberOfSlots,
+			new Configuration());
+
+		NettyConnectionManager connectionManager = new NettyConnectionManager(config);
+
+		connectionManager.start(
+			mock(ResultPartitionProvider.class),
+			mock(TaskEventDispatcher.class));
+		InetSocketAddress inetSocketAddress = new InetSocketAddress(8888);
+		PartitionRequestClient partitionRequestClient = connectionManager.createPartitionRequestClient(new ConnectionID(inetSocketAddress,1));
+		final SingleInputGate inputGate = createSingleInputGate();
+		final RemoteInputChannel inputChannel = createRemoteInputChannel(inputGate, partitionRequestClient, 1, 2);
+
+		final BufferProvider bufferProvider = mock(BufferProvider.class);
+		when(bufferProvider.requestBuffer()).thenReturn(null);
+		when(bufferProvider.isDestroyed()).thenReturn(true);
+		when(bufferProvider.addBufferListener(any(BufferListener.class))).thenReturn(false);
+
+		when(inputChannel.getInputChannelId()).thenReturn(new InputChannelID());
+		when(inputChannel.getBufferProvider()).thenReturn(bufferProvider);
+
+		final BufferResponse receivedBuffer = createBufferResponse(
+			TestBufferFactory.createBuffer(TestBufferFactory.BUFFER_SIZE), 0, inputChannel.getInputChannelId(), 2);
+
+		final PartitionRequestClientHandler client = new PartitionRequestClientHandler();
+		client.addInputChannel(inputChannel);
+
+		client.channelRead(mock(ChannelHandlerContext.class), receivedBuffer);
+	}
+	@Test
+	public void testMethod2(){
+//		NetworkBufferPool networkBufferPool = new NetworkBufferPool(numBuffers, memorySegmentSize);
+//		BufferPool localBufferPool = new LocalBufferPool(networkBufferPool, 1);
+		// Mocks an input channel in a state as it was released during a decode.
+//		final BufferProvider bufferProvider = mock(BufferProvider.class);
+//		when(bufferProvider.requestBuffer()).thenReturn(null);
+//		when(bufferProvider.isDestroyed()).thenReturn(true);
+//		when(bufferProvider.addBufferListener(any(BufferListener.class))).thenReturn(false);
+//
+//		final RemoteInputChannel inputChannel = mock(RemoteInputChannel.class);
+//		when(inputChannel.getInputChannelId()).thenReturn(new InputChannelID());
+//		when(inputChannel.getBufferProvider()).thenReturn(bufferProvider);
+//
+//		final BufferResponse receivedBuffer = createBufferResponse(
+//			TestBufferFactory.createBuffer(TestBufferFactory.BUFFER_SIZE), 0, inputChannel.getInputChannelId(), 2);
+//
+//		final PartitionRequestClientHandler client = new PartitionRequestClientHandler();
+//		client.addInputChannel(inputChannel);
+//
+//		client.channelRead(mock(ChannelHandlerContext.class), receivedBuffer);
+
+	}
 
 	/**
 	 * Tests a fix for FLINK-1627.
@@ -212,7 +278,7 @@ public class PartitionRequestClientHandlerTest {
 	 *
 	 * @return The new created single input gate.
 	 */
-	static SingleInputGate createSingleInputGate() {
+	public static SingleInputGate createSingleInputGate() {
 		return new SingleInputGate(
 			"InputGate",
 			new JobID(),

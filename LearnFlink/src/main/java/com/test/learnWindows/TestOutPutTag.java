@@ -33,7 +33,7 @@ public class TestOutPutTag extends AbstractTestMain11{
 		dataStreamSource.getSideOutput(outputTag).map(new MapFunction<Tuple2<String,Long>, String>() {
 			@Override
 			public String map(Tuple2<String, Long> value) throws Exception {
-				System.out.println("aa");
+				System.out.println("aaaaaaa");
 				return "cccc";
 			}
 		}).print();
@@ -41,7 +41,7 @@ public class TestOutPutTag extends AbstractTestMain11{
 		dataStreamSource.getSideOutput(outputTag1).map(new MapFunction<Tuple2<String,Long>, String>() {
 			@Override
 			public String map(Tuple2<String, Long> value) throws Exception {
-				System.out.println("cc");
+				System.out.println("cccccc");
 				return "cccc";
 			}
 		}).print();

@@ -5,12 +5,14 @@ import com.test.keyby.KeySelectorTuple2;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
 import org.apache.flink.api.common.typeinfo.Types;
 import org.apache.flink.api.java.tuple.Tuple2;
+import org.apache.flink.api.java.typeutils.TupleTypeInfo;
 import org.apache.flink.api.java.typeutils.TypeExtractor;
 
 public class TestTypeExtractor {
 	public static void main(String[] args) {
-		testMethod1();
+//		testMethod1();
 //		testMethod2();
+		testMethod3();
 	}
 
 	public static void testMethod1(){
@@ -29,4 +31,10 @@ public class TestTypeExtractor {
 
 		TypeExtractor.getKeySelectorTypes(keySelectorTuple,typeInformation);
 	}
+
+	public static void testMethod3(){
+		TupleTypeInfo tupleTypeInfo = new TupleTypeInfo(Types.STRING,Types.STRING);
+	}
+
+
 }

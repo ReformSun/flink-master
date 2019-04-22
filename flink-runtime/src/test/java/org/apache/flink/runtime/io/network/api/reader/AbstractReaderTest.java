@@ -24,6 +24,7 @@ import org.apache.flink.runtime.event.TaskEvent;
 import org.apache.flink.runtime.io.network.api.EndOfPartitionEvent;
 import org.apache.flink.runtime.io.network.api.EndOfSuperstepEvent;
 import org.apache.flink.runtime.io.network.partition.consumer.InputGate;
+import org.apache.flink.runtime.io.network.partition.consumer.SingleInputGate;
 import org.apache.flink.runtime.util.event.EventListener;
 
 import org.junit.Test;
@@ -31,6 +32,7 @@ import org.mockito.Matchers;
 
 import java.io.IOException;
 
+import static org.apache.flink.runtime.io.network.netty.PartitionRequestClientHandlerTest.createSingleInputGate;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -43,6 +45,12 @@ import static org.mockito.Mockito.when;
  * Tests for the event handling behaviour.
  */
 public class AbstractReaderTest {
+
+	@Test
+	public void testMethod1(){
+		final SingleInputGate inputGate = createSingleInputGate();
+//		RecordReader<> recordReader = new RecordReader<String>(inputGate,String.class,null);
+	}
 
 	@Test
 	@SuppressWarnings("unchecked")
