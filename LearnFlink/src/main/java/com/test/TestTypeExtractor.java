@@ -5,6 +5,7 @@ import com.test.keyby.KeySelectorTuple2;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
 import org.apache.flink.api.common.typeinfo.Types;
 import org.apache.flink.api.java.tuple.Tuple2;
+import org.apache.flink.api.java.typeutils.RowTypeInfo;
 import org.apache.flink.api.java.typeutils.TupleTypeInfo;
 import org.apache.flink.api.java.typeutils.TypeExtractor;
 
@@ -34,6 +35,10 @@ public class TestTypeExtractor {
 
 	public static void testMethod3(){
 		TupleTypeInfo tupleTypeInfo = new TupleTypeInfo(Types.STRING,Types.STRING);
+	}
+
+	public static void testMethod4(){
+		RowTypeInfo rowTypeInfo = new RowTypeInfo();
 	}
 
 

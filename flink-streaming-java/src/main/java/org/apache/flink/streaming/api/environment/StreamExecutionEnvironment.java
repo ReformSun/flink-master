@@ -1494,7 +1494,7 @@ public abstract class StreamExecutionEnvironment {
 		clean(function);
 		StreamSource<OUT, ?> sourceOperator;
 		if (function instanceof StoppableFunction) {
-			sourceOperator = new StoppableStreamSource<>(cast2StoppableSourceFunction(function));
+			sourceOperator = new StoppableStreamSource(cast2StoppableSourceFunction(function));
 		} else {
 			sourceOperator = new StreamSource<>(function);
 		}

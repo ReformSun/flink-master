@@ -1,5 +1,6 @@
 package com.test.sink;
 
+import com.test.util.URLUtil;
 import org.apache.flink.streaming.api.functions.sink.RichSinkFunction;
 import org.apache.flink.types.Row;
 
@@ -13,10 +14,7 @@ import java.nio.file.StandardOpenOption;
 
 public class CustomRowPrint extends RichSinkFunction<Row> {
 	private String fileName;
-	private String baseUrl = "/Users/apple/Documents/AgentJava/flink-master/LearnFlink/src/main/resources/";
-
 	public CustomRowPrint(String fileName) {
-		baseUrl = "E:\\Asunjihua\\idea\\flink-master\\LearnFlink\\src\\main\\resources\\";
 		this.fileName = fileName;
 	}
 
@@ -25,7 +23,7 @@ public class CustomRowPrint extends RichSinkFunction<Row> {
 		writerFile(value.toString());
 	}
 	public  void writerFile(String s) throws IOException {
-		Path logFile = Paths.get( baseUrl  + fileName);
+		Path logFile = Paths.get( URLUtil.baseUrl + fileName);
 		try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)){
 			writer.newLine();
 			writer.write(s);

@@ -190,7 +190,8 @@ public class TestWindow1 extends AbstractTestMain11{
 				}
 			});
 
-		WindowedStream<Tuple3<String,Integer,Long>,String,TimeWindow> windowedStream = keyedStream.window(TumblingEventTimeWindows.of(Time.seconds(60),Time.seconds(0)));
+		WindowedStream<Tuple3<String,Integer,Long>,String,TimeWindow> windowedStream = keyedStream
+			.window(TumblingEventTimeWindows.of(Time.seconds(60),Time.seconds(0)));
 
 		TupleTypeInfo tupleTypeInfo = new TupleTypeInfo(Types.STRING,Types.INT,Types.LONG);
 		OutputTag outputTag = new OutputTag("aaa",tupleTypeInfo);
@@ -223,7 +224,8 @@ public class TestWindow1 extends AbstractTestMain11{
 				}
 			});
 
-		WindowedStream<Tuple3<String,Integer,Long>,String,TimeWindow> windowedStream = keyedStream.window(TumblingEventTimeWindows.of(Time.seconds(60),Time.seconds(0)));
+		WindowedStream<Tuple3<String,Integer,Long>,String,TimeWindow> windowedStream = keyedStream
+			.window(TumblingEventTimeWindows.of(Time.seconds(60),Time.seconds(0)));
 
 		TupleTypeInfo tupleTypeInfo = new TupleTypeInfo(Types.STRING,Types.INT,Types.LONG);
 		OutputTag outputTag = new OutputTag("aaa",tupleTypeInfo);
@@ -246,7 +248,5 @@ public class TestWindow1 extends AbstractTestMain11{
 				return value.toString();
 			}
 		}).print();
-
 	}
-
 }
