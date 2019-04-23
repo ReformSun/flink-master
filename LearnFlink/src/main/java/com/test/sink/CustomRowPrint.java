@@ -11,6 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.sql.Timestamp;
 
 public class CustomRowPrint extends RichSinkFunction<Row> {
 	private String fileName;
@@ -20,7 +21,8 @@ public class CustomRowPrint extends RichSinkFunction<Row> {
 
 	@Override
 	public void invoke(Row value) throws Exception {
-		writerFile(value.toString());
+		Timestamp timestamp = (Timestamp) value.getField(1);
+		writerFile(value.getField(0) + "," + timestamp.getTime());
 	}
 	public  void writerFile(String s) throws IOException {
 		Path logFile = Paths.get( URLUtil.baseUrl + fileName);

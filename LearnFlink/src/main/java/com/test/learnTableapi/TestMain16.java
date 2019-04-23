@@ -6,24 +6,32 @@ import org.apache.flink.api.common.typeinfo.Types;
 import org.apache.flink.api.java.typeutils.RowTypeInfo;
 import org.apache.flink.streaming.api.TimeCharacteristic;
 import org.apache.flink.streaming.api.datastream.DataStream;
+import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.streaming.api.functions.sink.SinkFunction;
 import org.apache.flink.table.api.StreamQueryConfig;
 import org.apache.flink.table.api.Table;
+import org.apache.flink.table.api.TableConfig;
 import org.apache.flink.table.api.TableEnvironment;
 import org.apache.flink.table.api.java.StreamTableEnvironment;
 import org.apache.flink.table.api.java.Tumble;
 import org.apache.flink.types.Row;
+import org.apache.flink.util.OutputTag;
+
+import java.util.TimeZone;
 
 public class TestMain16 {
 	public static void main(String[] args) {
 		StreamExecutionEnvironment sEnv = StreamExecutionEnvironment.getExecutionEnvironment();
-		StreamTableEnvironment tableEnv = TableEnvironment.getTableEnvironment(sEnv);
+		TableConfig tableConfig = new TableConfig();
+		tableConfig.setTimeZone(TimeZone.getTimeZone("GMT+8"));
+		StreamTableEnvironment tableEnv = TableEnvironment.getTableEnvironment(sEnv,tableConfig);
 		sEnv.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
 		FileTableSource fileTableSource = FileUtil.getFileTableSource();
 		tableEnv.registerTableSource("filesource", fileTableSource);
 
-		testMethod1(tableEnv);
-//		testMethod2(tableEnv);
+//		testMethod1(tableEnv);
+		testMethod2(tableEnv);
 
 		try {
 			sEnv.execute();
@@ -46,9 +54,17 @@ public class TestMain16 {
 			.where("user_name = '小张'")
 			.window(Tumble.over("1.minutes").on("_sysTime").as("w"))
 			.groupBy("w")
-			.select("AVG(user_count) as value1,w.start");
+			.select("SUM(user_count) as value1,w.start");
 		RowTypeInfo rowTypeInfo = new RowTypeInfo(Types.LONG,Types.SQL_TIMESTAMP);
-		DataStream<Row> stream = tableEnv.toAppendStream(sqlResult, rowTypeInfo, qConfig);
+		SingleOutputStreamOperator<Row> stream = (SingleOutputStreamOperator)tableEnv.toAppendStream(sqlResult, rowTypeInfo, qConfig);
+//		DataStream<Row> dataStream = stream.getSideOutput(new OutputTag("aaa",rowTypeInfo));
+//		dataStream.addSink(new SinkFunction<Row>() {
+//			@Override
+//			public void invoke(Row value) throws Exception {
+//				System.out.println(value.toString());
+//			}
+//		});
+//		DataStream<Row> dataStream2 = stream.getSideOutput(new OutputTag("ccc",rowTypeInfo));
 		stream.addSink(new CustomRowPrint("test.txt"));
 	}
 

@@ -24,8 +24,9 @@ public class FileSourceBase<T> implements SourceFunction<T> {
 		Path logFile = Paths.get(path);
 		try (BufferedReader reader = Files.newBufferedReader(logFile, StandardCharsets.UTF_8)){
 			String line;
-			while (( line = reader.readLine()) != null){
-				ctx.collect(deserializationS.deserialize(line.getBytes()));
+			while (( line = reader.readLine()) != null && !line.equals("")){
+				T row = deserializationS.deserialize(line.getBytes());
+				ctx.collect(row);
 			}
 		}
 	}

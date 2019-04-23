@@ -23,7 +23,7 @@ import org.apache.calcite.rel.RelNode
 import org.apache.calcite.rel.convert.ConverterRule
 import org.apache.flink.table.api.TableException
 import org.apache.flink.table.plan.nodes.FlinkConventions
-import org.apache.flink.table.plan.nodes.datastream.DataStreamGroupWindowAggregate
+import org.apache.flink.table.plan.nodes.datastream.{CustomDataStreamGroupWindowAggregate, DataStreamGroupWindowAggregate}
 import org.apache.flink.table.plan.nodes.logical.FlinkLogicalWindowAggregate
 import org.apache.flink.table.plan.schema.RowSchema
 
@@ -52,8 +52,7 @@ class DataStreamGroupWindowAggregateRule
     val agg: FlinkLogicalWindowAggregate = rel.asInstanceOf[FlinkLogicalWindowAggregate]
     val traitSet: RelTraitSet = rel.getTraitSet.replace(FlinkConventions.DATASTREAM)
     val convInput: RelNode = RelOptRule.convert(agg.getInput, FlinkConventions.DATASTREAM)
-
-    new DataStreamGroupWindowAggregate(
+    new CustomDataStreamGroupWindowAggregate(
       agg.getWindow,
       agg.getNamedProperties,
       rel.getCluster,
@@ -63,7 +62,19 @@ class DataStreamGroupWindowAggregateRule
       new RowSchema(rel.getRowType),
       new RowSchema(agg.getInput.getRowType),
       agg.getGroupSet.toArray)
-    }
+  }
+
+//    new DataStreamGroupWindowAggregate(
+//      agg.getWindow,
+//      agg.getNamedProperties,
+//      rel.getCluster,
+//      traitSet,
+//      convInput,
+//      agg.getNamedAggCalls,
+//      new RowSchema(rel.getRowType),
+//      new RowSchema(agg.getInput.getRowType),
+//      agg.getGroupSet.toArray)
+//    }
   }
 
 object DataStreamGroupWindowAggregateRule {

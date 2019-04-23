@@ -17,6 +17,7 @@ import static org.apache.flink.streaming.api.windowing.time.Time.*;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 处理网络io的执行者 开始部分 可以从这类学 这是一个节点的开始
@@ -43,7 +44,8 @@ public class LearnTimeWindow {
 	public static void main(String[] args) {
 //		testMethod2();
 //		testMethod2_1();
-		testMethod4();
+		testMethod2_2();
+//		testMethod4();
 	}
 
 	public static void testMethod1(){
@@ -84,6 +86,17 @@ public class LearnTimeWindow {
 		while (iterator.hasNext()){
 			Tuple3<String,Integer,Long> tuple = iterator.next();
 			Collection<TimeWindow> collection = tumblingEventTimeWindows.assignWindows(tuple,tuple.f2,null);
+			System.out.println(collection.toArray()[0]);
+		}
+	}
+
+	public static void testMethod2_2(){
+		List<Map<String,Object>> list = DataUtil.getList_MapFromFile(null);
+		Iterator<Map<String,Object>> iterator = list.iterator();
+		TumblingEventTimeWindows tumblingEventTimeWindows = TumblingEventTimeWindows.of(minutes(1),seconds(50));
+		while (iterator.hasNext()){
+			Map<String,Object> map = iterator.next();
+			Collection<TimeWindow> collection = tumblingEventTimeWindows.assignWindows(map,(Long) map.get("_sysTime"),null);
 			System.out.println(collection.toArray()[0]);
 		}
 	}

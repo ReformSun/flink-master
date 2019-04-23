@@ -2,6 +2,8 @@ package com.test.util;
 
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Splitter;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import model.Event;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.api.java.tuple.Tuple3;
@@ -13,6 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public class DataUtil {
 	public static List<Tuple2<Long,String>> getTuple2(){
@@ -217,6 +220,32 @@ public class DataUtil {
 					tuple3.f1 = Integer.valueOf(list2.get(1));
 					tuple3.f2 = Long.valueOf(list2.get(2));
 					list0.add(tuple3);
+				}
+			}
+			return list0;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	// 把文件中定义的字符串转换数据格式
+	public static List<Map<String,Object>> getList_MapFromFile(String fileName){
+		try {
+			GsonBuilder gsonBuilder = new GsonBuilder();
+			gsonBuilder.registerTypeAdapter(Map.class,new MapJsonDeserializer());
+			Gson gson = gsonBuilder.create();
+			if (fileName == null)fileName = "dataTestTableFile.txt";
+			List<Map<String,Object>> list0 = new ArrayList<>();
+			List<String> list = FileReader.readFile(URLUtil.baseUrl + fileName);
+			Iterator<String> iterator = list.iterator();
+			while (iterator.hasNext()){
+				String s = iterator.next();
+				if (!s.equals("")){
+					Map<String,Object> map = gson.fromJson(s, Map.class);
+					list0.add(map);
+				}else {
+					break;
 				}
 			}
 			return list0;
