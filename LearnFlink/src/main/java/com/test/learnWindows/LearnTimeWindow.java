@@ -43,8 +43,8 @@ public class LearnTimeWindow {
 
 	public static void main(String[] args) {
 //		testMethod2();
-//		testMethod2_1();
-		testMethod2_2();
+		testMethod2_1();
+//		testMethod2_2();
 //		testMethod4();
 	}
 
@@ -82,7 +82,7 @@ public class LearnTimeWindow {
 	public static void testMethod2_1(){
 		List<Tuple3<String,Integer,Long>> list = DataUtil.getListFromFile(null);
 		Iterator<Tuple3<String,Integer,Long>> iterator = list.iterator();
-		TumblingEventTimeWindows tumblingEventTimeWindows = TumblingEventTimeWindows.of(minutes(1),seconds(50));
+		TumblingEventTimeWindows tumblingEventTimeWindows = TumblingEventTimeWindows.of(minutes(1),seconds(0));
 		while (iterator.hasNext()){
 			Tuple3<String,Integer,Long> tuple = iterator.next();
 			Collection<TimeWindow> collection = tumblingEventTimeWindows.assignWindows(tuple,tuple.f2,null);
@@ -93,7 +93,7 @@ public class LearnTimeWindow {
 	public static void testMethod2_2(){
 		List<Map<String,Object>> list = DataUtil.getList_MapFromFile(null);
 		Iterator<Map<String,Object>> iterator = list.iterator();
-		TumblingEventTimeWindows tumblingEventTimeWindows = TumblingEventTimeWindows.of(minutes(1),seconds(50));
+		TumblingEventTimeWindows tumblingEventTimeWindows = TumblingEventTimeWindows.of(minutes(1),seconds(0));
 		while (iterator.hasNext()){
 			Map<String,Object> map = iterator.next();
 			Collection<TimeWindow> collection = tumblingEventTimeWindows.assignWindows(map,(Long) map.get("_sysTime"),null);

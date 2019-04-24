@@ -12,10 +12,7 @@ import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import static com.test.util.RandomUtil.*;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class DataUtil {
 	public static List<Tuple2<Long,String>> getTuple2(){
@@ -205,7 +202,7 @@ public class DataUtil {
 	}
 
 	// 把文件中定义的字符串转换数据格式
-	public static List<Tuple3<String,Integer,Long>> getListFromFile(String fileName){
+	public static List<Tuple3<String,Integer,Long>> getListFromFile(String fileName,TimeZone timeZone,boolean b){
 		try {
 			if (fileName == null)fileName = "dataTestFile.txt";
 			List<Tuple3<String,Integer,Long>> list0 = new ArrayList<>();
@@ -218,7 +215,18 @@ public class DataUtil {
 					Tuple3<String,Integer,Long> tuple3 = new Tuple3<>();
 					tuple3.f0 = list2.get(0);
 					tuple3.f1 = Integer.valueOf(list2.get(1));
-					tuple3.f2 = Long.valueOf(list2.get(2));
+					if (b){
+						long time = Long.valueOf(list2.get(2));
+						if (timeZone == null){
+							time = TimeUtil.toLong(time);
+						}else {
+							time = TimeUtil.toLong(time,timeZone);
+						}
+						tuple3.f2 = time;
+					}else {
+						tuple3.f2 = Long.valueOf(list2.get(2));
+					}
+
 					list0.add(tuple3);
 				}
 			}
@@ -227,6 +235,10 @@ public class DataUtil {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public static List<Tuple3<String,Integer,Long>> getListFromFile(String fileName){
+		return getListFromFile(fileName,null,false);
 	}
 
 	// 把文件中定义的字符串转换数据格式

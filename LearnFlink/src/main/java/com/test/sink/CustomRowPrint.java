@@ -24,8 +24,8 @@ public class CustomRowPrint extends RichSinkFunction<Row> {
 		Timestamp timestamp = (Timestamp) value.getField(1);
 		writerFile(value.getField(0) + "," + timestamp.getTime());
 	}
-	public  void writerFile(String s) throws IOException {
-		Path logFile = Paths.get( URLUtil.baseUrl + fileName);
+	public static synchronized void writerFile(String s) throws IOException {
+		Path logFile = Paths.get( URLUtil.baseUrl + "test.txt");
 		try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)){
 			writer.newLine();
 			writer.write(s);

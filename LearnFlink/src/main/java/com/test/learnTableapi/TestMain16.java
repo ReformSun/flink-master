@@ -23,8 +23,9 @@ import java.util.TimeZone;
 public class TestMain16 {
 	public static void main(String[] args) {
 		StreamExecutionEnvironment sEnv = StreamExecutionEnvironment.getExecutionEnvironment();
+		sEnv.setParallelism(1);
 		TableConfig tableConfig = new TableConfig();
-		tableConfig.setTimeZone(TimeZone.getTimeZone("GMT+8"));
+//		tableConfig.setTimeZone(TimeZone.getTimeZone("GMT+8"));
 		StreamTableEnvironment tableEnv = TableEnvironment.getTableEnvironment(sEnv,tableConfig);
 		sEnv.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
 		FileTableSource fileTableSource = FileUtil.getFileTableSource();
@@ -48,6 +49,11 @@ public class TestMain16 {
 		stream.addSink(new CustomRowPrint("test.txt"));
 	}
 
+	/**
+	 * {@link org.apache.flink.table.runtime.CRowOutputProcessRunner}
+	 * {@link org.apache.flink.table.sources.wmstrategies.BoundedOutOfOrderTimestamps}
+	 * @param tableEnv
+	 */
 	public static void testMethod2(StreamTableEnvironment tableEnv){
 		StreamQueryConfig qConfig = new StreamQueryConfig();
 		Table sqlResult = tableEnv.scan("filesource")

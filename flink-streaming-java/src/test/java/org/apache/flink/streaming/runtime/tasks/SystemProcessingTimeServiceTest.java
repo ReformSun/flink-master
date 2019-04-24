@@ -46,6 +46,39 @@ import static org.junit.Assert.fail;
 public class SystemProcessingTimeServiceTest extends TestLogger {
 
 	@Test
+	public void testMethod1() throws Exception{
+		final Object lock = new Object();
+		final AtomicReference<Throwable> errorRef = new AtomicReference<>();
+
+		final SystemProcessingTimeService timer = new SystemProcessingTimeService(
+			new ReferenceSettingExceptionHandler(errorRef), lock);
+
+		try {
+			assertEquals(0, timer.getNumTasksScheduled());
+
+			// schedule something
+			ScheduledFuture<?> future = timer.registerTimer(System.currentTimeMillis() + 10000, new ProcessingTimeCallback() {
+				@Override
+				public void onProcessingTime(long timestamp) {
+					System.out.println("aa");
+				}
+			});
+
+			// wait until the execution is over
+			future.get();
+			assertEquals(0, timer.getNumTasksScheduled());
+
+			// check that no asynchronous error was reported
+			if (errorRef.get() != null) {
+				throw new Exception(errorRef.get());
+			}
+		}
+		finally {
+			timer.shutdownService();
+		}
+	}
+
+	@Test
 	public void testTriggerHoldsLock() throws Exception {
 
 		final Object lock = new Object();

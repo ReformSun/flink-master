@@ -1,6 +1,8 @@
 package com.test.learnWindows;
 
 import com.test.customAssignTAndW.CustomAssignerTimesTampTyple3;
+import com.test.customAssignTAndW.CustomAssignerTimesTampTyple3_pr;
+import com.test.filesource.FileSourceTuple3;
 import com.test.sink.CustomPrintTuple3;
 import com.test.sink.CustomPrintTuple4;
 import com.test.util.DataUtil;
@@ -61,7 +63,10 @@ public class TestWindow1 extends AbstractTestMain11{
 		try{
 //			testMethod2();
 //			testMethod3();
-			testMethod4();
+			testMethod3_1();
+//			testMethod3_2();
+			testMethod3_3();
+//			testMethod4();
 //			testMethod5();
 		}catch (Exception e){
 			e.printStackTrace();
@@ -126,6 +131,9 @@ public class TestWindow1 extends AbstractTestMain11{
 	}
 
 	/**
+	 * {@link org.apache.flink.streaming.api.functions.AssignerWithPunctuatedWatermarks}
+	 * {@link org.apache.flink.streaming.runtime.operators.TimestampsAndPunctuatedWatermarksOperator}
+	 *
 	 * (a,1,1534472000000)
 	 * (a,1,1534472000192)
 	 * (a,2,1534472040138)
@@ -153,7 +161,8 @@ public class TestWindow1 extends AbstractTestMain11{
 	 */
 	public static void testMethod3(){
 //		List<Tuple3<String,Integer,Long>> list = DataUtil.getTuple3_Int_timetamp_timeOutOfOrder_1M(5);
-		List<Tuple3<String,Integer,Long>> list = DataUtil.getListFromFile(null);
+//		List<Tuple3<String,Integer,Long>> list = DataUtil.getListFromFile(null);
+		List<Tuple3<String,Integer,Long>> list = DataUtil.getListFromFile(null,null,true);
 		System.out.println(list.size() + " asdfg");
 		DataStream<Tuple3<String,Integer,Long>> dataStreamSource1 = env.fromCollection(list).setParallelism(1)
 			.assignTimestampsAndWatermarks(new CustomAssignerTimesTampTyple3())
@@ -168,12 +177,114 @@ public class TestWindow1 extends AbstractTestMain11{
 			});
 
 		DataStream dataStream = keyedStream.window(TumblingEventTimeWindows.of(Time.seconds(60),Time.seconds(0)))
-			.sideOutputLateData(new OutputTag("aa"))
+			.trigger(new EventTimeTrigger())
+			.sum(1).setParallelism(4);
+
+		dataStream.addSink(new CustomPrintTuple3()).setParallelism(3);
+	}
+
+	/**
+	 * 和testMethod3不同点采用不同的时间戳分配器
+	 * {@link org.apache.flink.streaming.api.functions.AssignerWithPeriodicWatermarks}
+	 * {@link org.apache.flink.streaming.runtime.operators.TimestampsAndPeriodicWatermarksOperator}
+	 */
+	public static void testMethod3_1(){
+//		List<Tuple3<String,Integer,Long>> list = DataUtil.getTuple3_Int_timetamp_timeOutOfOrder_1M(5);
+//		List<Tuple3<String,Integer,Long>> list = DataUtil.getListFromFile(null);
+		List<Tuple3<String,Integer,Long>> list = DataUtil.getListFromFile(null,null,true);
+		System.out.println(list.size() + " asdfg");
+		DataStream<Tuple3<String,Integer,Long>> dataStreamSource1 = env.fromCollection(list).setParallelism(1)
+			.assignTimestampsAndWatermarks(new CustomAssignerTimesTampTyple3_pr<String,Integer,Long>(0,2))
+			.setParallelism(1);
+		KeyedStream<Tuple3<String,Integer,Long>,String> keyedStream = dataStreamSource1
+			.keyBy(new KeySelector<Tuple3<String,Integer,Long>, String>() {
+				@Override
+				public String getKey(Tuple3<String, Integer, Long> value) throws Exception {
+//					FileWriter.writerFile(value,"test1.txt");
+					return value.getField(0);
+				}
+			});
+
+		DataStream dataStream = keyedStream.window(TumblingEventTimeWindows.of(Time.seconds(60),Time.seconds(0)))
 			.trigger(new EventTimeTrigger())
 			.sum(1).setParallelism(1);
 
 		dataStream.addSink(new CustomPrintTuple3()).setParallelism(1);
 	}
+
+	/**
+	 * 在原有数据上增加读取速度
+	 */
+	public static void testMethod3_2(){
+		DataStream<Tuple3<String,Integer,Long>> dataStreamSource1 = env.addSource(new FileSourceTuple3(10000)).setParallelism(1)
+			.assignTimestampsAndWatermarks(new CustomAssignerTimesTampTyple3_pr<String,Integer,Long>(0,2))
+			.setParallelism(1);
+		KeyedStream<Tuple3<String,Integer,Long>,String> keyedStream = dataStreamSource1
+			.keyBy(new KeySelector<Tuple3<String,Integer,Long>, String>() {
+				@Override
+				public String getKey(Tuple3<String, Integer, Long> value) throws Exception {
+//					FileWriter.writerFile(value,"test1.txt");
+					return value.getField(0);
+				}
+			});
+
+		DataStream dataStream = keyedStream.window(TumblingEventTimeWindows.of(Time.seconds(60),Time.seconds(0)))
+			.trigger(new EventTimeTrigger())
+			.sum(1).setParallelism(1);
+
+		dataStream.addSink(new CustomPrintTuple3()).setParallelism(1);
+	}
+
+	/**
+	 * 在原有数据上增加读取速度基础 速度设置成1分钟 和时间窗口一样
+	 */
+	public static void testMethod3_3(){
+		DataStream<Tuple3<String,Integer,Long>> dataStreamSource1 = env.addSource(new FileSourceTuple3(60000)).setParallelism(1)
+			.assignTimestampsAndWatermarks(new CustomAssignerTimesTampTyple3_pr<String,Integer,Long>(0,2))
+			.setParallelism(1);
+		KeyedStream<Tuple3<String,Integer,Long>,String> keyedStream = dataStreamSource1
+			.keyBy(new KeySelector<Tuple3<String,Integer,Long>, String>() {
+				@Override
+				public String getKey(Tuple3<String, Integer, Long> value) throws Exception {
+//					FileWriter.writerFile(value,"test1.txt");
+					return value.getField(0);
+				}
+			});
+
+		DataStream dataStream = keyedStream.window(TumblingEventTimeWindows.of(Time.seconds(60),Time.seconds(0)))
+			.trigger(new EventTimeTrigger())
+			.sum(1).setParallelism(1);
+
+		dataStream.addSink(new CustomPrintTuple3()).setParallelism(1);
+	}
+	/**
+	 * 在原有数据上增加读取速度基础上
+	 * 设置一些数据读取速度非常慢
+	 * 就是中间有一些数据卡顿的情况
+	 */
+	public static void testMethod3_4(){
+		DataStream<Tuple3<String,Integer,Long>> dataStreamSource1 = env.addSource(new FileSourceTuple3(10000)).setParallelism(1)
+			.assignTimestampsAndWatermarks(new CustomAssignerTimesTampTyple3_pr<String,Integer,Long>(0,2))
+			.setParallelism(1);
+		KeyedStream<Tuple3<String,Integer,Long>,String> keyedStream = dataStreamSource1
+			.keyBy(new KeySelector<Tuple3<String,Integer,Long>, String>() {
+				@Override
+				public String getKey(Tuple3<String, Integer, Long> value) throws Exception {
+//					FileWriter.writerFile(value,"test1.txt");
+					return value.getField(0);
+				}
+			});
+
+		DataStream dataStream = keyedStream.window(TumblingEventTimeWindows.of(Time.seconds(60),Time.seconds(0)))
+			.trigger(new EventTimeTrigger())
+			.sum(1).setParallelism(1);
+
+		dataStream.addSink(new CustomPrintTuple3()).setParallelism(1);
+	}
+
+
+
+
 
 	public static void testMethod4(){
 		List<Tuple3<String,Integer,Long>> list = DataUtil.getListFromFile(null);

@@ -50,7 +50,7 @@ public class FileTableSource implements
 
 	@Override
 	public List<RowtimeAttributeDescriptor> getRowtimeAttributeDescriptors() {
-		RowtimeAttributeDescriptor rowtimeAttributeDescriptor = new RowtimeAttributeDescriptor(rowTime, new ExistingField(rowTime),new BoundedOutOfOrderTimestamps(10000L));
+		RowtimeAttributeDescriptor rowtimeAttributeDescriptor = new RowtimeAttributeDescriptor(rowTime, new ExistingField(rowTime),new BoundedOutOfOrderTimestamps(0L));
 		return new ArrayList<RowtimeAttributeDescriptor>(){{
 			add(0,rowtimeAttributeDescriptor);
 		}};
