@@ -1,7 +1,10 @@
 package com.test.sink;
 
+import com.test.util.FileWriter;
+import com.test.util.TimeUtil;
 import com.test.util.URLUtil;
 import org.apache.flink.api.java.tuple.Tuple3;
+import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.functions.sink.RichSinkFunction;
 import org.apache.flink.types.Row;
 
@@ -12,12 +15,26 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
 public class CustomPrintTuple3 extends RichSinkFunction<Tuple3> {
+	private String subjectContent;
+
+	public CustomPrintTuple3(String subjectContent) {
+		this.subjectContent = subjectContent;
+	}
+
+	public CustomPrintTuple3() {
+	}
+
+	@Override
+	public void open(Configuration parameters) throws Exception {
+
+		if (subjectContent != null){
+			FileWriter.writerFile(subjectContent + "==时间：" + TimeUtil.toDate(System.currentTimeMillis()),"test.txt");
+		}
+		super.open(parameters);
+	}
+
 	@Override
 	public void invoke(Tuple3 value) throws Exception {
-		java.nio.file.Path logFile = Paths.get(URLUtil.baseUrl + "test.txt");
-		try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)){
-			writer.newLine();
-			writer.write(value.toString());
-		}
+		FileWriter.writerFile(value.toString(),"test.txt");
 	}
 }

@@ -1,11 +1,14 @@
 package com.test.util;
 
 import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
 public class TimeUtil {
     private static final TimeZone LOCAL_TZ = TimeZone.getDefault();
+    private static final String defaultDateFormat = "yyyy-MM-dd HH:mm:ss:SSS";
     public static long toLong(Timestamp v) {
         return toLong(v, LOCAL_TZ);
     }
@@ -24,6 +27,36 @@ public class TimeUtil {
 
 	public static long toUTC(long time){
     	return time - LOCAL_TZ.getOffset(time);
+	}
+
+	public static String toDate(long time){
+		return toDate(time,null);
+	}
+
+	public static String toDate(long time,String dateFormat){
+		if (dateFormat == null){
+			dateFormat = defaultDateFormat;
+		}
+		Date date = new Date(time);
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateFormat);
+		return simpleDateFormat.format(date);
+	}
+
+	public static long toLong(String time){
+		return toLong(time,null);
+	}
+	public static long toLong(String time,String dateFormat){
+		if (dateFormat == null){
+			dateFormat = defaultDateFormat;
+		}
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateFormat);
+		try {
+			Date date1 = simpleDateFormat.parse(time);
+			return date1.getTime();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return 0L;
 	}
 
 	public static void main(String[] args) {

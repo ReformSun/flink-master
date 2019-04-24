@@ -25,7 +25,6 @@ public class FileWriter {
             writer.newLine();
             writer.write(s);
         }
-
     }
 
 	public static void writerFile(Tuple3 tuple3, String fileName) throws IOException {
