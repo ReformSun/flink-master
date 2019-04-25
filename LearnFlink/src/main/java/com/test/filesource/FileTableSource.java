@@ -28,12 +28,14 @@ public class FileTableSource implements
 	private DeserializationSchema<Row> deserializationS;
 	private String rowTime;
 	private String path;
+	private long interval = 0;
 
-	private FileTableSource(TableSchema schema, DeserializationSchema<Row> deserializationS, String rowTime, String path) {
+	private FileTableSource(TableSchema schema, DeserializationSchema<Row> deserializationS, String rowTime, String path,long interval) {
 		this.schema = schema;
 		this.deserializationS = deserializationS;
 		this.rowTime = rowTime;
 		this.path = path;
+		this.interval = interval;
 	}
 
 	@Nullable
@@ -58,7 +60,7 @@ public class FileTableSource implements
 
 	@Override
 	public DataStream<Row> getDataStream(StreamExecutionEnvironment execEnv) {
-		return execEnv.addSource(new FileSourceBase<Row>(deserializationS,path),"filesource",deserializationS.getProducedType());
+		return execEnv.addSource(new FileSourceBase<Row>(deserializationS,path,interval),"filesource",deserializationS.getProducedType());
 	}
 
 	@Override
@@ -85,6 +87,7 @@ public class FileTableSource implements
 		private DeserializationSchema<Row> deserializationS;
 		private String rowTime;
 		private String path;
+		private long interval = 0;
 
 		public Builder setSchema(TableSchema schema) {
 			this.schema = schema;
@@ -106,12 +109,17 @@ public class FileTableSource implements
 			return this;
 		}
 
+		public Builder setInterval(long interval) {
+			this.interval = interval;
+			return this;
+		}
+
 		protected Builder builder(){
 			return this;
 		}
 
 		public FileTableSource build(){
-			return new FileTableSource(schema,deserializationS,rowTime,path);
+			return new FileTableSource(schema,deserializationS,rowTime,path,interval);
 		}
 
 

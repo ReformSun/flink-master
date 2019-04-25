@@ -25,6 +25,8 @@ public class FileUtil {
 		return builder.setSchema(tableSchema)
 			.setDeserializationS(deserializationS)
 			.setPath(URLUtil.baseUrl + "dataTestTableFile.txt")
-			.setRowTime("_sysTime").build();
+			.setRowTime("_sysTime")
+			.setInterval(10000)
+			.build();
 	}
 }

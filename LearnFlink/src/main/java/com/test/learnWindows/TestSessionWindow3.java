@@ -66,13 +66,22 @@ public class TestSessionWindow3 extends AbstractTestMain11{
 
 	}
 
+	/**
+	 * 根据事件的处理时间
+	 * 如果两个元素之间的间隔在10秒内则会把两个元素放到一个会话中
+	 * @param keyedStream
+	 */
 	public static void testMethod1(KeyedStream<Tuple3<String,Integer,Long>,String> keyedStream){
 		DataStream dataStream1 = keyedStream.window(ProcessingTimeSessionWindows.withGap(Time.seconds(10)))
 			.trigger(new EventTimeTrigger())
 			.sum(1).setParallelism(1);
 		sink(dataStream1);
 	}
-
+	/**
+	 * 根据事件的真实时间
+	 * 如果两个元素之间的间隔在10秒内则会把两个元素放到一个会话中
+	 * @param keyedStream
+	 */
 	public static void testMethod2(KeyedStream<Tuple3<String,Integer,Long>,String> keyedStream){
 		DataStream dataStream1 = keyedStream.window(EventTimeSessionWindows.withGap(Time.seconds(10)))
 			.trigger(new EventTimeTrigger())

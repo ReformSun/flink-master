@@ -63,15 +63,15 @@ public class TestMain16 {
 			.select("SUM(user_count) as value1,w.start");
 		RowTypeInfo rowTypeInfo = new RowTypeInfo(Types.LONG,Types.SQL_TIMESTAMP);
 		SingleOutputStreamOperator<Row> stream = (SingleOutputStreamOperator)tableEnv.toAppendStream(sqlResult, rowTypeInfo, qConfig);
-//		DataStream<Row> dataStream = stream.getSideOutput(new OutputTag("aaa",rowTypeInfo));
-//		dataStream.addSink(new SinkFunction<Row>() {
-//			@Override
-//			public void invoke(Row value) throws Exception {
-//				System.out.println(value.toString());
-//			}
-//		});
-//		DataStream<Row> dataStream2 = stream.getSideOutput(new OutputTag("ccc",rowTypeInfo));
 		stream.addSink(new CustomRowPrint("test.txt"));
+		DataStream<Row> dataStream = stream.getSideOutput(new OutputTag("aaa",rowTypeInfo));
+		dataStream.addSink(new SinkFunction<Row>() {
+			@Override
+			public void invoke(Row value) throws Exception {
+				System.out.println(value.toString());
+			}
+		});
+
 	}
 
 

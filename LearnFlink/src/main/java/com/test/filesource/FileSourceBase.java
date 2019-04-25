@@ -13,10 +13,12 @@ import java.nio.file.Paths;
 public class FileSourceBase<T> implements SourceFunction<T> {
 	private DeserializationSchema<T> deserializationS;
 	private String path;
+	private long interval = 0;
 
-	public FileSourceBase(DeserializationSchema<T> deserializationS, String path) {
+	public FileSourceBase(DeserializationSchema<T> deserializationS, String path,long interval) {
 		this.deserializationS = deserializationS;
 		this.path = path;
+		this.interval = interval;
 	}
 
 	@Override
@@ -27,6 +29,9 @@ public class FileSourceBase<T> implements SourceFunction<T> {
 			while (( line = reader.readLine()) != null && !line.equals("")){
 				T row = deserializationS.deserialize(line.getBytes());
 				ctx.collect(row);
+				if (interval > 0){
+					Thread.sleep(interval);
+				}
 			}
 		}
 	}

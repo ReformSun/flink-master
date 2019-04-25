@@ -4,7 +4,8 @@ import org.apache.calcite.plan.{RelOptCluster, RelTraitSet}
 import org.apache.calcite.rel.`type`.RelDataType
 import org.apache.calcite.rel.{RelNode, RelWriter, SingleRel}
 import org.apache.calcite.rel.core.AggregateCall
-import org.apache.flink.streaming.api.datastream.{AllWindowedStream, DataStream, KeyedStream, WindowedStream}
+import org.apache.flink.streaming.api.datastream._
+import org.apache.flink.streaming.api.functions.sink.SinkFunction
 import org.apache.flink.streaming.api.windowing.assigners._
 import org.apache.flink.streaming.api.windowing.triggers.PurgingTrigger
 import org.apache.flink.table.api.{StreamQueryConfig, StreamTableEnvironment, TableException}
@@ -193,9 +194,11 @@ class CustomDataStreamGroupWindowAggregate (
           tableEnv.getConfig)
 
       windowedStream.sideOutputLateData(new OutputTag[CRow]("aaa"))
-      windowedStream
+      val sing = windowedStream
         .aggregate(aggFunction, windowFunction, accumulatorRowType, aggResultRowType, outRowType)
         .name(keyedAggOpName)
+//      sing.getSideOutput(new OutputTag[CRow]("aaa")).flatMap()
+      return sing
     }
     // global / non-keyed aggregation
     else {
@@ -217,11 +220,17 @@ class CustomDataStreamGroupWindowAggregate (
           Array[Int](),
           needMerge,
           tableEnv.getConfig)
-      val cRowTypeInfo = CRowTypeInfo.apply(inputSchema.projectedTypeInfo(grouping));
-      windowedStream.sideOutputLateData(new OutputTag("aaa",cRowTypeInfo))
-      windowedStream
+      val cRowTypeInfo = CRowTypeInfo.apply(inputSchema.typeInfo);
+      val output = new OutputTag("aaa",cRowTypeInfo)
+      windowedStream.sideOutputLateData(output)
+      val sing =  windowedStream
         .aggregate(aggFunction, windowFunction, accumulatorRowType, aggResultRowType, outRowType)
         .name(nonKeyedAggOpName)
+
+      sing.getSideOutput(output).addSink(new SinkFunction[CRow] {
+        override def invoke(value: CRow): Unit = println(value.toString)
+      })
+      return sing
     }
   }
 
