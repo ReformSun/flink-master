@@ -15,6 +15,8 @@ import org.apache.flink.table.api.TableConfig;
 import org.apache.flink.table.api.TableEnvironment;
 import org.apache.flink.table.api.java.StreamTableEnvironment;
 import org.apache.flink.table.api.java.Tumble;
+import org.apache.flink.table.api.java.WindowOutputTag;
+import org.apache.flink.table.runtime.types.CRow;
 import org.apache.flink.types.Row;
 import org.apache.flink.util.OutputTag;
 
@@ -25,6 +27,7 @@ public class TestMain16 {
 		StreamExecutionEnvironment sEnv = StreamExecutionEnvironment.getExecutionEnvironment();
 		sEnv.setParallelism(1);
 		TableConfig tableConfig = new TableConfig();
+		tableConfig.setIsEnableWindowOutputTag(true);
 //		tableConfig.setTimeZone(TimeZone.getTimeZone("GMT+8"));
 		StreamTableEnvironment tableEnv = TableEnvironment.getTableEnvironment(sEnv,tableConfig);
 		sEnv.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
@@ -75,6 +78,14 @@ public class TestMain16 {
 			@Override
 			public void invoke(Row value) throws Exception {
 				System.out.println(value.toString());
+			}
+		});
+
+		DataStream<CRow> dataStream1 = WindowOutputTag.getDataStream();
+		dataStream1.addSink(new SinkFunction<CRow>() {
+			@Override
+			public void invoke(CRow value) throws Exception {
+				System.out.println(value.toString() + "ccccccccccc");
 			}
 		});
 

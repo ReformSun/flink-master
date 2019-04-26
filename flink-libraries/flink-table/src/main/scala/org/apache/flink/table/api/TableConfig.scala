@@ -54,6 +54,16 @@ class TableConfig {
     */
   private var maxGeneratedCodeLength: Int = 64000 // just an estimate
 
+  private var isEnableWindowOutputTag: Boolean = false
+
+
+
+  def setIsEnableWindowOutputTag(isEnableWindowOutputTag: Boolean): Unit = {
+    this.isEnableWindowOutputTag = isEnableWindowOutputTag
+  }
+
+  def getIsEnableWindowOutputTag: Boolean = isEnableWindowOutputTag
+
   /**
    * Sets the timezone for date/time/timestamp conversions.
    */
