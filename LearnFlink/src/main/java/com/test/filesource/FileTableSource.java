@@ -12,6 +12,7 @@ import org.apache.flink.table.api.TableSchemaBuilder;
 import org.apache.flink.table.sources.*;
 import org.apache.flink.table.sources.tsextractors.ExistingField;
 import org.apache.flink.table.sources.wmstrategies.BoundedOutOfOrderTimestamps;
+import org.apache.flink.table.sources.wmstrategies.WatermarkStrategy;
 import org.apache.flink.types.Row;
 
 import javax.annotation.Nullable;
@@ -29,13 +30,15 @@ public class FileTableSource implements
 	private String rowTime;
 	private String path;
 	private long interval = 0;
+	private WatermarkStrategy watermarkStrategy;
 
-	private FileTableSource(TableSchema schema, DeserializationSchema<Row> deserializationS, String rowTime, String path,long interval) {
+	private FileTableSource(TableSchema schema, DeserializationSchema<Row> deserializationS, String rowTime, String path,long interval,WatermarkStrategy watermarkStrategy) {
 		this.schema = schema;
 		this.deserializationS = deserializationS;
 		this.rowTime = rowTime;
 		this.path = path;
 		this.interval = interval;
+		this.watermarkStrategy = watermarkStrategy;
 	}
 
 	@Nullable
@@ -52,10 +55,16 @@ public class FileTableSource implements
 
 	@Override
 	public List<RowtimeAttributeDescriptor> getRowtimeAttributeDescriptors() {
-		RowtimeAttributeDescriptor rowtimeAttributeDescriptor = new RowtimeAttributeDescriptor(rowTime, new ExistingField(rowTime),new BoundedOutOfOrderTimestamps(0L));
-		return new ArrayList<RowtimeAttributeDescriptor>(){{
-			add(0,rowtimeAttributeDescriptor);
-		}};
+		RowtimeAttributeDescriptor rowtimeAttributeDescriptor = null;
+		List<RowtimeAttributeDescriptor> list = new ArrayList<RowtimeAttributeDescriptor>();
+		if (watermarkStrategy == null){
+			rowtimeAttributeDescriptor = new RowtimeAttributeDescriptor(rowTime, new ExistingField(rowTime),new BoundedOutOfOrderTimestamps(0L));
+		}else {
+			rowtimeAttributeDescriptor = new RowtimeAttributeDescriptor(rowTime, new ExistingField(rowTime),watermarkStrategy);
+		}
+		list.add(rowtimeAttributeDescriptor);
+		return list;
+
 	}
 
 	@Override
@@ -78,6 +87,7 @@ public class FileTableSource implements
 		return "";
 	}
 
+
 	public static FileTableSource.Builder builder() {
 		return new FileTableSource.Builder();
 	}
@@ -88,6 +98,7 @@ public class FileTableSource implements
 		private String rowTime;
 		private String path;
 		private long interval = 0;
+		private WatermarkStrategy watermarkStrategy;
 
 		public Builder setSchema(TableSchema schema) {
 			this.schema = schema;
@@ -114,12 +125,17 @@ public class FileTableSource implements
 			return this;
 		}
 
+		public Builder setWatermarkStrategy(WatermarkStrategy watermarkStrategy) {
+			this.watermarkStrategy = watermarkStrategy;
+			return this;
+		}
+
 		protected Builder builder(){
 			return this;
 		}
 
 		public FileTableSource build(){
-			return new FileTableSource(schema,deserializationS,rowTime,path,interval);
+			return new FileTableSource(schema,deserializationS,rowTime,path,interval,watermarkStrategy);
 		}
 
 

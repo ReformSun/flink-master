@@ -21,8 +21,8 @@ public class TestMain1 {
 	public static void main(String[] args) {
 		try{
 //			testMethod1();
-//			testMethod2();
-			testMethod3();
+			testMethod2();
+//			testMethod3();
 		}catch (Exception e){
 			e.printStackTrace();
 		}

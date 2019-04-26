@@ -1,7 +1,10 @@
 package com.test.learnTableapi;
 
 import com.test.filesource.FileTableSource;
+import com.test.sink.CustomCrowSumPrint;
 import com.test.sink.CustomRowPrint;
+import com.test.util.FileWriter;
+import com.test.util.StreamExecutionEnvUtil;
 import org.apache.flink.api.common.typeinfo.Types;
 import org.apache.flink.api.java.typeutils.RowTypeInfo;
 import org.apache.flink.streaming.api.TimeCharacteristic;
@@ -24,14 +27,14 @@ import java.util.TimeZone;
 
 public class TestMain16 {
 	public static void main(String[] args) {
-		StreamExecutionEnvironment sEnv = StreamExecutionEnvironment.getExecutionEnvironment();
+		StreamExecutionEnvironment sEnv = StreamExecutionEnvUtil.getStreamExecutionEnvironment(null);
 		sEnv.setParallelism(1);
 		TableConfig tableConfig = new TableConfig();
 		tableConfig.setIsEnableWindowOutputTag(true);
 //		tableConfig.setTimeZone(TimeZone.getTimeZone("GMT+8"));
 		StreamTableEnvironment tableEnv = TableEnvironment.getTableEnvironment(sEnv,tableConfig);
 		sEnv.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
-		FileTableSource fileTableSource = FileUtil.getFileTableSource();
+		FileTableSource fileTableSource = FileUtil.getFileTableSource(1000);
 		tableEnv.registerTableSource("filesource", fileTableSource);
 
 //		testMethod1(tableEnv);
@@ -61,6 +64,10 @@ public class TestMain16 {
 	 * {@link org.apache.flink.table.sources.wmstrategies.BoundedOutOfOrderTimestamps}
 	 * {@link org.apache.flink.table.plan.nodes.datastream.CustomDataStreamGroupWindowAggregate}
 	 * {@link org.apache.flink.streaming.runtime.operators.windowing.WindowOperator}
+	 *
+	 * 两分钟内乱序数据 不增加传入时间间隔 数据统计完整 结果数据未出现乱序情况
+	 * 两分钟内乱序数据 增减传入时间间隔 1秒钟
+	 *
 	 * @param tableEnv
 	 */
 	public static void testMethod2(StreamTableEnvironment tableEnv){
@@ -73,21 +80,9 @@ public class TestMain16 {
 		RowTypeInfo rowTypeInfo = new RowTypeInfo(Types.LONG,Types.SQL_TIMESTAMP);
 		SingleOutputStreamOperator<Row> stream = (SingleOutputStreamOperator)tableEnv.toAppendStream(sqlResult, rowTypeInfo, qConfig);
 		stream.addSink(new CustomRowPrint("test.txt"));
-		DataStream<Row> dataStream = stream.getSideOutput(new OutputTag("aaa",rowTypeInfo));
-		dataStream.addSink(new SinkFunction<Row>() {
-			@Override
-			public void invoke(Row value) throws Exception {
-				System.out.println(value.toString());
-			}
-		});
 
 		DataStream<CRow> dataStream1 = WindowOutputTag.getDataStream();
-		dataStream1.addSink(new SinkFunction<CRow>() {
-			@Override
-			public void invoke(CRow value) throws Exception {
-				System.out.println(value.toString() + "ccccccccccc");
-			}
-		});
+		dataStream1.addSink(new CustomCrowSumPrint());
 
 	}
 

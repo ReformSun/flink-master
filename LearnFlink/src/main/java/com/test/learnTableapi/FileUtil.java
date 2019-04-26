@@ -7,10 +7,11 @@ import org.apache.flink.api.common.typeinfo.Types;
 import org.apache.flink.formats.json.JsonRowDeserializationSchema;
 import org.apache.flink.table.api.TableSchema;
 import org.apache.flink.table.api.TableSchemaBuilder;
+import org.apache.flink.table.sources.wmstrategies.WatermarkStrategy;
 import org.apache.flink.types.Row;
 
 public class FileUtil {
-	public static FileTableSource getFileTableSource(){
+	public static FileTableSource getFileTableSource(long time, WatermarkStrategy watermarkStrategy){
 		FileTableSource.Builder builder = FileTableSource.builder();
 
 		TableSchemaBuilder tableSchemaBuilder = TableSchema.builder();
@@ -26,7 +27,16 @@ public class FileUtil {
 			.setDeserializationS(deserializationS)
 			.setPath(URLUtil.baseUrl + "dataTestTableFile.txt")
 			.setRowTime("_sysTime")
-			.setInterval(10000)
+			.setInterval(time)
+			.setWatermarkStrategy(watermarkStrategy)
 			.build();
+	}
+
+	public static FileTableSource getFileTableSource(){
+		return getFileTableSource(10000,null);
+	}
+
+	public static FileTableSource getFileTableSource(long time){
+		return getFileTableSource(time,null);
 	}
 }

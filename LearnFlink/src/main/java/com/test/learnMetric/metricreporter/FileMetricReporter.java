@@ -8,8 +8,16 @@ import org.apache.flink.metrics.reporter.Scheduled;
 import java.io.IOException;
 import java.util.Map;
 
+/**
+ * {@link org.apache.flink.runtime.metrics.MetricRegistryImpl}
+ */
 public class FileMetricReporter extends AbstractReporter implements Scheduled {
 	private static final String lineSeparator = System.lineSeparator();
+
+	public FileMetricReporter() {
+		System.out.println("");
+	}
+
 	@Override
 	public String filterCharacters(String input) {
 		return input;
@@ -22,17 +30,20 @@ public class FileMetricReporter extends AbstractReporter implements Scheduled {
 
 	@Override
 	public void close() {
-
+		report();
 	}
 
 	@Override
 	public void report() {
 		reportCounter();
-		reportGauges();
-		reportMeters();
-		reportHistograms();
+//		reportGauges();
+//		reportMeters();
+//		reportHistograms();
 	}
 
+	/**
+	 * 只展示我自定义的测量值
+	 */
 	private void reportCounter(){
 		StringBuilder builder = new StringBuilder();
 		builder
@@ -40,6 +51,11 @@ public class FileMetricReporter extends AbstractReporter implements Scheduled {
 			.append("-- Counters -------------------------------------------------------------------")
 			.append(lineSeparator);
 		for (Map.Entry<Counter, String> metric : counters.entrySet()) {
+//			if (metric.getValue().contains("custom")){
+//				builder
+//					.append(metric.getValue()).append(": ").append(metric.getKey().getCount())
+//					.append(lineSeparator);
+//			}
 			builder
 				.append(metric.getValue()).append(": ").append(metric.getKey().getCount())
 				.append(lineSeparator);

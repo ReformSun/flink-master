@@ -3,6 +3,7 @@ package com.test.learnWindows;
 
 import com.test.customAssignTAndW.CustomAssignerTimesTampTyple3;
 import com.test.util.DataUtil;
+import com.test.util.FileWriter;
 import com.test.window.EventTimeTrigger;
 import com.test.window.TumblingEventTimeWindows;
 import org.apache.calcite.avatica.util.TimeUnit;
@@ -12,12 +13,12 @@ import org.apache.flink.api.common.time.Time;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.api.java.tuple.Tuple3;
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
+import org.apache.flink.streaming.runtime.operators.windowing.KeyMap;
+
 import static org.apache.flink.streaming.api.windowing.time.Time.*;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.io.IOException;
+import java.util.*;
 
 /**
  * 处理网络io的执行者 开始部分 可以从这类学 这是一个节点的开始
@@ -43,8 +44,8 @@ public class LearnTimeWindow {
 
 	public static void main(String[] args) {
 //		testMethod2();
-		testMethod2_1();
-//		testMethod2_2();
+//		testMethod2_1();
+		testMethod2_2();
 //		testMethod4();
 	}
 
@@ -80,7 +81,7 @@ public class LearnTimeWindow {
 	}
 
 	public static void testMethod2_1(){
-		List<Tuple3<String,Integer,Long>> list = DataUtil.getListFromFile(null);
+		List<Tuple3<String,Integer,Long>> list = DataUtil.getListFromFile("");
 		Iterator<Tuple3<String,Integer,Long>> iterator = list.iterator();
 		TumblingEventTimeWindows tumblingEventTimeWindows = TumblingEventTimeWindows.of(minutes(1),seconds(0));
 		while (iterator.hasNext()){
@@ -92,13 +93,31 @@ public class LearnTimeWindow {
 
 	public static void testMethod2_2(){
 		List<Map<String,Object>> list = DataUtil.getList_MapFromFile(null);
+		HashMap<Long,Integer> mapp = new HashMap<>();
 		Iterator<Map<String,Object>> iterator = list.iterator();
 		TumblingEventTimeWindows tumblingEventTimeWindows = TumblingEventTimeWindows.of(minutes(1),seconds(0));
 		while (iterator.hasNext()){
 			Map<String,Object> map = iterator.next();
 			Collection<TimeWindow> collection = tumblingEventTimeWindows.assignWindows(map,(Long) map.get("_sysTime"),null);
+			TimeWindow timeWindow = (TimeWindow) collection.toArray()[0];
+			if (mapp.containsKey(timeWindow.getStart())){
+				mapp.compute(timeWindow.getStart(),(a,b)->{
+					return b + (Integer) map.get("user_count");
+				});
+			}else {
+				mapp.put(timeWindow.getStart(),(Integer) map.get("user_count"));
+			}
 			System.out.println(collection.toArray()[0]);
 		}
+
+		for (Map.Entry<Long,Integer> entry:mapp.entrySet()){
+			try {
+				FileWriter.writerFile(entry.toString(),"test.txt");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
 	}
 
 	public static void testMethod3(){

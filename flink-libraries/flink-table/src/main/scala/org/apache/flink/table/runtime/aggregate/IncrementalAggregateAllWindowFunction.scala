@@ -21,6 +21,7 @@ import java.lang.Iterable
 
 import org.apache.flink.types.Row
 import org.apache.flink.configuration.Configuration
+import org.apache.flink.metrics.{Counter, MetricGroup}
 import org.apache.flink.streaming.api.functions.windowing.RichAllWindowFunction
 import org.apache.flink.streaming.api.windowing.windows.Window
 import org.apache.flink.table.runtime.types.CRow
@@ -34,11 +35,14 @@ import org.apache.flink.util.Collector
 class IncrementalAggregateAllWindowFunction[W <: Window](
     private val finalRowArity: Int)
   extends RichAllWindowFunction[Row, CRow, W] {
-
+//  private var metricGroup:MetricGroup = null;
+  private var sum:Counter = null;
   private var output: CRow = _
 
   override def open(parameters: Configuration): Unit = {
     output = new CRow(new Row(finalRowArity), true)
+//    metricGroup = getRuntimeContext.getMetricGroup.addGroup("customwindow");
+//    sum = metricGroup.counter("sum")
   }
 
   /**
@@ -49,9 +53,7 @@ class IncrementalAggregateAllWindowFunction[W <: Window](
       window: W,
       records: Iterable[Row],
       out: Collector[CRow]): Unit = {
-
     val iterator = records.iterator
-
     if (iterator.hasNext) {
       val record = iterator.next()
       var i = 0
@@ -61,5 +63,6 @@ class IncrementalAggregateAllWindowFunction[W <: Window](
       }
       out.collect(output)
     }
+
   }
 }

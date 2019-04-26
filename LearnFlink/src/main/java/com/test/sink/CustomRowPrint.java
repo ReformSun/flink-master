@@ -1,6 +1,9 @@
 package com.test.sink;
 
 import com.test.util.URLUtil;
+import org.apache.flink.configuration.Configuration;
+import org.apache.flink.metrics.Counter;
+import org.apache.flink.metrics.MetricGroup;
 import org.apache.flink.streaming.api.functions.sink.RichSinkFunction;
 import org.apache.flink.types.Row;
 
@@ -15,14 +18,23 @@ import java.sql.Timestamp;
 
 public class CustomRowPrint extends RichSinkFunction<Row> {
 	private String fileName;
+	private Counter sum = null;
 	public CustomRowPrint(String fileName) {
 		this.fileName = fileName;
 	}
 
 	@Override
+	public void open(Configuration parameters) throws Exception {
+		MetricGroup metricGroup = getRuntimeContext().getMetricGroup().addGroup("customSum");
+		sum = metricGroup.counter("sum");
+		super.open(parameters);
+	}
+
+	@Override
 	public void invoke(Row value) throws Exception {
 		Timestamp timestamp = (Timestamp) value.getField(1);
-		writerFile(value.getField(0) + "," + timestamp.getTime());
+		sum.inc((Long) value.getField(0));
+		writerFile(value.getField(0) + "," + timestamp.getTime() + "," + sum.getCount());
 	}
 	public static synchronized void writerFile(String s) throws IOException {
 		Path logFile = Paths.get( URLUtil.baseUrl + "test.txt");
