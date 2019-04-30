@@ -247,6 +247,45 @@ public class DataUtil {
 	}
 
 	// 把文件中定义的字符串转换数据格式
+	public static List<Tuple2<Integer,Long>> getListFromFile_tuple2(String fileName,TimeZone timeZone,boolean b){
+		try {
+			if (fileName == null)fileName = "dataTestFile.txt";
+			List<Tuple2<Integer,Long>> list0 = new ArrayList<>();
+			List<String> list = FileReader.readFile(URLUtil.baseUrl + fileName);
+			Iterator<String> iterator = list.iterator();
+			while (iterator.hasNext()){
+				String s = iterator.next();
+				List<String> list2 = Splitter.on(",").trimResults(CharMatcher.is('(').or(CharMatcher.is(')'))).splitToList(s);
+				if (list2.size() == 2){
+					Tuple2<Integer,Long> tuple3 = new Tuple2<>();
+					tuple3.f0 = Integer.valueOf(list2.get(0));
+					if (b){
+						long time = Long.valueOf(list2.get(1));
+						if (timeZone == null){
+							time = TimeUtil.toLong(time);
+						}else {
+							time = TimeUtil.toLong(time,timeZone);
+						}
+						tuple3.f1 = time;
+					}else {
+						tuple3.f1 = Long.valueOf(list2.get(1));
+					}
+
+					list0.add(tuple3);
+				}
+			}
+			return list0;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public static List<Tuple2<Integer,Long>> getListFromFile_tuple2(String fileName){
+		return getListFromFile_tuple2(fileName,null,false);
+	}
+
+	// 把文件中定义的字符串转换数据格式
 	public static List<Map<String,Object>> getList_MapFromFile(String fileName){
 		try {
 			GsonBuilder gsonBuilder = new GsonBuilder();
