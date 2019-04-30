@@ -20,7 +20,6 @@ public class StreamExecutionEnvUtil {
 		}else {
 			env = StreamExecutionEnvironment.createLocalEnvironment(1,conf);
 		}
-
 		return env;
 	}
 
@@ -29,12 +28,12 @@ public class StreamExecutionEnvUtil {
 	}
 
 
-	public static void main(String[] args) {
-		Configuration configuration = getConfiguration();
-		Map<String,String> map = configuration.toMap();
-		System.out.println(map.size());
-		System.out.println(configuration.toString());
-	}
+//	public static void main(String[] args) {
+//		Configuration configuration = getConfiguration();
+//		Map<String,String> map = configuration.toMap();
+//		System.out.println(map.size());
+//		System.out.println(configuration.toString());
+//	}
 
 
 }

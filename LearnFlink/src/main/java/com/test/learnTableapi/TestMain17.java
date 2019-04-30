@@ -31,7 +31,7 @@ import java.util.Arrays;
 
 public class TestMain17 {
 	public static void main(String[] args) {
-		StreamExecutionEnvironment sEnv = StreamExecutionEnvUtil.getStreamExecutionEnvironment(null);
+		StreamExecutionEnvironment sEnv = StreamExecutionEnvUtil.getStreamExecutionEnvironment();
 		sEnv.setParallelism(1);
 		TableConfig tableConfig = new TableConfig();
 		tableConfig.setIsEnableWindowOutputTag(true);
@@ -74,7 +74,6 @@ public class TestMain17 {
 
 			}
 		});
-
 		tableEnv.registerDataStream("test",dataStream,fields);
 
 		Table sqlResult = tableEnv.scan("test")
