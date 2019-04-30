@@ -3,6 +3,7 @@ package com.test.learnTableapi;
 import com.test.filesource.FileTableSource;
 import com.test.sink.CustomCrowSumPrint;
 import com.test.sink.CustomRowPrint;
+import com.test.sink.CustomRowPrint_Sum;
 import com.test.util.FileWriter;
 import com.test.util.StreamExecutionEnvUtil;
 import org.apache.flink.api.common.typeinfo.Types;
@@ -34,7 +35,7 @@ public class TestMain16 {
 //		tableConfig.setTimeZone(TimeZone.getTimeZone("GMT+8"));
 		StreamTableEnvironment tableEnv = TableEnvironment.getTableEnvironment(sEnv,tableConfig);
 		sEnv.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
-		FileTableSource fileTableSource = FileUtil.getFileTableSource(1000);
+		FileTableSource fileTableSource = FileUtil.getFileTableSource(0);
 		tableEnv.registerTableSource("filesource", fileTableSource);
 
 //		testMethod1(tableEnv);
@@ -79,12 +80,13 @@ public class TestMain16 {
 			.select("SUM(user_count) as value1,w.start");
 		RowTypeInfo rowTypeInfo = new RowTypeInfo(Types.LONG,Types.SQL_TIMESTAMP);
 		SingleOutputStreamOperator<Row> stream = (SingleOutputStreamOperator)tableEnv.toAppendStream(sqlResult, rowTypeInfo, qConfig);
-		stream.addSink(new CustomRowPrint("test.txt"));
+		stream.addSink(new CustomRowPrint_Sum("test.txt"));
 
 		DataStream<CRow> dataStream1 = WindowOutputTag.getDataStream();
 		dataStream1.addSink(new CustomCrowSumPrint());
 
 	}
+
 
 
 }

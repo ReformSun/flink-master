@@ -40,7 +40,8 @@ public class FileSourceBase<T> extends RichSourceFunction<T> {
 		Path logFile = Paths.get(path);
 		try (BufferedReader reader = Files.newBufferedReader(logFile, StandardCharsets.UTF_8)){
 			String line;
-			while (( line = reader.readLine()) != null && !line.equals("")){
+			while (( line = reader.readLine()) != null){
+				if (line.equals(""))break;
 				T row = deserializationS.deserialize(line.getBytes());
 				sum.inc();
 				MetricWriter.writerFile(sum,"custommetric.txt");

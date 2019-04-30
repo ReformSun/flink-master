@@ -4,12 +4,17 @@ import com.google.common.base.CharMatcher;
 import com.google.common.base.Splitter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.test.window.TumblingEventTimeWindows;
 import model.Event;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.api.java.tuple.Tuple3;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
+import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
+
 import static com.test.util.RandomUtil.*;
+import static org.apache.flink.streaming.api.windowing.time.Time.minutes;
+import static org.apache.flink.streaming.api.windowing.time.Time.seconds;
 
 import java.io.IOException;
 import java.util.*;
@@ -265,6 +270,27 @@ public class DataUtil {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public static Map<Long,Integer> getStatisticsData(){
+		List<Map<String,Object>> list = DataUtil.getList_MapFromFile(null);
+		HashMap<Long,Integer> mapp = new HashMap<>();
+		Iterator<Map<String,Object>> iterator = list.iterator();
+		TumblingEventTimeWindows tumblingEventTimeWindows = TumblingEventTimeWindows.of(minutes(1),seconds(0));
+		while (iterator.hasNext()){
+			Map<String,Object> map = iterator.next();
+			Collection<TimeWindow> collection = tumblingEventTimeWindows.assignWindows(map,(Long) map.get("_sysTime"),null);
+			TimeWindow timeWindow = (TimeWindow) collection.toArray()[0];
+			if (mapp.containsKey(timeWindow.getStart())){
+				mapp.compute(timeWindow.getStart(),(a,b)->{
+					return b + (Integer) map.get("user_count");
+				});
+			}else {
+				mapp.put(timeWindow.getStart(),(Integer) map.get("user_count"));
+			}
+			System.out.println(collection.toArray()[0]);
+		}
+		return mapp;
 	}
 
 	/**

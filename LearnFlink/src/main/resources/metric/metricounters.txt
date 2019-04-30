@@ -1,0 +1,1594 @@
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesOut: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesOut: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.Timestamps/Watermarks.0.numRecordsOut: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.Source: filesource.0.numRecordsIn: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.to: Row.0.numRecordsOut: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.Source: filesource.0.customSumSourceData.sum: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime).0.numRecordsIn: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.from: (user_name, user_count, _sysTime).0.numRecordsIn: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.Timestamps/Watermarks.0.numRecordsIn: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInLocal: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInRemote: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsOut: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.Source: filesource.0.numRecordsOut: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.from: (user_name, user_count, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsIn: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.to: Row.0.numRecordsIn: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInLocal: 0
+localhost.taskmanager.fdc7fce9-ac69-48f8-af54-f866a80f3946.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInRemote: 0
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.to: Row.0.numRecordsIn: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.to: Row.0.numRecordsOut: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsIn: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInRemote: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesOut: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Source: filesource.0.customSumSourceData.sum: 7
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime).0.numRecordsIn: 6
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInLocal: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsOut: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime).0.numRecordsOut: 6
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numLateRecordsDropped: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.customSumLastData.sum: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsIn: 6
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesOut: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsOut: 6
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Source: filesource.0.numRecordsIn: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInLocal: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInRemote: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Timestamps/Watermarks.0.numRecordsIn: 6
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsOut: 6
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Timestamps/Watermarks.0.numRecordsOut: 6
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.from: (user_name, user_count, _sysTime).0.numRecordsOut: 6
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.from: (user_name, user_count, _sysTime).0.numRecordsIn: 6
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Source: filesource.0.numRecordsOut: 6
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.to: Row.0.numRecordsIn: 1
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.to: Row.0.numRecordsOut: 1
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsIn: 4
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInRemote: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 1
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesOut: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsOut: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numLateRecordsDropped: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.customSumLastData.sum: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 1
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInLocal: 3159
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 4
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 1
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 1
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 0
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.to: Row.0.numRecordsIn: 1
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.to: Row.0.numRecordsOut: 1
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsIn: 4
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInRemote: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 1
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesOut: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsOut: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numLateRecordsDropped: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.customSumLastData.sum: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 1
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInLocal: 3159
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 4
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 1
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 1
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 10
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.to: Row.0.numRecordsIn: 1
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.to: Row.0.numRecordsOut: 1
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsIn: 4
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInRemote: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 1
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesOut: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsOut: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numLateRecordsDropped: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.customSumLastData.sum: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 1
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInLocal: 3159
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 4
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 1
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 1
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 10
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.to: Row.0.numRecordsIn: 1
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.to: Row.0.numRecordsOut: 1
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsIn: 4
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInRemote: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 1
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesOut: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsOut: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numLateRecordsDropped: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.customSumLastData.sum: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 1
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInLocal: 3159
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 4
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 1
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 1
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 10
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.to: Row.0.numRecordsIn: 1
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.to: Row.0.numRecordsOut: 1
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsIn: 4
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInRemote: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 1
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesOut: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsOut: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numLateRecordsDropped: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.customSumLastData.sum: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 1
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInLocal: 3159
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 4
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 1
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 1
+localhost.taskmanager.8e83cb38-3a17-4704-aacc-10a52d52f64b.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 10
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Timestamps/Watermarks.0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInRemote: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Source: filesource.0.customSumSourceData.sum: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInRemote: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInLocal: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Timestamps/Watermarks.0.numRecordsIn: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Source: filesource.0.numRecordsIn: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.from: (user_name, user_count, _sysTime).0.numRecordsIn: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Source: filesource.0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime).0.numRecordsIn: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInLocal: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.from: (user_name, user_count, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsIn: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.to: Row.0.numRecordsIn: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.to: Row.0.numRecordsOut: 0
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 1
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 1
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 20
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 1
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInRemote: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInLocal: 3159
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 1
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.customSumLastData.sum: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsIn: 13
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 13
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numLateRecordsDropped: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.to: Row.0.numRecordsIn: 1
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.to: Row.0.numRecordsOut: 1
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 1
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 1
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 20
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 1
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInRemote: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInLocal: 3159
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 1
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.customSumLastData.sum: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsIn: 13
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 13
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numLateRecordsDropped: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.to: Row.0.numRecordsIn: 1
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.to: Row.0.numRecordsOut: 1
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 3
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 3
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 100
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 3
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInRemote: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInLocal: 3159
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 3
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.customSumLastData.sum: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsIn: 13
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 13
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numLateRecordsDropped: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.to: Row.0.numRecordsIn: 3
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.to: Row.0.numRecordsOut: 3
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 11
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 5
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 160
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 5
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInRemote: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInLocal: 3159
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 5
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 6
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.customSumLastData.sum: 60
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsIn: 100
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 100
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numLateRecordsDropped: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.to: Row.0.numRecordsIn: 5
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.to: Row.0.numRecordsOut: 5
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 14
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 8
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 270
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 8
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInRemote: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInLocal: 3159
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 8
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 6
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.customSumLastData.sum: 60
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsIn: 100
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 100
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numLateRecordsDropped: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.to: Row.0.numRecordsIn: 8
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.to: Row.0.numRecordsOut: 8
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 18
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 12
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 430
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 12
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInRemote: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInLocal: 3159
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 12
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 6
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.customSumLastData.sum: 60
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsIn: 100
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 100
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numLateRecordsDropped: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.to: Row.0.numRecordsIn: 12
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.to: Row.0.numRecordsOut: 12
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 20
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 14
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 480
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 14
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInRemote: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInLocal: 3159
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 14
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 6
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.customSumLastData.sum: 60
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsIn: 100
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 100
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numLateRecordsDropped: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.to: Row.0.numRecordsIn: 14
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.to: Row.0.numRecordsOut: 14
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 25
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 19
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 640
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 19
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInRemote: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInLocal: 3159
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 19
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 6
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.customSumLastData.sum: 60
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsIn: 100
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 100
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numLateRecordsDropped: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.to: Row.0.numRecordsIn: 19
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.to: Row.0.numRecordsOut: 19
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 29
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 23
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 760
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 23
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInRemote: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInLocal: 3159
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 23
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 6
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.customSumLastData.sum: 60
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsIn: 100
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 100
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numLateRecordsDropped: 0
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.to: Row.0.numRecordsIn: 23
+localhost.taskmanager.2a87935e-68ac-4324-9bee-43f6b4ed19e3.Flink Streaming Job.to: Row.0.numRecordsOut: 23
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime).0.numRecordsIn: 89
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsIn: 0
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsOut: 89
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 0
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesOut: 0
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime).0.numRecordsOut: 89
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsOut: 0
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.to: Row.0.numRecordsOut: 0
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.Sink: Unnamed.0.customSumLastData.sum: 0
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.Timestamps/Watermarks.0.numRecordsIn: 89
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesOut: 0
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsIn: 89
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInLocal: 2681
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInRemote: 0
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.Timestamps/Watermarks.0.numRecordsOut: 89
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.to: Row.0.numRecordsIn: 0
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 0
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.Source: filesource.0.numRecordsOut: 89
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsOut: 89
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.from: (user_name, user_count, _sysTime).0.numRecordsOut: 89
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numLateRecordsDropped: 0
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 0
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.from: (user_name, user_count, _sysTime).0.numRecordsIn: 89
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 0
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInLocal: 0
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 0
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.Source: filesource.0.numRecordsIn: 0
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInRemote: 0
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.35e582fb-b71b-4856-9dd4-552902224e0a.Flink Streaming Job.Source: filesource.0.customSumSourceData.sum: 90
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesOut: 0
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime).0.numRecordsIn: 78
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.to: Row.0.numRecordsIn: 0
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.Source: filesource.0.customSumSourceData.sum: 79
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 0
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numLateRecordsDropped: 0
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.to: Row.0.numRecordsOut: 0
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.from: (user_name, user_count, _sysTime).0.numRecordsOut: 78
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 0
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsOut: 0
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsOut: 78
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 40
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.Timestamps/Watermarks.0.numRecordsOut: 78
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesOut: 0
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 0
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInRemote: 0
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.Timestamps/Watermarks.0.numRecordsIn: 78
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInLocal: 1273
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsIn: 40
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInLocal: 0
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.from: (user_name, user_count, _sysTime).0.numRecordsIn: 78
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime).0.numRecordsOut: 78
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.Source: filesource.0.numRecordsOut: 78
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsOut: 78
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.Source: filesource.0.numRecordsIn: 0
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 0
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsIn: 78
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.Sink: Unnamed.0.customSumLastData.sum: 0
+localhost.taskmanager.cf77cb72-9c6c-4e4e-abf4-9029e5dae74a.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInRemote: 0
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.a1c3d569-49b3-418d-8f4c-40fbe2bbf065.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.a1c3d569-49b3-418d-8f4c-40fbe2bbf065.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInLocal: 0
+localhost.taskmanager.a1c3d569-49b3-418d-8f4c-40fbe2bbf065.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInRemote: 0
+localhost.taskmanager.a1c3d569-49b3-418d-8f4c-40fbe2bbf065.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsOut: 0
+localhost.taskmanager.a1c3d569-49b3-418d-8f4c-40fbe2bbf065.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.a1c3d569-49b3-418d-8f4c-40fbe2bbf065.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInLocal: 0
+localhost.taskmanager.a1c3d569-49b3-418d-8f4c-40fbe2bbf065.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsIn: 0
+localhost.taskmanager.a1c3d569-49b3-418d-8f4c-40fbe2bbf065.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesOut: 0
+localhost.taskmanager.a1c3d569-49b3-418d-8f4c-40fbe2bbf065.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesOut: 0
+localhost.taskmanager.a1c3d569-49b3-418d-8f4c-40fbe2bbf065.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInRemote: 0
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.e3d83273-ccd6-4d5c-8073-f562913f6b7c.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.e3d83273-ccd6-4d5c-8073-f562913f6b7c.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInLocal: 0
+localhost.taskmanager.e3d83273-ccd6-4d5c-8073-f562913f6b7c.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesOut: 0
+localhost.taskmanager.e3d83273-ccd6-4d5c-8073-f562913f6b7c.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInRemote: 0
+localhost.taskmanager.e3d83273-ccd6-4d5c-8073-f562913f6b7c.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsIn: 0
+localhost.taskmanager.e3d83273-ccd6-4d5c-8073-f562913f6b7c.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInLocal: 0
+localhost.taskmanager.e3d83273-ccd6-4d5c-8073-f562913f6b7c.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesOut: 0
+localhost.taskmanager.e3d83273-ccd6-4d5c-8073-f562913f6b7c.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numBytesInRemote: 0
+localhost.taskmanager.e3d83273-ccd6-4d5c-8073-f562913f6b7c.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> (select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed, Sink: Unnamed).0.numRecordsOut: 0
+localhost.taskmanager.e3d83273-ccd6-4d5c-8073-f562913f6b7c.Flink Streaming Job.Source: filesource -> from: (user_name, user_count, _sysTime) -> Timestamps/Watermarks -> where: (=(user_name, _UTF-16LE'\u5C0F\u5F20')), select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsIn: 0
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsIn: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesOut: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.to: Row.0.numRecordsIn: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.to: Row.0.numRecordsOut: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsIn: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInRemote: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInLocal: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.Source: Custom Source.0.numRecordsIn: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.Source: Custom Source.0.numRecordsOut: 1
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInLocal: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInRemote: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesOut: 0
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsIn: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesOut: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.to: Row.0.numRecordsIn: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.to: Row.0.numRecordsOut: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsIn: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInRemote: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInLocal: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.Source: Custom Source.0.numRecordsIn: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.Source: Custom Source.0.numRecordsOut: 1
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInLocal: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInRemote: 0
+localhost.taskmanager.f76708de-8821-4cd7-9be8-b2fe35d5a651.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesOut: 0
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.c2fb5030-5485-45b4-8942-3ef44fd5636f.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.c2fb5030-5485-45b4-8942-3ef44fd5636f.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 0
+localhost.taskmanager.c2fb5030-5485-45b4-8942-3ef44fd5636f.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 0
+localhost.taskmanager.c2fb5030-5485-45b4-8942-3ef44fd5636f.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInLocal: 0
+localhost.taskmanager.c2fb5030-5485-45b4-8942-3ef44fd5636f.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 0
+localhost.taskmanager.c2fb5030-5485-45b4-8942-3ef44fd5636f.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInLocal: 0
+localhost.taskmanager.c2fb5030-5485-45b4-8942-3ef44fd5636f.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.c2fb5030-5485-45b4-8942-3ef44fd5636f.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.c2fb5030-5485-45b4-8942-3ef44fd5636f.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInRemote: 0
+localhost.taskmanager.c2fb5030-5485-45b4-8942-3ef44fd5636f.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.c2fb5030-5485-45b4-8942-3ef44fd5636f.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 0
+localhost.taskmanager.c2fb5030-5485-45b4-8942-3ef44fd5636f.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsIn: 0
+localhost.taskmanager.c2fb5030-5485-45b4-8942-3ef44fd5636f.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesOut: 0
+localhost.taskmanager.c2fb5030-5485-45b4-8942-3ef44fd5636f.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesOut: 0
+localhost.taskmanager.c2fb5030-5485-45b4-8942-3ef44fd5636f.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.c2fb5030-5485-45b4-8942-3ef44fd5636f.Flink Streaming Job.Source: Custom Source.0.numRecordsOut: 1
+localhost.taskmanager.c2fb5030-5485-45b4-8942-3ef44fd5636f.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInRemote: 0
+localhost.taskmanager.c2fb5030-5485-45b4-8942-3ef44fd5636f.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.c2fb5030-5485-45b4-8942-3ef44fd5636f.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 0
+localhost.taskmanager.c2fb5030-5485-45b4-8942-3ef44fd5636f.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.c2fb5030-5485-45b4-8942-3ef44fd5636f.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsIn: 1
+localhost.taskmanager.c2fb5030-5485-45b4-8942-3ef44fd5636f.Flink Streaming Job.to: Row.0.numRecordsIn: 0
+localhost.taskmanager.c2fb5030-5485-45b4-8942-3ef44fd5636f.Flink Streaming Job.to: Row.0.numRecordsOut: 0
+localhost.taskmanager.c2fb5030-5485-45b4-8942-3ef44fd5636f.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.c2fb5030-5485-45b4-8942-3ef44fd5636f.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.c2fb5030-5485-45b4-8942-3ef44fd5636f.Flink Streaming Job.Source: Custom Source.0.numRecordsIn: 0
+localhost.taskmanager.c2fb5030-5485-45b4-8942-3ef44fd5636f.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsOut: 0
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.16f2e6ba-da84-4f0a-9756-dbb27875ccd3.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.16f2e6ba-da84-4f0a-9756-dbb27875ccd3.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 0
+localhost.taskmanager.16f2e6ba-da84-4f0a-9756-dbb27875ccd3.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.16f2e6ba-da84-4f0a-9756-dbb27875ccd3.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsIn: 0
+localhost.taskmanager.16f2e6ba-da84-4f0a-9756-dbb27875ccd3.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsIn: 0
+localhost.taskmanager.16f2e6ba-da84-4f0a-9756-dbb27875ccd3.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInLocal: 0
+localhost.taskmanager.16f2e6ba-da84-4f0a-9756-dbb27875ccd3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.16f2e6ba-da84-4f0a-9756-dbb27875ccd3.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.16f2e6ba-da84-4f0a-9756-dbb27875ccd3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.16f2e6ba-da84-4f0a-9756-dbb27875ccd3.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.16f2e6ba-da84-4f0a-9756-dbb27875ccd3.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 0
+localhost.taskmanager.16f2e6ba-da84-4f0a-9756-dbb27875ccd3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 0
+localhost.taskmanager.16f2e6ba-da84-4f0a-9756-dbb27875ccd3.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.16f2e6ba-da84-4f0a-9756-dbb27875ccd3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInLocal: 0
+localhost.taskmanager.16f2e6ba-da84-4f0a-9756-dbb27875ccd3.Flink Streaming Job.Source: Custom Source.0.numRecordsIn: 0
+localhost.taskmanager.16f2e6ba-da84-4f0a-9756-dbb27875ccd3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInRemote: 0
+localhost.taskmanager.16f2e6ba-da84-4f0a-9756-dbb27875ccd3.Flink Streaming Job.to: Row.0.numRecordsIn: 0
+localhost.taskmanager.16f2e6ba-da84-4f0a-9756-dbb27875ccd3.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInRemote: 0
+localhost.taskmanager.16f2e6ba-da84-4f0a-9756-dbb27875ccd3.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.16f2e6ba-da84-4f0a-9756-dbb27875ccd3.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.16f2e6ba-da84-4f0a-9756-dbb27875ccd3.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.16f2e6ba-da84-4f0a-9756-dbb27875ccd3.Flink Streaming Job.to: Row.0.numRecordsOut: 0
+localhost.taskmanager.16f2e6ba-da84-4f0a-9756-dbb27875ccd3.Flink Streaming Job.Source: Custom Source.0.numRecordsOut: 0
+localhost.taskmanager.16f2e6ba-da84-4f0a-9756-dbb27875ccd3.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesOut: 0
+localhost.taskmanager.16f2e6ba-da84-4f0a-9756-dbb27875ccd3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesOut: 0
+localhost.taskmanager.16f2e6ba-da84-4f0a-9756-dbb27875ccd3.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 0
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.to: Row.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInRemote: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.to: Row.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInLocal: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInRemote: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInLocal: 0
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.to: Row.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source.0.numRecordsOut: 1
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInRemote: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsIn: 1
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.to: Row.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInLocal: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInRemote: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInLocal: 0
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.to: Row.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source.0.numRecordsOut: 1
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInRemote: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsIn: 1
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.to: Row.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInLocal: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInRemote: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInLocal: 0
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.to: Row.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numLateRecordsDropped: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source.0.numRecordsOut: 1
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInRemote: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsIn: 1
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.to: Row.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInLocal: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInRemote: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInLocal: 0
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.to: Row.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numLateRecordsDropped: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source.0.numRecordsOut: 1
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInRemote: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsIn: 1
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.to: Row.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInLocal: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInRemote: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInLocal: 0
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.to: Row.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numLateRecordsDropped: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source.0.numRecordsOut: 1
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInRemote: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsIn: 1
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.to: Row.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInLocal: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInRemote: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInLocal: 0
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.to: Row.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numLateRecordsDropped: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source.0.numRecordsOut: 1
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInRemote: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsIn: 1
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.to: Row.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInLocal: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInRemote: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInLocal: 0
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.to: Row.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numLateRecordsDropped: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source.0.numRecordsOut: 1
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInRemote: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsIn: 1
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.to: Row.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInLocal: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInRemote: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInLocal: 0
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.to: Row.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numLateRecordsDropped: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source.0.numRecordsOut: 1
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInRemote: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsIn: 1
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.to: Row.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInLocal: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInRemote: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInLocal: 0
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.to: Row.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numLateRecordsDropped: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source.0.numRecordsOut: 1
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInRemote: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsIn: 1
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.to: Row.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInLocal: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInRemote: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Source: Custom Source -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 0
+localhost.taskmanager.55a9b0b4-ab8f-493f-a651-384be93d0ac4.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInLocal: 0
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.917ea460-5d26-465b-bad0-82f64db6db89.Flink Streaming Job.Source: Custom Source -> (Timestamps/Watermarks, from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime)).0.numBytesInLocal: 0
+localhost.taskmanager.917ea460-5d26-465b-bad0-82f64db6db89.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.917ea460-5d26-465b-bad0-82f64db6db89.Flink Streaming Job.to: Row.0.numRecordsIn: 0
+localhost.taskmanager.917ea460-5d26-465b-bad0-82f64db6db89.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 0
+localhost.taskmanager.917ea460-5d26-465b-bad0-82f64db6db89.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInRemote: 0
+localhost.taskmanager.917ea460-5d26-465b-bad0-82f64db6db89.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsOut: 0
+localhost.taskmanager.917ea460-5d26-465b-bad0-82f64db6db89.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsIn: 0
+localhost.taskmanager.917ea460-5d26-465b-bad0-82f64db6db89.Flink Streaming Job.Timestamps/Watermarks.0.numRecordsIn: 0
+localhost.taskmanager.917ea460-5d26-465b-bad0-82f64db6db89.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsOut: 0
+localhost.taskmanager.917ea460-5d26-465b-bad0-82f64db6db89.Flink Streaming Job.Source: Custom Source -> (Timestamps/Watermarks, from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime)).0.numBytesInRemote: 0
+localhost.taskmanager.917ea460-5d26-465b-bad0-82f64db6db89.Flink Streaming Job.Timestamps/Watermarks.0.numRecordsOut: 0
+localhost.taskmanager.917ea460-5d26-465b-bad0-82f64db6db89.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInLocal: 0
+localhost.taskmanager.917ea460-5d26-465b-bad0-82f64db6db89.Flink Streaming Job.Source: Custom Source -> (Timestamps/Watermarks, from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime)).0.numRecordsOut: 0
+localhost.taskmanager.917ea460-5d26-465b-bad0-82f64db6db89.Flink Streaming Job.Source: Custom Source.0.numRecordsIn: 0
+localhost.taskmanager.917ea460-5d26-465b-bad0-82f64db6db89.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.917ea460-5d26-465b-bad0-82f64db6db89.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.917ea460-5d26-465b-bad0-82f64db6db89.Flink Streaming Job.Source: Custom Source -> (Timestamps/Watermarks, from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime)).0.numBytesOut: 0
+localhost.taskmanager.917ea460-5d26-465b-bad0-82f64db6db89.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesOut: 0
+localhost.taskmanager.917ea460-5d26-465b-bad0-82f64db6db89.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.917ea460-5d26-465b-bad0-82f64db6db89.Flink Streaming Job.Source: Custom Source -> (Timestamps/Watermarks, from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime)).0.numRecordsIn: 0
+localhost.taskmanager.917ea460-5d26-465b-bad0-82f64db6db89.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 0
+localhost.taskmanager.917ea460-5d26-465b-bad0-82f64db6db89.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 0
+localhost.taskmanager.917ea460-5d26-465b-bad0-82f64db6db89.Flink Streaming Job.Source: Custom Source.0.numRecordsOut: 0
+localhost.taskmanager.917ea460-5d26-465b-bad0-82f64db6db89.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsIn: 0
+localhost.taskmanager.917ea460-5d26-465b-bad0-82f64db6db89.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.917ea460-5d26-465b-bad0-82f64db6db89.Flink Streaming Job.to: Row.0.numRecordsOut: 0
+localhost.taskmanager.917ea460-5d26-465b-bad0-82f64db6db89.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.917ea460-5d26-465b-bad0-82f64db6db89.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 0
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.b61431c3-6f8a-487b-a2b7-fdee8c45780a.Flink Streaming Job.to: Row.0.numRecordsOut: 0
+localhost.taskmanager.b61431c3-6f8a-487b-a2b7-fdee8c45780a.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 0
+localhost.taskmanager.b61431c3-6f8a-487b-a2b7-fdee8c45780a.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 0
+localhost.taskmanager.b61431c3-6f8a-487b-a2b7-fdee8c45780a.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsIn: 77
+localhost.taskmanager.b61431c3-6f8a-487b-a2b7-fdee8c45780a.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.b61431c3-6f8a-487b-a2b7-fdee8c45780a.Flink Streaming Job.Source: Custom Source -> Timestamps/Watermarks -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInLocal: 0
+localhost.taskmanager.b61431c3-6f8a-487b-a2b7-fdee8c45780a.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInRemote: 0
+localhost.taskmanager.b61431c3-6f8a-487b-a2b7-fdee8c45780a.Flink Streaming Job.Source: Custom Source -> Timestamps/Watermarks -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInRemote: 0
+localhost.taskmanager.b61431c3-6f8a-487b-a2b7-fdee8c45780a.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.b61431c3-6f8a-487b-a2b7-fdee8c45780a.Flink Streaming Job.Source: Custom Source -> Timestamps/Watermarks -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.b61431c3-6f8a-487b-a2b7-fdee8c45780a.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.b61431c3-6f8a-487b-a2b7-fdee8c45780a.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 0
+localhost.taskmanager.b61431c3-6f8a-487b-a2b7-fdee8c45780a.Flink Streaming Job.Source: Custom Source.0.numRecordsOut: 77
+localhost.taskmanager.b61431c3-6f8a-487b-a2b7-fdee8c45780a.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsOut: 77
+localhost.taskmanager.b61431c3-6f8a-487b-a2b7-fdee8c45780a.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 0
+localhost.taskmanager.b61431c3-6f8a-487b-a2b7-fdee8c45780a.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsOut: 77
+localhost.taskmanager.b61431c3-6f8a-487b-a2b7-fdee8c45780a.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInLocal: 0
+localhost.taskmanager.b61431c3-6f8a-487b-a2b7-fdee8c45780a.Flink Streaming Job.Source: Custom Source.0.numRecordsIn: 0
+localhost.taskmanager.b61431c3-6f8a-487b-a2b7-fdee8c45780a.Flink Streaming Job.Source: Custom Source -> Timestamps/Watermarks -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsOut: 77
+localhost.taskmanager.b61431c3-6f8a-487b-a2b7-fdee8c45780a.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsIn: 77
+localhost.taskmanager.b61431c3-6f8a-487b-a2b7-fdee8c45780a.Flink Streaming Job.to: Row.0.numRecordsIn: 0
+localhost.taskmanager.b61431c3-6f8a-487b-a2b7-fdee8c45780a.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsIn: 77
+localhost.taskmanager.b61431c3-6f8a-487b-a2b7-fdee8c45780a.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.b61431c3-6f8a-487b-a2b7-fdee8c45780a.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsOut: 77
+localhost.taskmanager.b61431c3-6f8a-487b-a2b7-fdee8c45780a.Flink Streaming Job.Timestamps/Watermarks.0.numRecordsIn: 77
+localhost.taskmanager.b61431c3-6f8a-487b-a2b7-fdee8c45780a.Flink Streaming Job.Source: Custom Source -> Timestamps/Watermarks -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesOut: 0
+localhost.taskmanager.b61431c3-6f8a-487b-a2b7-fdee8c45780a.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesOut: 0
+localhost.taskmanager.b61431c3-6f8a-487b-a2b7-fdee8c45780a.Flink Streaming Job.Timestamps/Watermarks.0.numRecordsOut: 77
+localhost.taskmanager.b61431c3-6f8a-487b-a2b7-fdee8c45780a.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 0
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.Timestamps/Watermarks.0.numRecordsIn: 100
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.Source: Custom Source -> Timestamps/Watermarks -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInLocal: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesOut: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.Timestamps/Watermarks.0.numRecordsOut: 100
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.Source: Custom Source -> Timestamps/Watermarks -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsOut: 100
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.to: Row.0.numRecordsIn: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsOut: 100
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.Source: Custom Source.0.numRecordsOut: 100
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsIn: 100
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsOut: 100
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.Source: Custom Source -> Timestamps/Watermarks -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInRemote: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInLocal: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.to: Row.0.numRecordsOut: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.Source: Custom Source -> Timestamps/Watermarks -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesOut: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.Source: Custom Source.0.numRecordsIn: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.Source: Custom Source -> Timestamps/Watermarks -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsIn: 100
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsOut: 100
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInRemote: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsIn: 100
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsIn: 0
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesOut: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.to: Row.0.numRecordsIn: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInLocal: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.to: Row.0.numRecordsOut: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numLateRecordsDropped: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInRemote: 0
+localhost.taskmanager.5e94ed09-f8c5-4941-8785-67580c83b6fb.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsIn: 0
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.79a2ee85-1d94-44e0-8b9a-4497a38a1904.Flink Streaming Job.Sink: Unnamed.0.customSum.sum: 0
+localhost.taskmanager.79a2ee85-1d94-44e0-8b9a-4497a38a1904.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInRemote: 0
+localhost.taskmanager.79a2ee85-1d94-44e0-8b9a-4497a38a1904.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numLateRecordsDropped: 0
+localhost.taskmanager.79a2ee85-1d94-44e0-8b9a-4497a38a1904.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.79a2ee85-1d94-44e0-8b9a-4497a38a1904.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesOut: 0
+localhost.taskmanager.79a2ee85-1d94-44e0-8b9a-4497a38a1904.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 1
+localhost.taskmanager.79a2ee85-1d94-44e0-8b9a-4497a38a1904.Flink Streaming Job.to: Row.0.numRecordsOut: 1
+localhost.taskmanager.79a2ee85-1d94-44e0-8b9a-4497a38a1904.Flink Streaming Job.to: Row.0.numRecordsIn: 1
+localhost.taskmanager.79a2ee85-1d94-44e0-8b9a-4497a38a1904.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 1
+localhost.taskmanager.79a2ee85-1d94-44e0-8b9a-4497a38a1904.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 1
+localhost.taskmanager.79a2ee85-1d94-44e0-8b9a-4497a38a1904.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInLocal: 2746
+localhost.taskmanager.79a2ee85-1d94-44e0-8b9a-4497a38a1904.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 100
+localhost.taskmanager.79a2ee85-1d94-44e0-8b9a-4497a38a1904.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsIn: 100
+localhost.taskmanager.79a2ee85-1d94-44e0-8b9a-4497a38a1904.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 1
+localhost.taskmanager.79a2ee85-1d94-44e0-8b9a-4497a38a1904.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+
+
+-- Counters -------------------------------------------------------------------
+localhost.taskmanager.66a91ca6-a1a7-4fa3-b0e6-85175408478c.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.66a91ca6-a1a7-4fa3-b0e6-85175408478c.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsIn: 1
+localhost.taskmanager.66a91ca6-a1a7-4fa3-b0e6-85175408478c.Flink Streaming Job.to: Row.0.numRecordsOut: 0
+localhost.taskmanager.66a91ca6-a1a7-4fa3-b0e6-85175408478c.Flink Streaming Job.from: (user_count, user_name, _sysTime).0.numRecordsOut: 1
+localhost.taskmanager.66a91ca6-a1a7-4fa3-b0e6-85175408478c.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numLateRecordsDropped: 0
+localhost.taskmanager.66a91ca6-a1a7-4fa3-b0e6-85175408478c.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsIn: 0
+localhost.taskmanager.66a91ca6-a1a7-4fa3-b0e6-85175408478c.Flink Streaming Job.Source: Custom Source -> Timestamps/Watermarks -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInRemote: 0
+localhost.taskmanager.66a91ca6-a1a7-4fa3-b0e6-85175408478c.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInRemote: 0
+localhost.taskmanager.66a91ca6-a1a7-4fa3-b0e6-85175408478c.Flink Streaming Job.Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.66a91ca6-a1a7-4fa3-b0e6-85175408478c.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_co.0.numRecordsOut: 0
+localhost.taskmanager.66a91ca6-a1a7-4fa3-b0e6-85175408478c.Flink Streaming Job.Source: Custom Source.0.numRecordsIn: 0
+localhost.taskmanager.66a91ca6-a1a7-4fa3-b0e6-85175408478c.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesOut: 0
+localhost.taskmanager.66a91ca6-a1a7-4fa3-b0e6-85175408478c.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numRecordsOut: 0
+localhost.taskmanager.66a91ca6-a1a7-4fa3-b0e6-85175408478c.Flink Streaming Job.Timestamps/Watermarks.0.numRecordsOut: 1
+localhost.taskmanager.66a91ca6-a1a7-4fa3-b0e6-85175408478c.Flink Streaming Job.Timestamps/Watermarks.0.numRecordsIn: 1
+localhost.taskmanager.66a91ca6-a1a7-4fa3-b0e6-85175408478c.Flink Streaming Job.Source: Custom Source -> Timestamps/Watermarks -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesOut: 0
+localhost.taskmanager.66a91ca6-a1a7-4fa3-b0e6-85175408478c.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsOut: 1
+localhost.taskmanager.66a91ca6-a1a7-4fa3-b0e6-85175408478c.Flink Streaming Job.Source: Custom Source -> Timestamps/Watermarks -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsIn: 0
+localhost.taskmanager.66a91ca6-a1a7-4fa3-b0e6-85175408478c.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsIn: 0
+localhost.taskmanager.66a91ca6-a1a7-4fa3-b0e6-85175408478c.Flink Streaming Job.Source: Custom Source.0.numRecordsOut: 1
+localhost.taskmanager.66a91ca6-a1a7-4fa3-b0e6-85175408478c.Flink Streaming Job.select: (TMP_0 AS value1, TMP_1).0.numRecordsOut: 0
+localhost.taskmanager.66a91ca6-a1a7-4fa3-b0e6-85175408478c.Flink Streaming Job.Source: Custom Source -> Timestamps/Watermarks -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numRecordsOut: 1
+localhost.taskmanager.66a91ca6-a1a7-4fa3-b0e6-85175408478c.Flink Streaming Job.window: (TumblingGroupWindow('w, '_sysTime, 60000.millis)), select: (SUM(user_count) AS TMP_0, start('w) AS TMP_1) -> select: (TMP_0 AS value1, TMP_1) -> to: Row -> Sink: Unnamed.0.numBytesInLocal: 0
+localhost.taskmanager.66a91ca6-a1a7-4fa3-b0e6-85175408478c.Flink Streaming Job.time attribute: (_sysTime).0.numRecordsIn: 1
+localhost.taskmanager.66a91ca6-a1a7-4fa3-b0e6-85175408478c.Flink Streaming Job.Sink: Unnamed.0.numRecordsIn: 0
+localhost.taskmanager.66a91ca6-a1a7-4fa3-b0e6-85175408478c.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsIn: 1
+localhost.taskmanager.66a91ca6-a1a7-4fa3-b0e6-85175408478c.Flink Streaming Job.to: Row.0.numRecordsIn: 0
+localhost.taskmanager.66a91ca6-a1a7-4fa3-b0e6-85175408478c.Flink Streaming Job.select: (user_count, _sysTime).0.numRecordsOut: 1
+localhost.taskmanager.66a91ca6-a1a7-4fa3-b0e6-85175408478c.Flink Streaming Job.Source: Custom Source -> Timestamps/Watermarks -> from: (user_count, user_name, _sysTime) -> select: (user_count, _sysTime) -> time attribute: (_sysTime).0.numBytesInLocal: 0
+
+
+-- Counters -------------------------------------------------------------------

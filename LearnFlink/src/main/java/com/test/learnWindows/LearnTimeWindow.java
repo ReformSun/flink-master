@@ -117,7 +117,6 @@ public class LearnTimeWindow {
 				e.printStackTrace();
 			}
 		}
-
 	}
 
 	public static void testMethod3(){

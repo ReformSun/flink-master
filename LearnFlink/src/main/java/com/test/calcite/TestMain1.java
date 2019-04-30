@@ -18,6 +18,10 @@ public class TestMain1 {
 	}
 
 	public static void main(String[] args) {
+
+	}
+
+	public static void testMethod1(){
 		SchemaPlus schemaPlus = Frameworks.createRootSchema(true);
 
 		//给schema T中添加表
