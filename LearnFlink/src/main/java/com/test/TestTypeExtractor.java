@@ -2,18 +2,21 @@ package com.test;
 
 import com.test.keyby.KeySelectorTuple;
 import com.test.keyby.KeySelectorTuple2;
+import org.apache.flink.api.common.typeinfo.TypeHint;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
 import org.apache.flink.api.common.typeinfo.Types;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.api.java.typeutils.RowTypeInfo;
 import org.apache.flink.api.java.typeutils.TupleTypeInfo;
 import org.apache.flink.api.java.typeutils.TypeExtractor;
+import org.apache.flink.streaming.connectors.kafka.internals.KafkaTopicPartition;
 
 public class TestTypeExtractor {
 	public static void main(String[] args) {
 //		testMethod1();
 //		testMethod2();
-		testMethod3();
+//		testMethod3();
+		testMethod5();
 	}
 
 	public static void testMethod1(){
@@ -39,6 +42,11 @@ public class TestTypeExtractor {
 
 	public static void testMethod4(){
 		RowTypeInfo rowTypeInfo = new RowTypeInfo();
+	}
+
+	public static void testMethod5(){
+		TypeInformation typeInformation = TypeInformation.of(new TypeHint<Tuple2<KafkaTopicPartition, Long>>() {});
+		System.out.println(typeInformation.getTypeClass());
 	}
 
 

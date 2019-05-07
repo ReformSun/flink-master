@@ -3,20 +3,32 @@ package com.test.filesource;
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Splitter;
 import com.test.util.URLUtil;
+import org.apache.flink.api.common.state.*;
 import org.apache.flink.api.java.tuple.Tuple3;
+import org.apache.flink.runtime.state.DefaultOperatorStateBackend;
+import org.apache.flink.runtime.state.FunctionInitializationContext;
+import org.apache.flink.runtime.state.FunctionSnapshotContext;
+import org.apache.flink.streaming.api.checkpoint.CheckpointedFunction;
 import org.apache.flink.streaming.api.functions.source.SourceFunction;
+import org.apache.flink.table.api.Types;
 
 import java.io.BufferedReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
-public class FileSourceTuple3 implements SourceFunction<Tuple3<String,Integer,Long>> {
+public class FileSourceTuple3 implements SourceFunction<Tuple3<String,Integer,Long>>,CheckpointedFunction {
 	private String path;
 	// 单位毫秒 调整数据发送速度
 	private long interval = 0;
+	// 开始读取位置
+	private Integer line;
+	private int readLine = 0;
+	private ListState<Integer> listState;
 	public FileSourceTuple3() {
 		path = URLUtil.baseUrl + "source.txt";
 	}
@@ -43,6 +55,7 @@ public class FileSourceTuple3 implements SourceFunction<Tuple3<String,Integer,Lo
 					tuple3.f2 = Long.valueOf(list2.get(2));
 					ctx.collect(tuple3);
 				}
+				readLine++;
 				if (interval > 0){
 					Thread.sleep(interval);
 				}
@@ -50,6 +63,23 @@ public class FileSourceTuple3 implements SourceFunction<Tuple3<String,Integer,Lo
 			}
 		}
 
+	}
+	@Override
+	public void initializeState(FunctionInitializationContext context) throws Exception {
+		OperatorStateStore operatorStateStore = context.getOperatorStateStore();
+		ListState<Integer> listStates = operatorStateStore.getSerializableListState(DefaultOperatorStateBackend.DEFAULT_OPERATOR_STATE_NAME);
+		listState = operatorStateStore.getUnionListState(new ListStateDescriptor<Integer>("line", Types.INT()));
+		if (context.isRestored()){
+			Iterator<Integer> integerIterator = listState.get().iterator();
+			while (integerIterator.hasNext()){
+				line = integerIterator.next();
+			}
+		}
+	}
+
+	@Override
+	public void snapshotState(FunctionSnapshotContext context) throws Exception {
+		listState.update(Arrays.asList(readLine));
 	}
 	@Override
 	public void cancel() {

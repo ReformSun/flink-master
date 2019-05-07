@@ -46,6 +46,7 @@ public class LearnTimeWindow {
 //		testMethod2();
 //		testMethod2_1();
 		testMethod2_2();
+//		testMethod2_3();
 //		testMethod4();
 	}
 
@@ -110,6 +111,8 @@ public class LearnTimeWindow {
 			System.out.println(collection.toArray()[0]);
 		}
 
+
+
 		for (Map.Entry<Long,Integer> entry:mapp.entrySet()){
 			try {
 				FileWriter.writerFile(entry.toString(),"test.txt");
@@ -117,6 +120,18 @@ public class LearnTimeWindow {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	public static void testMethod2_3(){
+	    List<Tuple2<Integer,Long>> list = DataUtil.getListFromFile_tuple2("outofdateData.txt");
+		TumblingEventTimeWindows tumblingEventTimeWindows = TumblingEventTimeWindows.of(minutes(1),seconds(0));
+		Iterator<Tuple2<Integer,Long>> iterator = list.iterator();
+		while (iterator.hasNext()){
+			Tuple2<Integer,Long> tuple = iterator.next();
+			Collection<TimeWindow> collection = tumblingEventTimeWindows.assignWindows(tuple,tuple.f1,null);
+			System.out.println(collection.toArray()[0]);
+		}
+
 	}
 
 	public static void testMethod3(){

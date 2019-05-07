@@ -123,6 +123,22 @@ public class TestMain16 {
 		dataStream1.addSink(new CustomCrowSumPrint());
 	}
 
+	/**
+	 * 测试union all和union
+	 * @param tableEnv
+	 */
+	public static void testMethod4(StreamTableEnvironment tableEnv){
+		StreamQueryConfig qConfig = new StreamQueryConfig();
+		Table sqlResult = tableEnv.scan("filesource")
+			.where("user_name = '小张'")
+			.window(Tumble.over("1.minutes").on("_sysTime").as("w"))
+			.groupBy("w")
+			.select("SUM(user_count) as value1,w.start");
+		RowTypeInfo rowTypeInfo = new RowTypeInfo(Types.LONG,Types.SQL_TIMESTAMP);
+		SingleOutputStreamOperator<Row> stream = (SingleOutputStreamOperator)tableEnv.toAppendStream(sqlResult, rowTypeInfo, qConfig);
+		stream.addSink(new CustomRowPrint_Sum("test.txt"));
+	}
+
 
 
 }
