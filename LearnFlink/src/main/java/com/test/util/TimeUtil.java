@@ -6,9 +6,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
+/**
+ * UTC 时间格式 yyyy-MM-dd'T'HH:mm:ss.SSS'Z'
+ */
 public class TimeUtil {
+	// 获取本地时区
     private static final TimeZone LOCAL_TZ = TimeZone.getDefault();
     private static final String defaultDateFormat = "yyyy-MM-dd HH:mm:ss:SSS";
+    private static final String UTCFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
     public static long toLong(Timestamp v) {
         return toLong(v, LOCAL_TZ);
     }
@@ -61,5 +66,8 @@ public class TimeUtil {
 
 	public static void main(String[] args) {
 		System.out.println(toUTC(1534500840000L));
+		System.out.println(toDate(1534500840000L,UTCFormat));
+		System.out.println(toDate(1534500840000L,"yyyy-MM-dd HH:mm:ss"));
+//		System.out.println(toLong("1534500840","yyyy-MM-dd HH:mm:ss"));
 	}
 }
