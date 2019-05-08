@@ -24,9 +24,11 @@ savepointPath="/Users/apple/Desktop/state/savepointData/"
 #${basePatn}/flink run ${jarPath}/${1}
 # 运行flink job 指定主类
 #${basePatn}/flink run -c org.apache.flink.examples.java.wordcount.WordCount ${jarPath}/${1}
+# 运行关闭的任务 从指定的savepointPath
+#${basePatn}/flink run -s /Users/apple/Desktop/state/savepointData/savepoint-26d602-c21973429b96 ${jarPath}/${1}
 
 # 查看正在运行的job
-${basePatn}/flink list -r #查看全部正在运行的job任务
+#${basePatn}/flink list -r #查看全部正在运行的job任务
 
 #${basePatn}/flink list -r | xargs -I a ${basePatn}/flink savepoint a ${savepointPath}
 
@@ -39,4 +41,7 @@ ${basePatn}/flink list -r #查看全部正在运行的job任务
 #${basePatn}/flink cancel -s 10356e75cd768aa31e138d2d95303cf5
 #${basePatn}/flink list -r | grep '[:.0-9]' | awk '{ print $4; }' | xargs -I a ${basePatn}/flink savepoint a ${savepointPath}
 
-#${basePatn}/flink list -r | grep '[:.0-9]' | awk '{ print $4; }'
+# 触发savepoint
+#${basePatn}/flink list -r | grep '[:0-9]' | awk '{ print $4; }' | xargs -I ar ${basePatn}/flink savepoint ar ${savepointPath}
+# 触发savepoint 并关闭任务
+#${basePatn}/flink list -r | grep '[:0-9]' | awk '{ print $4; }' | xargs -I ar ${basePatn}/flink cancel -s ${savepointPath} ar

@@ -23,13 +23,14 @@ public class DataGenerator {
 
 	public static void main(String[] args) throws IOException {
 		long time = 0L;
-		time = TimeUtil.toLong("2019-04-20 1:33:00:000");
+		time = TimeUtil.toLong("2019-05-8 1:33:00:000");
 //        testMethod2();
 //		testMethod1(time);
-		testMethod1_1(time);
+//		testMethod1_1(time);
 //        testMethod3(1537390812000L + 6000L);
 //        testMethod4(1537378980000L);
 //        testMethod5(time);
+		testMethod6(time);
 	}
 
 
@@ -171,6 +172,22 @@ public class DataGenerator {
 				String s = gson.toJson(map);
 				writer.newLine();
 				writer.write(s);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void testMethod6(long time){
+		Path logFile = Paths.get(URLUtil.baseUrl+ "source.txt");
+		long number = 1;
+		try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)) {
+			for (int i = 0; i < 10000; i++) {
+				StringBuilder stringBuilder = new StringBuilder("(a,1,");
+				time = time + 10000;
+				stringBuilder.append(time).append(")");
+				writer.newLine();
+				writer.write(stringBuilder.toString());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
