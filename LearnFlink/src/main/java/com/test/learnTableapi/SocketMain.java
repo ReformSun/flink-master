@@ -4,6 +4,7 @@ import com.test.customTableSource.SocketTableSource;
 import com.test.defineFunction.Test;
 import com.test.defineFunction.Test2;
 import com.test.map.TestMap;
+import com.test.util.URLUtil;
 import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.api.common.typeinfo.Types;
 import org.apache.flink.api.java.typeutils.RowTypeInfo;
@@ -72,7 +73,7 @@ public class SocketMain {
 			}
 
 			public  void writerFile(String s) throws IOException {
-				Path logFile = Paths.get("./LearnFlink/src/main/resources/test.txt");
+				Path logFile = Paths.get(URLUtil.baseUrl +"test.txt");
 				try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)){
 					writer.newLine();
 					writer.write(s);

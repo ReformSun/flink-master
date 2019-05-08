@@ -1,6 +1,7 @@
 package com.test.socketSend;
 
 import com.test.util.FileReader;
+import com.test.util.URLUtil;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -30,7 +31,7 @@ public class TestSend1 {
 			writer = new OutputStreamWriter(client.getOutputStream(), "utf-8");
 
 			Iterator<String> iterator = null;
-			String path = "./LearnFlink/src/main/resources/" + contentPath;
+			String path = URLUtil.baseUrl  + contentPath;
 			try {
 				iterator = FileReader.readFile(path).iterator();
 				while (iterator.hasNext()){

@@ -1,5 +1,6 @@
 package com.test.map;
 
+import com.test.util.URLUtil;
 import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.table.api.StreamTableEnvironment;
 import org.apache.flink.table.api.Table;
@@ -30,7 +31,7 @@ public class TestMap implements MapFunction<Row,Integer>{
 
 
 	public  void writerFile(String s) throws IOException {
-		Path logFile = Paths.get("./LearnFlink/src/main/resources/test1.txt");
+		Path logFile = Paths.get(URLUtil.baseUrl+"test1.txt");
 		try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)){
 			writer.newLine();
 			writer.write(s);

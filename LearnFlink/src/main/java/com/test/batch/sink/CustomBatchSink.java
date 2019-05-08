@@ -1,5 +1,6 @@
 package com.test.batch.sink;
 
+import com.test.util.URLUtil;
 import org.apache.flink.api.common.io.RichOutputFormat;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.types.Row;
@@ -36,7 +37,7 @@ public class CustomBatchSink extends RichOutputFormat<Row> {
 	}
 
 	public void writerFile(String s) throws IOException {
-		Path logFile = Paths.get("./LearnFlink/src/main/resources/" + "test.txt");
+		Path logFile = Paths.get(URLUtil.baseUrl + "test.txt");
 		try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)){
 			writer.newLine();
 			writer.write(s);

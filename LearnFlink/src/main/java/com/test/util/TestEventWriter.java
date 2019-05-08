@@ -30,7 +30,7 @@ public class TestEventWriter {
 
 	public static void testMethod1(long time){
 		String[] userName = {"a","b","c","d","e","f","g"};
-		Path logFile = Paths.get("./LearnFlink/src/main/resources/testEvent.txt");
+		Path logFile = Paths.get(URLUtil.baseUrl +"testEvent.txt");
 		try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)){
 			for (int i = 0; i < 10000; i++) {
 				Map<String,Object> map = new HashMap<>();
@@ -70,7 +70,7 @@ public class TestEventWriter {
 	 * du:持续时间
 	 */
 	public static void testMethod2(long time){
-		Path logFile = Paths.get("./LearnFlink/src/main/resources/sdn.csv");
+		Path logFile = Paths.get(URLUtil.baseUrl +"sdn.csv");
 		try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)){
 			for (int i = 0; i < 10000; i++) {
 				StringBuilder stringBuilder = new StringBuilder();

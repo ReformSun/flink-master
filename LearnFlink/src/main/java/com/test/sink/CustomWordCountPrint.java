@@ -1,5 +1,6 @@
 package com.test.sink;
 
+import com.test.util.URLUtil;
 import org.apache.flink.streaming.api.functions.sink.RichSinkFunction;
 import test.SunWordWithCount;
 
@@ -18,7 +19,7 @@ public class CustomWordCountPrint extends RichSinkFunction<SunWordWithCount> {
 	}
 
 	private void writerFile(String s) throws IOException {
-		Path logFile = Paths.get("./LearnFlink/src/main/resources/wordcount.txt");
+		Path logFile = Paths.get(URLUtil.baseUrl +"wordcount.txt");
 		try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)){
 			writer.newLine();
 			writer.write(s);

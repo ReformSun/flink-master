@@ -1,2 +1,2 @@
 Manifest-Version: 1.0
-program-class: org.apache.flink.streaming.examples.socket.SocketWindowWordCount
+Main-Class: com.test.learnState.TestMain1

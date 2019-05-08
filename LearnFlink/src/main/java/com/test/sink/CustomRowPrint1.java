@@ -1,5 +1,6 @@
 package com.test.sink;
 
+import com.test.util.URLUtil;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.streaming.api.functions.sink.RichSinkFunction;
 import org.apache.flink.types.Row;
@@ -24,7 +25,7 @@ public class CustomRowPrint1 extends RichSinkFunction<Tuple2<Boolean, Row>> {
 		writerFile(tuple2.getField(1).toString());
 	}
 	public  void writerFile(String s) throws IOException {
-		Path logFile = Paths.get("./LearnFlink/src/main/resources/" + fileName);
+		Path logFile = Paths.get(URLUtil.baseUrl + fileName);
 		try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)){
 			writer.newLine();
 			writer.write(s);

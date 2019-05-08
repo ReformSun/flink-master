@@ -1,5 +1,6 @@
 package com.test.sink;
 
+import com.test.util.URLUtil;
 import model.Event;
 import org.apache.flink.streaming.api.functions.sink.RichSinkFunction;
 
@@ -21,7 +22,7 @@ public class CustomPrintEvent extends RichSinkFunction<Event> {
 
 	@Override
 	public void invoke(Event value) throws Exception {
-		java.nio.file.Path logFile = Paths.get("./LearnFlink/src/main/resources/" + path);
+		java.nio.file.Path logFile = Paths.get(URLUtil.baseUrl + path);
 		try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)){
 			writer.newLine();
 			writer.write(value.toString());

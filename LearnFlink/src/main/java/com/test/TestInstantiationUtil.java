@@ -1,5 +1,6 @@
 package com.test;
 
+import com.test.util.URLUtil;
 import org.apache.flink.util.InstantiationUtil;
 
 import java.io.*;
@@ -23,7 +24,7 @@ public class TestInstantiationUtil {
 	    TestClass testClass = new TestClass("ccc");
 		try {
 			byte[] bytes = InstantiationUtil.serializeObject(testClass);
-			File file = new File("./LearnFlink/src/main/resources/test.snapshot");
+			File file = new File(URLUtil.baseUrl +"test.snapshot");
 			file.createNewFile();
 			Files.write(file.toPath(), bytes, StandardOpenOption.WRITE);
 
@@ -33,7 +34,7 @@ public class TestInstantiationUtil {
 	}
 	// 实例化类的反编码
 	public static void testMethod2(){
-		File file = new File("./LearnFlink/src/main/resources/test.snapshot");
+		File file = new File(URLUtil.baseUrl +"test.snapshot");
 		try (BufferedInputStream bis = new BufferedInputStream((new FileInputStream(file)))) {
 			TestClass testClass = (TestClass) InstantiationUtil.deserializeObject(bis, Thread.currentThread().getContextClassLoader());
 			System.out.println(testClass.getS());

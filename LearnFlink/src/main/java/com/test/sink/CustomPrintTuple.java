@@ -1,5 +1,6 @@
 package com.test.sink;
 
+import com.test.util.URLUtil;
 import org.apache.flink.api.java.tuple.Tuple;
 import org.apache.flink.streaming.api.functions.sink.RichSinkFunction;
 
@@ -19,7 +20,7 @@ public class CustomPrintTuple<T extends Tuple> extends RichSinkFunction<T> {
 
 	@Override
 	public void invoke(T value) throws Exception {
-		Path logFile = Paths.get("./LearnFlink/src/main/resources/" + fileName);
+		Path logFile = Paths.get(URLUtil.baseUrl + fileName);
 		try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)){
 			writer.newLine();
 			writer.write(value.toString());
