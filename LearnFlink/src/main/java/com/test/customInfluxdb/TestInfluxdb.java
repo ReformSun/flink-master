@@ -27,8 +27,8 @@ public class TestInfluxdb {
 
 //		influxDB.createDatabase("testDB");
 //		testMethod1(influxDB,simpleDateFormat);
-		testMethod2(influxDB,simpleDateFormat);
-//		testMethod3(influxDB,simpleDateFormat);
+//		testMethod2(influxDB,simpleDateFormat);
+		testMethod3(influxDB,simpleDateFormat);
 	}
 
 	public  static void enableBatch(InfluxDB influxDB){
@@ -65,7 +65,23 @@ public class TestInfluxdb {
 		Point.Builder builder = Point.measurement("testtable");
 		Map<String, String> tags = new HashMap<>();
 		Map<String, Object> fields = new HashMap<>();
-		tags.put("TAG_NAME","dddd");
+		tags.put("TAG_NAME","dddddjjjJJjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkjjjjjjjjjjjjjjjjjjdkdkd" +
+			"dkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkddjjjJJjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkjjj" +
+			"ddjjjJJjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkjjj" +
+			"ddjjjJJjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkjjj" +
+			"ddjjjJJjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkjjj" +
+			"ddjjjJJjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkjjj" +
+			"ddjjjJJjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkjjj" +
+			"ddjjjJJjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkjjj" +
+			"ddjjjJJjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkjjj" +
+			"ddjjjJJjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkjjj" +
+			"ddjjjJJjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkjjj" +
+			"ddjjjJJjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkjjj" +
+			"ddjjjJJjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkjjj" +
+			"ddjjjJJjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkjjj" +
+			"ddjjjJJjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkjjj" +
+			"ddjjjJJjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkjjj" +
+			"ddjjjJJjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
 		fields.put("TAG_VALUE","ccccc");
 		fields.put("TIMAMPEST", simpleDateFormat.format(new Date()));
 		builder.tag(tags);
