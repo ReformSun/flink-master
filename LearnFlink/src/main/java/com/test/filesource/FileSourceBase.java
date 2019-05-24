@@ -2,6 +2,8 @@ package com.test.filesource;
 
 import com.test.util.MetricWriter;
 import org.apache.flink.api.common.serialization.DeserializationSchema;
+import org.apache.flink.api.common.typeinfo.TypeInformation;
+import org.apache.flink.api.java.typeutils.ResultTypeQueryable;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.metrics.Counter;
 import org.apache.flink.metrics.MetricGroup;
@@ -16,7 +18,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class FileSourceBase<T> extends RichSourceFunction<T> {
+public class FileSourceBase<T> extends RichSourceFunction<T> implements ResultTypeQueryable<T> {
 	private DeserializationSchema<T> deserializationS;
 	private String path;
 	private long interval = 0;
@@ -56,5 +58,10 @@ public class FileSourceBase<T> extends RichSourceFunction<T> {
 	@Override
 	public void cancel() {
 		System.out.println("aa");
+	}
+
+	@Override
+	public TypeInformation<T> getProducedType() {
+		return deserializationS.getProducedType();
 	}
 }

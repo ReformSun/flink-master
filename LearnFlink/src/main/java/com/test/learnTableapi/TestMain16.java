@@ -36,15 +36,15 @@ public class TestMain16 {
 //		sEnv.setParallelism(1);
 		TableConfig tableConfig = new TableConfig();
 		tableConfig.setIsEnableWindowOutputTag(true);
-//		tableConfig.setTimeZone(TimeZone.getTimeZone("GMT+8"));
+		tableConfig.setTimeZone(TimeZone.getTimeZone("GMT+8"));
 		StreamTableEnvironment tableEnv = TableEnvironment.getTableEnvironment(sEnv,tableConfig);
 		sEnv.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
-		FileTableSource fileTableSource = FileUtil.getFileTableSource(1000);
+		FileTableSource fileTableSource = FileUtil.getFileTableSource(300);
 		tableEnv.registerTableSource("filesource", fileTableSource);
 
-//		testMethod1(tableEnv);
+		testMethod1(tableEnv);
 //		testMethod2(tableEnv);
-		testMethod3(tableEnv);
+//		testMethod3(tableEnv);
 
 		try {
 			sEnv.execute();
@@ -53,12 +53,23 @@ public class TestMain16 {
 		}
 	}
 
+	/**
+	 * 测试事件现象
+	 * 当第一次启动有kafka的连接器时。数据没有统计没有问题，这时停止任务执行，再次启动，向kafka中发送和上次相同
+	 * 的数据，只能统计一点数据，以后的数据都不会统计
+	 * 出现这种问题的原因：上次kafka主题中还有残留数据没有被消费，再启动任务就会消费原来没有消费的数据，这是的数据时间
+	 * 大于再次发送的数据时间，再次发送的数据在窗口计算中，会被认为是过期数据，不会再参与统计
+	 * @param tableEnv
+	 */
 	public static void testMethod1(StreamTableEnvironment tableEnv){
 		StreamQueryConfig qConfig = new StreamQueryConfig();
 		Table sqlResult = tableEnv.sqlQuery("SELECT AVG(user_count) as value1,TUMBLE_START(_sysTime, INTERVAL '1' MINUTE) as start_time FROM filesource WHERE user_name = '小张' GROUP BY TUMBLE(_sysTime, INTERVAL '1' MINUTE)");
 		RowTypeInfo rowTypeInfo = new RowTypeInfo(Types.LONG,Types.SQL_TIMESTAMP);
 		DataStream<Row> stream = tableEnv.toAppendStream(sqlResult, rowTypeInfo, qConfig);
 		stream.addSink(new CustomRowPrint("test.txt"));
+
+		DataStream<CRow> dataStream1 = WindowOutputTag.getDataStream();
+		dataStream1.addSink(new CustomCrowSumPrint());
 	}
 
 	/**

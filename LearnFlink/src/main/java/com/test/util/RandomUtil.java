@@ -23,8 +23,8 @@ public class RandomUtil {
 	public static void main(String[] args) {
 		for (int i = 0; i < 100; i++) {
 //			System.out.println(getRandomHash());
-//			System.out.println(getRandom(2));
-			System.out.println(getRandom(1,5));
+			System.out.println(getRandom(2));
+//			System.out.println(getRandom(1,5));
 		}
 	}
 }

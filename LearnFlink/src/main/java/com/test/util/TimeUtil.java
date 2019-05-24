@@ -67,7 +67,7 @@ public class TimeUtil {
 	public static void main(String[] args) {
 		System.out.println(toUTC(1534500840000L));
 		System.out.println(toDate(1534500840000L,UTCFormat));
-		System.out.println(toDate(1534500840000L,"yyyy-MM-dd HH:mm:ss"));
+		System.out.println(toDate(1558488780000L,"yyyy-MM-dd HH:mm:ss"));
 //		System.out.println(toLong("1534500840","yyyy-MM-dd HH:mm:ss"));
 	}
 }

@@ -49,5 +49,9 @@ public class TestTypeExtractor {
 		System.out.println(typeInformation.getTypeClass());
 	}
 
+	public static void testMethod6(){
+//		TypeExtractor.createTypeInfo()
+	}
+
 
 }

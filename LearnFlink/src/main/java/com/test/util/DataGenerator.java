@@ -19,26 +19,29 @@ import static com.test.util.RandomUtil.*;
 
 public class DataGenerator {
 	private static Gson gson = new GsonBuilder().serializeNulls().disableHtmlEscaping().create();
-	private static String filename = "syntheticdata.txt";
+	private static String filename = "dataTestTableFile.txt";
 
 	public static void main(String[] args) throws IOException {
 		long time = 0L;
-		time = TimeUtil.toLong("2019-05-8 1:33:00:000");
+		time = TimeUtil.toLong("2019-05-22 1:33:00:000");
 //        testMethod2();
-//		testMethod1(time);
+		testMethod1(time);
 //		testMethod1_1(time);
 //        testMethod3(1537390812000L + 6000L);
 //        testMethod4(1537378980000L);
 //        testMethod5(time);
-		testMethod6(time);
+//		testMethod6(time);
 	}
 
-
+	/**
+	 * 制造正常的数据 非时间乱序
+	 * @param time
+	 */
 	public static void testMethod1(long time) {
 		String[] userName = {"小张", "小李", "小刘", "小刘", "小赵", "小吴", "小季"};
-		Path logFile = Paths.get(URLUtil.baseUrl+ filename);
+		Path logFile = Paths.get(URLUtil.baseUrl+ "dataTestTableFile.txt");
 		try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)) {
-			for (int i = 0; i < 10; i++) {
+			for (int i = 0; i < 50; i++) {
 				Map<String, Object> map = new HashMap<>();
 				map.put("user_name", userName[getRandom(1)]);
 				if (i < 10) {

@@ -7,6 +7,7 @@ import com.test.util.FileWriter;
 import com.test.window.EventTimeTrigger;
 import com.test.window.TumblingEventTimeWindows;
 import org.apache.calcite.avatica.util.TimeUnit;
+import org.apache.calcite.runtime.SqlFunctions;
 import org.apache.flink.api.common.ExecutionConfig;
 import org.apache.flink.api.common.state.ReducingStateDescriptor;
 import org.apache.flink.api.common.time.Time;
@@ -101,6 +102,7 @@ public class LearnTimeWindow {
 			Map<String,Object> map = iterator.next();
 			Collection<TimeWindow> collection = tumblingEventTimeWindows.assignWindows(map,(Long) map.get("_sysTime"),null);
 			TimeWindow timeWindow = (TimeWindow) collection.toArray()[0];
+			System.out.println("SqlFunctions处理之后的时间：" + SqlFunctions.internalToTimestamp(timeWindow.getStart()));
 			if (mapp.containsKey(timeWindow.getStart())){
 				mapp.compute(timeWindow.getStart(),(a,b)->{
 					return b + (Integer) map.get("user_count");
