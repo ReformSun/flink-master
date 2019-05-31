@@ -7,6 +7,8 @@ import org.apache.flink.api.java.typeutils.ResultTypeQueryable;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.metrics.Counter;
 import org.apache.flink.metrics.MetricGroup;
+import org.apache.flink.runtime.state.CheckpointListener;
+import org.apache.flink.streaming.api.functions.source.RichParallelSourceFunction;
 import org.apache.flink.streaming.api.functions.source.RichSourceFunction;
 import org.apache.flink.streaming.api.functions.source.SourceFunction;
 import org.apache.flink.types.Row;
@@ -18,7 +20,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class FileSourceBase<T> extends RichSourceFunction<T> implements ResultTypeQueryable<T> {
+public class FileSourceBase<T> extends RichParallelSourceFunction<T> implements
+	ResultTypeQueryable<T>,CheckpointListener {
 	private DeserializationSchema<T> deserializationS;
 	private String path;
 	private long interval = 0;
@@ -34,6 +37,8 @@ public class FileSourceBase<T> extends RichSourceFunction<T> implements ResultTy
 	public void open(Configuration parameters) throws Exception {
 		MetricGroup metricGroup = getRuntimeContext().getMetricGroup().addGroup("customSumSourceData");
 		sum = metricGroup.counter("sum");
+		System.out.println("IndexOfThisSubtask:" + getRuntimeContext().getIndexOfThisSubtask());
+		System.out.println("NumberOfParallelSubtasks:" + getRuntimeContext().getNumberOfParallelSubtasks());
 		super.open(parameters);
 	}
 
@@ -55,6 +60,7 @@ public class FileSourceBase<T> extends RichSourceFunction<T> implements ResultTy
 		}
 	}
 
+
 	@Override
 	public void cancel() {
 		System.out.println("aa");
@@ -63,5 +69,10 @@ public class FileSourceBase<T> extends RichSourceFunction<T> implements ResultTy
 	@Override
 	public TypeInformation<T> getProducedType() {
 		return deserializationS.getProducedType();
+	}
+
+	@Override
+	public void notifyCheckpointComplete(long checkpointId) throws Exception {
+		System.out.println(checkpointId);
 	}
 }

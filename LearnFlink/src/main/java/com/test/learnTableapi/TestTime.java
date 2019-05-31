@@ -8,6 +8,9 @@ import com.test.sink.CustomRowPrint;
 import com.test.util.StreamExecutionEnvUtil;
 import org.apache.flink.api.common.typeinfo.Types;
 import org.apache.flink.api.java.typeutils.RowTypeInfo;
+import org.apache.flink.contrib.streaming.state.RocksDBStateBackend;
+import org.apache.flink.core.fs.Path;
+import org.apache.flink.runtime.state.filesystem.FsStateBackend;
 import org.apache.flink.streaming.api.TimeCharacteristic;
 import org.apache.flink.streaming.api.collector.selector.OutputSelector;
 import org.apache.flink.streaming.api.datastream.DataStream;
@@ -28,8 +31,8 @@ import java.util.TimeZone;
 
 public class TestTime {
 	public static void main(String[] args) {
-		test1();
-//		test2();
+//		test1();
+		test2();
 	}
 
 	/**
@@ -91,8 +94,14 @@ public class TestTime {
 		tableConfig.setTimeZone(TimeZone.getTimeZone("GMT+8"));
 		StreamTableEnvironment tableEnv = TableEnvironment.getTableEnvironment(sEnv,tableConfig);
 		sEnv.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
+		// 启动检查点
+		sEnv.enableCheckpointing(6000);
+		FsStateBackend fsStateBackend = new FsStateBackend(new Path("file:///Users/apple/Desktop/rockdata").toUri(),new Path("file:///Users/apple/Desktop/savepoint").toUri());
+		sEnv.setStateBackend(new RocksDBStateBackend(fsStateBackend));
+
 		FileSourceBase<Row> fileSourceBase = FileUtil.getFileSourceBase();
-		SingleOutputStreamOperator<Row> singleOutputStreamOperator = sEnv.addSource(fileSourceBase,"fileS",fileSourceBase.getProducedType()).assignTimestampsAndWatermarks(new
+		SingleOutputStreamOperator<Row> singleOutputStreamOperator = sEnv.addSource(fileSourceBase,"fileS",fileSourceBase.getProducedType()).setParallelism(2)
+			.assignTimestampsAndWatermarks(new
 			CustomAssignerWithPeriodicWatermarks(2));
 		SplitStream<Row> splitStream = singleOutputStreamOperator.split(new OutputSelector<Row>() {
 			@Override

@@ -207,7 +207,7 @@ public class TestMain1 {
 			@Override
 			public void invoke(Tuple3<String, Integer, Long> value) throws Exception {
 				if (value != null){
-					throw new Exception("test");
+//					throw new Exception("test");
 				}else {
 					System.out.println(value.toString());
 				}

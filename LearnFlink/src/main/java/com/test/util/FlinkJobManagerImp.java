@@ -25,11 +25,11 @@ public class FlinkJobManagerImp implements FlinkJobManager {
     private static Pattern pattern = Pattern.compile("[\\w-]+\\.jar{1}");
     private static Logger logger = Logger.getLogger(FlinkJobManagerImp.class);
     //    private final String baseUrl = "http://172.24.157.3:8081";
-    private final String baseUrl = "http://10.4.247.17:8081";
+//    private final String baseUrl = "http://10.4.247.17:8081";
 //    private final String baseUrl = "http://172.31.35.58:8081";
 //    private final String baseUrl = "http://172.31.35.58:8081";
 //    private final String baseUrl = "http://10.4.251.99:8081";
-//	private final String baseUrl = "http://localhost:8081";
+	private final String baseUrl = "http://localhost:56787";
     private static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     private static Gson gson = new GsonBuilder().enableComplexMapKeySerialization().create();
     private static FlinkJobManagerImp instance;
@@ -319,12 +319,18 @@ public class FlinkJobManagerImp implements FlinkJobManager {
         Request request = new Request.Builder().url(url).build();
         return sendRequest(request);
     }
+    @Override
+    public ReadResult getJobsOverview(){
+		String url = baseUrl + "/jobs/overview";
+		Request request = new Request.Builder().url(url).build();
+		return sendRequest(request);
+	}
 
 	@Override
 	public ReadResult triggerSavepoints(String jobid) {
 		String u = baseUrl + "/jobs/" + jobid+"/savepoints";
 		Map<String,Object> map = new LinkedHashMap();
-		map.put("target-directory","/root/savepoint");
+		map.put("target-directory","/Users/apple/Desktop/state/savepointData");
 		map.put("cancel-job",true);
 		return sendRequest(getPostRequest(u,gson.toJson(map)));
 	}

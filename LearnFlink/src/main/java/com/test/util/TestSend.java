@@ -9,17 +9,17 @@ public class TestSend {
 	private static FlinkJobManager flinkJobManager = FlinkJobManagerImp.getInstance();
 	private static JsonParser jsonParser = new JsonParser();
     public static void main(String[] args) {
-    	String jobid = "384d9f83ffb6f6c72ae71211c98adc15";
+    	String jobid = "f4a14bc15c47a68404b55599f105593b";
 
 		/**
 		 * 提交job
 		 */
-		testMethod1();
+//		testMethod1();
 //        testMethod2();
 		/**
 		 * 触发检查点
 		 */
-//		testMethod3();
+		testMethod3(jobid);
 
 //		testMethod4();
 		/**
@@ -31,7 +31,8 @@ public class TestSend {
 		/**
 		 * 获取测量值
 		 */
-		testMethod7();
+//		testMethod7();
+//		testMethod8();
     }
 
 
@@ -97,6 +98,14 @@ public class TestSend {
 	 */
 	public static void testMethod7(){
 		ReadResult readResult =flinkJobManager.getJobMetrics();
+	}
+
+	/**
+	 * 得到overview
+	 */
+	public static void testMethod8(){
+		ReadResult readResult =flinkJobManager.getJobsOverview();
+		System.out.println(readResult.toJsonString());
 	}
 
 

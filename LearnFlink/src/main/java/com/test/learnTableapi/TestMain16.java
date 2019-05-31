@@ -103,37 +103,6 @@ public class TestMain16 {
 
 	}
 
-	public static void testMethod3(StreamTableEnvironment tableEnv){
-		Properties properties = new Properties();
-		// 设置influxdb 配置参数
-		properties.put("influxDBUrl", "172.31.24.36:8086");
-		properties.put("username", "testInflux");
-		properties.put("password", "123456");
-		StreamQueryConfig qConfig = new StreamQueryConfig();
-		Table sqlResult = tableEnv.scan("filesource")
-			.where("user_name = '小张'")
-			.window(Tumble.over("1.minutes").on("_sysTime").as("w"))
-			.groupBy("w")
-			.select("SUM(user_count) as value1,w.start as timee");
-		RowTypeInfo rowTypeInfo = new RowTypeInfo(Types.LONG,Types.SQL_TIMESTAMP);
-		SingleOutputStreamOperator<Row> stream = (SingleOutputStreamOperator)tableEnv.toAppendStream(sqlResult, rowTypeInfo, qConfig);
-		stream.addSink(new CustomRowPrint_Sum("test.txt"));
-		Map<Integer,String> tagMap = new HashMap<>();
-		Map<Integer,String> fieldMap = new HashMap<>();
-		fieldMap.put(0,"value1");
-		tagMap.put(1,"timee");
-		stream.addSink(InfluxDBSink.builder().withInfluxDBProperties(properties)
-			.setDatabase("testDB")
-			.setMeasurement("test12345") // 表名
-			.setTagMap(tagMap)
-			.setFieldMap(fieldMap)
-			.setTime_index(1)
-			.setFlushOnCheckpoint(true).build());
-
-		DataStream<CRow> dataStream1 = WindowOutputTag.getDataStream();
-		dataStream1.addSink(new CustomCrowSumPrint());
-	}
-
 	/**
 	 * 测试union all和union
 	 * @param tableEnv

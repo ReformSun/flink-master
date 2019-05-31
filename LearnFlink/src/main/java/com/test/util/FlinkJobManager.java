@@ -19,5 +19,6 @@ public interface FlinkJobManager {
 	public ReadResult triggerRescaling(String jobid);
 	public ReadResult getRescalingStatus(String jobid,String triggerId);
 	public ReadResult getJobMetrics();
+	public ReadResult getJobsOverview();
 
 }
