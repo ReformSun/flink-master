@@ -50,7 +50,7 @@ import static org.apache.flink.util.Preconditions.checkNotNull;
 public class PartitionRequestClient {
 
 	private static final Logger LOG = LoggerFactory.getLogger(PartitionRequestClient.class);
-
+	// 连接成功后返回的通道
 	private final Channel tcpChannel;
 
 	private final NetworkClientHandler clientHandler;

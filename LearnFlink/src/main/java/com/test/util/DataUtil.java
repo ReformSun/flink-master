@@ -52,12 +52,34 @@ public class DataUtil {
 		return list;
 	}
 
+	public static List<Tuple2<Long,Integer>> getTuple2_Int(int num){
+		List<Tuple2<Long,Integer>> list = new ArrayList<>();
+		Long date = 1534472000000L;
+		for (int i = 0; i < 10; i++) {
+			date = date + 60000;
+			Tuple2<Long,Integer> tuple2 = new Tuple2(date,i * num);
+			list.add(tuple2);
+		}
+		return list;
+	}
+
 	public static List<Tuple3<Long,Integer,String>> getTuple3_Int(){
 		List<Tuple3<Long,Integer,String>> list = new ArrayList<>();
 		Long date = 1534472000000L;
 		for (int i = 0; i < 10; i++) {
 			date = date + 60000;
 			Tuple3<Long,Integer,String> tuple3 = new Tuple3(date,i,"aa");
+			list.add(tuple3);
+		}
+		return list;
+	}
+	public static List<Tuple3<Long,Integer,String>> getTuple3_Int(int num){
+		List<Tuple3<Long,Integer,String>> list = new ArrayList<>();
+		Long date = 1534472000000L;
+		for (int i = 0; i < 20; i++) {
+			date = date + 20000;
+//			Tuple3<Long,Integer,String> tuple3 = new Tuple3(date,i * num,getStringFromInt(RandomUtil.getRandom(97,2)));
+			Tuple3<Long,Integer,String> tuple3 = new Tuple3(date,i * num,"aa");
 			list.add(tuple3);
 		}
 		return list;

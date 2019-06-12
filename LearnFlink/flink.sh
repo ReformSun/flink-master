@@ -21,11 +21,11 @@ savepointPath="/Users/apple/Desktop/state/savepointData/"
 #${basePatn}/flink -h
 
 # 运行flink job
-#${basePatn}/flink run ${jarPath}/${1}
+${basePatn}/flink run ${jarPath}/${1}
 # 运行flink job 指定主类
 #${basePatn}/flink run -c org.apache.flink.examples.java.wordcount.WordCount ${jarPath}/${1}
 # 运行关闭的任务 从指定的savepointPath
-${basePatn}/flink run -s /Users/apple/Desktop/state/savepointData/savepoint-6c7bd9-73bbcfafd18c ${jarPath}/${1}
+#${basePatn}/flink run -s /Users/apple/Desktop/state/savepointData/savepoint-cb0893-0861517585ba ${jarPath}/${1}
 
 
 #${basePatn}/flink list -a

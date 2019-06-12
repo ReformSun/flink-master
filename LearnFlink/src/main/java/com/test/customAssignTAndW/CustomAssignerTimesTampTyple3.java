@@ -41,7 +41,7 @@ public class CustomAssignerTimesTampTyple3<T,F,J> implements AssignerWithPunctua
 	@Override
 	public long extractTimestamp(Tuple3<T,F,J> element, long previousElementTimestamp) {
 		long timestamp;
-		if (index == 0){
+		if (index == Long.MAX_VALUE){
 			timestamp = element.getField(2);
 		}else {
 			timestamp = element.getField(index);

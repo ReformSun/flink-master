@@ -9,6 +9,7 @@ import org.apache.flink.runtime.state.DefaultOperatorStateBackend;
 import org.apache.flink.runtime.state.FunctionInitializationContext;
 import org.apache.flink.runtime.state.FunctionSnapshotContext;
 import org.apache.flink.streaming.api.checkpoint.CheckpointedFunction;
+import org.apache.flink.streaming.api.functions.source.RichParallelSourceFunction;
 import org.apache.flink.streaming.api.functions.source.SourceFunction;
 import org.apache.flink.table.api.Types;
 
@@ -21,7 +22,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
-public class FileSourceTuple3 implements SourceFunction<Tuple3<String,Integer,Long>>,CheckpointedFunction {
+public class FileSourceTuple3 extends RichParallelSourceFunction<Tuple3<String,Integer,Long>> implements CheckpointedFunction {
 	private String path;
 	// 单位毫秒 调整数据发送速度
 	private long interval = 0;

@@ -1,2 +1,2 @@
 Manifest-Version: 1.0
-Main-Class: com.test.learnState.TestMain1
+Main-Class: com.test.kafkaConnecter.TestMain1

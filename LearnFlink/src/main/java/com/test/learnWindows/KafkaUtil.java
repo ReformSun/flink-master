@@ -29,6 +29,7 @@ public class KafkaUtil {
 			propertie.getProperty("input-topic"),
 			new StreamModelSchema(),
 			propertie);
+		flinkKafkaConsumer010.setStartFromGroupOffsets();
 		return flinkKafkaConsumer010;
 	}
 

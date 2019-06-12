@@ -130,6 +130,55 @@ public class HeapInternalTimerServiceTest {
 		}
 
 	}
+	@Test
+	public void testMethod1_1(){
+		TestKeyContext keyContext = new TestKeyContext();
+		HeapInternalTimerService<Integer, String> heapInternalTimerService = getHeapInternalTimerService(keyContext);
+		heapInternalTimerService.startTimerService(IntSerializer.INSTANCE, StringSerializer.INSTANCE, new Triggerable<Integer, String>() {
+			@Override
+			public void onEventTime(InternalTimer<Integer, String> timer) throws Exception {
+				System.out.println(timer.getTimestamp());
+			}
+
+			@Override
+			public void onProcessingTime(InternalTimer<Integer, String> timer) throws Exception {
+
+			}
+		});
+		keyContext.setCurrentKey("cccc");
+		heapInternalTimerService.registerEventTimeTimer("1",1L);
+//		heapInternalTimerService.registerEventTimeTimer("2",2L);
+//		heapInternalTimerService.registerEventTimeTimer("3",3L);
+		try {
+			heapInternalTimerService.advanceWatermark(3);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private HeapInternalTimerService<Integer, String> getHeapInternalTimerService(TestKeyContext keyContext){
+		int totalNoOfTimers = 100;
+
+		int totalNoOfKeyGroups = 100;
+		int startKeyGroupIdx = 0;
+		int endKeyGroupIdx = totalNoOfKeyGroups - 1; // we have 0 to 99
+
+		@SuppressWarnings("unchecked")
+		Set<TimerHeapInternalTimer<Integer, String>>[] expectedNonEmptyTimerSets = new HashSet[totalNoOfKeyGroups];
+		final KeyGroupRange keyGroupRange = new KeyGroupRange(startKeyGroupIdx, endKeyGroupIdx);
+
+		final PriorityQueueSetFactory priorityQueueSetFactory =
+			createQueueFactory(keyGroupRange, totalNoOfKeyGroups);
+
+		HeapInternalTimerService<Integer, String> timerService = createInternalTimerService(
+			keyGroupRange,
+			keyContext,
+			new TestProcessingTimeService(),
+			IntSerializer.INSTANCE,
+			StringSerializer.INSTANCE,
+			priorityQueueSetFactory);
+		return timerService;
+	}
 
 	/**
 	 * 测试定时器优先级堆栈

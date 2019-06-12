@@ -234,7 +234,6 @@ class PartitionRequestClientHandler extends ChannelInboundHandlerAdapter impleme
 	public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
 		super.channelReadComplete(ctx);
 	}
-
 	private boolean decodeMsg(Object msg, boolean isStagedBuffer) throws Throwable {
 		final Class<?> msgClazz = msg.getClass();
 
@@ -285,7 +284,7 @@ class PartitionRequestClientHandler extends ChannelInboundHandlerAdapter impleme
 
 		return true;
 	}
-
+	// 解码缓存或者事件
 	private boolean decodeBufferOrEvent(RemoteInputChannel inputChannel, NettyMessage.BufferResponse bufferOrEvent, boolean isStagedBuffer) throws Throwable {
 		boolean releaseNettyBuffer = true;
 
@@ -314,6 +313,7 @@ class PartitionRequestClientHandler extends ChannelInboundHandlerAdapter impleme
 					Buffer buffer = bufferProvider.requestBuffer();
 
 					if (buffer != null) {
+						// 把接受的数据传输到buffer中
 						nettyBuffer.readBytes(buffer.asByteBuf(), receivedSize);
 
 						inputChannel.onBuffer(buffer, bufferOrEvent.sequenceNumber, -1);

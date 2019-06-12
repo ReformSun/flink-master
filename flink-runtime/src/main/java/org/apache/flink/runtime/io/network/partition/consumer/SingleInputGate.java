@@ -60,6 +60,9 @@ import static org.apache.flink.util.Preconditions.checkNotNull;
 import static org.apache.flink.util.Preconditions.checkState;
 
 /**
+ *
+ * 每一个生产者会把生产结果放到中间结果区，一个消费网关可以消费多个分区内数据，
+ * 一个消费网关
  * 一个输入网关消费一个或者更多个单一消费者中间结果分区
  * An input gate consumes one or more partitions of a single produced intermediate result.
  *
@@ -511,7 +514,7 @@ public class SingleInputGate implements InputGate {
 	public Optional<BufferOrEvent> pollNextBufferOrEvent() throws IOException, InterruptedException {
 		return getNextBufferOrEvent(false);
 	}
-
+	// 得到数据
 	private Optional<BufferOrEvent> getNextBufferOrEvent(boolean blocking) throws IOException, InterruptedException {
 		// 如果已接收到所有的endofPartitionevent事件，则说明每个resultsubpartition中的数据都被消费完成
 		if (hasReceivedAllEndOfPartitionEvents) {
@@ -558,7 +561,7 @@ public class SingleInputGate implements InputGate {
 			queueChannel(currentChannel);
 			moreAvailable = true;
 		}
-
+		// 得到结果缓冲区
 		final Buffer buffer = result.get().buffer();
 		if (buffer.isBuffer()) {
 			return Optional.of(new BufferOrEvent(buffer, currentChannel.getChannelIndex(), moreAvailable));

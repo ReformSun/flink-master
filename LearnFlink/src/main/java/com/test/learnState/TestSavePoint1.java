@@ -39,7 +39,7 @@ public class TestSavePoint1 {
 	 */
 	public static void testMethod2(){
 //		Checkpoints
-		String path = "/Users/apple/Desktop/state/savepointData/savepoint-6c7bd9-73bbcfafd18c/_metadata";
+		String path = "/Users/apple/Desktop/state/savepointData/savepoint-f4a14b-6c619e1a9258/_metadata";
 
 		try {
 			LocalDataInputStream localDataInputStream = new LocalDataInputStream(new File(path));

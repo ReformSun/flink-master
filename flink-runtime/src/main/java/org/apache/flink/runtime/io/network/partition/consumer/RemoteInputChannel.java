@@ -65,6 +65,7 @@ public class RemoteInputChannel extends InputChannel implements BufferRecycler, 
 	private final ConnectionManager connectionManager;
 
 	/**
+	 * 已经接受的缓冲区数据
 	 * The received buffers. Received buffers are enqueued by the network I/O thread and the queue
 	 * is consumed by the receiving task thread.
 	 */

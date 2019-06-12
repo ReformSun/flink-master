@@ -74,9 +74,9 @@ public class LearnCopyOnWriteStateTable {
 		ArrayList<Integer> state_1_1 = new ArrayList<>();
 		state_1_1.add(11);
 		ArrayList<Integer> state_1_2 = new ArrayList<>();
-		state_1_2.add(11);
+		state_1_2.add(12);
 		ArrayList<Integer> state_1_3 = new ArrayList<>();
-		state_1_3.add(11);
+		state_1_3.add(13);
 		stateTable.put(1,1,state_1_1);
 		stateTable.put(2,1,state_1_1);
 		stateTable.put(3,1,state_1_1);
@@ -84,7 +84,6 @@ public class LearnCopyOnWriteStateTable {
 //		stateTable.get(1);
 		Stream<Integer> stream = stateTable.getKeys(1);
 		System.out.println(stream.count());
-
 	}
 
 	@Test

@@ -1,5 +1,5 @@
 package com.test.util;
-
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -14,6 +14,7 @@ public class TimeUtil {
     private static final TimeZone LOCAL_TZ = TimeZone.getDefault();
     private static final String defaultDateFormat = "yyyy-MM-dd HH:mm:ss:SSS";
     private static final String UTCFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+	private static final String UTCFormatToSecond = "yyyy-MM-dd'T'HH:mm:ss'Z'";
     public static long toLong(Timestamp v) {
         return toLong(v, LOCAL_TZ);
     }
@@ -32,6 +33,12 @@ public class TimeUtil {
 
 	public static long toUTC(long time){
     	return time - LOCAL_TZ.getOffset(time);
+	}
+	public static String toUTCDate(long time){
+		return toDate(time,UTCFormat);
+	}
+	public static String toUTCDateToSecond(long time){
+		return toDate(time,UTCFormatToSecond);
 	}
 
 	public static String toDate(long time){
@@ -65,9 +72,10 @@ public class TimeUtil {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(toUTC(1534500840000L));
-		System.out.println(toDate(1534500840000L,UTCFormat));
-		System.out.println(toDate(1558488780000L,"yyyy-MM-dd HH:mm:ss"));
+		System.out.println(TimeZone.getTimeZone("UTC"));
+//		System.out.println(toUTC(1534500840000L));
+//		System.out.println(toDate(1534500840000L,UTCFormat));
+//		System.out.println(toDate(1558488780000L,"yyyy-MM-dd HH:mm:ss"));
 //		System.out.println(toLong("1534500840","yyyy-MM-dd HH:mm:ss"));
 	}
 }

@@ -25,12 +25,12 @@ public class DataGenerator {
 		long time = 0L;
 		time = TimeUtil.toLong("2019-05-22 1:33:00:000");
 //        testMethod2();
-		testMethod1(time);
+//		testMethod1(time);
 //		testMethod1_1(time);
 //        testMethod3(1537390812000L + 6000L);
 //        testMethod4(1537378980000L);
 //        testMethod5(time);
-//		testMethod6(time);
+		testMethod6(time);
 	}
 
 	/**
@@ -186,8 +186,10 @@ public class DataGenerator {
 		long number = 1;
 		try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)) {
 			for (int i = 0; i < 10000; i++) {
-				StringBuilder stringBuilder = new StringBuilder("(a,1,");
-				time = time + 10000;
+				StringBuilder stringBuilder = new StringBuilder("(");
+				stringBuilder.append(getStringFromRandom(97,1));
+				stringBuilder.append(",1,");
+				time = time + 40000;
 				stringBuilder.append(time).append(")");
 				writer.newLine();
 				writer.write(stringBuilder.toString());

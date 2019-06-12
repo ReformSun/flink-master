@@ -45,6 +45,27 @@ public class LearnHeapReducingState {
 			e.printStackTrace();
 		}
 	}
+	@Test
+	public void testMethod2(){
+		HeapReducingState heapReducingState = new HeapReducingState(stateTable,IntSerializer.INSTANCE,stateTable.getStateSerializer(),stateTable.getNamespaceSerializer(),new ArrayList<Integer>(),new
+			SumReducer1());
+		try {
+			heapReducingState.setCurrentNamespace(1);
+			heapReducingState.add(11);
+			heapReducingState.add(12);
+			heapReducingState.setCurrentNamespace(2);
+			heapReducingState.add(22);
+			heapReducingState.add(11);
+			Assert.assertEquals(33,heapReducingState.get());
+			heapReducingState.setCurrentNamespace(1);
+			Assert.assertEquals(23,heapReducingState.get());
+			Assert.assertEquals(3,heapReducingState.mergeState(1,2));
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	private static class SumReducer implements ReduceFunction<Tuple2<String, Integer>> {
 		private static final long serialVersionUID = 1L;

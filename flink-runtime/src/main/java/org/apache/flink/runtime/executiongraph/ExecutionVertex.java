@@ -73,6 +73,7 @@ import java.util.concurrent.CompletableFuture;
 import static org.apache.flink.runtime.execution.ExecutionState.FINISHED;
 
 /**
+ * 一个执行顶点是一个并行度的执行子任务，
  * The ExecutionVertex is a parallel subtask of the execution. It may be executed once, or several times, each of
  * which time it spawns an {@link Execution}.
  */
