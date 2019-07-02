@@ -9,6 +9,7 @@ import com.test.sink.CustomPrintTuple3;
 import com.test.sink.CustomWordCountPrint;
 import com.test.util.DataUtil;
 import org.apache.flink.api.common.functions.FlatMapFunction;
+import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.api.common.functions.RichReduceFunction;
 import org.apache.flink.api.common.time.Time;
 import org.apache.flink.api.java.functions.KeySelector;
@@ -169,6 +170,47 @@ import java.util.TimeZone;
  * restore
  *
  *
+ *
+ * 检查点触发的过程
+ * {@link org.apache.flink.runtime.checkpoint.CheckpointCoordinator}
+ * CheckpointCoordinator检查点协调器他负责所有关于检查点的动作，包括触发检查点，触发安全点，从检查点恢复，触发查询请求
+ * 每一个job任务有一个检查点协调器，每一个jobMater拥有一个ExecutionGraph{@link org.apache.flink.runtime.executiongraph.ExecutionGraph}
+ * 而ExecutionGraph是一个job的执行图，实际的执行图，包含所有任务子任务的信息，也包含检查点协调器
+ * 而{@link org.apache.flink.runtime.jobmaster.JobMaster}负责一个job的所有相关动作的执行，他会把与taskmananger的沟通信息
+ * 在分发给不同工作的组件执行，也就是会把检查点相关的分发给CheckpointCoordinator，CheckpointCoordinator是会别定期执行的
+ * 会调用startCheckpointScheduler()方法，开始检查点，时间间隔是可以设置的，安全点的触发是需要手动触发的
+ *
+ * 当触发检查点时，CheckpointCoordinator会调用triggerCheckpoint方法，这个方法会遍历job任务中的所有子任务Execution
+ * {@link org.apache.flink.runtime.executiongraph.Execution}包含所有一个子任务信息，可以通过它与它被分配的taskmanager交流，
+ * 触发他的方法triggerCheckpoint，这个方法会向taskmanager发送触发检查点的请求
+ *
+ * {@link org.apache.flink.runtime.taskexecutor.TaskExecutor}TaskExecutor得到触发检查点的请求后，会根据ExecutionAttemptID
+ * {@link org.apache.flink.runtime.executiongraph.ExecutionAttemptID}获取对应的正在执行的任务，然后调用task的triggerCheckpointBarrier方法
+ *
+ * {@link org.apache.flink.runtime.taskmanager.Task} 每一个job任务的子任务都会对应一个task，这个task负责实际运行的任务的
+ * 与外界的交互工作，task中拥有真是执行的{@link org.apache.flink.streaming.runtime.tasks.StreamTask}类，比如StreamTask
+ * task会调用StreamTask的triggerCheckpoint触发检查点的方法
+ *
+ * {@link org.apache.flink.streaming.runtime.tasks.StreamTask}StreamTask他负责真实的执行逻辑，每一个子任务就会有一个这样的类
+ * 当StreamTask的triggerCheckpoint方法被触发时，会再次调用performCheckpoint方法
+ * 这时会执行三步
+ * 第一步： 为做检查点准备，让全部的算子做预屏障的工作
+ * 第二步：发送检查点屏障到下游，这时以广播的形式
+ * 第三步：拍摄状态快照 实际调用的是内部类CheckpointingOperation，CheckpointingOperation负责具体的快照工作
+ * 这个快照的工作已异步执行的交给他的内部类AsyncCheckpointRunnable
+ *
+ * 首先遍历这个子任务中所有的算子{@link org.apache.flink.streaming.api.operators.StreamOperator}实现这个接口的就是一个算子
+ * 我们以{@link org.apache.flink.streaming.api.operators.StreamSink} 这就是一种类型的算子，当对算子的状态进行快照时，会调用
+ * 算子的snapshotState方法一StreamSink为例，会把本算子的状态信息，存储到OperatorSnapshotFutures{@link org.apache.flink.streaming.api.operators.OperatorSnapshotFutures}
+ * 中，然后根据算子的id把他们存储到Map中
+ *
+ * 执行完毕调用AsyncCheckpointRunnable的reportCompletedSnapshotStates方法，然后调用task的状态管理器{@link org.apache.flink.runtime.state.TaskStateManagerImpl}
+ * 的reportTaskStateSnapshots方法，这个类拥有调用这次检查点的组件的网络地址信息，{@link org.apache.flink.runtime.taskmanager.ActorGatewayCheckpointResponder}
+ * 他可以与让这个任务进行检查的服务联系，让后把检查点快照信息，返回给对应的组件。
+ *
+ * 也就是{@link org.apache.flink.runtime.jobmaster.JobMaster}的acknowledgeCheckpoint方法，然后调用{@link org.apache.flink.runtime.checkpoint.CheckpointCoordinator}
+ * 的receiveAcknowledgeMessage方法，最后调用{@link org.apache.flink.runtime.checkpoint.PendingCheckpoint}的finalizeCheckpoint方法
+ *
  */
 public class TestMain1 {
 	/**
@@ -177,14 +219,15 @@ public class TestMain1 {
 	 */
 	public static void main(String[] args) throws IOException {
 		final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-		env.setParallelism(4);
+//		env.setParallelism(4);
         env.enableCheckpointing(6000);
 //        env.setRestartStrategy();
 		FsStateBackend fsStateBackend = new FsStateBackend(new Path("file:///Users/apple/Desktop/state/checkpointData").toUri(),new Path
 			("file:///Users/apple/Desktop/state/savepointData").toUri());
         env.setStateBackend(new RocksDBStateBackend(fsStateBackend));
 //        testMethod1(env);
-		testMethod2(env);
+//		testMethod2(env);
+		testMethod3(env);
 		try {
 			env.execute();
 		} catch (Exception e) {
@@ -199,6 +242,8 @@ public class TestMain1 {
 
 	/**
 	 * 测试错误的信息
+	 * 在运行时的状态下不会引起任务的崩溃
+	 *
 	 * @param env
 	 */
 	public static void testMethod2(StreamExecutionEnvironment env){
@@ -207,7 +252,29 @@ public class TestMain1 {
 			@Override
 			public void invoke(Tuple3<String, Integer, Long> value) throws Exception {
 				if (value != null){
-//					throw new Exception("test");
+					throw new Exception("test");
+				}else {
+					System.out.println(value.toString());
+				}
+			}
+		});
+	}
+
+	public static void testMethod3(StreamExecutionEnvironment env){
+		DataStream<Tuple3<String,Integer,Long>> dataStreamSource1 = env.addSource(new FileSourceTuple3(1000)).setParallelism(1);
+		dataStreamSource1.map(new MapFunction<Tuple3<String,Integer,Long>, Tuple3<String,Integer,Long>>() {
+			@Override
+			public Tuple3<String, Integer, Long> map(Tuple3<String, Integer, Long> value) throws Exception {
+				if (value != null){
+					throw new IllegalArgumentException("testMap");
+				}
+				return value;
+			}
+		}).addSink(new SinkFunction<Tuple3<String, Integer, Long>>() {
+			@Override
+			public void invoke(Tuple3<String, Integer, Long> value) throws Exception {
+				if (value != null){
+					throw new Exception("test");
 				}else {
 					System.out.println(value.toString());
 				}

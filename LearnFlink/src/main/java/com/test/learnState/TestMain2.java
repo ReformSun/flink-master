@@ -13,6 +13,32 @@ import org.apache.flink.streaming.api.functions.sink.SinkFunction;
 
 import java.io.IOException;
 
+/**
+ * 三种状态后端的理解
+ * 1：FsStateBackend {@link org.apache.flink.runtime.state.filesystem.FsStateBackend}
+ * key状态后端是jvm堆类型的状态后端，算子状态后端状态信息值也是放到jvm内存中的，但是检查点的状态快照信息持久化到文件系统中
+ * 2: MemoryStateBackend {@link org.apache.flink.runtime.state.memory.MemoryStateBackend}
+ * 全部存到内存中。在高可用状态下不能用
+ * 3: RocksDBStateBackend {@link org.apache.flink.contrib.streaming.state.RocksDBStateBackend}
+ *
+ *
+ * 每一种状态后端有会创建两种类型的后端 这两种后端只是代表了key后端和算子后端
+ * {@link org.apache.flink.runtime.state.heap.HeapKeyedStateBackend}
+ * {@link org.apache.flink.runtime.state.DefaultOperatorStateBackend}
+ *
+ *
+ * 生产环境也要启动增量检查点
+ * 最好使用RocksDBStateBackend状态后端
+ * new RocksDBStateBackend(fsStateBackend,true)
+ * 这样在生成{@link org.apache.flink.runtime.state.SnapshotStrategy}内存时。会生成
+ * {@link org.apache.flink.contrib.streaming.state.RocksDBKeyedStateBackend.IncrementalSnapshotStrategy}
+ * 增量快照内存
+ * 否则会生成
+ * {@link org.apache.flink.contrib.streaming.state.RocksDBKeyedStateBackend.FullSnapshotStrategy}
+ * 全量快照内存
+ *
+ * 如果不指定为true 默认值为false就是全量快照
+ */
 public class TestMain2 {
 	private static String path = "/Users/apple/Desktop/state/savepointData/savepoint-6c7bd9-73bbcfafd18c";
 	/**
@@ -27,7 +53,7 @@ public class TestMain2 {
 //        env.setRestartStrategy();
 		FsStateBackend fsStateBackend = new FsStateBackend(new Path("file:///Users/apple/Desktop/state/checkpointData").toUri(),new Path
 			("file:///Users/apple/Desktop/state/savepointData").toUri());
-		env.setStateBackend(new RocksDBStateBackend(fsStateBackend));
+		env.setStateBackend(new RocksDBStateBackend(fsStateBackend,true));
 //        testMethod1(env);
         testMethod2(env);
 		try {

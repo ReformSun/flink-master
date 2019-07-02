@@ -34,7 +34,7 @@ public class TestMain17 {
 		StreamExecutionEnvironment sEnv = StreamExecutionEnvUtil.getStreamExecutionEnvironment();
 		sEnv.setParallelism(1);
 		TableConfig tableConfig = new TableConfig();
-		tableConfig.setIsEnableWindowOutputTag(true);
+		tableConfig.setIsEnableWindowOutputTag(true,"");
 		StreamTableEnvironment tableEnv = TableEnvironment.getTableEnvironment(sEnv,tableConfig);
 		sEnv.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
 		TableSchemaBuilder tableSchemaBuilder=TableSchema.builder();

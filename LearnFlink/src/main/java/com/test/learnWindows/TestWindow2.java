@@ -53,7 +53,7 @@ public class TestWindow2 extends AbstractTestMain11{
 		List<Tuple3<String,Integer,Long>> list = DataUtil.getListFromFile(null);
 		System.out.println(list.size() + " asdfg");
 		DataStream<Tuple3<String,Integer,Long>> dataStreamSource1 = env.fromCollection(list).setParallelism(1)
-			.assignTimestampsAndWatermarks(new CustomAssignerTimesTampTyple3())
+			.assignTimestampsAndWatermarks(new CustomAssignerTimesTampTyple3(2))
 			.setParallelism(1);
 		KeyedStream<Tuple3<String,Integer,Long>,String> keyedStream = dataStreamSource1
 			.keyBy(new KeySelector<Tuple3<String,Integer,Long>, String>() {
@@ -63,10 +63,10 @@ public class TestWindow2 extends AbstractTestMain11{
 					return value.getField(0);
 				}
 			});
-
 		WindowedStream<Tuple3<String,Integer,Long>,String,TimeWindow> windowedStream = keyedStream
 			.window(TumblingEventTimeWindows.of(Time.seconds(60),Time.seconds(0)));
-		testMethod1(windowedStream);
+//		testMethod1(windowedStream);
+		testMethod2(windowedStream);
 	}
 
 	public static void testMethod1(WindowedStream<Tuple3<String,Integer,Long>,String,TimeWindow> windowedStream){

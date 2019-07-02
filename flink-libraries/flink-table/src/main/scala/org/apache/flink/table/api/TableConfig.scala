@@ -56,11 +56,16 @@ class TableConfig {
 
   private var isEnableWindowOutputTag: Boolean = false
 
+  private var outputTag: String = "";
 
 
-  def setIsEnableWindowOutputTag(isEnableWindowOutputTag: Boolean): Unit = {
+
+  def setIsEnableWindowOutputTag(isEnableWindowOutputTag: Boolean,outputTag: String): Unit = {
     this.isEnableWindowOutputTag = isEnableWindowOutputTag
+    this.outputTag = outputTag;
   }
+
+  def getOutputTag: String = outputTag
 
   def getIsEnableWindowOutputTag: Boolean = isEnableWindowOutputTag
 

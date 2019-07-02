@@ -64,11 +64,11 @@ public class FileSource<T> extends RichSourceFunction<T> implements Checkpointed
 
 	@Override
 	public void initializeState(FunctionInitializationContext context) throws Exception {
-		KeyedStateStore stateStore = context.getKeyedStateStore();
-		valueState = stateStore.getState(new ValueStateDescriptor<Integer>("line", Types.INT()));
-		if (context.isRestored()){
-			line = valueState.value();
-		}
+//		KeyedStateStore stateStore = context.getKeyedStateStore();
+//		valueState = stateStore.getState(new ValueStateDescriptor<Integer>("line", Types.INT()));
+//		if (context.isRestored()){
+//			line = valueState.value();
+//		}
 	}
 
 	@Override

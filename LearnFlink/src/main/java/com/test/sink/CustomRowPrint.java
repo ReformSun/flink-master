@@ -32,11 +32,14 @@ public class CustomRowPrint extends RichSinkFunction<Row> {
 
 	@Override
 	public void invoke(Row value) throws Exception {
-		Timestamp timestamp = (Timestamp) value.getField(1);
-		writerFile(value.getField(0) + "," + timestamp.getTime());
+//		Timestamp timestamp = (Timestamp) value.getField(1);
+		writerFile(value.toString(),fileName);
 	}
-	public static synchronized void writerFile(String s) throws IOException {
-		Path logFile = Paths.get( URLUtil.baseUrl + "test.txt");
+	public static synchronized void writerFile(String s,String fileName) throws IOException {
+		if (fileName == null){
+			fileName = "test.txt";
+		}
+		Path logFile = Paths.get( URLUtil.baseUrl + fileName);
 		try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)){
 			writer.newLine();
 			writer.write(s);

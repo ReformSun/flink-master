@@ -33,12 +33,49 @@ public class FileUtil {
 			.build();
 	}
 
+	/**
+	 * 多字段测试
+	 * @param time
+	 * @param watermarkStrategy
+	 * @return
+	 */
+	public static FileTableSource getFileTableSource2(long time, WatermarkStrategy watermarkStrategy){
+		FileTableSource.Builder builder = FileTableSource.builder();
+
+		TableSchemaBuilder tableSchemaBuilder = TableSchema.builder();
+		TableSchema tableSchema = tableSchemaBuilder
+			.field("user_name", Types.STRING)
+			.field("user_count",Types.LONG)
+			.field("_sysTime", Types.SQL_TIMESTAMP)
+			.field("test1",Types.STRING)
+			.field("test2",Types.STRING)
+			.build();
+
+		DeserializationSchema<Row> deserializationS = new JsonRowDeserializationSchema(tableSchema.toRowType());
+
+		return builder.setSchema(tableSchema)
+			.setDeserializationS(deserializationS)
+			.setPath(URLUtil.baseUrl + "dataTestTableFile.txt")
+			.setRowTime("_sysTime")
+			.setInterval(time)
+			.setWatermarkStrategy(watermarkStrategy)
+			.build();
+	}
+
 	public static FileTableSource getFileTableSource(){
 		return getFileTableSource(10000,null);
 	}
 
 	public static FileTableSource getFileTableSource(long time){
 		return getFileTableSource(time,null);
+	}
+
+	public static FileTableSource getFileTableSource2(){
+		return getFileTableSource2(10000,null);
+	}
+
+	public static FileTableSource getFileTableSource2(long time){
+		return getFileTableSource2(time,null);
 	}
 
 	public static FileSourceBase<Row> getFileSourceBase(){

@@ -1059,6 +1059,7 @@ public abstract class StreamTask<OUT, OP extends StreamOperator<OUT>>
 			startSyncPartNano = System.nanoTime();
 
 			try {
+				// 遍历所有的算子
 				for (StreamOperator<?> op : allOperators) {
 					checkpointStreamOperator(op);
 				}
@@ -1117,7 +1118,7 @@ public abstract class StreamTask<OUT, OP extends StreamOperator<OUT>>
 		@SuppressWarnings("deprecation")
 		private void checkpointStreamOperator(StreamOperator<?> op) throws Exception {
 			if (null != op) {
-
+				// 对传入的算子进行状态快照
 				OperatorSnapshotFutures snapshotInProgress = op.snapshotState(
 						checkpointMetaData.getCheckpointId(),
 						checkpointMetaData.getTimestamp(),

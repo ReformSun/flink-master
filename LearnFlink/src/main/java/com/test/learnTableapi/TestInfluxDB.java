@@ -32,7 +32,7 @@ public class TestInfluxDB {
 		StreamExecutionEnvironment sEnv = StreamExecutionEnvUtil.getStreamExecutionEnvironment();
 //		sEnv.setParallelism(1);
 		TableConfig tableConfig = new TableConfig();
-		tableConfig.setIsEnableWindowOutputTag(true);
+		tableConfig.setIsEnableWindowOutputTag(true,"");
 		StreamTableEnvironment tableEnv = TableEnvironment.getTableEnvironment(sEnv,tableConfig);
 		sEnv.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
 		FileTableSource fileTableSource = FileUtil.getFileTableSource(300);

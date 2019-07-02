@@ -1,5 +1,6 @@
 package com.test.customInfluxdb;
 
+import com.test.util.TimeUtil;
 import org.influxdb.InfluxDB;
 import org.influxdb.InfluxDBFactory;
 import org.influxdb.dto.BatchPoints;
@@ -28,7 +29,8 @@ public class TestInfluxdb {
 //		influxDB.createDatabase("testDB");
 //		testMethod1(influxDB,simpleDateFormat);
 //		testMethod2(influxDB,simpleDateFormat);
-		testMethod3(influxDB,simpleDateFormat);
+//		testMethod3(influxDB,simpleDateFormat);
+		testMethod1_1(influxDB,simpleDateFormat);
 	}
 
 	public  static void enableBatch(InfluxDB influxDB){
@@ -56,6 +58,21 @@ public class TestInfluxdb {
 		fields.put("TIMAMPEST", simpleDateFormat.format(new Date()));
 		builder.tag(tags);
 		builder.fields(fields);
+		influxDB.write("testDB", "", builder.build());
+		influxDB.close();
+	}
+	// 单点插入
+	public static void testMethod1_1(InfluxDB influxDB, SimpleDateFormat simpleDateFormat) {
+		Point.Builder builder = Point.measurement("testtable2");
+		Map<String, String> tags = new HashMap<>();
+		Map<String, Object> fields = new HashMap<>();
+		tags.put("TAG_NAME","ccccccdddd");
+		fields.put("TAG_VALUE","cccccssssssdfdfsfs");
+		fields.put("TIMAMPEST", 3);
+		builder.tag(tags);
+		builder.fields(fields);
+		long time = TimeUtil.toLong("2019-06-13 1:33:00:000");
+		builder.time(time,TimeUnit.MILLISECONDS);
 		influxDB.write("testDB", "", builder.build());
 		influxDB.close();
 	}

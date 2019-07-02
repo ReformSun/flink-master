@@ -40,6 +40,15 @@ public class LearnCopyOnWriteStateTable {
 			e.printStackTrace();
 		}
 	}
+
+	/**
+	 * 状态表
+	 * 状态表中包行key值，命名空间值，存储实际数据的值类
+	 * 下面测试的是
+	 * key ing
+	 * namespace int
+	 * value ArrayList
+	 */
 	@Test
 	public void testMethod2(){
 		CopyOnWriteStateTable<Integer, Integer, ArrayList<Integer>> stateTable = getStateTable();

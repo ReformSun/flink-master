@@ -264,6 +264,12 @@ public class CopyOnWriteStateTable<K, N, S> extends StateTable<K, N, S> implemen
 		return primaryTableSize + incrementalRehashTableSize;
 	}
 
+	/**
+	 * 通过key和命名空间获取所要的对应容器
+	 * @param key       the key. Not null.
+	 * @param namespace the namespace. Not null.
+	 * @return
+	 */
 	@Override
 	public S get(K key, N namespace) {
 

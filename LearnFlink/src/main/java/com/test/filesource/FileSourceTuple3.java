@@ -42,6 +42,12 @@ public class FileSourceTuple3 extends RichParallelSourceFunction<Tuple3<String,I
 	public FileSourceTuple3(String path) {
 		this.path = path;
 	}
+
+	public FileSourceTuple3(String path, long interval) {
+		this.path = path;
+		this.interval = interval;
+	}
+
 	@Override
 	public void run(SourceContext<Tuple3<String, Integer, Long>> ctx) throws Exception {
 		Path logFile = Paths.get(path);

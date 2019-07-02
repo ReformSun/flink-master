@@ -21,6 +21,7 @@ standalone
 -Dlogback.configurationFile=file:/Users/apple/Documents/AgentJava/flink-master/flink-dist/target/flink-1.7-SNAPSHOT-bin/flink-1.7-SNAPSHOT/conf/logback.xml
 -classpath :/Users/apple/Desktop/server_file/flink-1.7.2/lib/gson-2.8.2.jar:/Users/apple/Documents/AgentJava/flink-master/flink-dist/target/flink-1.7-SNAPSHOT-bin/flink-1
 .7-SNAPSHOT/lib/flink-dist_2.11-1.7-SNAPSHOT.jar:/Users/apple/Documents/AgentJava/flink-master/flink-dist/target/flink-1.7-SNAPSHOT-bin/flink-1.7-SNAPSHOT/lib/flink-python_2.11-1.7-SNAPSHOT.jar:/Users/apple/Documents/AgentJava/flink-master/flink-dist/target/flink-1.7-SNAPSHOT-bin/flink-1.7-SNAPSHOT/lib/flink-shaded-hadoop2-uber-1.7-SNAPSHOT.jar:/Users/apple/Documents/AgentJava/flink-master/flink-dist/target/flink-1.7-SNAPSHOT-bin/flink-1.7-SNAPSHOT/lib/log4j-1.2.17.jar:/Users/apple/Documents/AgentJava/flink-master/flink-dist/target/flink-1.7-SNAPSHOT-bin/flink-1.7-SNAPSHOT/lib/slf4j-log4j12-1.7.7.jar::: org.apache.flink.runtime.entrypoint.StandaloneSessionClusterEntrypoint
+
 --configDir /Users/apple/Documents/AgentJava/flink-master/flink-dist/target/flink-1.7-SNAPSHOT-bin/flink-1.7-SNAPSHOT/conf
 
 taskmanagerrunner

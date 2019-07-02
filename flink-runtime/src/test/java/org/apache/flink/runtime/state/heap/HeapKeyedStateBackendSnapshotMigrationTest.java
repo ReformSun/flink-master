@@ -101,6 +101,55 @@ public class HeapKeyedStateBackendSnapshotMigrationTest extends HeapStateBackend
 		}
 	}
 
+	/**
+	 * {@link org.apache.flink.runtime.state.heap.HeapMapState}
+	 *
+	 *
+	 * 其实当state调用get请求通过参数1时，
+	 * 会通过当前的命名空间值从{@link org.apache.flink.runtime.state.heap.CopyOnWriteStateTable}中获取对应的存储容器
+	 * 而CopyOnWriteStateTable是怎么获取对应的容器的那，他拥有keyedBackend的实例化类keyedBackend又实现了InternalKeyContext接口，
+	 * 通过key上下文获取当前key的值，通过key和命名空间值后去对应的值存储容器
+	 *
+	 * 这样就可以通过key和命名空间值切换容器赋值了
+	 *
+	 *
+	 * 每个job任务都会有一个
+	 * @throws Exception
+	 */
+	@Test
+	public void testMethod4() throws Exception {
+		try (final HeapKeyedStateBackend<String> keyedBackend = createKeyedBackend()) {
+			final MapStateDescriptor<Long, Long> stateDescr = new MapStateDescriptor<>("my-map-state", Long.class, Long.class);
+			stateDescr.initializeSerializerUnlessSet(new ExecutionConfig());
+//			keyedBackend.restore(StateObjectCollection.singleton(stateHandleSnapshotResult.getJobManagerOwnedSnapshot()));
+			InternalMapState<String, Integer, Long, Long> state = keyedBackend.createInternalState(IntSerializer.INSTANCE, stateDescr);
+			keyedBackend.setCurrentKey("ccc");
+			state.setCurrentNamespace(1);
+			state.put(1L,2L);
+			assertEquals(2L, (long) state.get(1L));
+			keyedBackend.setCurrentKey("ddd");
+			state.setCurrentNamespace(1);
+			state.put(2L,2L);
+			assertEquals(2L, (long) state.get(2L));
+			keyedBackend.setCurrentKey("ccc");
+			assertEquals(2L, (long) state.get(1L));
+			state.setCurrentNamespace(3);
+			state.setCurrentNamespace(1);
+			assertEquals(2L, (long) state.get(1L));
+
+
+
+		}
+	}
+
+	/**
+	 * {@link org.apache.flink.runtime.state.heap.CopyOnWriteStateTable}
+	 */
+	@Test
+	public void testMethod4_1(){
+
+	}
+
 	@Test
 	public void testMethod3() throws Exception{
 		try (final HeapKeyedStateBackend<String> keyedBackend = createKeyedBackend()) {

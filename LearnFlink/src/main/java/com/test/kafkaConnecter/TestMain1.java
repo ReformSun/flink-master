@@ -81,13 +81,6 @@ static final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExec
 	}
 
 
-
-
-
-
-
-
-
     private static void sendData(){
 		input.addSink(new SinkFunction<String>() {
 			@Override

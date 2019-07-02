@@ -52,19 +52,7 @@ class DataStreamGroupWindowAggregateRule
     val agg: FlinkLogicalWindowAggregate = rel.asInstanceOf[FlinkLogicalWindowAggregate]
     val traitSet: RelTraitSet = rel.getTraitSet.replace(FlinkConventions.DATASTREAM)
     val convInput: RelNode = RelOptRule.convert(agg.getInput, FlinkConventions.DATASTREAM)
-    new CustomDataStreamGroupWindowAggregate(
-      agg.getWindow,
-      agg.getNamedProperties,
-      rel.getCluster,
-      traitSet,
-      convInput,
-      agg.getNamedAggCalls,
-      new RowSchema(rel.getRowType),
-      new RowSchema(agg.getInput.getRowType),
-      agg.getGroupSet.toArray)
-  }
-
-//    new DataStreamGroupWindowAggregate(
+//    new CustomDataStreamGroupWindowAggregate(
 //      agg.getWindow,
 //      agg.getNamedProperties,
 //      rel.getCluster,
@@ -74,7 +62,19 @@ class DataStreamGroupWindowAggregateRule
 //      new RowSchema(rel.getRowType),
 //      new RowSchema(agg.getInput.getRowType),
 //      agg.getGroupSet.toArray)
-//    }
+//  }
+
+    new DataStreamGroupWindowAggregate(
+      agg.getWindow,
+      agg.getNamedProperties,
+      rel.getCluster,
+      traitSet,
+      convInput,
+      agg.getNamedAggCalls,
+      new RowSchema(rel.getRowType),
+      new RowSchema(agg.getInput.getRowType),
+      agg.getGroupSet.toArray)
+    }
   }
 
 object DataStreamGroupWindowAggregateRule {

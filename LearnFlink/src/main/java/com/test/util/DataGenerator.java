@@ -23,10 +23,11 @@ public class DataGenerator {
 
 	public static void main(String[] args) throws IOException {
 		long time = 0L;
-		time = TimeUtil.toLong("2019-05-22 1:33:00:000");
+		time = TimeUtil.toLong("2019-06-13 1:34:00:000");
 //        testMethod2();
 //		testMethod1(time);
 //		testMethod1_1(time);
+//		testMethod1_2(time);
 //        testMethod3(1537390812000L + 6000L);
 //        testMethod4(1537378980000L);
 //        testMethod5(time);
@@ -41,19 +42,20 @@ public class DataGenerator {
 		String[] userName = {"小张", "小李", "小刘", "小刘", "小赵", "小吴", "小季"};
 		Path logFile = Paths.get(URLUtil.baseUrl+ "dataTestTableFile.txt");
 		try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)) {
-			for (int i = 0; i < 50; i++) {
+			for (int i = 0; i < 5; i++) {
 				Map<String, Object> map = new HashMap<>();
-				map.put("user_name", userName[getRandom(1)]);
-				if (i < 10) {
-					map.put("user_count", 100);
-				} else if (i < 20) {
-					map.put("user_count", 50);
-				} else if (i < 30) {
-					map.put("user_count", 100);
-				} else {
-					map.put("user_count", 50);
-				}
-//                map.put("user_count",getRandom(4) + 1);
+//				map.put("user_name", userName[getRandom(1)]);
+				map.put("user_name", getStringFromRandom(100,1));
+//				if (i < 10) {
+//					map.put("user_count", 100);
+//				} else if (i < 20) {
+//					map.put("user_count", 50);
+//				} else if (i < 30) {
+//					map.put("user_count", 100);
+//				} else {
+//					map.put("user_count", 50);
+//				}
+                map.put("user_count",1);
 				map.put("_sysTime", time);
 //                map.put("发生时间",time);
 				time = time + 60000;
@@ -81,13 +83,49 @@ public class DataGenerator {
 					Map<String, Object> map = new HashMap<>();
 					map.put("user_name", userName[getRandom(1)]);
 					map.put("user_count", 10);
-					long ti = time + i * 180000 + RandomUtil.getRandom(10,179000);
+					long ti = time + i * 120000 + RandomUtil.getRandom(10,119000);
 					System.out.println(TimeUtil.toDate(ti));
 					map.put("_sysTime", ti);
 					String s = gson.toJson(map);
 					writer.newLine();
 					writer.write(s);
 				}
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * 多字段
+	 * @param time
+	 */
+	public static void testMethod1_2(long time) {
+		String[] userName = {"小张", "小李", "小刘", "小刘", "小赵", "小吴", "小季"};
+		Path logFile = Paths.get(URLUtil.baseUrl+ "dataTestTableFile.txt");
+		try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)) {
+			for (int i = 0; i < 50; i++) {
+				Map<String, Object> map = new HashMap<>();
+				map.put("user_name", userName[getRandom(1)]);
+				if (i < 10) {
+					map.put("user_count", 100);
+				} else if (i < 20) {
+					map.put("user_count", 50);
+				} else if (i < 30) {
+					map.put("user_count", 100);
+				} else {
+					map.put("user_count", 50);
+				}
+				map.put("test1","ddd");
+				map.put("test2","ddd");
+//                map.put("user_count",getRandom(4) + 1);
+				map.put("_sysTime", time);
+//                map.put("发生时间",time);
+				time = time + 60000;
+				String s = gson.toJson(map);
+				writer.newLine();
+				writer.write(s);
 			}
 
 		} catch (Exception e) {
@@ -185,11 +223,11 @@ public class DataGenerator {
 		Path logFile = Paths.get(URLUtil.baseUrl+ "source.txt");
 		long number = 1;
 		try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND)) {
-			for (int i = 0; i < 10000; i++) {
+			for (int i = 0; i < 1000; i++) {
 				StringBuilder stringBuilder = new StringBuilder("(");
-				stringBuilder.append(getStringFromRandom(97,1));
+				stringBuilder.append(getStringFromRandom(97,3));
 				stringBuilder.append(",1,");
-				time = time + 40000;
+				time = time + 20000;
 				stringBuilder.append(time).append(")");
 				writer.newLine();
 				writer.write(stringBuilder.toString());

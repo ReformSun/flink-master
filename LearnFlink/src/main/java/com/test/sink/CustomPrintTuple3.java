@@ -27,14 +27,14 @@ public class CustomPrintTuple3 extends RichSinkFunction<Tuple3> {
 	@Override
 	public void open(Configuration parameters) throws Exception {
 
-		if (subjectContent != null){
-			FileWriter.writerFile(subjectContent + "==时间：" + TimeUtil.toDate(System.currentTimeMillis()),"test.txt");
-		}
+//		if (subjectContent != null){
+//			FileWriter.writerFile(subjectContent + "==时间：" + TimeUtil.toDate(System.currentTimeMillis()),"test.txt");
+//		}
 		super.open(parameters);
 	}
 
 	@Override
 	public void invoke(Tuple3 value) throws Exception {
-		FileWriter.writerFile(value.toString(),"test.txt");
+		FileWriter.writerFile(subjectContent +"："+ value.toString(),"test.txt");
 	}
 }

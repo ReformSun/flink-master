@@ -85,7 +85,7 @@ public class LearnTimeWindow {
 	public static void testMethod2_1(){
 		List<Tuple3<String,Integer,Long>> list = DataUtil.getListFromFile("");
 		Iterator<Tuple3<String,Integer,Long>> iterator = list.iterator();
-		TumblingEventTimeWindows tumblingEventTimeWindows = TumblingEventTimeWindows.of(minutes(1),seconds(0));
+		TumblingEventTimeWindows tumblingEventTimeWindows = TumblingEventTimeWindows.of(minutes(1),seconds(30));
 		while (iterator.hasNext()){
 			Tuple3<String,Integer,Long> tuple = iterator.next();
 			Collection<TimeWindow> collection = tumblingEventTimeWindows.assignWindows(tuple,tuple.f2,null);

@@ -1,6 +1,7 @@
 package com.test.learnTableapi;
 
 import com.test.filesource.FileTableSource;
+import com.test.learnState.CustomStreamEnvironment;
 import com.test.sink.CustomCrowSumPrint;
 import com.test.sink.CustomRowPrint;
 import com.test.sink.CustomRowPrint_Sum;
@@ -14,6 +15,7 @@ import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.sink.SinkFunction;
+import org.apache.flink.streaming.api.graph.StreamGraph;
 import org.apache.flink.table.api.StreamQueryConfig;
 import org.apache.flink.table.api.Table;
 import org.apache.flink.table.api.TableConfig;
@@ -32,19 +34,23 @@ import java.util.TimeZone;
 
 public class TestMain16 {
 	public static void main(String[] args) {
-		StreamExecutionEnvironment sEnv = StreamExecutionEnvUtil.getStreamExecutionEnvironment();
+		final CustomStreamEnvironment sEnv = new CustomStreamEnvironment();
+//		StreamExecutionEnvironment sEnv = StreamExecutionEnvUtil.getStreamExecutionEnvironment();
 //		sEnv.setParallelism(1);
 		TableConfig tableConfig = new TableConfig();
-		tableConfig.setIsEnableWindowOutputTag(true);
+		tableConfig.setIsEnableWindowOutputTag(true,"ccc");
 		tableConfig.setTimeZone(TimeZone.getTimeZone("GMT+8"));
 		StreamTableEnvironment tableEnv = TableEnvironment.getTableEnvironment(sEnv,tableConfig);
 		sEnv.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
 		FileTableSource fileTableSource = FileUtil.getFileTableSource(300);
 		tableEnv.registerTableSource("filesource", fileTableSource);
 
-		testMethod1(tableEnv);
+//		testMethod1(tableEnv);
 //		testMethod2(tableEnv);
 //		testMethod3(tableEnv);
+		testMethod3_1(tableEnv);
+//		StreamGraph streamGraph = sEnv.getStreamGraph();
+//		System.out.println(streamGraph.getStreamingPlanAsJSON());
 
 		try {
 			sEnv.execute();
@@ -101,6 +107,30 @@ public class TestMain16 {
 		DataStream<CRow> dataStream1 = WindowOutputTag.getDataStream();
 		dataStream1.addSink(new CustomCrowSumPrint());
 
+	}
+
+	public static void testMethod3(StreamTableEnvironment tableEnv){
+		StreamQueryConfig qConfig = new StreamQueryConfig();
+		Table sqlResult = tableEnv.scan("filesource")
+			.where("user_name = '小张'")
+			.window(Tumble.over("1.minutes").on("_sysTime").as("w"))
+			.groupBy("w")
+			.select("SUM(user_count) as value1,w.start");
+		RowTypeInfo rowTypeInfo = new RowTypeInfo(Types.LONG,Types.SQL_TIMESTAMP);
+		SingleOutputStreamOperator<Row> stream = (SingleOutputStreamOperator)tableEnv.toAppendStream(sqlResult, rowTypeInfo, qConfig);
+		stream.addSink(new CustomRowPrint_Sum("test.txt"));
+	}
+
+	public static void testMethod3_1(StreamTableEnvironment tableEnv){
+		StreamQueryConfig qConfig = new StreamQueryConfig();
+		Table sqlResult = tableEnv.scan("filesource")
+			.where("user_name = '小张'")
+			.window(Tumble.over("1.minutes").on("_sysTime").as("w"))
+			.groupBy("w")
+			.select("SUM(user_count) as value1,MAX(user_count) as value2,w.start");
+		RowTypeInfo rowTypeInfo = new RowTypeInfo(Types.LONG,Types.LONG,Types.SQL_TIMESTAMP);
+		SingleOutputStreamOperator<Row> stream = (SingleOutputStreamOperator)tableEnv.toAppendStream(sqlResult, rowTypeInfo, qConfig);
+		stream.addSink(new CustomRowPrint("test.txt"));
 	}
 
 	/**

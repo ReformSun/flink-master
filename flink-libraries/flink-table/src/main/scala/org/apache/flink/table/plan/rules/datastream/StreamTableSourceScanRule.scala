@@ -23,7 +23,7 @@ import org.apache.calcite.rel.RelNode
 import org.apache.calcite.rel.convert.ConverterRule
 import org.apache.calcite.rel.core.TableScan
 import org.apache.flink.table.plan.nodes.FlinkConventions
-import org.apache.flink.table.plan.nodes.datastream.StreamTableSourceScan
+import org.apache.flink.table.plan.nodes.datastream.{CustomStreamTableSourceScan, StreamTableSourceScan}
 import org.apache.flink.table.plan.nodes.logical.FlinkLogicalTableSourceScan
 import org.apache.flink.table.plan.schema.TableSourceSinkTable
 import org.apache.flink.table.sources.StreamTableSource
@@ -57,6 +57,12 @@ class StreamTableSourceScanRule
       scan.tableSource.asInstanceOf[StreamTableSource[_]],
       scan.selectedFields
     )
+
+//    new CustomStreamTableSourceScan(rel.getCluster,
+//      traitSet,
+//      scan.getTable,
+//      scan.tableSource.asInstanceOf[StreamTableSource[_]],
+//      scan.selectedFields)
   }
 }
 
