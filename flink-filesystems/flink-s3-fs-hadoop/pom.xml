@@ -35,7 +35,7 @@ under the License.
 	<properties>
 		<!-- Do not change this without updating the copied Configuration class! -->
 		<s3hadoop.hadoop.version>2.8.1</s3hadoop.hadoop.version>
-		<s3hadoop.aws.version>1.11.95</s3hadoop.aws.version>
+		<s3hadoop.aws.version>1.12.261</s3hadoop.aws.version>
 	</properties>
 
 	<dependencies>
